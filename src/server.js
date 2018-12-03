@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+var path = require('path');
 
 const app = express();
 const DEBUG = process.env.NODE_ENV !== 'production';
@@ -8,7 +9,7 @@ const PORT = DEBUG ? '3000' : process.env.PORT;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-
+app.set('views', path.join(__dirname, './views'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
