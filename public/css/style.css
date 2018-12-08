@@ -291,7 +291,7 @@ textarea.input {
 ===========================================================*/
 
 #nav {
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 2px solid #e8eaed;
 }
 
 #nav:after {
@@ -316,7 +316,7 @@ textarea.input {
 
 #nav-top {
   text-align: center;
-  height: 68px;
+  height: 72px;
 }
 
 #nav-top>.container {
@@ -325,6 +325,7 @@ textarea.input {
 
 #nav-bottom {
   border-top: 1px solid #e8eaed;
+  background-color: rgba(144,202,131,0.1);
 }
 
 /*----------------------------*\
@@ -595,6 +596,7 @@ textarea.input {
   transform: translateX(100%);
   -webkit-transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
   transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
+  overflow: auto;
 }
 
 #nav-aside.active {
@@ -606,7 +608,7 @@ textarea.input {
 .nav-aside-menu li a {
   display: block;
   padding: 15px 0px;
-  color: #fff;
+  color: #fff !important;
   border-bottom: 1px solid #323335;
 }
 
@@ -897,6 +899,7 @@ textarea.input {
 
 .events-list .post-img {
   max-height: 320px;
+  min-height: 240px;
 }
 
 .events-list .post-img img {
@@ -959,6 +962,7 @@ textarea.input {
 
 .post-sm .post-img {
   max-height: 240px;
+  min-height: 120px;
   height: inherit;
 }
 

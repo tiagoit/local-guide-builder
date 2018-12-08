@@ -1,24 +1,4 @@
 <!-- views/partials/header.ejs -->
-
-<!-- <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-    
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <span class="glyphicon glyphicon glyphicon-tree-deciduous"></span>
-                EJS Is Fun
-            </a>
-    
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </div>
-    
-    </div>
-</nav> -->
-
-<!-- <span class="glyphicon glyphicon glyphicon-tree-deciduous"></span> -->
 <!-- NAV -->
 <div id="nav">
     <!-- Top Nav -->
@@ -26,16 +6,16 @@
         <div class="container">
             <!-- social -->
             <ul class="nav-social">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" onclick="return false;"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" onclick="return false;"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" onclick="return false;"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a href="#" onclick="return false;"><i class="fab fa-instagram"></i></a></li>
             </ul>
             <!-- /social -->
 
             <!-- logo -->
             <div class="nav-logo">
-                <a href="index.html" class="logo"><img src="./img/sulbaguia-logo-h.png" alt=""></a>
+                <a href="/" class="logo"><img src="./img/sulbaguia-logo-h.png" alt=""></a>
             </div>
             <!-- /logo -->
 
@@ -63,13 +43,13 @@
             <!-- nav -->
             <ul class="nav-menu">
                 <li class="has-dropdown">
-                    <a href="index.html">Início</a>
+                    <a href="/">Início</a>
                     <div class="dropdown">
                         <div class="dropdown-body">
                             <ul class="dropdown-list">
-                                <li><a href="index.html">Página inicial</a></li>
+                                <li><a href="/">Página inicial</a></li>
                                 <li><a href="sobre.html">Sobre nós</a></li>
-                                <!-- <li><a href="author.html">Anuncie aqui</a></li> -->
+                                <li><a href="author.html">Anuncie aqui</a></li>
                                 <li><a href="contato.html">Fale conosco</a></li>
                                 <!-- <li><a href="blank.html">Regular</a></li>
                                 <li><a href="blog-post.html">Post</a></li> -->
@@ -77,9 +57,9 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="#">Promoções</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="#" onclick="return false;">Serviços</a></li>
+                <li><a href="#" onclick="return false;">Promoções</a></li>
+                <li><a href="#" onclick="return false;">Blog</a></li>
             </ul>
             <!-- /nav -->
         </div>
@@ -89,21 +69,28 @@
     <!-- Aside Nav -->
     <div id="nav-aside">
         <ul class="nav-aside-menu">
-            <li><a href="index.html">Página inicial</a></li>
-            <!-- <li><a href="eventos.html">Eventos</a></li> -->
-            <li class="has-dropdown"><a>Eventos</a>
+            <li class="has-dropdown"><a>Início</a>
                 <ul class="dropdown">
-                    <li><a href="#">Forró</a></li>
-                    <li><a href="#">Pagode</a></li>
-                    <li><a href="#">Sertanejo</a></li>
-                    <li><a href="#">Eletrônica</a></li>
-                    <li><a href="#">Música ao vivo</a></li>
+                    <li><a href="/">Página Inicial</a></li>
+                    <li><a href="#" onclick="return false;">Sobre nós</a></li>
+                    <li><a href="#" onclick="return false;">Anuncie aqui</a></li>
+                    <li><a href="#" onclick="return false;">Fale consosco</a></li>
                 </ul>
             </li>
-            <li><a href="esportes.html">Esportes</a></li>
-            <li><a href="turismo.html">Turismo</a></li>
-            <li><a href="bem-estar.html">Bem estar</a></li>
-            <!-- <li><a href="#">Advertise</a></li> -->
+            <!-- <li><a href="#">Eventos</a></li> -->
+            <li class="has-dropdown"><a>Eventos</a>
+                <ul class="dropdown">
+                    <li><a href="#" onclick="return false;">Forró</a></li>
+                    <li><a href="#" onclick="return false;">Pagode</a></li>
+                    <li><a href="#" onclick="return false;">Sertanejo</a></li>
+                    <li><a href="#" onclick="return false;">Eletrônica</a></li>
+                    <li><a href="#" onclick="return false;">Música ao vivo</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="return false;">Serviços</a></li>
+            <li><a href="#" onclick="return false;">Promoções</a></li>
+            <li><a href="#" onclick="return false;">Blog</a></li>
+            <!-- <li><a href="#" onclick="return false;">Advertise</a></li> -->
         </ul>
         <button class="nav-close nav-aside-close"><span></span></button>
     </div>
