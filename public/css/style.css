@@ -5,7 +5,7 @@ Author: yaminncco
 Colors:
 	Body 		  : #505050
 	Headers 	: #11151c
-	Primary 	: #ee4266
+	Primary 	: #6c9d61
 	Dark 		  : #1b1c1e
 	Grey 		  : #e8eaed #97989b #323335
 
@@ -31,12 +31,17 @@ RESPONSIVE
 	typography
 \*----------------------------*/
 
+html {
+  width: 100vw !important;
+}
+
 body {
   font-family: 'Muli', sans-serif;
   font-size: 16px;
   color: #505050;
   font-weight: 400;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,8 +67,6 @@ h4 {
   font-size: 16px;
 }
 
-h5 {}
-
 p {
   margin: 0px 0px 20px;
 }
@@ -75,18 +78,18 @@ a {
 }
 
 a:hover, a:focus {
-  color: #ee4266;
+  color: #6c9d61;
   text-decoration: none;
   outline: none;
 }
 
 ::-moz-selection {
-  background-color: #ee4266;
+  background-color: #6c9d61;
   color: #FFF;
 }
 
 ::selection {
-  background-color: #ee4266;
+  background-color: #6c9d61;
   color: #FFF;
 }
 
@@ -116,14 +119,15 @@ blockquote.blockquote {
 }
 
 blockquote.blockquote:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   content: "\f10d";
-  font-family: fontAwesome;
   width: 70px;
   height: 70px;
   line-height: 70px;
   text-align: center;
   border-radius: 50%;
-  color: #ee4266;
+  color: #6c9d61;
   font-size: 30px;
   background: #fff;
   border: 2px solid #e8eaed;
@@ -235,10 +239,10 @@ textarea.input {
 }
 
 .primary-button {
-  background-color: #ee4266;
+  background-color: #6c9d61;
   color: #fff;
-  -webkit-box-shadow: 0px 0px 0px 2px #ee4266 inset;
-  box-shadow: 0px 0px 0px 2px #ee4266 inset;
+  -webkit-box-shadow: 0px 0px 0px 2px #6c9d61 inset;
+  box-shadow: 0px 0px 0px 2px #6c9d61 inset;
 }
 
 .secondary-button {
@@ -250,7 +254,7 @@ textarea.input {
 
 .primary-button:hover, .primary-button:focus {
   background-color: transparent;
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .secondary-button:hover, .secondary-button:focus {
@@ -312,6 +316,7 @@ textarea.input {
 
 #nav-top {
   text-align: center;
+  height: 68px;
 }
 
 #nav-top>.container {
@@ -361,8 +366,10 @@ textarea.input {
 }
 
 .nav-logo .logo>img {
-  width: 100%;
-  max-height: 70px;
+  max-height: 64px;
+  max-width: 100%;
+  margin-top: -4px;
+  margin-left: 8px;
 }
 
 /*----------------------------*\
@@ -450,7 +457,8 @@ textarea.input {
 }
 
 .nav-menu li.has-dropdown>a:after {
-  font-family: 'FontAwesome';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   content: "\f0d7";
   margin-left: 5px;
 }
@@ -482,7 +490,7 @@ textarea.input {
   background-color: #fff;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  border-top: 2px solid #ee4266;
+  border-top: 2px solid #6c9d61;
 }
 
 .dropdown .dropdown-list li {
@@ -560,7 +568,7 @@ textarea.input {
 }
 
 .nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li.active {
-  background: #ee4266
+  background: #6c9d61
 }
 
 .nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li.active a {
@@ -603,7 +611,7 @@ textarea.input {
 }
 
 .nav-aside-menu li a:hover, .nav-aside-menu li a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .nav-aside-menu li.has-dropdown>a {
@@ -611,7 +619,8 @@ textarea.input {
 }
 
 .nav-aside-menu li.has-dropdown>a:after {
-  font-family: 'FontAwesome';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   content: "\f0d7";
   float: right;
 }
@@ -753,15 +762,16 @@ textarea.input {
 }
 
 .post .post-title {
-  font-size: 18px;
-}
-
-.post .post-title.title-sm {
   font-size: 16px;
 }
 
+.post .post-title.title-sm {
+  font-size: 14px;
+}
+
 .post .post-title.title-lg {
-  font-size: 25.629px;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
 .post .post-category {
@@ -769,11 +779,28 @@ textarea.input {
 }
 
 .post-category a {
-  color: #ee4266;
-  font-weight: 700;
+  color: #6c9d61;
+  font-weight: 900;
   font-size: 12px;
   text-transform: uppercase;
 }
+
+.post-category.featured {
+  margin-left: -8px;
+}
+
+.post-category.featured a {
+  padding: 2px 8px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 8px;
+}
+
+.post-category.featured a {
+  color: #90ca83;
+  font-size: 14px;
+}
+
+
 
 .post-category a:after {
   content: ',';
@@ -785,7 +812,7 @@ textarea.input {
 }
 
 .post .post-meta {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
 .post-meta li {
@@ -801,7 +828,7 @@ textarea.input {
 }
 
 .post-meta li a:hover, .post-meta li a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .post-meta li:after {
@@ -826,11 +853,20 @@ textarea.input {
 .hot-post .hot-post-left {
   padding-right: 0px;
   padding-left: 0px;
+
+}
+
+.hot-post .hot-post-left .post-img  img {
+  height: 506px;
 }
 
 .hot-post .hot-post-right {
   padding-right: 0;
   padding-left: 5px;
+}
+
+.hot-post .hot-post-right .post-img  img {
+  height: 250px;
 }
 
 .hot-post .post {
@@ -840,6 +876,34 @@ textarea.input {
 .hot-post {
   margin-bottom: 25px;
 }
+
+
+
+/*----------------------------*\
+	events list
+\*----------------------------*/
+
+.events-list .post {
+  margin-bottom: 8px;
+}
+
+.events-list .post .post-body .post-category {
+  margin-bottom: 4px;
+}
+
+.events-list .post .post-body .post-title {
+  margin-bottom: 4px;
+}
+
+.events-list .post-img {
+  max-height: 320px;
+}
+
+.events-list .post-img img {
+  max-height: 280px;
+}
+
+
 
 /*----------------------------*\
 	post thumb
@@ -861,7 +925,7 @@ textarea.input {
   margin: 0px;
   padding: 0px 5%;
   z-index: 20;
-  bottom: 5%;
+  bottom: 2%;
   background-color: transparent;
 }
 
@@ -870,7 +934,7 @@ textarea.input {
 }
 
 .post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .post.post-thumb .post-meta li {
@@ -882,17 +946,43 @@ textarea.input {
 }
 
 .post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 /*----------------------------*\
 	post small
 \*----------------------------*/
 
+.post.post-sm {
+  margin-bottom: 24px;
+}
+
+.post-sm .post-img {
+  max-height: 240px;
+  height: inherit;
+}
+
 .post.post-sm .post-body {
-  margin: 15px 0px 0px;
+  margin: 8px 0px 0px;
   background: transparent;
   padding: 0;
+}
+
+.post.post-sm .post-body .post-category {
+  margin-bottom: 4px;
+}
+
+.post.post-sm .post-body .post-title {
+  margin-bottom: 0;
+}
+
+.post.post-sm .post-body .post-meta {
+  margin-top: 4px;
+  line-height: 12px;
+}
+
+.post.post-sm .post-body .post-meta li {
+  font-size: 10px;
 }
 
 /*----------------------------*\
@@ -959,7 +1049,7 @@ textarea.input {
 }
 
 .page-header .post-meta li a:hover, .page-header .post-meta li a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .post-share a {
@@ -1111,7 +1201,7 @@ textarea.input {
 }
 
 .page-header .author .author-social li a:hover, .page-header .author .author-social li a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 /*----------------------------*\
@@ -1178,11 +1268,11 @@ textarea.input {
 }
 
 .post-comments .media.media-author .media-heading h4 {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .post-comments .media.media-author .media-left:after {
-  background-color: #ee4266;
+  background-color: #6c9d61;
 }
 
 /*=========================================================
@@ -1255,8 +1345,10 @@ textarea.input {
 }
 
 .newsletter-widget:after {
-  content: "\f003";
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f0e0";
+
   position: absolute;
   bottom: -25px;
   right: 27px;
@@ -1327,7 +1419,7 @@ textarea.input {
 
 .tags-widget ul li a:hover, .tags-widget ul li a:focus {
   color: #fff !important;
-  background-color: #ee4266;
+  background-color: #6c9d61;
 }
 
 /*----------------------------*\
@@ -1370,7 +1462,7 @@ textarea.input {
 
 #footer {
   margin-top: 40px;
-  padding-top: 80px;
+  padding-top: 64px;
   padding-bottom: 40px;
   background-color: #1b1c1e;
 }
@@ -1384,7 +1476,7 @@ textarea.input {
 }
 
 #footer a:hover, #footer a:focus {
-  color: #ee4266;
+  color: #6c9d61;
 }
 
 .footer-widget {
@@ -1398,13 +1490,18 @@ textarea.input {
 }
 
 .footer-logo {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .footer-logo .logo {
   display: inline-block;
   line-height: 70px;
   height: 70px;
+  margin-top: -100px;
+}
+
+.footer-logo .logo img {
+  max-width: 320px;
 }
 
 .footer-bottom {
@@ -1421,6 +1518,7 @@ textarea.input {
   display: inline-block;
   margin-right: 10px;
 }
+
 
 /*----------------------------*\
 	CONTACT
@@ -1442,7 +1540,7 @@ textarea.input {
   text-align: center;
   height: 40px;
   background: #fff;
-  color: #ee4266;
+  color: #6c9d61;
   border: 1px solid #e8eaed;
   line-height: 40px;
   border-radius: 50%;
@@ -1495,7 +1593,7 @@ textarea.input {
     transform: none;
     left: 0;
     display: inline-block;
-    float: left;
+    /* float: left; */
   }
   .footer-nav {
     text-align: left;

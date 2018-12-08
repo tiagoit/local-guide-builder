@@ -1,0 +1,6 @@
+{
+    "name": "Sul BA Guia - Production",
+    "mail": {
+        "host": "prd-mail-server"
+    }
+}

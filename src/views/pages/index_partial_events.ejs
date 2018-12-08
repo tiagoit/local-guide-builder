@@ -1,0 +1,177 @@
+<!-- row - TODAY -->
+<% if (events.today.length > 0) { %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                <h2 class="title">HOJE</h2>
+            </div>
+        </div>
+
+        <% events.today.forEach(function(event, index) { %>
+            <div class="col-md-6">
+                <div class="post">
+                    <a class="post-img" href="#" onclick="return false;"><img src="./img/events/<%= event.img %>" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="#" onclick="return false;"><%= event.org_name %></a>
+                        </div>
+                        <h3 class="post-title"><a href="#" onclick="return false;"><%= event.title %></a></h3>
+                        <ul class="post-meta">
+                            <li><a href="#" onclick="return false;"><%= event.org_city %></a></li>
+                            <li><%= moment(event.start).format("ddd") %></li>
+                            <li><%= moment(event.start).format("DD/MM") %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <% if ((index + 1) % 2 === 0) { %>
+                <div class="clearfix visible-md visible-lg"></div>
+            <% } %>
+        <% }) %>
+    </div>
+<% } %><!-- /row -->
+
+
+
+<!-- row - TOMORROW -->
+<% if (events.tomorrow.length > 0) { %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                <h2 class="title">AMANHÃ</h2>
+            </div>
+        </div>
+
+        <% events.tomorrow.forEach(function(event, index) { %>
+            <div class="col-md-6">
+                <div class="post">
+                    <a class="post-img" href="#" onclick="return false;"><img src="./img/events/<%= event.img %>" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="#" onclick="return false;"><%= event.org_name %></a>
+                        </div>
+                        <h3 class="post-title"><a href="#" onclick="return false;"><%= event.title %></a></h3>
+                        <ul class="post-meta">
+                            <li><a href="#" onclick="return false;"><%= event.org_city %></a></li>
+                            <li><%= moment(event.start).format("ddd") %></li>
+                            <li><%= moment(event.start).format("DD/MM") %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <% if ((index + 1) % 2 === 0) { %>
+                <div class="clearfix visible-md visible-lg"></div>
+            <% } %>
+        <% }) %>
+    </div>
+<% } %><!-- /row -->    
+
+
+
+<!-- row - NEXT 7 DAYS -->
+<% if (events.sevenDays.length > 0) { %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                <h2 class="title">próximos 7 dias</h2>
+            </div>
+        </div>
+
+        <% events.sevenDays.forEach(function(event, index) { %>
+            <div class="col-md-6">
+                <div class="post">
+                    <a class="post-img" href="#" onclick="return false;"><img src="./img/events/<%= event.img %>" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="#" onclick="return false;"><%= event.org_name %></a>
+                        </div>
+                        <h3 class="post-title"><a href="#" onclick="return false;"><%= event.title %></a></h3>
+                        <ul class="post-meta">
+                            <li><a href="#" onclick="return false;"><%= event.org_city %></a></li>
+                            <li><%= moment(event.start).format("ddd") %></li>
+                            <li><%= moment(event.start).format("DD/MM") %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <% if ((index + 1) % 2 === 0) { %>
+                <div class="clearfix visible-md visible-lg"></div>
+            <% } %>
+        <% }) %>
+    </div>
+<% } %><!-- /row -->    
+
+
+
+<!-- row - NEXT 15 DAYS -->
+<% if (events.fifteenDays.length > 0) { %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                <h2 class="title">próximos 15 dias</h2>
+            </div>
+        </div>
+
+        <% events.fifteenDays.forEach(function(event, index) { %>
+            <div class="col-md-4">
+                <div class="post post-sm">
+                    <a class="post-img" href="#" onclick="return false;"><img src="./img/events/<%= event.img %>" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="#" onclick="return false;"><%= event.org_name %></a>
+                        </div>
+                        <h3 class="post-title title-sm"><a href="#" onclick="return false;"><%= event.title %></a></h3>
+                        <ul class="post-meta">
+                            <li><a href="#" onclick="return false;"><%= event.org_city %></a></li>
+                            <li><%= moment(event.start).format("ddd") %></li>
+                            <li><%= moment(event.start).format("DD/MM") %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <% if ((index + 1) % 3 === 0) { %>
+                <div class="clearfix visible-md visible-lg"></div>
+            <% } %>
+        <% }) %>
+    </div>
+<% } %><!-- /row -->    
+
+
+
+<!-- row - NEXT 30 DAYS -->
+<% if (events.thirtyDays.length > 0) { %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                <h2 class="title">próximos 30 dias</h2>
+            </div>
+        </div>
+
+        <% events.thirtyDays.forEach(function(event, index) { %>
+            <div class="col-md-4">
+                <div class="post post-sm">
+                    <a class="post-img" href="#" onclick="return false;"><img src="./img/events/<%= event.img %>" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="#" onclick="return false;"><%= event.org_name %></a>
+                        </div>
+                        <h3 class="post-title title-sm"><a href="#" onclick="return false;"><%= event.title %></a></h3>
+                        <ul class="post-meta">
+                            <li><a href="#" onclick="return false;"><%= event.org_city %></a></li>
+                            <li><%= moment(event.start).format("ddd") %></li>
+                            <li><%= moment(event.start).format("DD/MM") %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <% if ((index + 1) % 3 === 0) { %>
+                <div class="clearfix visible-md visible-lg"></div>
+            <% } %>
+        <% }) %>
+    </div>
+<% } %><!-- /row -->
