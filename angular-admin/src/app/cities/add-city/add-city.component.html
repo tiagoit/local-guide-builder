@@ -1,0 +1,13 @@
+<form class="form-container" [formGroup]="fg"> 
+  <!-- CODE -->
+  <mat-form-field>
+    <input #firstInput matInput formControlName="code" placeholder="Código" required>
+  </mat-form-field>
+
+  <!-- NAME -->
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="Nome" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" [disabled]="!fg.valid" (click)="save()">Salvar</button>
+</form>
