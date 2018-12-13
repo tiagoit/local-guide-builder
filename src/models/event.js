@@ -13,6 +13,12 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     end: {
         type: Date
     },
+    org_code: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 120
+    },
     org_name: {
         type: String,
         required: true,

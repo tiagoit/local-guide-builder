@@ -2,34 +2,54 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const path = require('path');
+const cors = require('cors');
 const mongoose = require('mongoose'); 
-const events = require('./routes/events');
 const moment = require('moment');
 moment.locale('pt-BR');
+
+const events = require('./routes/events');
+const upload = require('./routes/upload');
+const cities = require('./routes/cities');
+const orgs = require('./routes/orgs');
 
 // move
 const {Event} = require('./models/event');
 
 const app = express();
 const DEBUG = process.env.NODE_ENV !== 'production';
-const PORT = DEBUG ? '3000' : process.env.PORT;
+const PORT = DEBUG ? '8080' : process.env.PORT;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
+app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+
+// Angular Admin Module
+// app.get('/admin', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/../public/admin/index.html'));
+// });
+app.use(express.static(__dirname + '/../public'));
+
+// Catch all other routes and return the index file
+app.get('admin/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../public/admin'));
+});
+
+
+// API Routes
+app.use('/api/events', events);
+app.use('/api/upload', upload);
+app.use('/api/cities', cities);
+app.use('/api/orgs', orgs);
 
 // Connect to mongoose
 mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDB...'))
     .catch((err) => console.log('Cannot connect to MongoDB: ', err));
-
-
-// API Routes
-app.use('/api/events', events);
-
 
 // index
 app.get('/', async (req, res) => {
@@ -95,7 +115,9 @@ app.get('/about', function(req, res) {
     res.render('./pages/about');
 });
 
-app.use(express.static(__dirname + '/../public'));
+
+
+//   app.use(express.static(__dirname + '/../public'));
 
 const server = app.listen(PORT, function () {
     console.log('Express listening on port %s', PORT);

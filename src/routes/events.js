@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const events = await Event.find();
         res.send(events);
     } catch (error) {
-        return res.status(404).send(error);
+        return res.status(400).send(error);
     }
 });
 
@@ -16,10 +16,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const event = await Event.findById(req.params.id)
-        if(!event) return res.status(404).send("Event with this ID not found");
+        if(!event) return res.status(400).send("Event with this ID not found");
         res.send(event);
     } catch (error) {
-        return res.status(404).send(error);
+        return res.status(400).send(error);
     }
 });
 
@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
     const event = new Event({
         start: req.body.start,
         end: req.body.end,
+        org_code: req.body.org_code,
         org_name: req.body.org_name,
         org_city: req.body.org_city,
         title: req.body.title,
@@ -43,7 +44,7 @@ router.post('/', async (req, res) => {
         for(field in ex.errors) {
             console.log(ex.errors[field]);
         }
-        return res.status(404).send(ex.errors);
+        return res.status(400).send(ex.errors);
     }
 });
 
@@ -54,6 +55,7 @@ router.put('/:id', async (req, res) => {
         event.set({
             start: req.body.start,
             end: req.body.end,
+            org_code: req.body.org_code,
             org_name: req.body.org_name,
             org_city: req.body.org_city,
             title: req.body.title,
@@ -63,7 +65,7 @@ router.put('/:id', async (req, res) => {
         event.save();
         return res.send(event);
     } catch (error) {
-        return res.status(404).send(error);
+        return res.status(400).send(error);
     }
 });
 
@@ -74,7 +76,7 @@ router.delete('/:id', async (req, res) => {
         if(!event) return res.status(404).send('The event with the given ID was not found.');
         return res.send(event);
     } catch (error) {
-        return res.status(404).send(error);
+        return res.status(400).send(error);
     }
 });
 

@@ -1,15 +1,14 @@
 ## orgs
 - id
-- added
-- updated
+- code
 - name (String)
 - address (address)
 - contact (org_contact<>)
 - mobile (String)
 - land (String)
 - email (String)
-- notas (String)
-- status (org_status) enum? new, pending, active, inactive
+- notes (String)
+- status (Boolean)
 
 
 ## address
@@ -54,6 +53,7 @@
 ## events
 - start (Date)
 - end (Date)
+- org_code (String)
 - org_name (String)
 - org_city
 - title
