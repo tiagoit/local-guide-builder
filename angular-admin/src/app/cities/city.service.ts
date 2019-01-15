@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class CityService {
 
   // TODO: Config environment variables
-  host = 'http://localhost:8080';
+  // host = 'http://localhost:8080';
+  host = 'http://sulbaguia.com.br';
+  
   url = this.host + '/api/cities';
 
   constructor(private http: HttpClient) { }
