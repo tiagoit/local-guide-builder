@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class EventService {
 
   // TODO: Config environment variables
-  host = 'http://localhost:8080';
+  // host = 'http://localhost:8080';
+  host = 'http://sulbaguia.com.br';
   url = this.host + '/api/events';
 
   constructor(private http: HttpClient) { }
