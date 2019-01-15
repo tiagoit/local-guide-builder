@@ -579,8 +579,7 @@ var CityService = /** @class */ (function () {
     function CityService(http) {
         this.http = http;
         // TODO: Config environment variables
-        // host = 'http://localhost:8080';
-        this.host = 'http://sulbaguia.com.br';
+        this.host = 'http://localhost';
         this.url = this.host + '/api/cities';
     }
     CityService.prototype.get = function () {
@@ -1195,8 +1194,7 @@ var EventService = /** @class */ (function () {
     function EventService(http) {
         this.http = http;
         // TODO: Config environment variables
-        // host = 'http://localhost:8080';
-        this.host = 'http://sulbaguia.com.br';
+        this.host = 'http://localhost';
         this.url = this.host + '/api/events';
     }
     EventService.prototype.get = function () {
