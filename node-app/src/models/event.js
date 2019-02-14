@@ -31,11 +31,9 @@ const Event = mongoose.model('Event', new mongoose.Schema({
         minlength: 3,
         maxlength: 120
     },
-    img: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 120
+    images: {
+        type: [],
+        required: true
     },
     featured: {
         type: Boolean,

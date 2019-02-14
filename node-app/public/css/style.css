@@ -852,24 +852,24 @@ textarea.input {
   padding: 0 15px;
 }
 
-.hot-post .hot-post-left {
+/* .hot-post .hot-post-left {
   padding-right: 0px;
   padding-left: 0px;
 
-}
+} */
 
-.hot-post .hot-post-left .post-img  img {
+/* .hot-post .hot-post-left .post-img  img {
   height: 506px;
-}
+} */
 
-.hot-post .hot-post-right {
+/* .hot-post .hot-post-right {
   padding-right: 0;
   padding-left: 5px;
-}
+} */
 
-.hot-post .hot-post-right .post-img  img {
+/* .hot-post .hot-post-right .post-img  img {
   height: 250px;
-}
+} */
 
 .hot-post .post {
   margin-bottom: 7px;

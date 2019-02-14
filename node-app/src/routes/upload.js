@@ -1,85 +1,47 @@
 const express = require('express');
 const router = express.Router();
+const IncomingForm = require('formidable').IncomingForm;
+const storageService = require('../services/storage.service');
 
-const { Storage } = require('@google-cloud/storage');
-const CLOUD_BUCKET = 'gs://sulbaguia';
+router.post('/', async (req, res) => {
+  var form = new IncomingForm();
+  let srcFilename;
+  let fileType;
 
-const storage = new Storage({
-  projectId: 'sulbaguia',
-});
-const bucket = storage.bucket(CLOUD_BUCKET);
+  form.on('file', (field, file) => {
+    file = file;
+    srcFilename = file.path;
+    fileType = file.type.replace('image/', '');
+  });
 
-const Multer = require('multer');
-const multer = Multer({
-    storage: Multer.MemoryStorage,
-    limits: {
-        fileSize: 5 * 1024 * 1024 // no larger than 5mb
-    }
-});
+  form.on('end', () => {
+    // TODO: get from env variable
+    let bucketName = 'sbg-localhost';
+    let destFilename = `images/events/${srcFilename.replace("/tmp/upload_", "")}.${fileType}`;
+    storageService.uploadFile(srcFilename, destFilename);
 
-function getPublicUrl(filename) {
-    return `https://storage.googleapis.com/${CLOUD_BUCKET}/${filename}`;
-}
+    res.json({'gcsPublicUrl': `https://storage.googleapis.com/${bucketName}/${destFilename}`});
+  });
 
-router.post('/', multer.single('photo'), sendUploadToGCS, (req, res, next) => {
-    console.log('ok')
-    if (req.file && req.file.cloudStoragePublicUrl) {
-        return res.send({'imagePublicUrl': req.file.cloudStoragePublicUrl}); 
-    }
+  form.parse(req);
 });
 
-// router.post('/', multer.single('image'), sendUploadToGCS, (req, res, next) => {
-//     if (req.file && req.file.cloudStoragePublicUrl) {
-//         return res.send({'imagePublicUrl': req.file.cloudStoragePublicUrl}); 
-//     }
-// });
+router.delete('/', async (req, res) => {
+  let fileUrl = req.body.fileUrl;
+  fileUrl = fileUrl.replace(`https://storage.googleapis.com/${bucketName}`, '');
 
-// //our file upload function.
-// router.post('/', function (req, res, next) {
-//      var path = '';
-//      upload(req, res, function (err) {
-//         if (err) {
-//           // An error occurred when uploading
-//           console.log(err);
-//           return res.status(422).send("an Error occured")
-//         }  
-//        // No error occured.
-//         path = req.file.path;
-//         return res.send("Upload Completed for "+path); 
-//   });     
-// })
+  storageService.deleteFile(fileUrl);
 
+  form.on('end', () => {
+    // TODO: get from env variable
+    let bucketName = 'sbg-localhost';
+    let destFilename = `images/events/${srcFilename.replace("/tmp/upload_", "")}.${fileType}`;
+    storageService.uploadFile(srcFilename, destFilename);
 
-function sendUploadToGCS (req, res, next) {
-    if (!req.file) {
-        return next();
-    }
-  
-    const gcsName = Date.now() + req.file.originalname;
-    const file = bucket.file(gcsName);
-  
-    const stream = file.createWriteStream({
-        metadata: {
-            contentType: req.file.mimetype
-        },
-        resumable: false
-    });
-  
-    stream.on('error', (err) => {
-        req.file.cloudStorageError = err;
-        next(err);
-    });
-  
-    stream.on('finish', () => {
-        req.file.cloudStorageObject = gcsName;
-        file.makePublic().then(() => {
-            req.file.cloudStoragePublicUrl = getPublicUrl(gcsName);
-            next();
-        });
-    });
-  
-    stream.end(req.file.buffer);
-  }
+    res.json({'gcsPublicUrl': `https://storage.googleapis.com/${bucketName}/${destFilename}`});
+  });
 
+  form.parse(req);
+});
 
 module.exports = router;

@@ -33,6 +33,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //     res.sendFile(path.join(__dirname, '/../public/admin/index.html'));
 // });
 app.use(express.static(__dirname + '/../public'));
+app.use('/events', express.static(__dirname + '/public'));
+
 
 // Catch all other routes and return the index file
 app.get('admin/*', (req, res) => {
@@ -89,12 +91,12 @@ app.get('/', async (req, res) => {
             else if (dateDiffInDays >= 2 && dateDiffInDays <= 8) {
                 categorizedEvents.sevenDays.push(ev);
             } 
-            
+
             // next ~15 days
             else if (dateDiffInDays >= 9 && dateDiffInDays <= 25) {
                 categorizedEvents.fifteenDays.push(ev);
             }
-            
+
             // next ~30 days
             else if (dateDiffInDays >= 26 && dateDiffInDays <= 60) {
                 categorizedEvents.thirtyDays.push(ev);
