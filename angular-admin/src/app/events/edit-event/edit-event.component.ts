@@ -37,9 +37,9 @@ export class EditEventComponent implements OnInit {
     this.orgService.get().subscribe((orgs: Org[]) => this.orgs = orgs);
 
     this.route.params.subscribe(p => {
-      this.service.getById(p.id).subscribe(event => {
-        this.event = event;
-        this.fillForm(event);
+      this.service.getById(p.id).subscribe(storedEvent => {
+        this.event = storedEvent;
+        this.fillForm(storedEvent);
 
 
         // var request = new XMLHttpRequest();
@@ -67,12 +67,12 @@ export class EditEventComponent implements OnInit {
 
   }
 
-  fillForm(event) {
-    this.fg.controls.start.setValue(event.start);
-    this.fg.controls.startTime.setValue(new Date(event.start).getUTCHours());
-    this.fg.controls.org_code.setValue(event.org_code);
-    this.fg.controls.title.setValue(event.title);
-    this.fg.controls.featured.setValue(event.featured);
+  fillForm(storedEvent) {
+    this.fg.controls.start.setValue(storedEvent.start);
+    this.fg.controls.startTime.setValue(new Date(storedEvent.start).getUTCHours());
+    this.fg.controls.org_code.setValue(storedEvent.org_code);
+    this.fg.controls.title.setValue(storedEvent.title);
+    this.fg.controls.featured.setValue(storedEvent.featured);
 
     // this.files.push(event.images)
   }
@@ -95,6 +95,10 @@ export class EditEventComponent implements OnInit {
     event._id       = this.event._id;
     event.title     = this.fg.controls.title.value;
     event.featured  = this.fg.controls.featured.value;
+
+    event.images = this.event.images;
+
+    console.log('Event to update: ', event);
 
     this.service.update(event).subscribe((res) => {
       this.snackBar.open('Evento atualizado com sucesso!', null, {duration: 2000});

@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrgService {
-
-  // TODO: Config environment variables
-  host = 'http://localhost';
-  url = this.host + '/api/orgs';
-
+  url = `${environment.API_URL}/orgs`;
+  
   constructor(private http: HttpClient) { }
   
   get() {

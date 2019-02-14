@@ -70,6 +70,8 @@ router.put('/:id', async (req, res) => {
         });
         event.save();
 
+        console.log('UPDATED: ', event);
+
         return res.send(event);
     } catch (error) {
         return res.status(400).send(error);

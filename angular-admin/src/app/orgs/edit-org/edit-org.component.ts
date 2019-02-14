@@ -70,11 +70,11 @@ export class EditOrgComponent implements OnInit {
     this.fg.controls.complement.setValue(this.org.address.complement)
     this.fg.controls.zip_code.setValue(this.org.address.zip_code)
   
-    this.fg.controls.contact_name.setValue(this.org.contact.name)
-    this.fg.controls.contact_email.setValue(this.org.contact.email)
-    this.fg.controls.contact_mobile.setValue(this.org.contact.mobile)
-    this.fg.controls.contact_role.setValue(this.org.contact.role)
-    this.fg.controls.contact_notes.setValue(this.org.contact.notes)
+    this.fg.controls.contact_name.setValue(this.org.contact[0].name)
+    this.fg.controls.contact_email.setValue(this.org.contact[0].email)
+    this.fg.controls.contact_mobile.setValue(this.org.contact[0].mobile)
+    this.fg.controls.contact_role.setValue(this.org.contact[0].role)
+    this.fg.controls.contact_notes.setValue(this.org.contact[0].notes)
   }
 
   update() {

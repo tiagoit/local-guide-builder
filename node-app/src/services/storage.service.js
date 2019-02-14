@@ -1,18 +1,14 @@
-// Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
- 
-// Your Google Cloud Platform project ID
-const projectId = 'sulbaguia';
+const config = require('config');
+
+const projectID = config.get('projectID');
+const bucketName = config.get('bucketName');
  
 // Creates a client
 const storage = new Storage({
-  projectId: projectId,
-  keyFilename: '/home/ferreirati/projects/sulbaguia/service-account.json'
+  projectID: projectID,
+  keyFilename: `${__dirname}/../../service-account.json`
 });
- 
-// The name for the new bucket
-// TODO: Get from env variable
-const bucketName = 'sbg-localhost';
 
 // Creates the new bucket
 function createBucket(newBucketName) {
@@ -36,7 +32,6 @@ function listBuckets() {
     }); 
 }
 
-
 async function uploadFile(srcFilename, destFilename) {
     // Uploads a local file to the bucket
     const options = {
@@ -53,9 +48,7 @@ async function uploadFile(srcFilename, destFilename) {
     };
 
     let res = await storage.bucket(bucketName).upload(srcFilename, options);
-  
     console.log(`${srcFilename} uploaded to ${bucketName}.`);
-
     return res;
 }
 
