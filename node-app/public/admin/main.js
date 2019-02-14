@@ -182,7 +182,7 @@ module.exports = "<h1 mat-dialog-title>Confirmação</h1>\n<div mat-dialog-conte
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\"\n      [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n      [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n      [opened]=\"!(isHandset$ | async)\">\n    <!-- TODO: add logo here -->\n    <mat-toolbar>Menu</mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item routerLink=\"/events\">Eventos</a>\n      <a mat-list-item routerLink=\"/cities\">Cidades</a>\n      <a mat-list-item routerLink=\"/orgs\">Organizações</a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <button\n        type=\"button\"\n        aria-label=\"Toggle sidenav\"\n        mat-icon-button\n        (click)=\"drawer.toggle()\"\n        *ngIf=\"isHandset$ | async\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n      </button>\n      <!-- TODO: Add logo -->\n      <span>Sul BA Guia - Admin module</span>\n    </mat-toolbar>\n\n    <!-- Add Content Here -->\n    <router-outlet></router-outlet>\n\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
+module.exports = "<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #drawer class=\"sidenav\" fixedInViewport=\"true\"\n      [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\n      [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\n      [opened]=\"!(isHandset$ | async)\">\n    <!-- TODO: add logo here -->\n    <mat-toolbar>Menu</mat-toolbar>\n    <mat-nav-list (click)=\"drawer.toggle()\">\n      <a mat-list-item routerLink=\"/events\">Eventos</a>\n      <a mat-list-item routerLink=\"/cities\">Cidades</a>\n      <a mat-list-item routerLink=\"/orgs\">Organizações</a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n      <button\n        type=\"button\"\n        aria-label=\"Toggle sidenav\"\n        mat-icon-button\n        (click)=\"drawer.toggle()\"\n        *ngIf=\"isHandset$ | async\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n      </button>\n      <!-- TODO: Add logo -->\n      <span>Sul BA Guia - Admin module</span>\n    </mat-toolbar>\n\n    <!-- Add Content Here -->\n    <router-outlet></router-outlet>\n\n  </mat-sidenav-content>\n</mat-sidenav-container>\n"
 
 /***/ }),
 
@@ -393,23 +393,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm5/layout.es5.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
-/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var angular2_hotkeys__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular2-hotkeys */ "./node_modules/angular2-hotkeys/index.js");
-/* harmony import */ var angular2_hotkeys__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(angular2_hotkeys__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _angular_material_components_nav_nav_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./angular-material-components/nav/nav.component */ "./src/app/angular-material-components/nav/nav.component.ts");
-/* harmony import */ var _angular_material_components_angular_material_components_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./angular-material-components/angular-material-components.module */ "./src/app/angular-material-components/angular-material-components.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _angular_material_components_dialog_confirm_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./angular-material-components/dialog-confirm.component */ "./src/app/angular-material-components/dialog-confirm.component.ts");
-/* harmony import */ var _events_list_events_list_events_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./events/list-events/list-events.component */ "./src/app/events/list-events/list-events.component.ts");
-/* harmony import */ var _events_add_event_add_event_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./events/add-event/add-event.component */ "./src/app/events/add-event/add-event.component.ts");
-/* harmony import */ var _events_edit_event_edit_event_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./events/edit-event/edit-event.component */ "./src/app/events/edit-event/edit-event.component.ts");
-/* harmony import */ var _cities_list_cities_list_cities_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./cities/list-cities/list-cities.component */ "./src/app/cities/list-cities/list-cities.component.ts");
-/* harmony import */ var _cities_add_city_add_city_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cities/add-city/add-city.component */ "./src/app/cities/add-city/add-city.component.ts");
-/* harmony import */ var _cities_edit_city_edit_city_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./cities/edit-city/edit-city.component */ "./src/app/cities/edit-city/edit-city.component.ts");
-/* harmony import */ var _orgs_list_orgs_list_orgs_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./orgs/list-orgs/list-orgs.component */ "./src/app/orgs/list-orgs/list-orgs.component.ts");
-/* harmony import */ var _orgs_add_org_add_org_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./orgs/add-org/add-org.component */ "./src/app/orgs/add-org/add-org.component.ts");
-/* harmony import */ var _orgs_edit_org_edit_org_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./orgs/edit-org/edit-org.component */ "./src/app/orgs/edit-org/edit-org.component.ts");
+/* harmony import */ var angular2_hotkeys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular2-hotkeys */ "./node_modules/angular2-hotkeys/index.js");
+/* harmony import */ var angular2_hotkeys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(angular2_hotkeys__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _angular_material_components_nav_nav_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./angular-material-components/nav/nav.component */ "./src/app/angular-material-components/nav/nav.component.ts");
+/* harmony import */ var _angular_material_components_angular_material_components_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./angular-material-components/angular-material-components.module */ "./src/app/angular-material-components/angular-material-components.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_material_components_dialog_confirm_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./angular-material-components/dialog-confirm.component */ "./src/app/angular-material-components/dialog-confirm.component.ts");
+/* harmony import */ var _events_list_events_list_events_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./events/list-events/list-events.component */ "./src/app/events/list-events/list-events.component.ts");
+/* harmony import */ var _events_add_event_add_event_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./events/add-event/add-event.component */ "./src/app/events/add-event/add-event.component.ts");
+/* harmony import */ var _events_edit_event_edit_event_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./events/edit-event/edit-event.component */ "./src/app/events/edit-event/edit-event.component.ts");
+/* harmony import */ var _cities_list_cities_list_cities_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./cities/list-cities/list-cities.component */ "./src/app/cities/list-cities/list-cities.component.ts");
+/* harmony import */ var _cities_add_city_add_city_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./cities/add-city/add-city.component */ "./src/app/cities/add-city/add-city.component.ts");
+/* harmony import */ var _cities_edit_city_edit_city_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cities/edit-city/edit-city.component */ "./src/app/cities/edit-city/edit-city.component.ts");
+/* harmony import */ var _orgs_list_orgs_list_orgs_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./orgs/list-orgs/list-orgs.component */ "./src/app/orgs/list-orgs/list-orgs.component.ts");
+/* harmony import */ var _orgs_add_org_add_org_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./orgs/add-org/add-org.component */ "./src/app/orgs/add-org/add-org.component.ts");
+/* harmony import */ var _orgs_edit_org_edit_org_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./orgs/edit-org/edit-org.component */ "./src/app/orgs/edit-org/edit-org.component.ts");
+/* harmony import */ var _services_upload_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/upload.service */ "./src/app/services/upload.service.ts");
 
 
 
@@ -420,7 +419,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { FileSelectDirective } from 'ng2-file-upload';
 
 
 
@@ -441,12 +439,12 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"],
-                _angular_material_components_nav_nav_component__WEBPACK_IMPORTED_MODULE_11__["NavComponent"],
-                _events_list_events_list_events_component__WEBPACK_IMPORTED_MODULE_15__["ListEventsComponent"], _events_add_event_add_event_component__WEBPACK_IMPORTED_MODULE_16__["AddEventComponent"], _events_edit_event_edit_event_component__WEBPACK_IMPORTED_MODULE_17__["EditEventComponent"],
-                _cities_list_cities_list_cities_component__WEBPACK_IMPORTED_MODULE_18__["ListCitiesComponent"], _cities_add_city_add_city_component__WEBPACK_IMPORTED_MODULE_19__["AddCityComponent"], _cities_edit_city_edit_city_component__WEBPACK_IMPORTED_MODULE_20__["EditCityComponent"],
-                _orgs_list_orgs_list_orgs_component__WEBPACK_IMPORTED_MODULE_21__["ListOrgsComponent"], _orgs_add_org_add_org_component__WEBPACK_IMPORTED_MODULE_22__["AddOrgComponent"], _orgs_edit_org_edit_org_component__WEBPACK_IMPORTED_MODULE_23__["EditOrgComponent"],
-                _angular_material_components_dialog_confirm_component__WEBPACK_IMPORTED_MODULE_14__["DialogConfirm"],
+                _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
+                _angular_material_components_nav_nav_component__WEBPACK_IMPORTED_MODULE_10__["NavComponent"],
+                _events_list_events_list_events_component__WEBPACK_IMPORTED_MODULE_14__["ListEventsComponent"], _events_add_event_add_event_component__WEBPACK_IMPORTED_MODULE_15__["AddEventComponent"], _events_edit_event_edit_event_component__WEBPACK_IMPORTED_MODULE_16__["EditEventComponent"],
+                _cities_list_cities_list_cities_component__WEBPACK_IMPORTED_MODULE_17__["ListCitiesComponent"], _cities_add_city_add_city_component__WEBPACK_IMPORTED_MODULE_18__["AddCityComponent"], _cities_edit_city_edit_city_component__WEBPACK_IMPORTED_MODULE_19__["EditCityComponent"],
+                _orgs_list_orgs_list_orgs_component__WEBPACK_IMPORTED_MODULE_20__["ListOrgsComponent"], _orgs_add_org_add_org_component__WEBPACK_IMPORTED_MODULE_21__["AddOrgComponent"], _orgs_edit_org_edit_org_component__WEBPACK_IMPORTED_MODULE_22__["EditOrgComponent"],
+                _angular_material_components_dialog_confirm_component__WEBPACK_IMPORTED_MODULE_13__["DialogConfirm"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -455,15 +453,15 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
                 _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_6__["LayoutModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-                ng2_file_upload__WEBPACK_IMPORTED_MODULE_9__["FileUploadModule"],
-                angular2_hotkeys__WEBPACK_IMPORTED_MODULE_10__["HotkeyModule"].forRoot(),
-                _angular_material_components_angular_material_components_module__WEBPACK_IMPORTED_MODULE_12__["AngularMaterialComponentsModule"]
+                angular2_hotkeys__WEBPACK_IMPORTED_MODULE_9__["HotkeyModule"].forRoot(),
+                _angular_material_components_angular_material_components_module__WEBPACK_IMPORTED_MODULE_11__["AngularMaterialComponentsModule"]
             ],
             providers: [
                 { provide: _angular_material__WEBPACK_IMPORTED_MODULE_8__["MAT_DATE_LOCALE"], useValue: 'pt-BR' },
+                _services_upload_service__WEBPACK_IMPORTED_MODULE_23__["UploadService"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]],
-            entryComponents: [_angular_material_components_dialog_confirm_component__WEBPACK_IMPORTED_MODULE_14__["DialogConfirm"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]],
+            entryComponents: [_angular_material_components_dialog_confirm_component__WEBPACK_IMPORTED_MODULE_13__["DialogConfirm"]]
         })
     ], AppModule);
     return AppModule;
@@ -480,7 +478,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- CODE -->\n  <mat-form-field>\n    <input #firstInput matInput formControlName=\"code\" placeholder=\"Código\" required>\n  </mat-form-field>\n\n  <!-- NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n  </mat-form-field>\n\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"save()\">Salvar</button>\n</form>\n"
+module.exports = "<form class=\"form-container\" [formGroup]=\"fg\">\n\n  <h2>Cadastrar Cidade</h2>\n\n  <!-- CODE -->\n  <mat-form-field>\n    <input #firstInput matInput formControlName=\"code\" placeholder=\"Código\" required>\n  </mat-form-field>\n\n  <!-- NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n  </mat-form-field>\n\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"save()\">Salvar</button>\n</form>\n"
 
 /***/ }),
 
@@ -491,7 +489,7 @@ module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- CO
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9jaXRpZXMvYWRkLWNpdHkvYWRkLWNpdHkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLG9CQUFtQjtFQUNuQixpQkFBZ0IsRUFDbkI7O0FBRUQ7RUFDSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGlCQUFnQixFQUNuQiIsImZpbGUiOiJzcmMvYXBwL2NpdGllcy9hZGQtY2l0eS9hZGQtY2l0eS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMzZweDtcbn1cblxuLmZvcm0tY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDgwJTtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0ge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtID4gKiB7XG4gICAgbWFyZ2luOiA1cHggMDtcbn1cblxuLmZvcm0tY29udGFpbmVyIC5tYXQtcmFkaW8tYnV0dG9uIHtcbiAgICBtYXJnaW46IDAgNXB4O1xufVxuXG5idXR0b24ge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG59Il19 */"
+module.exports = "h2 {\n  color: rgba(0, 0, 0, 0.5);\n  margin-bottom: 16px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9jaXRpZXMvYWRkLWNpdHkvYWRkLWNpdHkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSwwQkFBc0I7RUFDdEIsb0JBQW1CLEVBQ3RCOztBQUVEO0VBQ0ksY0FBYTtFQUNiLHVCQUFzQjtFQUN0QixvQkFBbUI7RUFDbkIsaUJBQWdCLEVBQ25COztBQUVEO0VBQ0ksV0FBVSxFQUNiOztBQUVEO0VBQ0ksb0JBQW1CLEVBQ3RCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxpQkFBZ0IsRUFDbkIiLCJmaWxlIjoic3JjL2FwcC9jaXRpZXMvYWRkLWNpdHkvYWRkLWNpdHkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMiB7XG4gICAgY29sb3I6IHJnYmEoMCwwLDAsMC41KTtcbiAgICBtYXJnaW4tYm90dG9tOiAxNnB4O1xufVxuXG4uZm9ybS1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDM2cHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciA+ICoge1xuICAgIHdpZHRoOiA4MCU7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZm9ybS1jb250YWluZXIgZm9ybSA+ICoge1xuICAgIG1hcmdpbjogNXB4IDA7XG59XG5cbi5mb3JtLWNvbnRhaW5lciAubWF0LXJhZGlvLWJ1dHRvbiB7XG4gICAgbWFyZ2luOiAwIDVweDtcbn1cblxuYnV0dG9uIHtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -572,15 +570,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
 var CityService = /** @class */ (function () {
     function CityService(http) {
         this.http = http;
-        // TODO: Config environment variables
-        this.host = 'http://localhost';
-        this.url = this.host + '/api/cities';
+        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_URL + "/cities";
     }
     CityService.prototype.get = function () {
         return this.http.get(this.url);
@@ -617,7 +615,7 @@ var CityService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- CODE -->\n  <mat-form-field>\n    <input matInput formControlName=\"code\" placeholder=\"Código\" required>\n  </mat-form-field>\n\n  <!-- NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n  </mat-form-field>\n\n  <button mat-raised-button color=\"primary\" (click)=\"cancel()\">Cancelar</button>\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"update()\">Atualizar</button>\n</form>\n  "
+module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <h2>Editar Cidade</h2>\n\n  <!-- CODE -->\n  <mat-form-field>\n    <input matInput formControlName=\"code\" placeholder=\"Código\" required>\n  </mat-form-field>\n\n  <!-- NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n  </mat-form-field>\n\n  <button mat-raised-button color=\"primary\" (click)=\"cancel()\">Cancelar</button>\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"update()\">Atualizar</button>\n</form>\n  "
 
 /***/ }),
 
@@ -628,7 +626,7 @@ module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- CO
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9jaXRpZXMvZWRpdC1jaXR5L2VkaXQtY2l0eS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsb0JBQW1CO0VBQ25CLGlCQUFnQixFQUNuQjs7QUFFRDtFQUNJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksaUJBQWdCLEVBQ25CIiwiZmlsZSI6InNyYy9hcHAvY2l0aWVzL2VkaXQtY2l0eS9lZGl0LWNpdHkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZm9ybS1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDM2cHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciA+ICoge1xuICAgIHdpZHRoOiA4MCU7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZm9ybS1jb250YWluZXIgZm9ybSA+ICoge1xuICAgIG1hcmdpbjogNXB4IDA7XG59XG5cbi5mb3JtLWNvbnRhaW5lciAubWF0LXJhZGlvLWJ1dHRvbiB7XG4gICAgbWFyZ2luOiAwIDVweDtcbn1cblxuYnV0dG9uIHtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xufVxuIl19 */"
+module.exports = "h2 {\n  color: rgba(0, 0, 0, 0.5);\n  margin-bottom: 16px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9jaXRpZXMvZWRpdC1jaXR5L2VkaXQtY2l0eS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDBCQUFzQjtFQUN0QixvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLG9CQUFtQjtFQUNuQixpQkFBZ0IsRUFDbkI7O0FBRUQ7RUFDSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGlCQUFnQixFQUNuQiIsImZpbGUiOiJzcmMvYXBwL2NpdGllcy9lZGl0LWNpdHkvZWRpdC1jaXR5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDIge1xuICAgIGNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XG4gICAgbWFyZ2luLWJvdHRvbTogMTZweDtcbn1cblxuLmZvcm0tY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBtYXJnaW4tdG9wOiAzNnB4O1xufVxuXG4uZm9ybS1jb250YWluZXIgPiAqIHtcbiAgICB3aWR0aDogODAlO1xufVxuXG4uZm9ybS1jb250YWluZXIgZm9ybSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0gPiAqIHtcbiAgICBtYXJnaW46IDVweCAwO1xufVxuXG4uZm9ybS1jb250YWluZXIgLm1hdC1yYWRpby1idXR0b24ge1xuICAgIG1hcmdpbjogMCA1cHg7XG59XG5cbmJ1dHRvbiB7XG4gICAgbWFyZ2luLXRvcDogMTZweDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -912,7 +910,7 @@ var ListCitiesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- TITLE -->\n  <mat-form-field>\n    <input #firstInput matInput formControlName=\"title\" placeholder=\"Título\" required>\n  </mat-form-field>\n\n  <!-- ORG -->\n  <mat-form-field>\n    <mat-select required formControlName=\"org_code\">\n      <mat-option *ngFor=\"let org of orgs\" [value]=\"org.code\">{{org.name}}</mat-option>\n    </mat-select>\n    <mat-label>Organização</mat-label>\n  </mat-form-field>\n\n  <!-- IMG -->\n  <mat-form-field>\n    <input matInput formControlName=\"img\" placeholder=\"Imagem\" required>\n  </mat-form-field>\n\n  <!-- START -->\n  <div class=\"start\">\n    <!-- TODO: Disable input -->\n    <mat-form-field class=\"date\">\n      <input matInput formControlName=\"start\" [matDatepicker]=\"startPicker\" placeholder=\"Data\">\n      <mat-datepicker-toggle matSuffix [for]=\"startPicker\"></mat-datepicker-toggle>\n      <mat-datepicker #startPicker></mat-datepicker>\n    </mat-form-field>\n    <mat-form-field class=\"time\">\n      <mat-select required formControlName=\"startTime\">\n        <mat-option *ngFor=\"let t of timeOptions\" [value]=\"t\">{{t}}h</mat-option>\n      </mat-select>\n      <mat-label>Horário</mat-label>\n    </mat-form-field>\n  </div>\n\n  <!-- END -->\n  <!-- <mat-form-field>\n    <input matInput formControlName=\"end\" [matDatepicker]=\"endPicker\" placeholder=\"Término\">\n    <mat-datepicker-toggle matSuffix [for]=\"endPicker\"></mat-datepicker-toggle>\n    <mat-datepicker #endPicker></mat-datepicker>\n  </mat-form-field> -->\n\n  <mat-checkbox formControlName=\"featured\">Destaque</mat-checkbox>\n\n  <div class=\"row images\">\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[0]\" *ngIf=\"imgPreview[0]\"></div>\n      <input #file0 type=\"file\" accept='image/*' (change)=\"preview(file0.files, 0)\" />\n      <button mat-raised-button color=\"primary\" (click)=\"file0.click()\">Imagem 1</button>\n    </div>\n\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[1]\" *ngIf=\"imgPreview[1]\"></div>\n      <input #file1 type=\"file\" accept='image/*' (change)=\"preview(file1.files, 1)\" />\n      <button mat-raised-button color=\"primary\" (click)=\"file1.click()\">Imagem 2</button>\n    </div>\n\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[2]\" *ngIf=\"imgPreview[2]\"></div>\n      <input #file2 type=\"file\" accept='image/*' (change)=\"preview(file2.files, 2)\" />\n      <button mat-raised-button color=\"primary\" (click)=\"file2.click()\">Imagem 3</button>\n    </div>\n  \n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[3]\" *ngIf=\"imgPreview[3]\"></div>\n      <input #file3 type=\"file\" accept='image/*' (change)=\"preview(file3.files, 3)\" />\n      <button mat-raised-button color=\"primary\" (click)=\"file3.click()\">Imagem 4</button>\n    </div>\n  </div>\n\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"save()\">Salvar</button>\n\n\n\n  <!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->\n  <input type=\"file\" name=\"photo\" ng2FileSelect [uploader]=\"uploader\" />\n  <!-- button to trigger the file upload when submitted -->\n  <button type=\"button\" class=\"btn btn-success btn-s\"\n        (click)=\"uploader.uploadAll()\" \n        [disabled]=\"!uploader.getNotUploadedItems().length\">\n        Upload with ng-2 file uploader\n  </button>\n\n</form>\n"
+module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n\n  <h2>Cadastrar Evento</h2>\n\n  <!-- TITLE -->\n  <mat-form-field>\n    <input #firstInput matInput formControlName=\"title\" placeholder=\"Título\" required tabindex=\"1\">\n  </mat-form-field>\n\n  <!-- ORG -->\n  <mat-form-field>\n    <mat-select required formControlName=\"org_code\" tabindex=\"2\">\n      <mat-option *ngFor=\"let org of orgs\" [value]=\"org.code\">{{org.name}}</mat-option>\n    </mat-select>\n    <mat-label>Organização</mat-label>\n  </mat-form-field>\n\n  <!-- IMG -->\n  <!-- <mat-form-field>\n    <input matInput formControlName=\"img\" placeholder=\"Imagem\" required>\n  </mat-form-field> -->\n\n  <!-- START -->\n  <div class=\"start\">\n    <!-- TODO: Disable input -->\n    <mat-form-field class=\"date\">\n      <input matInput formControlName=\"start\" [matDatepicker]=\"startPicker\" placeholder=\"Data\" (focus)=\"startPicker.open()\" tabindex=\"3\">\n      <mat-datepicker-toggle matSuffix [for]=\"startPicker\"></mat-datepicker-toggle>\n      <mat-datepicker #startPicker touchUi></mat-datepicker>\n    </mat-form-field>\n    <mat-form-field class=\"time\">\n      <mat-select required formControlName=\"startTime\" tabindex=\"4\">\n        <mat-option *ngFor=\"let t of timeOptions\" [value]=\"t\">{{t}}h</mat-option>\n      </mat-select>\n      <mat-label>Horário</mat-label>\n    </mat-form-field>\n  </div>\n\n  <!-- END -->\n  <!-- <mat-form-field>\n    <input matInput formControlName=\"end\" [matDatepicker]=\"endPicker\" placeholder=\"Término\">\n    <mat-datepicker-toggle matSuffix [for]=\"endPicker\"></mat-datepicker-toggle>\n    <mat-datepicker #endPicker></mat-datepicker>\n  </mat-form-field> -->\n\n  <mat-checkbox formControlName=\"featured\" tabindex=\"5\">Destaque</mat-checkbox>\n\n  <div class=\"row images\">\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[0]\" *ngIf=\"imgPreview[0]\"></div>\n      <input #file0 type=\"file\" accept='image/*' (change)=\"preview(file0.files, 0)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file0.click()\" tabindex=\"6\">Imagem 1</button>\n    </div>\n\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[1]\" *ngIf=\"imgPreview[1]\"></div>\n      <input #file1 type=\"file\" accept='image/*' (change)=\"preview(file1.files, 1)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file1.click()\" tabindex=\"7\">Imagem 2</button>\n    </div>\n\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[2]\" *ngIf=\"imgPreview[2]\"></div>\n      <input #file2 type=\"file\" accept='image/*' (change)=\"preview(file2.files, 2)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file2.click()\" tabindex=\"8\">Imagem 3</button>\n    </div>\n  \n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\"><img [src]=\"imgPreview[3]\" *ngIf=\"imgPreview[3]\"></div>\n      <input #file3 type=\"file\" accept='image/*' (change)=\"preview(file3.files, 3)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file3.click()\" tabindex=\"9\">Imagem 4</button>\n    </div>\n  </div>\n\n\n  <button id=\"save\" mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"save()\" tabindex=\"10\">Salvar</button>\n\n</form>\n"
 
 /***/ }),
 
@@ -923,7 +921,7 @@ module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- TI
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n.start * {\n  width: calc(50% - 8px); }\n\n.start .date {\n  padding-right: 4px; }\n\n.start .time {\n  padding-left: 4px;\n  line-height: 18px; }\n\n.start .time mat-select {\n    width: 100%; }\n\ndiv.row.images input {\n  display: none; }\n\ndiv.row.images .image-col {\n  text-align: center;\n  margin-bottom: 16px; }\n\ndiv.row.images .image-col button {\n    margin-top: 4px; }\n\ndiv.row.images div.img-wrapper {\n  height: 140px;\n  width: 140px;\n  margin-left: auto;\n  margin-right: auto;\n  text-align: center;\n  outline: 1px solid rgba(0, 0, 0, 0.1);\n  overflow: hidden; }\n\ndiv.row.images div.img-wrapper img {\n    max-width: 140px;\n    max-height: 150%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9ldmVudHMvYWRkLWV2ZW50L2FkZC1ldmVudC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsb0JBQW1CO0VBQ25CLGlCQUFnQixFQUNuQjs7QUFFRDtFQUNJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksaUJBQWdCLEVBQ25COztBQUVEO0VBRVEsdUJBQXNCLEVBQ3pCOztBQUhMO0VBS1EsbUJBQWtCLEVBQ3JCOztBQU5MO0VBU1Esa0JBQWlCO0VBQ2pCLGtCQUFpQixFQUlwQjs7QUFkTDtJQVlZLFlBQVcsRUFDZDs7QUFJVDtFQUVRLGNBQWEsRUFDaEI7O0FBSEw7RUFLUSxtQkFBa0I7RUFDbEIsb0JBQW1CLEVBSXRCOztBQVZMO0lBUVksZ0JBQWUsRUFDbEI7O0FBVFQ7RUFZUSxjQUFhO0VBQ2IsYUFBWTtFQUNaLGtCQUFpQjtFQUNqQixtQkFBa0I7RUFDbEIsbUJBQWtCO0VBQ2xCLHNDQUFrQztFQUNsQyxpQkFBZ0IsRUFNbkI7O0FBeEJMO0lBcUJZLGlCQUFnQjtJQUNoQixpQkFBZ0IsRUFDbkIiLCJmaWxlIjoic3JjL2FwcC9ldmVudHMvYWRkLWV2ZW50L2FkZC1ldmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMzZweDtcbn1cblxuLmZvcm0tY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDgwJTtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0ge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtID4gKiB7XG4gICAgbWFyZ2luOiA1cHggMDtcbn1cblxuLmZvcm0tY29udGFpbmVyIC5tYXQtcmFkaW8tYnV0dG9uIHtcbiAgICBtYXJnaW46IDAgNXB4O1xufVxuXG5idXR0b24ge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG59XG5cbi5zdGFydCB7XG4gICAgKiB7XG4gICAgICAgIHdpZHRoOiBjYWxjKDUwJSAtIDhweCk7XG4gICAgfVxuICAgIC5kYXRlIHtcbiAgICAgICAgcGFkZGluZy1yaWdodDogNHB4O1xuICAgIH1cblxuICAgIC50aW1lIHtcbiAgICAgICAgcGFkZGluZy1sZWZ0OiA0cHg7XG4gICAgICAgIGxpbmUtaGVpZ2h0OiAxOHB4O1xuICAgICAgICBtYXQtc2VsZWN0IHtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlOyBcbiAgICAgICAgfVxuICAgIH1cbn1cblxuZGl2LnJvdy5pbWFnZXMge1xuICAgIGlucHV0IHtcbiAgICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG4gICAgLmltYWdlLWNvbCB7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMTZweDtcbiAgICAgICAgYnV0dG9uIHtcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDRweDtcbiAgICAgICAgfVxuICAgIH1cbiAgICBkaXYuaW1nLXdyYXBwZXIge1xuICAgICAgICBoZWlnaHQ6IDE0MHB4O1xuICAgICAgICB3aWR0aDogMTQwcHg7XG4gICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgb3V0bGluZTogMXB4IHNvbGlkIHJnYmEoMCwwLDAsMC4xKTtcbiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICAgICBpbWcge1xuICAgICAgICAgICAgbWF4LXdpZHRoOiAxNDBweDtcbiAgICAgICAgICAgIG1heC1oZWlnaHQ6IDE1MCU7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */"
+module.exports = "h2 {\n  color: rgba(0, 0, 0, 0.5);\n  margin-bottom: 16px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n.start * {\n  width: calc(50% - 8px); }\n\n.start .date {\n  padding-right: 4px; }\n\n.start .time {\n  padding-left: 4px;\n  line-height: 18px; }\n\n.start .time mat-select {\n    width: 100%; }\n\ndiv.row.images {\n  margin-top: 16px; }\n\ndiv.row.images input {\n    display: none; }\n\ndiv.row.images .image-col {\n    text-align: center;\n    margin-bottom: 16px; }\n\ndiv.row.images .image-col button {\n      margin-top: 4px; }\n\ndiv.row.images div.img-wrapper {\n    height: 140px;\n    width: 140px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    outline: 1px solid rgba(0, 0, 0, 0.1);\n    overflow: hidden; }\n\ndiv.row.images div.img-wrapper img {\n      max-width: 140px;\n      max-height: 150%; }\n\n#save {\n  margin-bottom: 32px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9ldmVudHMvYWRkLWV2ZW50L2FkZC1ldmVudC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDBCQUFzQjtFQUN0QixvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLG9CQUFtQjtFQUNuQixpQkFBZ0IsRUFDbkI7O0FBRUQ7RUFDSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGlCQUFnQixFQUNuQjs7QUFFRDtFQUVRLHVCQUFzQixFQUN6Qjs7QUFITDtFQUtRLG1CQUFrQixFQUNyQjs7QUFOTDtFQVNRLGtCQUFpQjtFQUNqQixrQkFBaUIsRUFJcEI7O0FBZEw7SUFZWSxZQUFXLEVBQ2Q7O0FBSVQ7RUFDSSxpQkFBZ0IsRUEwQm5COztBQTNCRDtJQUlRLGNBQWEsRUFDaEI7O0FBTEw7SUFPUSxtQkFBa0I7SUFDbEIsb0JBQW1CLEVBSXRCOztBQVpMO01BVVksZ0JBQWUsRUFDbEI7O0FBWFQ7SUFjUSxjQUFhO0lBQ2IsYUFBWTtJQUNaLGtCQUFpQjtJQUNqQixtQkFBa0I7SUFDbEIsbUJBQWtCO0lBQ2xCLHNDQUFrQztJQUNsQyxpQkFBZ0IsRUFNbkI7O0FBMUJMO01BdUJZLGlCQUFnQjtNQUNoQixpQkFBZ0IsRUFDbkI7O0FBSVQ7RUFDSSxvQkFBbUIsRUFDdEIiLCJmaWxlIjoic3JjL2FwcC9ldmVudHMvYWRkLWV2ZW50L2FkZC1ldmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImgyIHtcbiAgICBjb2xvcjogcmdiYSgwLDAsMCwwLjUpO1xuICAgIG1hcmdpbi1ib3R0b206IDE2cHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMzZweDtcbn1cblxuLmZvcm0tY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDgwJTtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0ge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtID4gKiB7XG4gICAgbWFyZ2luOiA1cHggMDtcbn1cblxuLmZvcm0tY29udGFpbmVyIC5tYXQtcmFkaW8tYnV0dG9uIHtcbiAgICBtYXJnaW46IDAgNXB4O1xufVxuXG5idXR0b24ge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG59XG5cbi5zdGFydCB7XG4gICAgKiB7XG4gICAgICAgIHdpZHRoOiBjYWxjKDUwJSAtIDhweCk7XG4gICAgfVxuICAgIC5kYXRlIHtcbiAgICAgICAgcGFkZGluZy1yaWdodDogNHB4O1xuICAgIH1cblxuICAgIC50aW1lIHtcbiAgICAgICAgcGFkZGluZy1sZWZ0OiA0cHg7XG4gICAgICAgIGxpbmUtaGVpZ2h0OiAxOHB4O1xuICAgICAgICBtYXQtc2VsZWN0IHtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlOyBcbiAgICAgICAgfVxuICAgIH1cbn1cblxuZGl2LnJvdy5pbWFnZXMge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG5cbiAgICBpbnB1dCB7XG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XG4gICAgfVxuICAgIC5pbWFnZS1jb2wge1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgIG1hcmdpbi1ib3R0b206IDE2cHg7XG4gICAgICAgIGJ1dHRvbiB7XG4gICAgICAgICAgICBtYXJnaW4tdG9wOiA0cHg7XG4gICAgICAgIH1cbiAgICB9XG4gICAgZGl2LmltZy13cmFwcGVyIHtcbiAgICAgICAgaGVpZ2h0OiAxNDBweDtcbiAgICAgICAgd2lkdGg6IDE0MHB4O1xuICAgICAgICBtYXJnaW4tbGVmdDogYXV0bztcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgIG91dGxpbmU6IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMSk7XG4gICAgICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAgICAgaW1nIHtcbiAgICAgICAgICAgIG1heC13aWR0aDogMTQwcHg7XG4gICAgICAgICAgICBtYXgtaGVpZ2h0OiAxNTAlO1xuICAgICAgICB9XG4gICAgfVxufVxuXG4jc2F2ZSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMzJweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -943,11 +941,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _event_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../event.service */ "./src/app/events/event.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
-/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _orgs_org_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../orgs/org.service */ "./src/app/orgs/org.service.ts");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models */ "./src/app/models.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _orgs_org_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../orgs/org.service */ "./src/app/orgs/org.service.ts");
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models */ "./src/app/models.ts");
+/* harmony import */ var src_app_services_upload_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/upload.service */ "./src/app/services/upload.service.ts");
 
 
 
@@ -958,25 +955,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var URL = 'http://localhost:8080/api/upload';
 var AddEventComponent = /** @class */ (function () {
-    function AddEventComponent(fb, service, router, snackBar, orgService, http, el) {
+    function AddEventComponent(fb, service, router, snackBar, orgService, http, el, uploadService) {
         this.service = service;
         this.router = router;
         this.snackBar = snackBar;
         this.orgService = orgService;
         this.http = http;
         this.el = el;
+        this.uploadService = uploadService;
         this.timeOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
         this.imgPreview = [];
         this.files = [];
-        this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_6__["FileUploader"]({ url: URL, itemAlias: 'photo' });
+        this.newEvent = new _models__WEBPACK_IMPORTED_MODULE_8__["Event"]();
         this.fg = fb.group({
             start: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             startTime: [],
             org_code: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            img: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             featured: ['']
         });
     }
@@ -984,36 +980,22 @@ var AddEventComponent = /** @class */ (function () {
         var _this = this;
         this.orgService.get().subscribe(function (orgs) { return _this.orgs = orgs; });
         this.firstInput.nativeElement.focus();
-        this.uploader.onAfterAddingFile = function (file) { file.withCredentials = false; };
-        this.uploader.onCompleteItem = function (item, response, status, headers) {
-            console.log("ImageUpload:uploaded:", item, status, response);
-        };
     };
-    // ngAfterViewInit() {
-    //   console.log('ngAfterViewInit')
-    //   this.firstInput.nativeElement.focus();
-    // }
     AddEventComponent.prototype.save = function () {
         var _this = this;
-        var event = new _models__WEBPACK_IMPORTED_MODULE_9__["Event"]();
         var dateWithTime = new Date(this.fg.controls.start.value);
         dateWithTime.setHours(this.fg.controls.startTime.value);
-        event.start = dateWithTime;
+        this.newEvent.start = dateWithTime;
         this.orgs.forEach(function (org) {
             if (org.code === _this.fg.controls.org_code.value) {
-                event.org_code = org.code;
-                event.org_name = org.name;
-                event.org_city = org.address.city;
+                _this.newEvent.org_code = org.code;
+                _this.newEvent.org_name = org.name;
+                _this.newEvent.org_city = org.address.city;
             }
         });
-        event.title = this.fg.controls.title.value;
-        event.img = this.fg.controls.img.value;
-        event.featured = this.fg.controls.featured.value || false;
-        // event.img1      = this.fg.controls.img1.value || false;
-        // event.img2      = this.fg.controls.img2.value || false;
-        // event.img3      = this.fg.controls.img3.value || false;
-        // event.img4      = this.fg.controls.img4.value || false;
-        this.service.add(event).subscribe(function (res) {
+        this.newEvent.title = this.fg.controls.title.value;
+        this.newEvent.featured = this.fg.controls.featured.value || false;
+        this.service.add(this.newEvent).subscribe(function (res) {
             _this.snackBar.open('Evento adicionado com sucesso!', null, { duration: 2000 });
             _this.router.navigate(["/events"]);
         });
@@ -1028,6 +1010,16 @@ var AddEventComponent = /** @class */ (function () {
         reader.onload = function (_event) {
             _this.imgPreview[idx] = reader.result;
         };
+        this.upload(files[0], idx);
+    };
+    AddEventComponent.prototype.upload = function (file, idx) {
+        var _this = this;
+        this.uploadService.upload(file).subscribe(function (event) {
+            if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpEventType"].Response) {
+                console.log('upload finished: ', event.body);
+                _this.newEvent.images[idx] = event.body.gcsPublicUrl;
+            }
+        });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("firstInput"),
@@ -1035,13 +1027,11 @@ var AddEventComponent = /** @class */ (function () {
     ], AddEventComponent.prototype, "firstInput", void 0);
     AddEventComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-add-event',
             template: __webpack_require__(/*! ./add-event.component.html */ "./src/app/events/add-event/add-event.component.html"),
             styles: [__webpack_require__(/*! ./add-event.component.scss */ "./src/app/events/add-event/add-event.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _event_service__WEBPACK_IMPORTED_MODULE_3__["EventService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"],
-            _orgs_org_service__WEBPACK_IMPORTED_MODULE_8__["OrgService"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+            _orgs_org_service__WEBPACK_IMPORTED_MODULE_7__["OrgService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_services_upload_service__WEBPACK_IMPORTED_MODULE_9__["UploadService"]])
     ], AddEventComponent);
     return AddEventComponent;
 }());
@@ -1057,7 +1047,7 @@ var AddEventComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- TITLE -->\n  <mat-form-field>\n    <input matInput formControlName=\"title\" placeholder=\"Título\" required>\n  </mat-form-field>\n\n  <!-- ORG_CODE -->\n  <mat-form-field>\n    <mat-select required formControlName=\"org_code\">\n      <mat-option *ngFor=\"let org of orgs\" [value]=\"org.code\">{{org.name}}</mat-option>\n    </mat-select>\n    <mat-label>Organização</mat-label>\n  </mat-form-field>\n  \n  <!-- IMG -->\n  <mat-form-field>\n    <input matInput formControlName=\"img\" placeholder=\"Imagem\" required>\n  </mat-form-field>\n\n  <!-- START -->\n  <div class=\"start\">\n    <!-- TODO: Disable input -->\n    <mat-form-field class=\"date\">\n      <input matInput formControlName=\"start\" [matDatepicker]=\"startPicker\" placeholder=\"Data\">\n      <mat-datepicker-toggle matSuffix [for]=\"startPicker\"></mat-datepicker-toggle>\n      <mat-datepicker #startPicker></mat-datepicker>\n    </mat-form-field>\n    <mat-form-field class=\"time\">\n      <mat-select required formControlName=\"startTime\">\n        <mat-option *ngFor=\"let t of timeOptions\" [value]=\"t\">{{t}}h</mat-option>\n      </mat-select>\n      <mat-label>Horário</mat-label>\n    </mat-form-field>\n  </div>\n\n  <!-- END -->\n  <!-- <mat-form-field>\n    <input matInput formControlName=\"end\" [matDatepicker]=\"endPicker\" placeholder=\"Término\">\n    <mat-datepicker-toggle matSuffix [for]=\"endPicker\"></mat-datepicker-toggle>\n    <mat-datepicker #endPicker></mat-datepicker>\n  </mat-form-field> -->\n\n  <mat-checkbox formControlName=\"featured\">Destaque</mat-checkbox>\n\n  <button mat-raised-button color=\"primary\" (click)=\"cancel()\">Cancelar</button>\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"update()\">Atualizar</button>\n\n</form>\n  "
+module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n\n  <h2>Editar Evento</h2>\n\n  <!-- TITLE -->\n  <mat-form-field>\n    <input matInput #firstInput formControlName=\"title\" placeholder=\"Título\" required tabindex=\"1\">\n  </mat-form-field>\n\n  <!-- ORG_CODE -->\n  <mat-form-field>\n    <mat-select required formControlName=\"org_code\" tabindex=\"2\">\n      <mat-option *ngFor=\"let org of orgs\" [value]=\"org.code\">{{org.name}}</mat-option>\n    </mat-select>\n    <mat-label>Organização</mat-label>\n  </mat-form-field>\n  \n  <!-- IMG -->\n  <!-- <mat-form-field>\n    <input matInput formControlName=\"img\" placeholder=\"Imagem\" required>\n  </mat-form-field> -->\n\n  <!-- START -->\n  <div class=\"start\">\n    <!-- TODO: Disable input -->\n    <mat-form-field class=\"date\">\n      <input matInput formControlName=\"start\" [matDatepicker]=\"startPicker\" placeholder=\"Data\" tabindex=\"3\">\n      <mat-datepicker-toggle matSuffix [for]=\"startPicker\"></mat-datepicker-toggle>\n      <mat-datepicker #startPicker></mat-datepicker>\n    </mat-form-field>\n    <mat-form-field class=\"time\">\n      <mat-select required formControlName=\"startTime\" tabindex=\"4\">\n        <mat-option *ngFor=\"let t of timeOptions\" [value]=\"t\">{{t}}h</mat-option>\n      </mat-select>\n      <mat-label>Horário</mat-label>\n    </mat-form-field>\n  </div>\n\n  <!-- END -->\n  <!-- <mat-form-field>\n    <input matInput formControlName=\"end\" [matDatepicker]=\"endPicker\" placeholder=\"Término\">\n    <mat-datepicker-toggle matSuffix [for]=\"endPicker\"></mat-datepicker-toggle>\n    <mat-datepicker #endPicker></mat-datepicker>\n  </mat-form-field> -->\n  \n  <mat-checkbox formControlName=\"featured\" tabindex=\"\">Destaque</mat-checkbox>\n\n  <!-- <img [src]=\"event?.images[0]\" alt=\"\"> -->\n\n  <div class=\"row images\">\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\">\n        <img [src]=\"imgPreview[0]\" *ngIf=\"imgPreview[0]\">\n        <img [src]=\"event?.images[0]\" *ngIf=\"event?.images[0] && !imgPreview[0]\">\n      </div>\n      <input #file0 type=\"file\" accept='image/*' (change)=\"preview(file0.files, 0)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file0.click()\" tabindex=\"6\">Imagem 1</button>\n    </div>\n\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\">\n        <img [src]=\"imgPreview[1]\" *ngIf=\"imgPreview[1]\">\n        <img [src]=\"event?.images[1]\" *ngIf=\"event?.images[1] && !imgPreview[1]\">\n      </div>\n      <input #file1 type=\"file\" accept='image/*' (change)=\"preview(file1.files, 1)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file1.click()\" tabindex=\"7\">Imagem 2</button>\n    </div>\n\n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\">\n        <img [src]=\"imgPreview[2]\" *ngIf=\"imgPreview[2]\">\n        <img [src]=\"event?.images[2]\" *ngIf=\"event?.images[2] && !imgPreview[2]\">\n      </div>\n      <input #file2 type=\"file\" accept='image/*' (change)=\"preview(file2.files, 2)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file2.click()\" tabindex=\"8\">Imagem 3</button>\n    </div>\n  \n    <div class=\"image-col col-12 col-sm-6 col-md-4 col-lg-3\">\n      <div class=\"img-wrapper\">\n        <img [src]=\"imgPreview[3]\" *ngIf=\"imgPreview[3]\">\n        <img [src]=\"event?.images[3]\" *ngIf=\"event?.images[3] && !imgPreview[3]\">\n      </div>\n      <input #file3 type=\"file\" accept='image/*' (change)=\"preview(file3.files, 3)\"/>\n      <button mat-raised-button color=\"primary\" (click)=\"file3.click()\" tabindex=\"9\">Imagem 4</button>\n    </div>\n  </div>  \n\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"update()\" tabindex=\"5\">Atualizar</button>\n  <button id=\"cancel\" mat-raised-button color=\"primary\" (click)=\"cancel()\" tabindex=\"6\">Cancelar</button>\n\n</form>\n  "
 
 /***/ }),
 
@@ -1068,7 +1058,7 @@ module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <!-- TI
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n.start * {\n  width: calc(50% - 8px); }\n\n.start .date {\n  padding-right: 4px; }\n\n.start .time {\n  padding-left: 4px;\n  line-height: 18px; }\n\n.start .time mat-select {\n    width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9ldmVudHMvZWRpdC1ldmVudC9lZGl0LWV2ZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBYTtFQUNiLHVCQUFzQjtFQUN0QixvQkFBbUI7RUFDbkIsaUJBQWdCLEVBQ25COztBQUVEO0VBQ0ksV0FBVSxFQUNiOztBQUVEO0VBQ0ksb0JBQW1CLEVBQ3RCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxpQkFBZ0IsRUFDbkI7O0FBRUQ7RUFFUSx1QkFBc0IsRUFDekI7O0FBSEw7RUFLUSxtQkFBa0IsRUFDckI7O0FBTkw7RUFTUSxrQkFBaUI7RUFDakIsa0JBQWlCLEVBSXBCOztBQWRMO0lBWVksWUFBVyxFQUNkIiwiZmlsZSI6InNyYy9hcHAvZXZlbnRzL2VkaXQtZXZlbnQvZWRpdC1ldmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMzZweDtcbn1cblxuLmZvcm0tY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDgwJTtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0ge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtID4gKiB7XG4gICAgbWFyZ2luOiA1cHggMDtcbn1cblxuLmZvcm0tY29udGFpbmVyIC5tYXQtcmFkaW8tYnV0dG9uIHtcbiAgICBtYXJnaW46IDAgNXB4O1xufVxuXG5idXR0b24ge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG59XG5cbi5zdGFydCB7XG4gICAgKiB7XG4gICAgICAgIHdpZHRoOiBjYWxjKDUwJSAtIDhweCk7XG4gICAgfVxuICAgIC5kYXRlIHtcbiAgICAgICAgcGFkZGluZy1yaWdodDogNHB4O1xuICAgIH1cblxuICAgIC50aW1lIHtcbiAgICAgICAgcGFkZGluZy1sZWZ0OiA0cHg7XG4gICAgICAgIGxpbmUtaGVpZ2h0OiAxOHB4O1xuICAgICAgICBtYXQtc2VsZWN0IHtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlOyBcbiAgICAgICAgfVxuICAgIH1cbn0iXX0= */"
+module.exports = "h2 {\n  color: rgba(0, 0, 0, 0.5);\n  margin-bottom: 16px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 36px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\n.start * {\n  width: calc(50% - 8px); }\n\n.start .date {\n  padding-right: 4px; }\n\n.start .time {\n  padding-left: 4px;\n  line-height: 18px; }\n\n.start .time mat-select {\n    width: 100%; }\n\ndiv.row.images {\n  margin-top: 16px; }\n\ndiv.row.images input {\n    display: none; }\n\ndiv.row.images .image-col {\n    text-align: center;\n    margin-bottom: 16px; }\n\ndiv.row.images .image-col button {\n      margin-top: 4px; }\n\ndiv.row.images div.img-wrapper {\n    height: 140px;\n    width: 140px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    outline: 1px solid rgba(0, 0, 0, 0.1);\n    overflow: hidden; }\n\ndiv.row.images div.img-wrapper img {\n      max-width: 140px;\n      max-height: 150%; }\n\n#cancel {\n  margin-bottom: 32px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9ldmVudHMvZWRpdC1ldmVudC9lZGl0LWV2ZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQXNCO0VBQ3RCLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsb0JBQW1CO0VBQ25CLGlCQUFnQixFQUNuQjs7QUFFRDtFQUNJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksaUJBQWdCLEVBQ25COztBQUVEO0VBRVEsdUJBQXNCLEVBQ3pCOztBQUhMO0VBS1EsbUJBQWtCLEVBQ3JCOztBQU5MO0VBU1Esa0JBQWlCO0VBQ2pCLGtCQUFpQixFQUlwQjs7QUFkTDtJQVlZLFlBQVcsRUFDZDs7QUFJVDtFQUNJLGlCQUFnQixFQTBCbkI7O0FBM0JEO0lBSVEsY0FBYSxFQUNoQjs7QUFMTDtJQU9RLG1CQUFrQjtJQUNsQixvQkFBbUIsRUFJdEI7O0FBWkw7TUFVWSxnQkFBZSxFQUNsQjs7QUFYVDtJQWNRLGNBQWE7SUFDYixhQUFZO0lBQ1osa0JBQWlCO0lBQ2pCLG1CQUFrQjtJQUNsQixtQkFBa0I7SUFDbEIsc0NBQWtDO0lBQ2xDLGlCQUFnQixFQU1uQjs7QUExQkw7TUF1QlksaUJBQWdCO01BQ2hCLGlCQUFnQixFQUNuQjs7QUFJVDtFQUNJLG9CQUFtQixFQUN0QiIsImZpbGUiOiJzcmMvYXBwL2V2ZW50cy9lZGl0LWV2ZW50L2VkaXQtZXZlbnQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMiB7XG4gICAgY29sb3I6IHJnYmEoMCwwLDAsMC41KTtcbiAgICBtYXJnaW4tYm90dG9tOiAxNnB4O1xufVxuXG4uZm9ybS1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDM2cHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciA+ICoge1xuICAgIHdpZHRoOiA4MCU7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZm9ybS1jb250YWluZXIgZm9ybSA+ICoge1xuICAgIG1hcmdpbjogNXB4IDA7XG59XG5cbi5mb3JtLWNvbnRhaW5lciAubWF0LXJhZGlvLWJ1dHRvbiB7XG4gICAgbWFyZ2luOiAwIDVweDtcbn1cblxuYnV0dG9uIHtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xufVxuXG4uc3RhcnQge1xuICAgICoge1xuICAgICAgICB3aWR0aDogY2FsYyg1MCUgLSA4cHgpO1xuICAgIH1cbiAgICAuZGF0ZSB7XG4gICAgICAgIHBhZGRpbmctcmlnaHQ6IDRweDtcbiAgICB9XG5cbiAgICAudGltZSB7XG4gICAgICAgIHBhZGRpbmctbGVmdDogNHB4O1xuICAgICAgICBsaW5lLWhlaWdodDogMThweDtcbiAgICAgICAgbWF0LXNlbGVjdCB7XG4gICAgICAgICAgICB3aWR0aDogMTAwJTsgXG4gICAgICAgIH1cbiAgICB9XG59XG5cbmRpdi5yb3cuaW1hZ2VzIHtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xuXG4gICAgaW5wdXQge1xuICAgICAgICBkaXNwbGF5OiBub25lO1xuICAgIH1cbiAgICAuaW1hZ2UtY29sIHtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICBtYXJnaW4tYm90dG9tOiAxNnB4O1xuICAgICAgICBidXR0b24ge1xuICAgICAgICAgICAgbWFyZ2luLXRvcDogNHB4O1xuICAgICAgICB9XG4gICAgfVxuICAgIGRpdi5pbWctd3JhcHBlciB7XG4gICAgICAgIGhlaWdodDogMTQwcHg7XG4gICAgICAgIHdpZHRoOiAxNDBweDtcbiAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgICAgIG1hcmdpbi1yaWdodDogYXV0bztcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICBvdXRsaW5lOiAxcHggc29saWQgcmdiYSgwLDAsMCwwLjEpO1xuICAgICAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgICAgIGltZyB7XG4gICAgICAgICAgICBtYXgtd2lkdGg6IDE0MHB4O1xuICAgICAgICAgICAgbWF4LWhlaWdodDogMTUwJTtcbiAgICAgICAgfVxuICAgIH1cbn1cblxuI2NhbmNlbCB7XG4gICAgbWFyZ2luLWJvdHRvbTogMzJweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -1090,6 +1080,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models */ "./src/app/models.ts");
 /* harmony import */ var _orgs_org_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../orgs/org.service */ "./src/app/orgs/org.service.ts");
+/* harmony import */ var src_app_services_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/upload.service */ "./src/app/services/upload.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
 
 
 
@@ -1099,40 +1093,60 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EditEventComponent = /** @class */ (function () {
-    function EditEventComponent(route, service, fb, router, snackBar, orgService) {
+    function EditEventComponent(route, service, fb, router, snackBar, orgService, uploadService) {
         this.route = route;
         this.service = service;
         this.fb = fb;
         this.router = router;
         this.snackBar = snackBar;
         this.orgService = orgService;
+        this.uploadService = uploadService;
         this.timeOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+        this.imgPreview = [];
+        this.files = [];
         this.fg = fb.group({
             start: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             startTime: [],
             org_code: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            img: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             featured: ['']
         });
     }
     EditEventComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.firstInput.nativeElement.focus();
         this.orgService.get().subscribe(function (orgs) { return _this.orgs = orgs; });
         this.route.params.subscribe(function (p) {
-            _this.service.getById(p.id).subscribe(function (event) {
-                _this.event = event;
-                _this.fillForm(event);
+            _this.service.getById(p.id).subscribe(function (storedEvent) {
+                _this.event = storedEvent;
+                _this.fillForm(storedEvent);
+                // var request = new XMLHttpRequest();
+                // request.open('GET', this.event.images[0], true);
+                // request.responseType = 'blob';
+                // request.onload = function() {
+                //     var reader = new FileReader();
+                //     reader.readAsDataURL(request.response);
+                //     reader.onload =  function(e){
+                //         console.log('DataURL:', e.target['result']);
+                //     };
+                // };
+                // request.send();
+                // let reader = new FileReader();
+                // // new File("/path/to/file");
+                // reader.readAsDataURL(this.event.images[0].toBlob());
+                // reader.onload = (_event) => {
+                //   this.imgPreview[0] = reader.result;
+                // }
             });
         });
     };
-    EditEventComponent.prototype.fillForm = function (event) {
-        this.fg.controls.start.setValue(event.start);
-        this.fg.controls.startTime.setValue(new Date(event.start).getUTCHours());
-        this.fg.controls.org_code.setValue(event.org_code);
-        this.fg.controls.title.setValue(event.title);
-        this.fg.controls.img.setValue(event.img);
-        this.fg.controls.featured.setValue(event.featured);
+    EditEventComponent.prototype.fillForm = function (storedEvent) {
+        this.fg.controls.start.setValue(storedEvent.start);
+        this.fg.controls.startTime.setValue(new Date(storedEvent.start).getUTCHours());
+        this.fg.controls.org_code.setValue(storedEvent.org_code);
+        this.fg.controls.title.setValue(storedEvent.title);
+        this.fg.controls.featured.setValue(storedEvent.featured);
+        // this.files.push(event.images)
     };
     EditEventComponent.prototype.update = function () {
         var _this = this;
@@ -1149,23 +1163,51 @@ var EditEventComponent = /** @class */ (function () {
         });
         event._id = this.event._id;
         event.title = this.fg.controls.title.value;
-        event.img = this.fg.controls.img.value;
         event.featured = this.fg.controls.featured.value;
+        event.images = this.event.images;
+        console.log('Event to update: ', event);
         this.service.update(event).subscribe(function (res) {
             _this.snackBar.open('Evento atualizado com sucesso!', null, { duration: 2000 });
             _this.router.navigate(["/events"]);
         });
     };
+    EditEventComponent.prototype.preview = function (files, idx) {
+        var _this = this;
+        if (files.length === 0)
+            return;
+        this.files[idx] = files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload = function (_event) {
+            _this.imgPreview[idx] = reader.result;
+        };
+        this.upload(files[0], idx);
+    };
+    EditEventComponent.prototype.upload = function (file, idx) {
+        var _this = this;
+        var fileToDeleteUrl = this.event.images[idx];
+        this.uploadService.upload(file).subscribe(function (event) {
+            if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpEventType"].Response) {
+                console.log('upload finished: ', event.body);
+                _this.event.images[idx] = event.body.gcsPublicUrl;
+            }
+        });
+        this.uploadService.delete(fileToDeleteUrl);
+    };
     EditEventComponent.prototype.cancel = function () {
         this.router.navigate(['/events']);
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("firstInput"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], EditEventComponent.prototype, "firstInput", void 0);
     EditEventComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-edit-event',
             template: __webpack_require__(/*! ./edit-event.component.html */ "./src/app/events/edit-event/edit-event.component.html"),
             styles: [__webpack_require__(/*! ./edit-event.component.scss */ "./src/app/events/edit-event/edit-event.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _event_service__WEBPACK_IMPORTED_MODULE_3__["EventService"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"], _orgs_org_service__WEBPACK_IMPORTED_MODULE_7__["OrgService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _event_service__WEBPACK_IMPORTED_MODULE_3__["EventService"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"], _orgs_org_service__WEBPACK_IMPORTED_MODULE_7__["OrgService"], src_app_services_upload_service__WEBPACK_IMPORTED_MODULE_8__["UploadService"]])
     ], EditEventComponent);
     return EditEventComponent;
 }());
@@ -1187,15 +1229,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
 var EventService = /** @class */ (function () {
     function EventService(http) {
         this.http = http;
-        // TODO: Config environment variables
-        this.host = 'http://localhost';
-        this.url = this.host + '/api/events';
+        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_URL + "/events";
     }
     EventService.prototype.get = function () {
         return this.http.get(this.url);
@@ -1438,6 +1480,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Org", function() { return Org; });
 var Event = /** @class */ (function () {
     function Event() {
+        this.images = new Array();
+        this.images[0] = '';
+        this.images[1] = '';
+        this.images[2] = '';
+        this.images[3] = '';
     }
     return Event;
 }());
@@ -1477,7 +1524,7 @@ var Contact = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <h3>Organização</h3>\n  <!-- CODE -->\n  <mat-form-field>\n    <input #firstInput matInput formControlName=\"code\" placeholder=\"Código\" required>\n  </mat-form-field>\n\n  <!-- NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n  </mat-form-field>\n\n  <!-- EMAIL -->\n  <mat-form-field>\n    <input matInput formControlName=\"email\" placeholder=\"Email\">\n  </mat-form-field>\n\n  <!-- MOBILE -->\n  <mat-form-field>\n    <input matInput formControlName=\"mobile\" placeholder=\"Celular\">\n  </mat-form-field>\n\n  <!-- LAND -->\n  <mat-form-field>\n    <input matInput formControlName=\"land\" placeholder=\"Fixo\">\n  </mat-form-field>\n\n  <!-- NOTES -->\n  <mat-form-field>\n    <input matInput formControlName=\"notes\" placeholder=\"Notas\">\n  </mat-form-field>\n\n  <!-- STATUS -->\n  <mat-checkbox formControlName=\"status\">Ativo</mat-checkbox>\n\n\n  <!-- \n    ###################### ADDRESS ########################\n   -->\n  <!-- CITY -->\n  <h3>Endereço</h3>\n  <mat-form-field>\n    <mat-select required formControlName=\"city\">\n      <mat-option *ngFor=\"let city of cities\" [value]=\"city.name\">{{city.name}}</mat-option>\n    </mat-select>\n    <mat-label>Cidade</mat-label>\n  </mat-form-field>\n\n  <!-- NEIGHBORHOOD -->\n  <mat-form-field>\n    <input matInput formControlName=\"neighborhood\" placeholder=\"Bairro\">\n  </mat-form-field>\n\n  <!-- NUMBER -->\n  <mat-form-field>\n    <input matInput formControlName=\"number\" placeholder=\"Número\">\n  </mat-form-field>\n\n  <!-- COMPLEMENT -->\n  <mat-form-field>\n    <input matInput formControlName=\"complement\" placeholder=\"Complemento\">\n  </mat-form-field>\n\n  <!-- ZIP_CODE -->\n  <mat-form-field>\n    <input matInput formControlName=\"zip_code\" placeholder=\"Código Postal\">\n  </mat-form-field>\n  \n  <!-- \n    ###################### CONTACT ########################\n   -->\n  <h3>Contato</h3>\n  <!-- CONTACT_NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_name\" placeholder=\"Nome\">\n  </mat-form-field>\n\n  <!-- CONTACT_EMAIL -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_email\" placeholder=\"Email\">\n  </mat-form-field>\n\n  <!-- CONTACT_MOBILE -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_mobile\" placeholder=\"Celular\">\n  </mat-form-field>\n\n  <!-- CONTACT_ROLE -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_role\" placeholder=\"Papel\">\n  </mat-form-field>\n\n  <!-- CONTACT_NOTES -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_notes\" placeholder=\"Notas\">\n  </mat-form-field>\n\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"save()\">Salvar</button>\n</form>\n"
+module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  \n  <h2>Cadastrar Organização</h2>\n  \n  <!-- CODE -->\n  <mat-form-field>\n    <input #firstInput matInput formControlName=\"code\" placeholder=\"Código\" required>\n  </mat-form-field>\n\n  <!-- NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n  </mat-form-field>\n\n  <!-- EMAIL -->\n  <mat-form-field>\n    <input matInput formControlName=\"email\" placeholder=\"Email\">\n  </mat-form-field>\n\n  <!-- MOBILE -->\n  <mat-form-field>\n    <input matInput formControlName=\"mobile\" placeholder=\"Celular\">\n  </mat-form-field>\n\n  <!-- LAND -->\n  <mat-form-field>\n    <input matInput formControlName=\"land\" placeholder=\"Fixo\">\n  </mat-form-field>\n\n  <!-- NOTES -->\n  <mat-form-field>\n    <input matInput formControlName=\"notes\" placeholder=\"Notas\">\n  </mat-form-field>\n\n  <!-- STATUS -->\n  <mat-checkbox formControlName=\"status\">Ativo</mat-checkbox>\n\n\n  <!-- \n    ###################### ADDRESS ########################\n   -->\n  <!-- CITY -->\n  <h3>Endereço</h3>\n  <mat-form-field>\n    <mat-select required formControlName=\"city\">\n      <mat-option *ngFor=\"let city of cities\" [value]=\"city.name\">{{city.name}}</mat-option>\n    </mat-select>\n    <mat-label>Cidade</mat-label>\n  </mat-form-field>\n\n  <!-- NEIGHBORHOOD -->\n  <mat-form-field>\n    <input matInput formControlName=\"neighborhood\" placeholder=\"Bairro\">\n  </mat-form-field>\n\n  <!-- STREET -->\n  <mat-form-field>\n    <input matInput formControlName=\"street\" placeholder=\"Rua\">\n  </mat-form-field>\n\n  <!-- NUMBER -->\n  <mat-form-field>\n    <input matInput formControlName=\"number\" placeholder=\"Número\">\n  </mat-form-field>\n\n  <!-- COMPLEMENT -->\n  <mat-form-field>\n    <input matInput formControlName=\"complement\" placeholder=\"Complemento\">\n  </mat-form-field>\n\n  <!-- ZIP_CODE -->\n  <mat-form-field>\n    <input matInput formControlName=\"zip_code\" placeholder=\"Código Postal\">\n  </mat-form-field>\n  \n  <!-- \n    ###################### CONTACT ########################\n   -->\n  <h3>Contato</h3>\n  <!-- CONTACT_NAME -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_name\" placeholder=\"Nome\">\n  </mat-form-field>\n\n  <!-- CONTACT_EMAIL -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_email\" placeholder=\"Email\">\n  </mat-form-field>\n\n  <!-- CONTACT_MOBILE -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_mobile\" placeholder=\"Celular\">\n  </mat-form-field>\n\n  <!-- CONTACT_ROLE -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_role\" placeholder=\"Papel\">\n  </mat-form-field>\n\n  <!-- CONTACT_NOTES -->\n  <mat-form-field>\n    <input matInput formControlName=\"contact_notes\" placeholder=\"Notas\">\n  </mat-form-field>\n\n  <button mat-raised-button color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"save()\">Salvar</button>\n</form>\n"
 
 /***/ }),
 
@@ -1488,7 +1535,7 @@ module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n  <h3>Org
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 12px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px;\n  margin-bottom: 36px; }\n\nh3 {\n  color: rgba(0, 0, 0, 0.75);\n  margin-top: 16px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9vcmdzL2FkZC1vcmcvYWRkLW9yZy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsb0JBQW1CO0VBQ25CLGlCQUFnQixFQUNuQjs7QUFFRDtFQUNJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLDJCQUF1QjtFQUN2QixpQkFBZ0IsRUFDbkIiLCJmaWxlIjoic3JjL2FwcC9vcmdzL2FkZC1vcmcvYWRkLW9yZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMTJweDtcbn1cblxuLmZvcm0tY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDgwJTtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0ge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtID4gKiB7XG4gICAgbWFyZ2luOiA1cHggMDtcbn1cblxuLmZvcm0tY29udGFpbmVyIC5tYXQtcmFkaW8tYnV0dG9uIHtcbiAgICBtYXJnaW46IDAgNXB4O1xufVxuXG5idXR0b24ge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMzZweDtcbn1cblxuaDMge1xuICAgIGNvbG9yOiByZ2JhKDAsMCwwLDAuNzUpO1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG59Il19 */"
+module.exports = "h2 {\n  color: rgba(0, 0, 0, 0.5);\n  margin-bottom: 16px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 12px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px;\n  margin-bottom: 36px; }\n\nh3 {\n  color: rgba(0, 0, 0, 0.75);\n  margin-top: 16px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9vcmdzL2FkZC1vcmcvYWRkLW9yZy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDBCQUFzQjtFQUN0QixvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLG9CQUFtQjtFQUNuQixpQkFBZ0IsRUFDbkI7O0FBRUQ7RUFDSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGlCQUFnQjtFQUNoQixvQkFBbUIsRUFDdEI7O0FBRUQ7RUFDSSwyQkFBdUI7RUFDdkIsaUJBQWdCLEVBQ25CIiwiZmlsZSI6InNyYy9hcHAvb3Jncy9hZGQtb3JnL2FkZC1vcmcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMiB7XG4gICAgY29sb3I6IHJnYmEoMCwwLDAsMC41KTtcbiAgICBtYXJnaW4tYm90dG9tOiAxNnB4O1xufVxuXG4uZm9ybS1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDEycHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciA+ICoge1xuICAgIHdpZHRoOiA4MCU7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZm9ybS1jb250YWluZXIgZm9ybSA+ICoge1xuICAgIG1hcmdpbjogNXB4IDA7XG59XG5cbi5mb3JtLWNvbnRhaW5lciAubWF0LXJhZGlvLWJ1dHRvbiB7XG4gICAgbWFyZ2luOiAwIDVweDtcbn1cblxuYnV0dG9uIHtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xuICAgIG1hcmdpbi1ib3R0b206IDM2cHg7XG59XG5cbmgzIHtcbiAgICBjb2xvcjogcmdiYSgwLDAsMCwwLjc1KTtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -1531,7 +1578,7 @@ var AddOrgComponent = /** @class */ (function () {
             land: [''],
             email: [''],
             notes: [''],
-            status: [''],
+            status: [true],
             city: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             neighborhood: [''],
             street: [''],
@@ -1603,7 +1650,7 @@ var AddOrgComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n    <h3>Organização</h3>\n    <!-- CODE -->\n    <mat-form-field>\n      <input matInput formControlName=\"code\" placeholder=\"Código\" required>\n    </mat-form-field>\n  \n    <!-- NAME -->\n    <mat-form-field>\n      <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n    </mat-form-field>\n  \n    <!-- EMAIL -->\n    <mat-form-field>\n      <input matInput formControlName=\"email\" placeholder=\"Email\">\n    </mat-form-field>\n  \n    <!-- MOBILE -->\n    <mat-form-field>\n      <input matInput formControlName=\"mobile\" placeholder=\"Celular\">\n    </mat-form-field>\n  \n    <!-- LAND -->\n    <mat-form-field>\n      <input matInput formControlName=\"land\" placeholder=\"Fixo\">\n    </mat-form-field>\n  \n    <!-- NOTES -->\n    <mat-form-field>\n      <input matInput formControlName=\"notes\" placeholder=\"Notas\">\n    </mat-form-field>\n  \n    <!-- STATUS -->\n    <mat-checkbox formControlName=\"status\">Ativo</mat-checkbox>\n  \n  \n    <!-- \n      ###################### ADDRESS ########################\n     -->\n    <h3>Endereço</h3>\n    <!-- CITY -->\n    <mat-form-field>\n      <mat-select required formControlName=\"city\">\n        <mat-option *ngFor=\"let city of cities\" [value]=\"city.name\">{{city.name}}</mat-option>\n      </mat-select>\n      <mat-label>Cidade</mat-label>\n    </mat-form-field>\n  \n    <!-- NEIGHBORHOOD -->\n    <mat-form-field>\n      <input matInput formControlName=\"neighborhood\" placeholder=\"Bairro\">\n    </mat-form-field>\n  \n    <!-- NUMBER -->\n    <mat-form-field>\n      <input matInput formControlName=\"number\" placeholder=\"Número\">\n    </mat-form-field>\n  \n    <!-- COMPLEMENT -->\n    <mat-form-field>\n      <input matInput formControlName=\"complement\" placeholder=\"Complemento\">\n    </mat-form-field>\n  \n    <!-- ZIP_CODE -->\n    <mat-form-field>\n      <input matInput formControlName=\"zip_code\" placeholder=\"Código Postal\">\n    </mat-form-field>\n    \n    <!-- \n      ###################### CONTACT ########################\n     -->\n    <h3>Contato</h3>\n    <!-- CONTACT_NAME -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_name\" placeholder=\"Nome do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_EMAIL -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_email\" placeholder=\"Email do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_MOBILE -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_mobile\" placeholder=\"Celular do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_ROLE -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_role\" placeholder=\"Papel do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_NOTES -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_notes\" placeholder=\"Notas do contato\">\n    </mat-form-field>\n  \n    <button mat-raised-button color=\"primary\" (click)=\"cancel()\">Cancelar</button>\n    <button mat-raised-button class=\"last\" color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"update()\">Atualizar</button>\n  \n  </form>\n  "
+module.exports = "<form class=\"form-container\" [formGroup]=\"fg\">\n\n    <h2>Editar Organização</h2>\n\n    <!-- CODE -->\n    <mat-form-field>\n      <input matInput formControlName=\"code\" placeholder=\"Código\" required>\n    </mat-form-field>\n  \n    <!-- NAME -->\n    <mat-form-field>\n      <input matInput formControlName=\"name\" placeholder=\"Nome\" required>\n    </mat-form-field>\n  \n    <!-- EMAIL -->\n    <mat-form-field>\n      <input matInput formControlName=\"email\" placeholder=\"Email\">\n    </mat-form-field>\n  \n    <!-- MOBILE -->\n    <mat-form-field>\n      <input matInput formControlName=\"mobile\" placeholder=\"Celular\">\n    </mat-form-field>\n  \n    <!-- LAND -->\n    <mat-form-field>\n      <input matInput formControlName=\"land\" placeholder=\"Fixo\">\n    </mat-form-field>\n  \n    <!-- NOTES -->\n    <mat-form-field>\n      <input matInput formControlName=\"notes\" placeholder=\"Notas\">\n    </mat-form-field>\n  \n    <!-- STATUS -->\n    <mat-checkbox formControlName=\"status\">Ativo</mat-checkbox>\n  \n  \n    <!-- \n      ###################### ADDRESS ########################\n     -->\n    <h3>Endereço</h3>\n    <!-- CITY -->\n    <mat-form-field>\n      <mat-select required formControlName=\"city\">\n        <mat-option *ngFor=\"let city of cities\" [value]=\"city.name\">{{city.name}}</mat-option>\n      </mat-select>\n      <mat-label>Cidade</mat-label>\n    </mat-form-field>\n  \n    <!-- NEIGHBORHOOD -->\n    <mat-form-field>\n      <input matInput formControlName=\"neighborhood\" placeholder=\"Bairro\">\n    </mat-form-field>\n\n    <!-- STREET -->\n    <mat-form-field>\n      <input matInput formControlName=\"street\" placeholder=\"Rua\">\n    </mat-form-field>\n  \n    <!-- NUMBER -->\n    <mat-form-field>\n      <input matInput formControlName=\"number\" placeholder=\"Número\">\n    </mat-form-field>\n  \n    <!-- COMPLEMENT -->\n    <mat-form-field>\n      <input matInput formControlName=\"complement\" placeholder=\"Complemento\">\n    </mat-form-field>\n  \n    <!-- ZIP_CODE -->\n    <mat-form-field>\n      <input matInput formControlName=\"zip_code\" placeholder=\"Código Postal\">\n    </mat-form-field>\n    \n    <!-- \n      ###################### CONTACT ########################\n     -->\n    <h3>Contato</h3>\n    <!-- CONTACT_NAME -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_name\" placeholder=\"Nome do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_EMAIL -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_email\" placeholder=\"Email do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_MOBILE -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_mobile\" placeholder=\"Celular do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_ROLE -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_role\" placeholder=\"Papel do contato\">\n    </mat-form-field>\n  \n    <!-- CONTACT_NOTES -->\n    <mat-form-field>\n      <input matInput formControlName=\"contact_notes\" placeholder=\"Notas do contato\">\n    </mat-form-field>\n  \n    <button mat-raised-button color=\"primary\" (click)=\"cancel()\">Cancelar</button>\n    <button mat-raised-button class=\"last\" color=\"accent\" [disabled]=\"!fg.valid\" (click)=\"update()\">Atualizar</button>\n  \n  </form>\n  "
 
 /***/ }),
 
@@ -1614,7 +1661,7 @@ module.exports = "<form class=\"form-container\" [formGroup]=\"fg\"> \n    <h3>O
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 12px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\nbutton.last {\n    margin-bottom: 36px; }\n\nh3 {\n  margin-top: 12px;\n  color: rgba(0, 0, 0, 0.75); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9vcmdzL2VkaXQtb3JnL2VkaXQtb3JnLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBYTtFQUNiLHVCQUFzQjtFQUN0QixvQkFBbUI7RUFDbkIsaUJBQWdCLEVBQ25COztBQUVEO0VBQ0ksV0FBVSxFQUNiOztBQUVEO0VBQ0ksb0JBQW1CLEVBQ3RCOztBQUVEO0VBQ0ksY0FBYSxFQUNoQjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxpQkFBZ0IsRUFJbkI7O0FBTEQ7SUFHUSxvQkFBbUIsRUFDdEI7O0FBR0w7RUFDSSxpQkFBZ0I7RUFDaEIsMkJBQXVCLEVBQzFCIiwiZmlsZSI6InNyYy9hcHAvb3Jncy9lZGl0LW9yZy9lZGl0LW9yZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMTJweDtcbn1cblxuLmZvcm0tY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDgwJTtcbn1cblxuLmZvcm0tY29udGFpbmVyIGZvcm0ge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtID4gKiB7XG4gICAgbWFyZ2luOiA1cHggMDtcbn1cblxuLmZvcm0tY29udGFpbmVyIC5tYXQtcmFkaW8tYnV0dG9uIHtcbiAgICBtYXJnaW46IDAgNXB4O1xufVxuXG5idXR0b24ge1xuICAgIG1hcmdpbi10b3A6IDE2cHg7XG4gICAgJi5sYXN0IHtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMzZweDtcbiAgICB9XG59XG5cbmgzIHtcbiAgICBtYXJnaW4tdG9wOiAxMnB4O1xuICAgIGNvbG9yOiByZ2JhKDAsMCwwLDAuNzUpO1xufVxuIl19 */"
+module.exports = "h2 {\n  color: rgba(0, 0, 0, 0.5);\n  margin-bottom: 16px; }\n\n.form-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 12px; }\n\n.form-container > * {\n  width: 80%; }\n\n.form-container form {\n  margin-bottom: 20px; }\n\n.form-container form > * {\n  margin: 5px 0; }\n\n.form-container .mat-radio-button {\n  margin: 0 5px; }\n\nbutton {\n  margin-top: 16px; }\n\nbutton.last {\n    margin-bottom: 36px; }\n\nh3 {\n  margin-top: 12px;\n  color: rgba(0, 0, 0, 0.75); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZlcnJlaXJhdGkvcHJvamVjdHMvc3VsYmFndWlhL2FuZ3VsYXItYWRtaW4vc3JjL2FwcC9vcmdzL2VkaXQtb3JnL2VkaXQtb3JnLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQXNCO0VBQ3RCLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsb0JBQW1CO0VBQ25CLGlCQUFnQixFQUNuQjs7QUFFRDtFQUNJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLG9CQUFtQixFQUN0Qjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUVEO0VBQ0ksaUJBQWdCLEVBSW5COztBQUxEO0lBR1Esb0JBQW1CLEVBQ3RCOztBQUdMO0VBQ0ksaUJBQWdCO0VBQ2hCLDJCQUF1QixFQUMxQiIsImZpbGUiOiJzcmMvYXBwL29yZ3MvZWRpdC1vcmcvZWRpdC1vcmcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMiB7XG4gICAgY29sb3I6IHJnYmEoMCwwLDAsMC41KTtcbiAgICBtYXJnaW4tYm90dG9tOiAxNnB4O1xufVxuXG4uZm9ybS1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDEycHg7XG59XG5cbi5mb3JtLWNvbnRhaW5lciA+ICoge1xuICAgIHdpZHRoOiA4MCU7XG59XG5cbi5mb3JtLWNvbnRhaW5lciBmb3JtIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uZm9ybS1jb250YWluZXIgZm9ybSA+ICoge1xuICAgIG1hcmdpbjogNXB4IDA7XG59XG5cbi5mb3JtLWNvbnRhaW5lciAubWF0LXJhZGlvLWJ1dHRvbiB7XG4gICAgbWFyZ2luOiAwIDVweDtcbn1cblxuYnV0dG9uIHtcbiAgICBtYXJnaW4tdG9wOiAxNnB4O1xuICAgICYubGFzdCB7XG4gICAgICAgIG1hcmdpbi1ib3R0b206IDM2cHg7XG4gICAgfVxufVxuXG5oMyB7XG4gICAgbWFyZ2luLXRvcDogMTJweDtcbiAgICBjb2xvcjogcmdiYSgwLDAsMCwwLjc1KTtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -1699,11 +1746,11 @@ var EditOrgComponent = /** @class */ (function () {
         this.fg.controls.number.setValue(this.org.address.number);
         this.fg.controls.complement.setValue(this.org.address.complement);
         this.fg.controls.zip_code.setValue(this.org.address.zip_code);
-        this.fg.controls.contact_name.setValue(this.org.contact.name);
-        this.fg.controls.contact_email.setValue(this.org.contact.email);
-        this.fg.controls.contact_mobile.setValue(this.org.contact.mobile);
-        this.fg.controls.contact_role.setValue(this.org.contact.role);
-        this.fg.controls.contact_notes.setValue(this.org.contact.notes);
+        this.fg.controls.contact_name.setValue(this.org.contact[0].name);
+        this.fg.controls.contact_email.setValue(this.org.contact[0].email);
+        this.fg.controls.contact_mobile.setValue(this.org.contact[0].mobile);
+        this.fg.controls.contact_role.setValue(this.org.contact[0].role);
+        this.fg.controls.contact_notes.setValue(this.org.contact[0].notes);
     };
     EditOrgComponent.prototype.update = function () {
         var _this = this;
@@ -1961,15 +2008,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
 var OrgService = /** @class */ (function () {
     function OrgService(http) {
         this.http = http;
-        // TODO: Config environment variables
-        this.host = 'http://localhost:8080';
-        this.url = this.host + '/api/orgs';
+        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_URL + "/orgs";
     }
     OrgService.prototype.get = function () {
         return this.http.get(this.url);
@@ -1999,6 +2046,52 @@ var OrgService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/upload.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/upload.service.ts ***!
+  \********************************************/
+/*! exports provided: UploadService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadService", function() { return UploadService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+// https://malcoded.com/posts/angular-file-upload-component-with-express
+
+
+
+
+var UploadService = /** @class */ (function () {
+    function UploadService(http) {
+        this.http = http;
+        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_URL + "/upload";
+    }
+    UploadService.prototype.upload = function (file) {
+        var formData = new FormData();
+        formData.append('file', file, file.name);
+        var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('POST', this.url, formData);
+        return this.http.request(req);
+    };
+    UploadService.prototype.delete = function (fileUrl) {
+        console.log('delete: ', fileUrl);
+        var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('DELETE', this.url, { fileUrl: fileUrl });
+        return this.http.request(req);
+    };
+    UploadService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], UploadService);
+    return UploadService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -2013,7 +2106,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
+    API_URL: 'http://localhost:8080/api'
 };
 /*
  * For easier debugging in development mode, you can import the following file
