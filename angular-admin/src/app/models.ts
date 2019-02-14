@@ -6,8 +6,18 @@ export class Event {
     org_city: String;
     org_id: String;
     title: string;
-    img: String;
+    images: String[];
     featured: Boolean;
+
+    img: String; // TODO: remove
+
+    constructor() {
+        this.images = new Array<String>();
+        this.images[0] = '';
+        this.images[1] = '';
+        this.images[2] = '';
+        this.images[3] = '';
+    }
 }
 
 export class City {

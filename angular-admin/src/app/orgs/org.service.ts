@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class OrgService {
 
   // TODO: Config environment variables
-  host = 'http://localhost:8080';
+  host = 'http://localhost';
   url = this.host + '/api/orgs';
 
   constructor(private http: HttpClient) { }

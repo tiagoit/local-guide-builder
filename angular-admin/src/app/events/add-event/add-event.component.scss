@@ -1,3 +1,8 @@
+h2 {
+    color: rgba(0,0,0,0.5);
+    margin-bottom: 16px;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -43,6 +48,8 @@ button {
 }
 
 div.row.images {
+    margin-top: 16px;
+
     input {
         display: none;
     }
@@ -67,4 +74,8 @@ div.row.images {
             max-height: 150%;
         }
     }
+}
+
+#save {
+    margin-bottom: 32px;
 }

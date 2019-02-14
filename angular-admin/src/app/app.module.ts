@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material';
-import { FileUploadModule } from "ng2-file-upload";
-// import { FileSelectDirective } from 'ng2-file-upload';
 import { HotkeyModule } from 'angular2-hotkeys';
 
 import { NavComponent } from './angular-material-components/nav/nav.component';
@@ -27,6 +25,7 @@ import { EditCityComponent } from './cities/edit-city/edit-city.component';
 import { ListOrgsComponent } from './orgs/list-orgs/list-orgs.component';
 import { AddOrgComponent } from './orgs/add-org/add-org.component';
 import { EditOrgComponent } from './orgs/edit-org/edit-org.component';
+import { UploadService } from './services/upload.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { EditOrgComponent } from './orgs/edit-org/edit-org.component';
     ListCitiesComponent, AddCityComponent, EditCityComponent,
     ListOrgsComponent, AddOrgComponent, EditOrgComponent,
     DialogConfirm,
-    // FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -45,12 +43,12 @@ import { EditOrgComponent } from './orgs/edit-org/edit-org.component';
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule, ReactiveFormsModule,
-    FileUploadModule,
     HotkeyModule.forRoot(),
     AngularMaterialComponentsModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    UploadService
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogConfirm]

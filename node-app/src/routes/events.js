@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {Event} = require('../models/event');
+const storageService = require('../services/storage.service');
+
 
 // ############   LIST
 router.get('/', async (req, res) => {
@@ -32,13 +34,17 @@ router.post('/', async (req, res) => {
         org_name: req.body.org_name,
         org_city: req.body.org_city,
         title: req.body.title,
-        img: req.body.img,
+        images: req.body.images,
         featured: req.body.featured
     });
 
     try {
         const result = await event.save();
         console.log('INSERTED: ', result);
+
+        // storageService.createBucket();
+        // storageService.listBuckets();
+
         return res.send(event);
     } catch (ex) {
         for(field in ex.errors) {
@@ -59,10 +65,11 @@ router.put('/:id', async (req, res) => {
             org_name: req.body.org_name,
             org_city: req.body.org_city,
             title: req.body.title,
-            img: req.body.img,
+            images: req.body.images,
             featured: req.body.featured
         });
         event.save();
+
         return res.send(event);
     } catch (error) {
         return res.status(400).send(error);
@@ -72,8 +79,15 @@ router.put('/:id', async (req, res) => {
 // ############   DELETE
 router.delete('/:id', async (req, res) => {
     try {
-        const event = await Event.findOneAndDelete({ _id: req.params.id });
+        let event = await Event.findById(req.params.id);
         if(!event) return res.status(404).send('The event with the given ID was not found.');
+
+        event.images.forEach(fileUrl => {
+            if(fileUrl) storageService.deleteFile(fileUrl);
+        });
+
+        event.delete();
+        // event = await Event.findOneAndDelete({ _id: req.params.id });
         return res.send(event);
     } catch (error) {
         return res.status(400).send(error);
