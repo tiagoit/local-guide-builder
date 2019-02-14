@@ -5,7 +5,7 @@
       [opened]="!(isHandset$ | async)">
     <!-- TODO: add logo here -->
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-nav-list (click)="drawer.toggle()">
       <a mat-list-item routerLink="/events">Eventos</a>
       <a mat-list-item routerLink="/cities">Cidades</a>
       <a mat-list-item routerLink="/orgs">Organizações</a>

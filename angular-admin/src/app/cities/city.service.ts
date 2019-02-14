@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CityService {
-
-  // TODO: Config environment variables
-  host = 'http://localhost';
-  url = this.host + '/api/cities';
+  url = `${environment.API_URL}/cities`;
 
   constructor(private http: HttpClient) { }
   

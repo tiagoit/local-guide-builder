@@ -7,12 +7,10 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 moment.locale('pt-BR');
 
-const events = require('./routes/events');
-const upload = require('./routes/upload');
-const cities = require('./routes/cities');
-const orgs = require('./routes/orgs');
+const config = require('config');
 
-// move
+console.log('NODE_CONFIG_DIR: ' + config.util.getEnv('NODE_CONFIG_DIR'));
+// TODO: move
 const {Event} = require('./models/event');
 
 const app = express();
@@ -27,26 +25,23 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
 // Angular Admin Module
 // app.get('/admin', (req, res) => {
 //     res.sendFile(path.join(__dirname, '/../public/admin/index.html'));
 // });
 app.use(express.static(__dirname + '/../public'));
-app.use('/events', express.static(__dirname + '/public'));
+// app.use('/events', express.static(__dirname + '/public'));
 
+// API Routes
+app.use('/api/events', require('./routes/events'));
+app.use('/api/upload', require('./routes/upload'));
+app.use('/api/cities', require('./routes/cities'));
+app.use('/api/orgs', require('./routes/orgs'));
 
 // Catch all other routes and return the index file
 app.get('admin/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/../public/admin'));
 });
-
-
-// API Routes
-app.use('/api/events', events);
-app.use('/api/upload', upload);
-app.use('/api/cities', cities);
-app.use('/api/orgs', orgs);
 
 // Connect to mongoose
 mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })

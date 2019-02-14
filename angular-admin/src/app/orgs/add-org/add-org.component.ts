@@ -24,7 +24,7 @@ export class AddOrgComponent implements OnInit {
       land: [''],
       email: [''],
       notes: [''],
-      status: [''],
+      status: [true],
 
       city: ['', Validators.required],
       neighborhood: [''],

@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const IncomingForm = require('formidable').IncomingForm;
 const storageService = require('../services/storage.service');
+const config = require('config');
+
+const bucketName = config.get('bucketName');
 
 router.post('/', async (req, res) => {
   var form = new IncomingForm();
@@ -15,8 +18,6 @@ router.post('/', async (req, res) => {
   });
 
   form.on('end', () => {
-    // TODO: get from env variable
-    let bucketName = 'sbg-localhost';
     let destFilename = `images/events/${srcFilename.replace("/tmp/upload_", "")}.${fileType}`;
     storageService.uploadFile(srcFilename, destFilename);
 
@@ -27,18 +28,10 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/', async (req, res) => {
-  let fileUrl = req.body.fileUrl;
-  fileUrl = fileUrl.replace(`https://storage.googleapis.com/${bucketName}`, '');
-
-  storageService.deleteFile(fileUrl);
+  storageService.deleteFile(req.body.fileUrl);
 
   form.on('end', () => {
-    // TODO: get from env variable
-    let bucketName = 'sbg-localhost';
-    let destFilename = `images/events/${srcFilename.replace("/tmp/upload_", "")}.${fileType}`;
-    storageService.uploadFile(srcFilename, destFilename);
-
-    res.json({'gcsPublicUrl': `https://storage.googleapis.com/${bucketName}/${destFilename}`});
+    res.json({});
   });
 
   form.parse(req);

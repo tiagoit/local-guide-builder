@@ -1,0 +1,9 @@
+{
+  "apps": [{
+    "script" : "./src/server.js",
+    "env": {
+      "NODE_ENV": "localhost",
+      "PORT": "8080"
+    }
+  }]
+}

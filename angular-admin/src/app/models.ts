@@ -9,8 +9,6 @@ export class Event {
     images: String[];
     featured: Boolean;
 
-    img: String; // TODO: remove
-
     constructor() {
         this.images = new Array<String>();
         this.images[0] = '';
