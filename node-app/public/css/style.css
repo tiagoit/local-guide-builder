@@ -848,6 +848,16 @@ textarea.input {
 	hot post
 \*----------------------------*/
 
+.post {
+  /* height: 240px;
+  wi */
+}
+
+.post img {
+  height: 240px;
+  width: 320px;
+}
+
 .hot-post {
   padding: 0 15px;
 }

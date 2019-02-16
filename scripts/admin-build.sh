@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd angular-admin
-ng build --deployUrl /admin/
+ng build --prod --deployUrl /admin/
