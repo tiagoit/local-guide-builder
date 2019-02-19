@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose'); 
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
 const moment = require('moment');
 moment.locale('pt-BR');
 
@@ -37,6 +39,7 @@ app.use('/api/events', require('./routes/events'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/cities', require('./routes/cities'));
 app.use('/api/orgs', require('./routes/orgs'));
+app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth']}));
 
 // Catch all other routes and return the index file
 app.get('admin/*', (req, res) => {
@@ -112,7 +115,21 @@ app.get('/about', function(req, res) {
     res.render('./pages/about');
 });
 
+var USERS = [
+    { 'id': 1, 'username': 'tiagosbg' },
+    { 'id': 2, 'username': 'webdev' },
+    // { 'id': 3, 'username': 'sebastian' },
+];
 
+app.post('/api/auth', function(req, res) {
+    const body = req.body;
+  
+    const user = USERS.find(user => user.username == body.username);
+    if(!user || body.password != 'webdev') return res.sendStatus(401);
+    
+    var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+    res.send({token});
+});
 
 //   app.use(express.static(__dirname + '/../public'));
 
