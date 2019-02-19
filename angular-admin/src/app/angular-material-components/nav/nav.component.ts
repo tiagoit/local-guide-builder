@@ -17,7 +17,7 @@ export class NavComponent {
       map(result => result.matches)
     );
 
-  constructor(private auth: AuthService, private router: Router, private breakpointObserver: BreakpointObserver) {}
+  constructor(public auth: AuthService, private router: Router, private breakpointObserver: BreakpointObserver) {}
 
   logout() {
     this.auth.logout();
