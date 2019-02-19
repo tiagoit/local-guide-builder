@@ -39,7 +39,7 @@ app.use('/api/events', require('./routes/events'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/cities', require('./routes/cities'));
 app.use('/api/orgs', require('./routes/orgs'));
-app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth']}));
+app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth', '', '/']}));
 
 // Catch all other routes and return the index file
 app.get('admin/*', (req, res) => {
