@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class AuthService {
@@ -9,7 +11,7 @@ export class AuthService {
 
   login(username: string, password: string): Observable<boolean> {
     // TODO: env variable
-    return this.http.post<{token: string}>('http://localhost:8080/api/auth', {username: username, password: password})
+    return this.http.post<{token: string}>(`${environment.API_URL}/auth`, {username: username, password: password})
       .pipe(
         map(result => {
           localStorage.setItem('access_token', result.token);
