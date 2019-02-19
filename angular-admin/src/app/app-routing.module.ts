@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
+
 import { ListEventsComponent } from "./events/list-events/list-events.component";
 import { AddEventComponent } from "./events/add-event/add-event.component";
 import { EditEventComponent } from "./events/edit-event/edit-event.component";
@@ -16,17 +19,21 @@ import { EditOrgComponent } from "./orgs/edit-org/edit-org.component";
 
 
 const routes: Routes = [
-  { path: 'events', component: ListEventsComponent },
-  { path: 'events/add', component: AddEventComponent },
-  { path: 'events/edit/:id', component: EditEventComponent },
+  { path: '', redirectTo: '/events', pathMatch: 'full' },
 
-  { path: 'cities', component: ListCitiesComponent },
-  { path: 'cities/add', component: AddCityComponent },
-  { path: 'cities/edit/:id', component: EditCityComponent },
+  { path: 'login', component: LoginComponent},
 
-  { path: 'orgs', component: ListOrgsComponent },
-  { path: 'orgs/add', component: AddOrgComponent },
-  { path: 'orgs/edit/:id', component: EditOrgComponent }
+  { path: 'events', component: ListEventsComponent, canActivate: [AuthGuard] },
+  { path: 'events/add', component: AddEventComponent, canActivate: [AuthGuard] },
+  { path: 'events/edit/:id', component: EditEventComponent, canActivate: [AuthGuard] },
+
+  { path: 'cities', component: ListCitiesComponent, canActivate: [AuthGuard] },
+  { path: 'cities/add', component: AddCityComponent, canActivate: [AuthGuard] },
+  { path: 'cities/edit/:id', component: EditCityComponent, canActivate: [AuthGuard] },
+
+  { path: 'orgs', component: ListOrgsComponent, canActivate: [AuthGuard] },
+  { path: 'orgs/add', component: AddOrgComponent, canActivate: [AuthGuard] },
+  { path: 'orgs/edit/:id', component: EditOrgComponent, canActivate: [AuthGuard] }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

@@ -6,9 +6,10 @@
     <!-- TODO: add logo here -->
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list (click)="drawer.toggle()">
-      <a mat-list-item routerLink="/events">Eventos</a>
-      <a mat-list-item routerLink="/cities">Cidades</a>
-      <a mat-list-item routerLink="/orgs">Organizações</a>
+      <a mat-list-item routerLink="/events" routerLinkActive="active" *ngIf="auth.loggedIn">Eventos</a>
+      <a mat-list-item routerLink="/cities" routerLinkActive="active" *ngIf="auth.loggedIn">Cidades</a>
+      <a mat-list-item routerLink="/orgs" routerLinkActive="active" *ngIf="auth.loggedIn">Organizações</a>
+      <a mat-list-item (click)="logout()" href="#" *ngIf="auth.loggedIn">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
