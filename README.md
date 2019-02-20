@@ -26,3 +26,10 @@
 # Serve frontend (watch option)
 - `cd node-app`
 - `pm2 start pm2config.json` or `pm2 start pm2config.json --watch`
+
+# webdev steps
+- clone repository
+- cd `node-app`
+- `npm i`
+- `pm2 start pm2config.json` or `pm2 start pm2config.json --watch`
+- open `localhost` on browser
