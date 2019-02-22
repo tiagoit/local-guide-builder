@@ -1,5 +1,6 @@
 { 
     "name": "Sul BA Guia",
     "bucketName": "sbg-localhost",
-    "projectID": "sulbaguia"
+    "projectID": "sulbaguia",
+    "env": "local"
 }
