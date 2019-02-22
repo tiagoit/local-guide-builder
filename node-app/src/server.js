@@ -10,6 +10,8 @@ const moment = require('moment');
 moment.locale('pt-BR');
 
 const config = require('config');
+const ENV = config.get('env');
+console.log("ENV: ", ENV);
 
 console.log('NODE_CONFIG_DIR: ' + config.util.getEnv('NODE_CONFIG_DIR'));
 // TODO: move
@@ -46,10 +48,19 @@ app.get('admin/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/../public/admin'));
 });
 
-// Connect to mongoose
-mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })
-    .then(() => console.log('Connected to MongoDB...'))
+if(ENV === 'production') {
+    mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })
+        .then(() => console.log('Connected to MongoDB...'))
+        .catch((err) => console.log('Cannot connect to MongoDB: ', err));
+} else {
+    mongoose.connect('mongodb://35.231.67.98/sulbaguia', { 
+            auth: { authdb:"admin" },
+            useNewUrlParser: false,
+            user: 'webdev',
+            pass: 'webdev#1212'
+        }).then(() => console.log('Connected to MongoDB...'))
     .catch((err) => console.log('Cannot connect to MongoDB: ', err));
+}
 
 // index
 app.get('/', async (req, res) => {

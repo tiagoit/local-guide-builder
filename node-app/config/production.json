@@ -1,5 +1,6 @@
 {
     "name": "Sul BA Guia - Production",
     "bucketName": "sulbaguia",
-    "projectID": "sulbaguia"
+    "projectID": "sulbaguia",
+    "env": "production"
 }
