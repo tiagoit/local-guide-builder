@@ -13,9 +13,9 @@
 
 
 <!-- SECTION - DESTAQUE -->
-<% if (events.featured && events.featured.length > 0) { %>
+<!-- <% if (events.featured && events.featured.length > 0) { %>
     <% include ./index_partial_featured.ejs %>
-<% } %>
+<% } %> -->
 
 
 <!-- SECTION - MAIN ADVERTISE-->
@@ -34,18 +34,18 @@
 
 
 <!-- SECTION - MAIN CONTAINER -->
-<div class="section">
+<div class="section first">
     <div class="container">
         <div class="row">
             <!-- EVENTS -->
-            <div class="col-md-8 events-list">
+            <div class="col-md-12 events-list">
                 <% include ./index_partial_events.ejs %>
             </div>
 
             <!-- WIDGETS -->
-            <div class="col-md-4">
-                <% include ./index_partial_side.ejs %>
-            </div>
+            <!-- <div class="col-md-4"> -->
+                <%# include ./index_partial_side.ejs %>
+            <!-- </div> -->
         </div>
     </div>
 </div>

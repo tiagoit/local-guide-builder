@@ -41,7 +41,7 @@ app.use('/api/events', require('./routes/events'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/cities', require('./routes/cities'));
 app.use('/api/orgs', require('./routes/orgs'));
-app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth', '', '/']}));
+app.use(expressJwt({secret: '9df679d87fd79f7ds97f9ds7fsd9fmml2kmkj'}).unless({path: ['/api/auth', '', '/']}));
 
 // Catch all other routes and return the index file
 app.get('admin/*', (req, res) => {
@@ -78,18 +78,23 @@ app.get('/', async (req, res) => {
         }
 
         events.forEach((ev) => {
+            console.log('ev.start: ', ev.start.toISOString().substring(0, 10));
+            console.log(moment().toISOString());
+            console.log(moment(ev.start).startOf('day').diff(moment().startOf('day'), 'days'));
+
+            
+
             if(categorizedEvents.featured.length < 9 && ev.featured) {
                 categorizedEvents.featured.push(ev);
             }
-            
+
             let dateDiffInDays = moment(ev.start).diff(moment(), 'days');
-            console.log(dateDiffInDays)
 
             // (0, 1, 2-8, 9-25, 26-60)
             // today
             if (dateDiffInDays === 0) {
                 categorizedEvents.today.push(ev);
-            } 
+            }
 
             // tomorrow
             else if (dateDiffInDays === 1) { 
@@ -134,11 +139,11 @@ var USERS = [
 
 app.post('/api/auth', function(req, res) {
     const body = req.body;
-  
+
     const user = USERS.find(user => user.username == body.username);
     if(!user || body.password != 'webdev') return res.sendStatus(401);
-    
-    var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+
+    var token = jwt.sign({userID: user.id}, '9df679d87fd79f7ds97f9ds7fsd9fmml2kmkj', {expiresIn: '2h'});
     res.send({token});
 });
 
