@@ -169,11 +169,15 @@ figure>figcaption {
 
 .section {
   padding-top: 30px;
-  background-color: #f5f5f5;
+  background-color: #f6f6f6;
 }
 
 .section-row {
   margin-bottom: 30px;
+}
+
+.section.first {
+  margin-top: 80px;
 }
 
 .section-title {
@@ -184,24 +188,27 @@ figure>figcaption {
 .section-title .title {
   position: relative;
   display: inline-block;
-  background-color: #fff;
-  font-size: 16px;
+  background-color: #f6f6f6;
+  font-size: 24px;
   text-transform: uppercase;
   margin-top: 0px;
   margin-bottom: 0px;
   padding-right: 10px;
   z-index: 20;
+  font-family: Roboto;
+  font-weight: 500;
+  color:rgba(0, 0, 0, 0.5);
 }
 
 .section-title:after {
   content: "";
   display: inline-block;
-  height: 2px;
+  height: 3px;
   background-color: #e8eaed;
   position: absolute;
   left: 0;
   right: 0;
-  top: 10px;
+  top: 14px;
   z-index: 10;
 }
 
@@ -292,9 +299,12 @@ textarea.input {
 ===========================================================*/
 
 nav {
-  height: 64px;
+  height: 80px;
 }
 
+.navbar.fixed-top {
+  box-shadow: 0 1px 1px 1px lightgrey;
+}
 
 #nav {
   /* border-bottom: 2px solid #e8eaed; */
@@ -362,13 +372,13 @@ nav {
 
 .nav-logo .logo {
   display: inline-block;
-  line-height: 70px;
+  /* line-height: 70px; */
   height: 70px;
 }
 
 .nav-logo .logo>img {
   max-height: 60px;
-  margin-top: -4px;
+  /* margin-top: -4px; */
   margin-left: 12px;
 }
 
@@ -733,14 +743,22 @@ nav {
 .post {
   position: relative;
   margin-bottom: 30px;
+  background-color: #fff;
+  height: 334px;
+  box-shadow: 0 1px 1px 1px lightgrey;
+  padding: 1px 0;
 }
 
+.post:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
 .post .post-body {
   position: relative;
-  margin: -50px 0px 0px 3%;
-  padding: 5%;
+  /* margin: -50px 0px 0px 3%; */
+  padding: 8px 12px;
   background: #fff;
   z-index: 10;
+  height: 90px;
 }
 
 .post .post-img {
@@ -764,6 +782,8 @@ nav {
 
 .post .post-title {
   font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .post .post-title.title-sm {
@@ -847,38 +867,11 @@ nav {
 	hot post
 \*----------------------------*/
 
-.post {
-  /* height: 240px;
-  wi */
-}
 
-.post img {
-  height: 240px;
-  width: 320px;
-}
 
 .hot-post {
   padding: 0 15px;
 }
-
-/* .hot-post .hot-post-left {
-  padding-right: 0px;
-  padding-left: 0px;
-
-} */
-
-/* .hot-post .hot-post-left .post-img  img {
-  height: 506px;
-} */
-
-/* .hot-post .hot-post-right {
-  padding-right: 0;
-  padding-left: 5px;
-} */
-
-/* .hot-post .hot-post-right .post-img  img {
-  height: 250px;
-} */
 
 .hot-post .post {
   margin-bottom: 7px;
@@ -895,7 +888,7 @@ nav {
 \*----------------------------*/
 
 .events-list .post {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .events-list .post .post-body .post-category {
@@ -907,12 +900,11 @@ nav {
 }
 
 .events-list .post-img {
-  max-height: 320px;
-  min-height: 240px;
+  height: 240px;
 }
 
 .events-list .post-img img {
-  max-height: 280px;
+  /* max-height: 280px; */
 }
 
 
@@ -1474,7 +1466,6 @@ nav {
 ===========================================================*/
 
 #footer {
-  margin-top: 40px;
   padding-top: 64px;
   padding-bottom: 40px;
   background-color: #1b1c1e;
