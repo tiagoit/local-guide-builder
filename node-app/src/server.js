@@ -96,18 +96,16 @@ app.get('/evento/:city_code/:org_code/:event_code', function(req, res) {
 });
 
 var USERS = [
-    { 'id': 1, 'username': 'tiagosbg' },
-    { 'id': 2, 'username': 'webdev' },
-    // { 'id': 3, 'username': 'sebastian' },
+    { id: 1, name: 'tiago', pass: 'a4b3c2d1' },
+    { id: 2, name: 'teste', pass: 'teste123' }
 ];
 
 app.post('/api/auth', function(req, res) {
-    const body = req.body;
+    const userFromDB = USERS.find(user => user.name == req.body.username);
+    console.log(userFromDB);
+    if(!userFromDB || req.body.password != userFromDB.pass) return res.sendStatus(401);
 
-    const user = USERS.find(user => user.username == body.username);
-    if(!user || body.password != 'webdev') return res.sendStatus(401);
-
-    var token = jwt.sign({userID: user.id}, '9df679d87fd79f7ds97f9ds7fsd9fmml2kmkj', {expiresIn: '2h'});
+    var token = jwt.sign({userID: userFromDB.id}, '908&6$%:12@79d8$7fd79f7ds97f9ds7fsddsf98s', {expiresIn: '1h'});
     res.send({token});
 });
 
