@@ -1,11 +1,11 @@
-<div class="post post-thumb">
-    <a class="post-img" href="#" onclick="return false;"><img src="<%= events.featured[index].images[0] %>" alt=""></a>
-    <div class="post-body">
-        <div class="post-category featured">
+<div class="event event-thumb">
+    <a class="event-img" href="#" onclick="return false;"><img src="<%= events.featured[index].images[0] %>" alt=""></a>
+    <div class="event-body">
+        <div class="event-category featured">
             <a href="#" onclick="return false;"><%= events.featured[index].org_name %></a>
         </div>
-        <h3 class="post-title title-lg"><a href="#" onclick="return false;"><%= events.featured[index].title %></a></h3>
-        <ul class="post-meta">
+        <h3 class="event-title title-lg"><a href="#" onclick="return false;"><%= events.featured[index].title %></a></h3>
+        <ul class="event-meta">
             <li><a href="#" onclick="return false;"><%= events.featured[index].org_city %></a></li>
             <li><%= moment(events.featured[index].start).format("ddd") %></li>
             <li><%= moment(events.featured[index].start).format("DD/MM") %></li>
