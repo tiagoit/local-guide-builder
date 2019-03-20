@@ -41,7 +41,7 @@ app.use('/api/events', require('./routes/events'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/cities', require('./routes/cities'));
 app.use('/api/orgs', require('./routes/orgs'));
-app.use(expressJwt({secret: '9df679d87fd79f7ds97f9ds7fsd9fmml2kmkj'}).unless({path: ['/api/auth', '', '/']}));
+app.use(expressJwt({secret: '9df679d87fd79f7ds97f9ds7fsd9fmml2kmkj'}).unless({path: ['/api/auth', '', '/', '/about']}));
 
 // Catch all other routes and return the index file
 app.get('admin/*', (req, res) => {
@@ -50,7 +50,7 @@ app.get('admin/*', (req, res) => {
 
 if(ENV === 'production') {
     mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })
-        .then(() => console.log('Connected to MongoDB...'))
+        .then(() => console.log('Connected to MongoDB (1)...'))
         .catch((err) => console.log('Cannot connect to MongoDB: ', err));
 } else {
     mongoose.connect('mongodb://35.231.67.98/sulbaguia', { 
@@ -58,77 +58,41 @@ if(ENV === 'production') {
             useNewUrlParser: false,
             user: 'webdev',
             pass: 'webdev#1212'
-        }).then(() => console.log('Connected to MongoDB...'))
+        }).then(() => console.log('Connected to MongoDB (2)...'))
     .catch((err) => console.log('Cannot connect to MongoDB: ', err));
 }
 
 // index
 app.get('/', async (req, res) => {
+    console.log('get /');
     try {
+        // TODO: Exclude past events on query
+        // TODO: Only next 15 days events or featured on query
         const events = await Event.find().sort('start');
-        console.log('Events: ', events);
-        // res.send(genres);
-        let categorizedEvents = {
-            featured: [],
-            today: [],
-            tomorrow: [],
-            sevenDays: [],
-            fifteenDays: [],
-            thirtyDays: []
-        }
+        let eventsByDate = []; // 0 = today | 1 = tomorrow (d+X)
+        let featured = [];
 
         events.forEach((ev) => {
-            console.log('ev.start: ', ev.start.toISOString().substring(0, 10));
-            console.log(moment().toISOString());
-            console.log(moment(ev.start).startOf('day').diff(moment().startOf('day'), 'days'));
+            if(featured.length < 9 && ev.featured) featured.push(ev);
 
-            
-
-            if(categorizedEvents.featured.length < 9 && ev.featured) {
-                categorizedEvents.featured.push(ev);
-            }
-
-            let dateDiffInDays = moment(ev.start).diff(moment(), 'days');
-
-            // (0, 1, 2-8, 9-25, 26-60)
-            // today
-            if (dateDiffInDays === 0) {
-                categorizedEvents.today.push(ev);
-            }
-
-            // tomorrow
-            else if (dateDiffInDays === 1) { 
-                categorizedEvents.tomorrow.push(ev);
-            }
-
-            // next 7 days
-            else if (dateDiffInDays >= 2 && dateDiffInDays <= 8) {
-                categorizedEvents.sevenDays.push(ev);
-            } 
-
-            // next ~15 days
-            else if (dateDiffInDays >= 9 && dateDiffInDays <= 25) {
-                categorizedEvents.fifteenDays.push(ev);
-            }
-
-            // next ~30 days
-            else if (dateDiffInDays >= 26 && dateDiffInDays <= 60) {
-                categorizedEvents.thirtyDays.push(ev);
-            }
+            let day = moment(ev.start).startOf('day');
+            let dateDiffInDays = moment(day).diff(moment(), 'days');
+            if(eventsByDate[dateDiffInDays] === undefined) eventsByDate[dateDiffInDays] = [];
+            eventsByDate[dateDiffInDays].push(ev);
         });
 
+        console.log('eventsByDate: ', eventsByDate);
 
-        res.render('./pages/index', {'events': categorizedEvents, 'moment': moment});
-        // res.render('./pages/index');
+        res.render('./pages/index', {'events': eventsByDate, 'moment': moment});
     } catch (error) {
+        console.log('get / - error: ', error);
         return res.status(404).send(error);
     }
-    // res.render('./pages/index');
 });
 
-// about page 
-app.get('/about', function(req, res) {
-    res.render('./pages/about');
+// página do evento | sulbaguia.com.br/evento/arraial-d-ajuda/morocha-club/mato-seco-e-guine
+app.get('/evento/:city_code/:org_code/:event_code', function(req, res) {
+    res.render('./pages/about', {city_code: req.params['city_code'], org_code: req.params['org_code'], event_code: ['event_code']});
 });
 
 var USERS = [
