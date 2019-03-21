@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  font-family: 'Muli', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #505050;
   font-weight: 400;
@@ -132,7 +132,7 @@ textarea.input {
   color: #353535;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 719px) {
   .main-container {
     margin: 100px 40px 20px;
   }
@@ -174,11 +174,14 @@ textarea.input {
 ===========================================================*/
 
 nav {
-  height: 80px;
+  height: 64px;
 }
 
 .navbar.fixed-top {
   box-shadow: 0 1px 1px 1px lightgrey;
+  background-color: #F7F7F7 !important;
+  background-image: url('/img/bg-brilliant.png');  
+  padding: 4px 16px;
 }
 
 #nav:after {
@@ -264,13 +267,13 @@ nav {
 .nav-logo .logo {
   display: inline-block;
   /* line-height: 70px; */
-  height: 70px;
+  height: 56px;
 }
 
 .nav-logo .logo>img {
-  max-height: 60px;
+  height: 56px;
   /* margin-top: -4px; */
-  margin-left: 12px;
+  /* margin-left: 12px; */
 }
 
 /*----------------------------*\
@@ -528,13 +531,13 @@ nav {
   transform: translateY(-2px) rotate(135deg);
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 719px) {
   .nav-logo {
     width: 100vw;
     position: absolute !important;
     text-align: center;
     left: 0 !important;
-    top: 12px;
+    top: 4px;
   }
 }
 
@@ -580,11 +583,11 @@ nav {
   padding: 0 12px;
   position: relative;
   display: inline-block;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
   z-index: 20;
-  font-family: Roboto;
+  font-family: Montserrat;
   font-weight: 500;
   color:rgba(0, 0, 0, 0.5);
 }
@@ -602,22 +605,35 @@ nav {
 }
 
 .event {
-  width: 280px;
-  height: 300px;
+  width: 240px;
+  height: 320px; /* 300 */
   background-color: #fff;
   box-shadow: 0 1px 1px 1px lightgrey;
+  cursor: pointer;
+  border-radius: 4px;
 }
 .event:hover {
   /* TODO: stop moving text */
-  /* border: 1px solid rgba(0, 0, 0, 0.5); */
-  background-color: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #f3f3f3;
+}
+
+.event:hover .event-img {
+  height: 229px;
+}
+
+.event:hover .event-body {
+  height: 89px;
+  padding: 8px 11px;
 }
 
 
 .event .event-img {
   display: block;
-  height: 210px;
+  height: 230px;
   overflow: hidden;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 .event .event-img > img {
   width: 100%;
@@ -625,11 +641,6 @@ nav {
   transition: 1.6s -webkit-transform;
   transition: 1.6s transform;
   transition: 1.6s transform, 1.6s -webkit-transform;
-}
-.event .event-img:hover > img {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
 }
 
 
@@ -639,11 +650,35 @@ nav {
   background: inherit;
   z-index: 10;
   height: 90px;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 
+.event .event-body .event-org {
+  margin-bottom: 4px;
+}
+.event .event-body .event-org a {
+  color: #6c9d61;
+  font-weight: 900;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.event .event-body .event-org a:after {
+  content: ',';
+  display: inline-block;
+}
+.event .event-body .event-org a:last-child:after {
+  display: none;
+}
+
+
+
+
+
+
 .event .event-body .event-title {
-  font-size: 16px;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 4px;
@@ -651,24 +686,6 @@ nav {
 }
 .event .event-body .event-title a {
   color: rgba(0,0,0,0.7) !important;
-}
-
-
-.event .event-body .event-category {
-  margin-bottom: 4px;
-}
-.event .event-body .event-category a {
-  color: #6c9d61;
-  font-weight: 900;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-.event .event-body .event-category a:after {
-  content: ',';
-  display: inline-block;
-}
-.event .event-body .event-category a:last-child:after {
-  display: none;
 }
 
 
@@ -700,13 +717,13 @@ nav {
 }
 
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 719px) {
   .event-row-title {
     text-align: center;
   }
 
   .event-row-title h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .event-row-title:after {
@@ -757,7 +774,8 @@ nav {
 ><<<<<<<<      ><<      ><<<<<<<<><<      ><<     ><<         ><<         ><<<<<   
                                                                                
 =====================================================================================*/
-.page-header .event-category {
+/*
+.page-header .event-org {
   margin-bottom: 10px;
 }
 
@@ -835,7 +853,7 @@ nav {
   display: none;
 }
 
-
+*/
 
 
 
@@ -1082,7 +1100,8 @@ nav {
 #footer {
   padding-top: 64px;
   padding-bottom: 40px;
-  background-color: #1b1c1e;
+  background-color: #111 !important;
+  background-image: url(/img/bg-brilliant.png);
 }
 
 #footer {
