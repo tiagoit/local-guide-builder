@@ -34,9 +34,4 @@
 	$('.search-close').on('click', function () {
 		$('#nav-search').removeClass('active');
 	});
-
-	// Parallax Background
-	$.stellar({
-		responsive: true
-	});
 })(jQuery);

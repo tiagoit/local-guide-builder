@@ -12,6 +12,7 @@ moment.locale('pt-BR');
 const config = require('config');
 const ENV = config.get('env');
 console.log("ENV: ", ENV);
+console.log('process.env.PORT: ', process.env.PORT);
 
 console.log('NODE_CONFIG_DIR: ' + config.util.getEnv('NODE_CONFIG_DIR'));
 // TODO: move
@@ -29,10 +30,6 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// Angular Admin Module
-// app.get('/admin', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/../public/admin/index.html'));
-// });
 app.use(express.static(__dirname + '/../public'));
 // app.use('/events', express.static(__dirname + '/public'));
 
@@ -43,24 +40,22 @@ app.use('/api/cities', require('./routes/cities'));
 app.use('/api/orgs', require('./routes/orgs'));
 app.use(expressJwt({secret: '9df679d87fd79f7ds97f9ds7fsd9fmml2kmkj'}).unless({path: ['/api/auth', '', '/', '/about']}));
 
-// Catch all other routes and return the index file
-app.get('admin/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../public/admin'));
-});
 
-if(ENV === 'production') {
-    mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })
-        .then(() => console.log('Connected to MongoDB (1)...'))
-        .catch((err) => console.log('Cannot connect to MongoDB: ', err));
-} else {
-    mongoose.connect('mongodb://35.231.67.98/sulbaguia', { 
-            auth: { authdb:"admin" },
-            useNewUrlParser: false,
-            user: 'webdev',
-            pass: 'webdev#1212'
-        }).then(() => console.log('Connected to MongoDB (2)...'))
-    .catch((err) => console.log('Cannot connect to MongoDB: ', err));
-}
+// if(ENV === 'production') {
+//     mongoose.connect('mongodb://localhost/sulbaguia', { useNewUrlParser: true })
+//         .then(() => console.log('Connected to MongoDB (1)...'))
+//         .catch((err) => console.log('Cannot connect to MongoDB: ', err));
+// } else {
+    
+// }
+mongoose.connect('mongodb://35.231.67.98/sulbaguia', { 
+        auth: { authdb:"admin" },
+        useNewUrlParser: false,
+        user: 'webdev',
+        pass: 'webdev#1212'
+    }).then(() => console.log('Connected to MongoDB (2)...'))
+.catch((err) => console.log('Cannot connect to MongoDB: ', err));
+
 
 // index
 app.get('/', async (req, res) => {
