@@ -1,7 +1,8 @@
 <!-- events[0] = TODAY -->
-<% for (var day=0; day<15; day++) { %>
+<% for (var day=0; day<60; day++) { %>
+    <!-- <div><%=day%> <%= events[day] %></div> -->
     <% if (events[day] && events[day].length > 0) { %>
-        <div class="row mt-2">
+        <div class="row mt-2 event-row">
             <div class="col-md-12">
                 <div class="event-row-title">
                     <h2>
@@ -10,8 +11,8 @@
                         <% } else if (day === 1) { %>
                             AMANHÃ | 
                         <% } %>
-                        <%= moment(events[day][0]['start']).format("DD/MM") %>
-                        (<%= moment(events[day][0]['start']).format("dddd") %>)
+                        <%= moment(events[day][0]['start']).format("DD/MM").replace('/', '.') %>
+                        | <%= moment(events[day][0]['start']).format("dddd").replace('-feira', '') %>
                     </h2>
                 </div>
             </div>
@@ -29,8 +30,8 @@
                             <h3 class="event-title"><a href="#" onclick="return false;"><%= event.title %></a></h3>
                             <ul class="event-meta">
                                 <li><a href="#" onclick="return false;"><%= event.org_city %></a></li>
-                                <li><%= moment(event.start).format("ddd") %></li>
                                 <li><%= moment(event.start).format("DD/MM") %></li>
+                                <li><%= moment(event.start).format("dddd").replace('-feira', '') %></li>
                             </ul>
                         </div>
                     </div>

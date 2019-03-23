@@ -6,8 +6,7 @@ const bucketName = config.get('bucketName');
  
 // Creates a client
 const storage = new Storage({
-  projectID: projectID,
-  keyFilename: `${__dirname}/../../service-account.json`
+  projectID: projectID
 });
 
 // Creates the new bucket
