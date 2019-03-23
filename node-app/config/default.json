@@ -2,5 +2,6 @@
     "name": "Sul BA Guia",
     "bucketName": "sbg-localhost",
     "projectID": "sulbaguia",
-    "env": "local"
+    "env": "local",
+    "jwtSecretToken": "908&6$%:12@738s$7fd79f7ds97f9ds7fsd89sdf98s"
 }

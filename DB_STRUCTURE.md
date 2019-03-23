@@ -70,18 +70,18 @@
 - code
 - tag
 - *DATA*:
-    - samba
-    - pagode
     - axé
-    - forró
-    - mpb
-    - jazz
     - blues
-    - rock nacional
-    - rock internacional
-    - funk
-    - sertanejo
     - eletrônica
+    - forró
+    - funk
+    - hip-hop
+    - jazz
+    - mpb
+    - pagode
+    - pop-rock
+    - samba
+    - sertanejo
 
 
 ## cities:

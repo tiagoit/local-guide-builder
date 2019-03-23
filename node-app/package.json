@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node ./src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gcloud app deploy --quiet",
+    "gae_logs": "gcloud app logs tail -s default"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
     "formidable": "^1.2.1",
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.22.2",
+    "moment-timezone": "^0.5.23",
     "mongoose": "^5.3.15",
     "morgan": "^1.9.1"
   }

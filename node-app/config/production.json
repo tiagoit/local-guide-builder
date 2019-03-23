@@ -2,5 +2,6 @@
     "name": "Sul BA Guia - Production",
     "bucketName": "sulbaguia",
     "projectID": "sulbaguia",
-    "env": "production"
+    "env": "production",
+    "jwtSecretToken": "908&6$%:12@79d8$7fd79f7ds97f9ds7fsddsf98s"
 }
