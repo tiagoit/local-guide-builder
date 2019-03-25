@@ -9,7 +9,7 @@ function removeAcentos(str) {
 }
 
 function encode(str) {
-    str = str.toLowerCase().replace(/ /g , '-');
+    str = str.toLowerCase().trim().replace(/ /g , '-');
     return removeAcentos(str);
 }
 

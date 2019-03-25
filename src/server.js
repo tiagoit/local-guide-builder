@@ -11,14 +11,9 @@ const moment = require('moment-timezone');
 moment.locale('pt-BR');
 moment.tz.setDefault('America/Sao_Paulo');
 
-console.log('Config env: ', config.get('env'));
-
 const app = express();
 const DEBUG = process.env.NODE_ENV !== 'production';
-// TODO: change back to 8080
 const PORT = DEBUG ? '8080' : process.env.PORT;
-
-console.log('PORT: ', PORT);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));

@@ -19,9 +19,10 @@ const ContactSchema = new mongoose.Schema({
 });
 
 const Org = mongoose.model('Org', new mongoose.Schema({
+    code: { type: String, required: true, maxlength: 120 },
     name: { type: String, required: true, maxlength: 120 },
     address: AddressSchema,
-    contact: [ContactSchema],
+    contacts: [ContactSchema],
     mobile: { type: String, required: false, maxlength: 120 },
     land: { type: String, required: false, maxlength: 2 },
     email: { type: String, required: false, maxlength: 120 },
