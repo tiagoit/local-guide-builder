@@ -26,7 +26,6 @@ router.get('/:id', async (req, res) => {
 // ############   STORE
 router.post('/', async (req, res) => {
     const org = new Org({
-        code: req.body.code,
         name: req.body.name,
         mobile: req.body.mobile,
         land: req.body.land,
@@ -40,7 +39,7 @@ router.post('/', async (req, res) => {
             street: req.body.address.street,
             number: req.body.address.number,
             complement: req.body.address.complement,
-            zip_code: req.body.address.zip_code
+            zipCode: req.body.address.zipCode
         },
         contact: {
             name: req.body.contact.name,
@@ -68,7 +67,6 @@ router.put('/:id', async (req, res) => {
     try {
         const org = await Org.findById(req.params.id);    
         org.set({
-            code: req.body.code,
             name: req.body.name,
             mobile: req.body.mobile,
             land: req.body.land,
@@ -82,7 +80,7 @@ router.put('/:id', async (req, res) => {
                 street: req.body.address.street,
                 number: req.body.address.number,
                 complement: req.body.address.complement,
-                zip_code: req.body.address.zip_code
+                zipCode: req.body.address.zipCode
             },
             contact: {
                 name: req.body.contact.name,
