@@ -1,8 +1,9 @@
 const express = require('express');
+const moment = require('moment-timezone');
 const router = express.Router();
-const {Event} = require('../models/event');
+const { Event } = require('../models/event');
 const storageService = require('../services/storage.service');
-
+const utilsService = require('../services/utils.service');
 
 // ############   LIST
 router.get('/', async (req, res) => {
@@ -28,6 +29,7 @@ router.get('/:id', async (req, res) => {
 // ############   STORE
 router.post('/', async (req, res) => {
     const event = new Event({
+        code: utilsService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
         start: req.body.start,
         end: req.body.end,
         org: req.body.org,
@@ -39,11 +41,6 @@ router.post('/', async (req, res) => {
 
     try {
         const result = await event.save();
-        console.log('INSERTED: ', result);
-
-        // storageService.createBucket();
-        // storageService.listBuckets();
-
         return res.send(event);
     } catch (ex) {
         for(field in ex.errors) {
@@ -58,6 +55,7 @@ router.put('/:id', async (req, res) => {
     try {
         const event = await Event.findById(req.params.id);    
         event.set({
+            code: utilsService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
             start: req.body.start,
             end: req.body.end,
             org: req.body.org,
@@ -67,9 +65,6 @@ router.put('/:id', async (req, res) => {
             featured: req.body.featured
         });
         event.save();
-
-        console.log('UPDATED: ', event);
-
         return res.send(event);
     } catch (error) {
         return res.status(400).send(error);

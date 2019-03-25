@@ -6,7 +6,8 @@ const bucketName = config.get('bucketName');
  
 // Creates a client
 const storage = new Storage({
-  projectID: projectID
+  projectID: projectID,
+  keyFilename: 'service-account-87s9f79a7fd96fs9ds7f.json'
 });
 
 // Creates the new bucket
@@ -53,7 +54,6 @@ async function uploadFile(srcFilename, destFilename) {
 
 async function deleteFile(fileUrl) {
     let filename = fileUrl.replace(`https://storage.googleapis.com/${bucketName}/`, '');
-    console.log('delete: ', filename);
     // Deletes the file from the bucket
     await storage
       .bucket(bucketName)

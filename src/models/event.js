@@ -1,11 +1,17 @@
 const mongoose = require('mongoose');
 
 const Event = mongoose.model('Event', new mongoose.Schema({
-    title: {
+    code: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 120
+    },
+    title: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 35
     },
     start: {
         type: Date

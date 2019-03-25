@@ -18,9 +18,6 @@ router.get('/', async (req, res) => {
                     featured: { $eq: true }
                 }]
         }).sort('start');
-        
-
-        // console.log(events);
 
         let eventsByDate = []; // 0 = today | 1 = tomorrow (d+X)
         let featured = [];
@@ -34,11 +31,8 @@ router.get('/', async (req, res) => {
             eventsByDate[dateDiffInDays].push(ev);
         });
 
-        // console.log('eventsByDate: ', eventsByDate);
-
         res.render('./pages/index', {'events': eventsByDate, 'moment': moment});
     } catch (error) {
-        console.log('get / - error: ', error);
         return res.status(404).send(error);
     }
 });

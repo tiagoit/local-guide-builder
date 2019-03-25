@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Org } = require('../models/org');
+const utilsService = require('../services/utils.service');
 
 // ############   LIST
 router.get('/', async (req, res) => {
@@ -26,6 +27,7 @@ router.get('/:id', async (req, res) => {
 // ############   STORE
 router.post('/', async (req, res) => {
     const org = new Org({
+        code: utilsService.encode(req.body.address.city) + '|' + utilsService.encode(req.body.name),
         name: req.body.name,
         mobile: req.body.mobile,
         land: req.body.land,
@@ -41,18 +43,17 @@ router.post('/', async (req, res) => {
             complement: req.body.address.complement,
             zipCode: req.body.address.zipCode
         },
-        contact: {
-            name: req.body.contact.name,
-            email: req.body.contact.email,
-            mobile: req.body.contact.mobile,
-            role: req.body.contact.role,
-            notes: req.body.contact.notes,
-        }
+        contacts: [{
+            name: req.body.contacts[0].name,
+            email: req.body.contacts[0].email,
+            mobile: req.body.contacts[0].mobile,
+            role: req.body.contacts[0].role,
+            notes: req.body.contacts[0].notes,
+        }]
     });
 
     try {
         const result = await org.save();
-        console.log('INSERTED: ', result);
         return res.send(org);
     } catch (ex) {
         for(field in ex.errors) {
@@ -67,6 +68,7 @@ router.put('/:id', async (req, res) => {
     try {
         const org = await Org.findById(req.params.id);    
         org.set({
+            code: utilsService.encode(req.body.address.city) + '|' + utilsService.encode(req.body.name),
             name: req.body.name,
             mobile: req.body.mobile,
             land: req.body.land,
@@ -82,13 +84,13 @@ router.put('/:id', async (req, res) => {
                 complement: req.body.address.complement,
                 zipCode: req.body.address.zipCode
             },
-            contact: {
-                name: req.body.contact.name,
-                email: req.body.contact.email,
-                mobile: req.body.contact.mobile,
-                role: req.body.contact.role,
-                notes: req.body.contact.notes,
-            }
+            contacts: [{
+                name: req.body.contacts[0].name,
+                email: req.body.contacts[0].email,
+                mobile: req.body.contacts[0].mobile,
+                role: req.body.contacts[0].role,
+                notes: req.body.contacts[0].notes,
+            }]
         });
         org.save();
         return res.send(org);
