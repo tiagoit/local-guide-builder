@@ -30,9 +30,8 @@ router.post('/', async (req, res) => {
     const event = new Event({
         start: req.body.start,
         end: req.body.end,
-        org_code: req.body.org_code,
-        org_name: req.body.org_name,
-        org_city: req.body.org_city,
+        org: req.body.org,
+        city: req.body.city,
         title: req.body.title,
         images: req.body.images,
         featured: req.body.featured
@@ -61,9 +60,8 @@ router.put('/:id', async (req, res) => {
         event.set({
             start: req.body.start,
             end: req.body.end,
-            org_code: req.body.org_code,
-            org_name: req.body.org_name,
-            org_city: req.body.org_city,
+            org: req.body.org,
+            city: req.body.city,
             title: req.body.title,
             images: req.body.images,
             featured: req.body.featured

@@ -16,7 +16,7 @@ console.log('Config env: ', config.get('env'));
 const app = express();
 const DEBUG = process.env.NODE_ENV !== 'production';
 // TODO: change back to 8080
-const PORT = DEBUG ? '8081' : process.env.PORT;
+const PORT = DEBUG ? '8080' : process.env.PORT;
 
 console.log('PORT: ', PORT);
 
@@ -29,11 +29,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 
 // Connect to MongoDB (hosted on GCE Instance)
-mongoose.connect('mongodb://35.231.67.98/sulbaguia', { 
+mongoose.connect('mongodb://35.231.67.98/sulbaguiadb', { 
     useNewUrlParser: true,
-    auth: { authdb: "sulbaguia" },
+    auth: { authdb: "sulbaguiadb" },
     user: "appenginesbg",
-    pass: "98fd765f5d4ffgmn3nkjd87ndsifu6fgid4n098fgnkljf873n"
+    pass: "98fs7ag5s67g5fdg78dfgfd8g79sdf98g7df7g"
 }).then(() => console.log('Connected to MongoDB...'))
 .catch((err) => console.log('Cannot connect to MongoDB: ', err));
 

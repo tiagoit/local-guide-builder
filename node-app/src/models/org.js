@@ -7,7 +7,7 @@ const AddressSchema = new mongoose.Schema({
     street: { type: String, required: false, maxlength: 120 },
     number: { type: String, required: false, maxlength: 120 },
     complement: { type: String, required: false, maxlength: 120 },
-    zip_code: { type: String, required: false, maxlength: 120 }
+    zipCode: { type: String, required: false, maxlength: 120 }
 });
 
 const ContactSchema = new mongoose.Schema({
@@ -19,7 +19,6 @@ const ContactSchema = new mongoose.Schema({
 });
 
 const Org = mongoose.model('Org', new mongoose.Schema({
-    code: { type: String, required: true, maxlength: 120 },
     name: { type: String, required: true, maxlength: 120 },
     address: AddressSchema,
     contact: [ContactSchema],

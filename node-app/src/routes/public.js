@@ -44,8 +44,8 @@ router.get('/', async (req, res) => {
 });
 
 // página do evento | sulbaguia.com.br/evento/arraial-d-ajuda/morocha-club/mato-seco-e-guine
-router.get('/evento/:city_code/:org_code/:event_code', function(req, res) {
-    res.render('./pages/about', {city_code: req.params['city_code'], org_code: req.params['org_code'], event_code: ['event_code']});
+router.get('/evento/:city/:org/:eventCode', function(req, res) {
+    res.render('./pages/about', {city: req.params['city'], org: req.params['org'], eventCode: ['eventCode']});
 });
 
 module.exports = router;

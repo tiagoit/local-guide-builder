@@ -1,9 +1,8 @@
 ## orgs
 - id
-- code
 - name (String)
 - address (address)
-- contact (org_contact<>)
+- contacts (orgContact<>)
 - mobile (String)
 - land (String)
 - email (String)
@@ -18,10 +17,10 @@
 - street
 - number
 - complement
-- zip_code
+- zipCode
 
 
-## org_contact
+## orgContact
 - name
 - email
 - mobile
@@ -29,8 +28,7 @@
 - notes
 
 
-## org_tags (ENUM)
-- code
+## orgTags (ENUM)
 - tag
 - *DATA*:
     - restaurante
@@ -38,7 +36,7 @@
     - churrascaria
     - cabana
     - boate
-    - ar_livre
+    - ar-livre
     - escola
     - teatro
     - shopping
@@ -53,9 +51,8 @@
 ## events
 - start (Date)
 - end (Date)
-- org_code (String)
-- org_name (String)
-- org_city
+- org (String)
+- city (String)
 - title
 - img (String)
 - featured (Boolean)
@@ -66,8 +63,7 @@
     - 
 
 
-## event_tags (ENUM):
-- code
+## eventTags (ENUM):
 - tag
 - *DATA*:
     - axé
@@ -85,7 +81,6 @@
 
 
 ## cities:
-- code (String)
 - name (String)
 - cities (String<>)
 - *DATA*:
@@ -109,8 +104,7 @@
 - tags
 
 
-## place_tags
-- code
+## placeTags
 - type
 - *data*:
     - praia
