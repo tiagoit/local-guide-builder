@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const moment = require('moment-timezone');
+const utilsService = require('../services/utils.service');
 
 const {Event} = require('../models/event');
 
@@ -31,15 +32,15 @@ router.get('/', async (req, res) => {
             eventsByDate[dateDiffInDays].push(ev);
         });
 
-        res.render('./pages/index', {'events': eventsByDate, 'moment': moment});
+        res.render('./pages/index', {'events': eventsByDate, 'moment': moment, 'utilsService': utilsService});
     } catch (error) {
         return res.status(404).send(error);
     }
 });
 
 // página do evento | sulbaguia.com.br/evento/arraial-d-ajuda/morocha-club/mato-seco-e-guine
-router.get('/evento/:city/:org/:eventCode', function(req, res) {
-    res.render('./pages/about', {city: req.params['city'], org: req.params['org'], eventCode: ['eventCode']});
+router.get('/eventos/:cityCode/:orgCode/:eventCode', function(req, res) {
+    res.render('./pages/event/event', {city: req.params['cityCode'], org: req.params['orgCode'], eventCode: ['eventCode'], 'moment': moment, 'utilsService': utilsService});
 });
 
 module.exports = router;
