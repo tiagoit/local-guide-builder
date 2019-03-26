@@ -1,0 +1,45 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <% include ../../partials/head %>
+        <link rel="stylesheet" href="/css/pg-events.css">
+        <link rel="stylesheet" href="/css/aside.css">
+    </head>
+    <body>
+        <header id="header"><% include ../../partials/header %></header>
+
+        <!-- SECTION - DESTAQUE -->
+        <!-- <% if (events.featured && events.featured.length > 0) { %>
+            <% include ./partial_featured.ejs %>
+        <% } %> -->
+
+        <!-- SECTION - MAIN ADVERTISE-->
+        <!-- <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-row text-center">
+                        <a href="#" style="display: inline-block;margin: auto;">
+                            <img class="img-fluid" src="./img/ad-2.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- /SECTION -->
+
+        <!-- SECTION - MAIN CONTAINER -->
+        <div class="main-container">
+            <div class="row">
+                <!-- EVENTS -->
+                <div class="col-md-8"><% include ./partial_events.ejs %></div>
+
+                <!-- ASIDE -->
+                <div class="col-md-4"><% include ../../partials/aside.ejs %></div>
+            </div>
+        </div>
+        <!-- /SECTION -->
+
+        <footer id="footer"><% include ../../partials/footer %></footer>
+    </body>
+</html>

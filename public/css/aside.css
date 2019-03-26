@@ -1,0 +1,211 @@
+/*===================================================================================
+
+	    ><           ><< <<    ><<  ><<<<<      ><<<<<<<<
+     >< <<       ><<    ><<  ><<  ><<   ><<   ><<      
+    ><  ><<       ><<        ><<  ><<    ><<  ><<      
+   ><<   ><<        ><<      ><<  ><<    ><<  ><<<<<<  
+  ><<<<<<><<<          ><<   ><<  ><<    ><<  ><<      
+ ><<       ><<   ><<    ><<  ><<  ><<   ><<   ><<      
+><<         ><<    ><< <<    ><<  ><<<<<      ><<<<<<<<
+                                               
+=====================================================================================*/
+
+.aside-widget {
+  margin-bottom: 30px;
+}
+
+
+/*----------------------------*\
+	global to all aside items
+\*----------------------------*/
+.aside-widget .title h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  color: rgba(0,0,0,0.7);
+  font-weight: 600;
+} 
+
+
+/*----------------------------*\
+	category widget
+\*----------------------------*/
+
+.cities-widget ul li {
+  padding: 15px 0px;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.cities-widget ul li a {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cities-widget ul li a span {
+  float: right;
+  font-size: 14px;
+  color: #97989b;
+  margin-left: 15px;
+}
+
+.footer-widget .cities-widget ul li {
+  border-color: #323335;
+}
+
+
+
+/*----------------------------*\
+	social widget
+\*----------------------------*/
+
+.social-widget ul {
+  overflow: auto;
+}
+
+.social-widget ul li {
+  float: left;
+  width: 33.33%;
+}
+
+.social-widget ul li a {
+  display: block;
+  text-align: center;
+  padding: 30px 15px;
+  color: #fff;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+}
+
+.social-widget ul li a:hover {
+  opacity: 0.9;
+}
+
+.social-widget ul li a span {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.social-widget ul li a i {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/*----------------------------*\
+	newsletter widget
+\*----------------------------*/
+
+.newsletter-widget {
+  position: relative;
+  padding: 0px 30px 30px;
+  border-left: 2px dashed #e8eaed;
+  border-right: 2px dashed #e8eaed;
+}
+
+.aside-widget:last-child .newsletter-widget {
+  border-bottom: 2px dashed #e8eaed;
+}
+
+.newsletter-widget form {
+  position: relative;
+  z-index: 20;
+}
+
+.newsletter-widget .input {
+  margin-bottom: 15px;
+}
+
+.newsletter-widget:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f0e0";
+
+  position: absolute;
+  bottom: -25px;
+  right: 27px;
+  font-size: 160px;
+  color: #e8eaed;
+  -webkit-transform: rotate(13deg);
+  -ms-transform: rotate(13deg);
+  transform: rotate(13deg);
+}
+
+.footer-widget .newsletter-widget {
+  padding: 0px;
+  border: none;
+}
+
+.footer-widget .newsletter-widget:after {
+  color: #323335;
+}
+
+
+/*----------------------------*\
+	tags widget
+\*----------------------------*/
+
+.tags-widget ul li {
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 6px;
+}
+
+.tags-widget ul li a {
+  text-transform: uppercase;
+  display: block;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #97989b;
+  background-color: #323335;
+  border-radius: 2px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.tags-widget ul li a:hover, .tags-widget ul li a:focus {
+  color: #fff !important;
+  background-color: #6c9d61;
+}
+
+/*----------------------------*\
+	galery widget
+\*----------------------------*/
+
+.galery-widget ul {
+  margin: -2px -2px;
+}
+
+.galery-widget ul li {
+  display: inline-block;
+  width: 33.33%;
+  padding: 2px;
+  margin-right: -4px;
+}
+
+.galery-widget ul li a {
+  display: block;
+  overflow: hidden;
+}
+
+.galery-widget ul li a img {
+  width: 100%;
+  -webkit-transition: 1.6s -webkit-transform;
+  transition: 1.6s -webkit-transform;
+  transition: 1.6s transform;
+  transition: 1.6s transform, 1.6s -webkit-transform;
+}
+
+.galery-widget ul li a:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+
+

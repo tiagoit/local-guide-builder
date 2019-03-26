@@ -1,6 +1,6 @@
-<!-- events[0] = TODAY -->
+<!-- views/partials/index-partial-events.ejs -->
+<!-- events[0] = today-->
 <% for (var day=0; day<60; day++) { %>
-    <!-- <div><%=day%> <%= events[day] %></div> -->
     <% if (events[day] && events[day].length > 0) { %>
         <div class="row mt-2 event-row">
             <div class="col-md-12">
@@ -22,7 +22,7 @@
             <% events[day].forEach(function(ev, index) { %>
                 <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-3">
                     <div class="event ml-2 mr-2">
-                        <a class="anchor-wrapper" href="/evento/<%=ev.code%>">
+                        <a class="anchor-wrapper" href="/eventos/<%=utilsService.encode(ev.city)%>/<%=utilsService.encode(ev.org)%>/<%=ev.code%>">
                             <a class="event-img" href="#" onclick="return false;"><img src="<%= ev.images[0] %>" alt=""></a>
                             <div class="event-body">
                                 <div class="event-org">
