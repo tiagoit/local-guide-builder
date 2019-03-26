@@ -5,3 +5,6 @@ $ mongod
 	pwd: "98fs7ag5s67g5fdg78dfgfd8g79sdf98g7df7g",
 	roles:[{role: "userAdmin" , db:"sulbaguiadb"}]
 })
+
+
+gcloud compute ssh --project [PROJECT_ID] --zone [ZONE] [INSTANCE_NAME]

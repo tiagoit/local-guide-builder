@@ -34,7 +34,7 @@ mongoose.connect('mongodb://35.231.67.98/sulbaguiadb', {
 
 
 // Auth 
-app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['/api/auth', '', '/', '/about']}));
+app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/evento/i]}));
 app.use('/api/auth', require('./routes/auth'));
 
 // API Routes
