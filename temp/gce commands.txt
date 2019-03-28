@@ -1,0 +1,33 @@
+$ mongo
+> use sbgdb
+> db.createUser({
+	user: "instanceadmin",
+	pwd: "K3iu5wnW0R4zxStMt5puTJmxhDOACisPqNjAMZFMPPy28gKzFJvnklIMomewhpH3vtjle9w1mgFDOKjV",
+	roles:[{role: "dbOwner" , db:"admin"}]
+})
+
+
+> db.createUser({
+	user: "sbggae",
+	pwd: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
+	roles:[{role: "readWrite" , db:"sbgdb"}]
+})
+
+
+
+
+
+gcloud compute ssh --project [PROJECT_ID] --zone [ZONE] [INSTANCE_NAME]
+gcloud compute ssh --project sulbaguia --zone us-east1-b instance-1
+
+
+db.createUser({
+	user: "sbglocal",
+	pwd: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
+	roles:[{role: "readWrite" , db:"sulbaguia"}]
+})
+
+
+
+# Restore a mongodb backup
+$ mongorestore --host localhost:27017 --username sbglocal --password lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY --authenticationDatabase sulbaguia --db sulbaguia /var/backups/sulbaguia/sulbaguia-2019-03-27-1153.tgz

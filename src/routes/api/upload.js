@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const IncomingForm = require('formidable').IncomingForm;
-const storageService = require('../services/storage.service');
+const storageService = require('../../services/storage.service');
 const config = require('config');
 
 const bucketName = config.get('bucketName');

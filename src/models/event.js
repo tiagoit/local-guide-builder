@@ -25,7 +25,19 @@ const Event = mongoose.model('Event', new mongoose.Schema({
         minlength: 3,
         maxlength: 120
     },
+    orgCode: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 120
+    },
     city: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 120
+    },
+    cityCode: {
         type: String,
         required: true,
         minlength: 3,

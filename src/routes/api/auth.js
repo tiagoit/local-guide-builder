@@ -4,8 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 
 var USERS = [
-    { id: 1, name: 'tiago', pass: 'a4b3c2d1' },
-    { id: 2, name: 'teste', pass: 'teste123' }
+    { id: 1, name: 'tiago', pass: 'a4b3c2d1' }
 ];
 
 router.post('/', function(req, res) {
