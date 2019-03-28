@@ -74,6 +74,12 @@ ol.list-style {
   margin: 80px 80px 40px;
 }
 
+@media only screen and (min-width: 1200px) {
+  .main-container {
+    margin: 80px 120px 20px;
+  }
+}
+
 
 /*----------------------------*\
 	input

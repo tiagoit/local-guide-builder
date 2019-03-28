@@ -21,18 +21,18 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/tiferreira12/sulbaguia#readme",
   "dependencies": {
-    "@google-cloud/storage": "^2.4.1",
-    "body-parser": "^1.18.3",
-    "config": "^3.0.1",
-    "cors": "^2.8.5",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
-    "formidable": "^1.2.1",
-    "jsonwebtoken": "^8.4.0",
-    "moment": "^2.22.2",
-    "moment-timezone": "^0.5.23",
-    "mongoose": "^5.3.15",
-    "morgan": "^1.9.1"
+    "@google-cloud/storage": "2.4.x",
+    "body-parser": "1.18.x",
+    "config": "3.0.x",
+    "cors": "2.8.x",
+    "ejs": "2.6.x",
+    "express": "4.16.x",
+    "express-jwt": "5.3.x",
+    "formidable": "1.2.x",
+    "jsonwebtoken": "8.4.x",
+    "moment": "2.22.x",
+    "moment-timezone": "0.5.x",
+    "mongoose": "5.3.x",
+    "morgan": "1.9.x"
   }
 }

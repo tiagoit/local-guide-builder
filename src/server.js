@@ -15,37 +15,39 @@ const app = express();
 const DEBUG = process.env.NODE_ENV !== 'production';
 const PORT = DEBUG ? '8080' : process.env.PORT;
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './views'));
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './views'));
 
-// Connect to MongoDB (hosted on GCE Instance)
-mongoose.connect('mongodb://35.231.67.98/sulbaguiadb', { 
-    useNewUrlParser: true,
-    auth: { authdb: "sulbaguiadb" },
-    user: "appenginesbg",
-    pass: "98fs7ag5s67g5fdg78dfgfd8g79sdf98g7df7g"
-}).then(() => console.log('Connected to MongoDB...'))
-.catch((err) => console.log('Cannot connect to MongoDB: ', err));
-
-
-// Auth 
-app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/evento/i]}));
-app.use('/api/auth', require('./routes/auth'));
+mongodbConnect();
 
 // API Routes
-app.use('/api/events', require('./routes/events'));
-app.use('/api/upload', require('./routes/upload'));
-app.use('/api/cities', require('./routes/cities'));
-app.use('/api/orgs', require('./routes/orgs'));
+app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/evento/i]}));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/events', require('./routes/api/events'));
+app.use('/api/upload', require('./routes/api/upload'));
+app.use('/api/cities', require('./routes/api/cities'));
+app.use('/api/orgs', require('./routes/api/orgs'));
 
-// Public website
-app.use('/', require('./routes/public'));
+// Public website routes
+app.use('/', require('./routes/public/index'));
+app.use('/eventos', require('./routes/public/events'));
 
 const server = app.listen(PORT, function () {
     console.log('Express listening on port %s', PORT);
 });
+
+function mongodbConnect() {
+    mongoose
+        .connect('mongodb://35.196.178.139/sbgdb', {
+            useNewUrlParser: true,
+            auth: { authdb: "sbgdb" },
+            user: "sbggae",
+            pass: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY"})
+        .then(() => console.log('Connected to MongoDB...'))
+        .catch((err) => console.log('Cannot connect to MongoDB: ', err));
+}

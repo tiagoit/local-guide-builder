@@ -1,25 +1,24 @@
 <!-- views/partials/index-partial-events.ejs -->
-<!-- events[0] = today-->
-<% for (var day=0; day<60; day++) { %>
-    <% if (events[day] && events[day].length > 0) { %>
+<% Object.keys(events).forEach(function(monthDate) { %>
+    <% if (events[monthDate] && events[monthDate].length > 0) { %>
         <div class="row mt-2 event-row">
             <div class="col-md-12">
                 <div class="event-row-title">
                     <h2>
-                        <% if (day === 0) { %>
+                        <% if (monthDate === moment().format("MMDD")) { %>
                             HOJE | 
-                        <% } else if (day === 1) { %>
+                        <% } else if (monthDate === moment().add(1, 'd').format("MMDD")) { %>
                             AMANHÃ | 
                         <% } %>
-                        <%= moment(events[day][0]['start']).format("DD/MM").replace('/', '.') %>
-                        | <%= moment(events[day][0]['start']).format("dddd").replace('-feira', '') %>
+                        <%= moment(events[monthDate][0]['start']).format("DD/MM").replace('/', '.') %>
+                        | <%= moment(events[monthDate][0]['start']).format("dddd").replace('-feira', '') %>
                     </h2>
                 </div>
             </div>
         </div>
 
         <div class="row mb-3 event-row-list">
-            <% events[day].forEach(function(ev, index) { %>
+            <% events[monthDate].forEach(function(ev, index) { %>
                 <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-3">
                     <div class="event ml-2 mr-2">
                         <a class="anchor-wrapper" href="/eventos/<%=utilsService.encode(ev.city)%>/<%=utilsService.encode(ev.org)%>/<%=ev.code%>">
@@ -41,4 +40,4 @@
             <% }) %>
         </div>
     <% } %>
-<% } %>
+<% }) %>
