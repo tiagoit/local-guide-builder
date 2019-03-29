@@ -9,12 +9,10 @@
     <body>
         <header id="header"><% include ../../partials/header %></header>
 
-        <!-- SECTION - DESTAQUE -->
-        <!-- <% if (featured && featured.length > 0) { %>
-            <% include ./partial_featured.ejs %>
-        <% } %> -->
+        <!-- DESTAQUE -->
+        <!-- <%# if (featured && featured.length > 0) { include ./partial_featured.ejs } %> -->
 
-        <!-- SECTION - MAIN ADVERTISE-->
+        <!-- MAIN ADVERTISE-->
         <!-- <div class="section">
             <div class="container">
                 <div class="row">
@@ -26,19 +24,22 @@
                 </div>
             </div>
         </div> -->
-        <!-- /SECTION -->
 
-        <!-- SECTION - MAIN CONTAINER -->
+        <div class="page-header">
+            <div id="page-header-bg" data-stellar-background-ratio="0.5">
+                <h1 class="text-uppercase" id="title-city-name"><%= activeCity %></h1>
+            </div>
+        </div>
+
         <div class="main-container">
             <div class="row">
                 <!-- EVENTS -->
                 <div class="col-md-8"><% include ./partial_events.ejs %></div>
 
                 <!-- ASIDE -->
-                <div class="col-md-4"><% include ../../partials/aside.ejs %></div>
+                <div class="col-md-4 aside-col"><% include ../../partials/aside.ejs %></div>
             </div>
         </div>
-        <!-- /SECTION -->
 
         <footer id="footer"><% include ../../partials/footer %></footer>
     </body>

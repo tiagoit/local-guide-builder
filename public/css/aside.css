@@ -10,6 +10,10 @@
                                                
 =====================================================================================*/
 
+.aside-col {
+  margin-top: 36px;
+}
+
 .aside-widget {
   margin-bottom: 30px;
 }
@@ -36,7 +40,7 @@
   border-radius: 4px;
 }
 
-.cities-widget ul li.active {
+.cities-widget ul li.active, .cities-widget ul li:hover {
   background-color: rgba(0,0,0,0.05);
 }
 

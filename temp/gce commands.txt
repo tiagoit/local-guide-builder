@@ -31,3 +31,8 @@ db.createUser({
 
 # Restore a mongodb backup
 $ mongorestore --host localhost:27017 --username sbglocal --password lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY --authenticationDatabase sulbaguia --db sulbaguia /var/backups/sulbaguia/sulbaguia-2019-03-27-1153.tgz
+
+
+
+
+# https://colorlib.com/wp/template/callie/
