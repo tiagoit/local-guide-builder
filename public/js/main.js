@@ -49,4 +49,5 @@
 	// $('.search-close').on('click', function () {
 	// 	$('#nav-search').removeClass('active');
 	// });
+
 })(jQuery);

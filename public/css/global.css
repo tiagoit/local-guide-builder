@@ -71,12 +71,18 @@ ol.list-style {
 	main-container
 \*----------------------------*/
 .main-container {
-  margin: 80px 80px 40px;
+  margin: 20px 80px 40px;
+}
+
+@media only screen and (max-width: 719px) {
+  .main-container {
+    margin: 20px 40px 20px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   .main-container {
-    margin: 80px 120px 20px;
+    margin: 20px 120px 20px;
   }
 }
 
@@ -136,12 +142,6 @@ textarea.input {
 .secondary-button:hover, .secondary-button:focus {
   background-color: transparent;
   color: #353535;
-}
-
-@media only screen and (max-width: 719px) {
-  .main-container {
-    margin: 80px 40px 20px;
-  }
 }
 
 

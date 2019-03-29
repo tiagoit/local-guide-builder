@@ -10,6 +10,45 @@
                                                          
 ===========================================================*/
 
+
+.page-header {
+  height: 240px;
+}
+
+.page-header #page-header-bg {
+  height: 100%;
+  background-image: url(/img/bg-party.jpg);
+  background-attachment: fixed;
+  background-size: 100% auto;
+  background-position: 0 -120px !important;
+}
+
+.page-header #page-header-bg:after {
+  height: 240px;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 28, 30, 0)), color-stop(90%, rgba(27, 28, 30, 0.7)))
+}
+
+
+.page-header #page-header-bg h1 {
+  width: 100%;
+  position: absolute;
+  margin-top: 135px;
+  text-align: center;
+  font-size: 40px;
+  color: #FFF;
+  text-transform: uppercase;
+  z-index: 9;
+}
+
+
+
+
 .event-row > div.col-md-12 {
   padding: 0;
 }
@@ -159,6 +198,100 @@
 .event .event-body .event-meta li:last-child:after {
   display: none;
 }
+
+
+
+
+
+
+
+
+/*
+  Bootrstap 4 Grid responsive widths
+  Extra small <576px   auto
+  Small ≥576px   sm
+  Medium ≥768px   md
+  Large ≥992px  lg
+  Extra large ≥1200px  xl
+*/
+
+@media only screen and (max-width: 1199px) {
+  .page-header {
+    height: 240px;
+  }
+  
+  .page-header #page-header-bg {
+    background-position: 0 -80px !important;
+  }
+  
+  .page-header #page-header-bg:after {
+    height: 240px;
+  }
+  .page-header #page-header-bg h1 {
+    font-size: 36px;
+    margin-top: 135px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .page-header {
+    height: 200px;
+  }
+  
+  .page-header #page-header-bg {
+    background-position: 0 -40px !important;
+  }
+  
+  .page-header #page-header-bg:after {
+    height: 200px;
+  }
+  .page-header #page-header-bg h1 {
+    font-size: 32px;
+    margin-top: 115px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .page-header {
+    height: 180px;
+  }
+  
+  .page-header #page-header-bg {
+    background-position: 0 -20px !important;
+  }
+  
+  .page-header #page-header-bg:after {
+    height: 180px;
+  }
+  .page-header #page-header-bg h1 {
+    font-size: 28px;
+    margin-top: 110px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .page-header {
+    height: 160px;
+  }
+  
+  .page-header #page-header-bg {
+    background-position: 0 0 !important;
+  }
+  
+  .page-header #page-header-bg:after {
+    height: 160px;
+  }
+  
+  .page-header #page-header-bg h1 {
+    font-size: 24px;
+    margin-top: 100px;
+  }
+}
+
+
+
+
+
 
 
 @media only screen and (max-width: 719px) {
