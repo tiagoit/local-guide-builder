@@ -1,27 +1,48 @@
 <!-- views/pages/events/events.ejs -->
 <!DOCTYPE html>
 <html lang="pt">
-    <head>
-        <% include ../../partials/head %>
-        <link rel="stylesheet" href="/css/pg-event.css">
-    </head>
-    <body>
-        <header id="header"><% include ../../partials/header %></header>
-
-        <div class="main-container">
-            <div class="row">
-                <!-- EVENTS -->
-                <div class="col-md-12">
-                    <!-- PARTIAL_EVENTS -->
+<head>
+    <% include ../../../partials/head %>
+    <link rel="stylesheet" href="/css/aside.css">
+    <link rel="stylesheet" href="/css/pg-event.css">
+</head>
+<body>
+    <header id="header"><% include ../../../partials/header %></header>
+    
+    <div class="main-container">
+        <div class="row event-info-row">
+            <!-- EVENT INFO -->
+            <div class="col-md-8">
+                <div class="section-row images">
+                    <img src="<%= event.images[0] %>" alt="">
                 </div>
 
-                <!-- ASIDE -->
-                <!-- <div class="col-md-4"> -->
-                    <!-- PARTIAL_SIDE -->
-                <!-- </div> -->
-            </div>
-        </div>
+                <div class="section-row">
+                    <div class="section-title">
+                        <h2 class="title">Our story</h2>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, mea ad idque detraxit, cu soleat graecis invenire eam. Vidisse suscipit liberavisse has ex, vocibus patrioque vim et, sed ex tation reprehendunt. Mollis volumus no vix, ut qui clita habemus, ipsum senserit est et. Ut has soluta epicurei mediocrem, nibh nostrum his cu, sea clita electram reformidans an.</p>
+                    <blockquote class="blockquote">
+                        <p>Ei prima graecis consulatu vix, per cu corpora qualisque voluptaria. Bonorum moderatius in per, ius cu albucius voluptatum. Ne ius torquatos dissentiunt. Brute illum utroque eu quo. Cu tota mediocritatem vis, aliquip cotidieque eu ius, cu lorem suscipit eleifend sit.</p>
+                        <footer class="blockquote-footer">John Doe</footer>
+                    </blockquote>
+                </div>
 
-        <footer id="footer"><% include ../../partials/footer %></footer>
-    </body>
+                <div class="section-row">
+                    <div class="section-title">
+                        <h2 class="title">Our Vision</h2>
+                    </div>
+                    <p>Est in saepe accusam luptatum. Purto deleniti philosophia eum ea, impetus copiosae id mel. Vis at ignota delenit democritum, te summo tamquam delicata pro. Utinam concludaturque et vim, mei ullum intellegam ei. Eam te illum nostrud, suas sonet corrumpit ea per. Ut sea regione posidonium. Pertinax gubergren ne qui, eos an harum mundi quaestio.</p>
+                    <p>Nihil persius id est, iisque tincidunt abhorreant no duo. Eripuit placerat mnesarchum ius at, ei pro laoreet invenire persecuti, per magna tibique scriptorem an. Aeque oportere incorrupte ius ea, utroqueuscipit.</p>
+                </div>
+            </div><!-- /EVENT INFO -->
+
+
+            <!-- ASIDE -->
+            <div class="col-md-4 aside-col"><% include ../../../partials/aside.ejs %></div>
+        </div>
+    </div>
+        
+    <footer id="footer"><% include ../../../partials/footer %></footer>
+</body>
 </html>

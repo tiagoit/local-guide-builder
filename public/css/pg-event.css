@@ -94,3 +94,41 @@
 */
 
 
+.main-container {
+  margin-top: 80px;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.section-title:after {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  background-color: #e8eaed;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  z-index: 10;
+}
+
+.section-title .title {
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  z-index: 20;
+}
+
+
+
+.event-info-row .images img {
+  
+}

@@ -31,18 +31,15 @@ a {
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
 }
-
 a:hover, a:focus {
   color: #6c9d61;
   text-decoration: none;
   outline: none;
 }
-
 ::-moz-selection {
   background-color: #6c9d61;
   color: #FFF;
 }
-
 ::selection {
   background-color: #6c9d61;
   color: #FFF;
@@ -53,19 +50,42 @@ ul, ol {
   padding: 0;
   list-style: none
 }
-
 ul.list-style, ol.list-style {
   padding-left: 15px;
   margin-bottom: 10px;
 }
-
 ul.list-style {
   list-style-type: disc;
 }
-
 ol.list-style {
   list-style-type: decimal;
 }
+
+blockquote.blockquote {
+  padding: 30px;
+  margin: 0px 0px 20px;
+  border: 2px solid #e8eaed;
+}
+blockquote.blockquote:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f10d";
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 50%;
+  color: #ee4266;
+  font-size: 30px;
+  background: #fff;
+  border: 2px solid #e8eaed;
+  float: left;
+  margin-right: 10px;
+}
+blockquote.blockquote .blockquote-footer {
+  color: #97989b;
+}
+
 
 /*----------------------------*\
 	main-container
