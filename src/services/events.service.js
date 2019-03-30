@@ -1,7 +1,12 @@
 const moment = require('moment');
 const {Event} = require('../models/event');
 
-async function getEvents(cityCode, orgCode, eventCode) {
+
+async function getEvent(eventCode) {
+  return await Event.findOne({code: eventCode});
+}
+
+async function getEvents(cityCode, orgCode) {
   // TODO: se madruga então mostar eventos rolando
   let query = { $or: [{ start: { $gte: moment().subtract(2, 'd'), $lt: moment().add(60, 'd') } }, 
                       { featured: { $eq: true } }]};
@@ -20,7 +25,8 @@ async function getEvents(cityCode, orgCode, eventCode) {
     if(featured.length < 9 && ev.featured) featured.push(ev);
   });
 
-  return { events: eventsByDate, eventsByDate: eventsByDate, featured };
+  return { events: eventsByDate, featured };
 }
 
 module.exports.getEvents = getEvents;
+module.exports.getEvent = getEvent;
