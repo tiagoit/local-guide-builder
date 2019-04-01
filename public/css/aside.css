@@ -10,10 +10,6 @@
                                                
 =====================================================================================*/
 
-.aside-col {
-  margin-top: 36px;
-}
-
 .aside-widget {
   margin-bottom: 30px;
 }
@@ -22,6 +18,9 @@
 /*----------------------------*\
 	global to all aside items
 \*----------------------------*/
+.aside-widget .title {
+  margin-left: 12px;
+}
 .aside-widget .title h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
@@ -33,7 +32,6 @@
 /*----------------------------*\
 	cities widget
 \*----------------------------*/
-
 .cities-widget ul li {
   padding: 8px 0px 8px 16px;
   border-bottom: 1px solid #e8eaed;
