@@ -1,7 +1,7 @@
 const express = require('express');
 const moment = require('moment-timezone');
 const router = express.Router();
-const { Event } = require('../../models/event');
+const { Event } = require('../../models/event.model');
 const storageService = require('../../services/storage.service');
 const utilsService = require('../../services/utils.service');
 
@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
         orgCode: utilsService.encode(req.body.city) + '|' + utilsService.encode(req.body.org),
         city: req.body.city,
         cityCode: utilsService.encode(req.body.city),
+        description: req.body.description,
         title: req.body.title,
         images: req.body.images,
         featured: req.body.featured
@@ -64,6 +65,7 @@ router.put('/:id', async (req, res) => {
             orgCode: utilsService.encode(req.body.city) + '|' + utilsService.encode(req.body.org),
             city: req.body.city,
             cityCode: utilsService.encode(req.body.city),
+            description: req.body.description,
             title: req.body.title,
             images: req.body.images,
             featured: req.body.featured

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const utilsService = require('../../services/utils.service');
-const {City} = require('../../models/city');
+const {City} = require('../../models/city.model');
 
 // ############   LIST
 router.get('/', async (req, res) => {

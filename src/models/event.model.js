@@ -13,44 +13,28 @@ const Event = mongoose.model('Event', new mongoose.Schema({
         minlength: 3,
         maxlength: 35
     },
-    start: {
-        type: Date
-    },
-    end: {
-        type: Date
-    },
+    description: { type: String, maxlength: 255 },
+    start: Date,
+    end: Date,
     org: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 120
     },
-    orgCode: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 120
-    },
+    orgCode: String,
     city: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 120
     },
-    cityCode: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 120
-    },
+    cityCode: String,
     images: {
         type: [],
         required: true
     },
-    featured: {
-        type: Boolean,
-        required: false
-    }
+    featured: Boolean
 }));
 
 exports.Event = Event;

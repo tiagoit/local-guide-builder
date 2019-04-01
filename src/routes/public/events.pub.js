@@ -4,14 +4,14 @@ const moment = require('moment-timezone');
 const utilsService = require('../../services/utils.service');
 const eventsService = require('../../services/events.service');
 const orgsService = require('../../services/orgs.service');
-const {City} = require('../../models/city');
+const {City} = require('../../models/city.model');
 
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res) {
   console.log('event page');
   try {
     const cities = await City.find();
     const event = await eventsService.getEvent(req.params['eventCode']);
-    const org = await orgsService.getOrg(req.params['eventCode']);
+    const org = await orgsService.getOrg(req.params['cityCode']+'|'+req.params['orgCode']);
 
     res.render('./pages/events/event/event', { event, org, cities, moment });
   } catch (ex) {
@@ -20,7 +20,7 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res) {
   }
 });
 
-router.get('/:cityCode?/:orgCode?/:eventCode?', async function(req, res) {
+router.get('/:cityCode?/:orgCode?', async function(req, res) {
   try {
     const cities = await City.find();
     let { events, featured } = await eventsService.getEvents(req.params['cityCode'], req.params['orgCode']);

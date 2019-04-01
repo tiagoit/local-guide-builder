@@ -6,14 +6,10 @@
     <div class="cities-widget">
         <ul>
             <% cities.forEach(function(city) { %>
-                <li><a href="/eventos/<%= city.code %>"> <%= city.name %></a></li>
+                <li class="<%= (locals.activeCity && activeCity == city.name) ? 'active' : '' %>">
+                    <a href="/eventos/<%= city.code %>"><%= city.name %></a>
+                </li>
             <% }); %>
-            
-            <!-- <li><a href="#"><i class="far fa-check-square"></i> Caraíva <span>24</span></a></li>
-            <li><a href="#"><i class="far fa-square"></i> Santa Cruz Cabrália <span>4</span></a></li>
-            <li><a href="#"><i class="far fa-check-square"></i> Prado / Cumuruxatiba / Ponta do Corumbau <span>451</span></a></li>
-            <li><a href="#"><i class="far fa-check-square"></i>Belmonte / Mogiquiçaba<span>451</span></a></li>
-            <li><a href="#"><i class="far fa-check-square"></i>Santo André / Santo Antônio<span>451</span></a></li> -->
         </ul>
     </div>
 

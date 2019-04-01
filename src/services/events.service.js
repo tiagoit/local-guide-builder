@@ -1,5 +1,5 @@
 const moment = require('moment');
-const {Event} = require('../models/event');
+const {Event} = require('../models/event.model');
 
 
 async function getEvent(eventCode) {
