@@ -1,20 +1,6 @@
 (function($) {
 	"use strict"
 
-	// let scriptsPathMap = {
-	// 	'aside': 'aside.js'
-	// };
-
-	// if($(location).attr("pathname").includes('')
-
-	// $.getScript( "ajax/test.js", function( data, textStatus, jqxhr ) {
-	// 	console.log( data ); // Data returned
-	// 	console.log( textStatus ); // Success
-	// 	console.log( jqxhr.status ); // 200
-	// 	console.log( "Load was performed." );
-	// });
-
-
 	// NAVBAR STUFF (// TODO: COLLECT?)
 	// Mobile dropdown
 	// $('.has-dropdown>a').on('click', function() {

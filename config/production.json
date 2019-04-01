@@ -3,5 +3,11 @@
     "bucketName": "sulbaguia",
     "projectID": "sulbaguia",
     "env": "production",
-    "jwtSecretToken": "908&6$%:12@79d8$7fd79f7ds97f9ds7fsddsf98s"
+    "jwtSecretToken": "908&6$%:12@79d8$7fd79f7ds97f9ds7fsddsf98s",
+    "mongodb": { 
+        "host": "",
+        "authdb": "",
+        "user": "",
+        "pass": ""
+    }
 }

@@ -1,5 +1,5 @@
 const moment = require('moment');
-const {Org} = require('../models/org');
+const {Org} = require('../models/org.model');
 
 
 async function getOrg(orgCode) {

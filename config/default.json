@@ -3,5 +3,11 @@
     "bucketName": "sbg-localhost",
     "projectID": "sulbaguia",
     "env": "local",
-    "jwtSecretToken": "908&6$%:12@738s$7fd79f7ds97f9ds7fsd89sdf98s"
+    "jwtSecretToken": "908&6$%:12@738s$7fd79f7ds97f9ds7fsd89sdf98s",
+    "mongodb": { 
+        "host": "",
+        "authdb": "",
+        "user": "",
+        "pass": ""
+    }
 }

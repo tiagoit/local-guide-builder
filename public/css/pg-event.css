@@ -1,6 +1,3 @@
-
-
-
 /*===================================================================================
 
 ><<<<<<<<><<         ><<><<<<<<<<><<<     ><< ><<<><<<<<<     ><<<<<<<     ><<<<   
@@ -12,97 +9,16 @@
 ><<<<<<<<      ><<      ><<<<<<<<><<      ><<     ><<         ><<         ><<<<<   
                                                                                
 =====================================================================================*/
-/*
-.page-header .event-org {
-  margin-bottom: 10px;
-}
-
-.page-header .event-meta li {
-  color: #fff;
-}
-
-.page-header .event-meta li a {
-  color: #fff;
-}
-
-.page-header .event-meta li a:hover, .page-header .event-meta li a:focus {
-  color: #6c9d61;
-}
-
-.event-share a {
-  display: inline-block;
-  padding: 5px 15px;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #97989b;
-  margin-right: 4px;
-  margin-bottom: 6px;
-  -webkit-transition: 0.2s opacity;
-  transition: 0.2s opacity;
-}
-
-.event-share a:hover {
-  opacity: 0.9;
-}
-
-.event-share a i {
-  width: 20px;
-  text-align: center;
-}
-
-.event-share a span {
-  padding-left: 10px;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-  margin-left: 10px;
-}
-
-.event-content .event-attachement.pull-left {
-  margin-right: 15px;
-}
-
-.event-content .event-attachement.pull-right {
-  margin-left: 15px;
-}
-
-.event-tags ul li {
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.event-tags ul li:first-child {
-  font-weight: 400;
-}
-
-.event-tags ul li:after {
-  content: ',';
-  display: inline-block;
-}
-
-.event-tags ul li:first-child:after {
-  display: none;
-}
-
-.event-tags ul li:last-child:after {
-  display: none;
-}
-
-*/
-
 
 .main-container {
   margin-top: 80px;
 }
 
+
 .section-title {
   position: relative;
   margin-bottom: 20px;
 }
-
 .section-title:after {
   content: "";
   display: inline-block;
@@ -114,11 +30,11 @@
   top: 10px;
   z-index: 10;
 }
-
 .section-title .title {
   position: relative;
   display: inline-block;
-  background-color: #fff;
+  background-color: #f7f7f7;
+  color: rgba(0,0,0,0.7);
   font-size: 16px;
   text-transform: uppercase;
   margin-top: 0px;
@@ -128,7 +44,70 @@
 }
 
 
-
-.event-info-row .images img {
-  
+.slider-container img {
+  height: 250px;
+  padding: 0 120px;
+  outline: none;
 }
+
+.section-row .date-place {
+  padding: 8px 16px 0;
+  margin: 0px 0px 12px;
+  border: 2px solid #e8eaed; 
+}
+
+.section-row .date-place .date, .section-row .date-place .place {
+  line-height: 36px;
+}
+
+.section-row .date-place .date:before, .section-row .date-place .place:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f073";
+  width: 24px;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: #ee4266;
+  font-size: 14px;
+  background: #fff;
+  border: 2px solid #e8eaed;
+  float: left;
+  margin-top: 4px;
+  margin-right: 10px;
+}
+
+.section-row .date-place .place:before {
+  content: "\f124";
+}
+
+
+/*
+  Bootrstap 4 Grid responsive widths
+  Extra small <576px   auto
+  Small ≥576px   sm
+  Medium ≥768px   md
+  Large ≥992px  lg
+  Extra large ≥1200px  xl
+*/
+
+@media only screen and (max-width: 1199px) {
+
+}
+
+@media only screen and (max-width: 991px) {
+
+}
+
+@media only screen and (max-width: 767px) {
+  .main-container {
+    margin-top: 80px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+
+}
+
+
