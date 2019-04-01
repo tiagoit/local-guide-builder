@@ -5,9 +5,13 @@
     "env": "local",
     "jwtSecretToken": "908&6$%:12@738s$7fd79f7ds97f9ds7fsd89sdf98s",
     "mongodb": { 
-        "host": "",
-        "authdb": "",
-        "user": "",
-        "pass": ""
+        "host": "mongodb://127.0.0.1:27017/sulbaguia",
+        "options": {
+            "useNewUrlParser": true,
+            "auth": { "authdb": "sulbaguia" },
+            "user": "sbglocal",
+            "pass": "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY"
+        }
     }
 }
+

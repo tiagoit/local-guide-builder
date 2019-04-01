@@ -23,6 +23,8 @@ app.use(express.static(__dirname + '/../public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 
+console.log('CONFIG FILE: ', config.get('name'));
+
 mongodbConnect();
 
 // API Routes
@@ -42,11 +44,14 @@ const server = app.listen(PORT, function () {
 });
 
 function mongodbConnect() {
-    mongoose.connect('mongodb://35.196.178.139/sbgdb', {
-        useNewUrlParser: true,
-        auth: { authdb: "sbgdb" },
-        user: "sbggae",
-        pass: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY"})
-    .then(() => console.log('Connected to MongoDB...'))
-    .catch((err) => console.log('Cannot connect to MongoDB: ', err));
+    // let options = {
+    //     useNewUrlParser: true,
+    //     auth: { authdb: "sbgdb" },
+    //     user: "sbggae",
+    //     pass: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY"
+    // };
+    // let host = 'mongodb://35.196.178.139:27017/sbgdb';
+    console.log(config.get('mongodb.host'), config.get('mongodb.options'));
+    mongoose.connect(config.get('mongodb.host'), config.get('mongodb.options')).then(() => console.log('Connected to MongoDB...'))
+        .catch((err) => console.log('Cannot connect to MongoDB: ', err, 'Options: ', options));
 }
