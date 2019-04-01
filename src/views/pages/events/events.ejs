@@ -3,8 +3,14 @@
 <html lang="pt">
     <head>
         <% include ../../partials/head %>
+        
+        <!-- Slich image slider and carousel - CSS-->
+        <link rel="stylesheet" type="text/css" href="/css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/slick-theme.css"/>
+        
         <link rel="stylesheet" href="/css/aside.css">
-        <link rel="stylesheet" href="/css/pg-events.css">
+        <link rel="stylesheet" href="/css/events.css">
+
     </head>
     <body>
         <header id="header"><% include ../../partials/header %></header>
@@ -34,7 +40,7 @@
         <div class="main-container">
             <div class="row">
                 <!-- EVENTS -->
-                <div class="col-md-8"><% include ./partial_events.ejs %></div>
+                <div class="col-md-8 events-main-col"><% include ./partial_events.ejs %></div>
 
                 <!-- ASIDE -->
                 <div class="col-md-4 aside-col"><% include ../../partials/aside.ejs %></div>
@@ -42,5 +48,11 @@
         </div>
 
         <footer id="footer"><% include ../../partials/footer %></footer>
+
+        <!-- Slich image slider and carousel - JS-->
+        <script type="text/javascript" src="/slick/slick.min.js"></script>
+
+        <!-- Page specific scripts -->
+        <script type="text/javascript" src="/js/events.jquery.js"></script>
     </body>
 </html>

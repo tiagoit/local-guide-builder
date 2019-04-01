@@ -10,11 +10,10 @@
                                                          
 ===========================================================*/
 
-
 .page-header {
   height: 240px;
 }
-
+ 
 .page-header #page-header-bg {
   height: 100%;
   background-image: url(/img/bg-party.jpg);
@@ -86,6 +85,12 @@
   right: 24px;
   top: 15px;
   z-index: 10;
+}
+
+
+.slider-container {
+  margin-right: -24px;
+  margin-left: -36px;
 }
 
 .event {
@@ -296,6 +301,13 @@
     font-size: 28px;
     margin-top: 110px;
   }
+
+
+  .slider-container {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
 }
 
 @media only screen and (max-width: 575px) {
