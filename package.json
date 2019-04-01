@@ -10,7 +10,7 @@
     "start": "node ./src/server.js",
     "start-local": "pm2 start src/server.js --watch && pm2 log",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gcloud app deploy --quiet",
+    "deploy": "gcloud app deploy --project sulbaguia --quiet",
     "gae_logs": "gcloud app logs tail -s default"
   },
   "repository": {
