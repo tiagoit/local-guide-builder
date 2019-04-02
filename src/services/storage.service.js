@@ -10,7 +10,6 @@ const storage = new Storage({
   keyFilename: 'gce-default-service-account-sulbaguia-4910dbe0819c.json'
 });
 
-// keyFilename: 'service-account-87s9f79a7fd96fs9ds7f.json'
 // Creates the new bucket
 function createBucket(newBucketName) {
     storage.createBucket(newBucketName).then(() => {

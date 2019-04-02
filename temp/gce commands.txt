@@ -35,4 +35,45 @@ $ mongorestore --host localhost:27017 --username sbglocal --password lffE41CjB8L
 
 
 
-# https://colorlib.com/wp/template/callie/
+# https://colorlib.com/wp/template/callie/zz
+
+### Database backup script - LOCAL
+cd /home/ferreirati/projects/sbg/sbg-api-fe/backup-n-restore
+chmod +x backup-to-gcs.sh
+
+GCS_BUCKET=gs://sulbaguia.appspot.com/mongodb-backups \
+MONGODB_HOST=127.0.0.1 \
+MONGODB_PORT=27017 \
+MONGODB_DB=sulbaguia \
+MONGODB_USER=sbglocal \
+MONGODB_PASSWORD=lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY \
+./backup-to-gcs.sh
+
+
+GCS_KEY_FILE_PATH=/home/ferreirati/projects/sbg/sbg-api-fe/gce-default-service-account-sulbaguia-4910dbe0819c.json \
+BOTO_CONFIG_PATH='/home/ferreirati/.config/gcloud/legacy_credentials/tiferreira12@gmail.com/.boto \
+BOTO_CONFIG_PATH=/home/ferreirati/.boto \
+
+
+
+
+########
+########	Crontab
+########
+
+crontab -e
+
+
+
+
+# Copy backup scripts from GCS
+mkdir /home/tiferreira12/mongodb-backup-restore
+gsutil cp gs://sulbaguia.appspot.com/mongodb-backups/backup-prod.sh /home/tiferreira12/mongodb-backup-restore/
+gsutil cp gs://sulbaguia.appspot.com/mongodb-backups/backup-to-gcs.sh /home/tiferreira12/mongodb-backup-restore/
+chmod +x /home/tiferreira12/mongodb-backup-restore/*
+
+# Create local log file for crontab
+touch /home/tiferreira12/crontab.log
+
+# Manually restore a backup
+mongorestore --drop --archive=backup-2019-04-02T12:03:37Z.gz --gzip

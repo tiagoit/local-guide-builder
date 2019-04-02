@@ -13,7 +13,7 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res) {
     const event = await eventsService.getEvent(req.params['eventCode']);
     const org = await orgsService.getOrg(req.params['cityCode']+'|'+req.params['orgCode']);
 
-    res.render('./pages/events/event/event', { event, org, cities, moment });
+    res.render('./pages/events/event-details', { event, org, cities, moment });
   } catch (ex) {
     console.log('EXCEPTION: ', ex);
     return res.status(404).send(ex);
@@ -30,7 +30,7 @@ router.get('/:cityCode?/:orgCode?', async function(req, res) {
       if(city.code === req.params['cityCode']) activeCity = city.name;
     });
 
-    res.render('./pages/events/events', { events, featured, cities, activeCity, moment, utilsService });
+    res.render('./pages/events/events-list', { events, featured, cities, activeCity, moment, utilsService });
   } catch (ex) {
     console.log('EXCEPTION: ', ex);
     return res.status(404).send(ex);
