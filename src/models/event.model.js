@@ -13,6 +13,7 @@ const Event = mongoose.model('Event', new mongoose.Schema({
         minlength: 3,
         maxlength: 35
     },
+    site: String,
     description: { type: String, maxlength: 255 },
     start: Date,
     end: Date,
@@ -33,6 +34,10 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     images: {
         type: [],
         required: true
+    },
+    tags: {
+        type: [],
+        required: false
     },
     featured: Boolean
 }));

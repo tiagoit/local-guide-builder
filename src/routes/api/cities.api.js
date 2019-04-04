@@ -34,7 +34,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     const city = new City({
         code: utilsService.encode(req.body.name),
-        name: req.body.name
+        name: req.body.name,
+        status: req.body.status
     });
 
     try {
@@ -55,7 +56,8 @@ router.put('/:id', async (req, res) => {
         const city = await City.findById(req.params.id);
         city.set({
             code: utilsService.encode(req.body.name),
-            name: req.body.name
+            name: req.body.name,
+            status: req.body.status
         });
         city.save();
         return res.send(city);

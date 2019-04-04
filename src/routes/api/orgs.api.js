@@ -29,6 +29,7 @@ router.post('/', async (req, res) => {
     const org = new Org({
         code: utilsService.encode(req.body.address.city) + '|' + utilsService.encode(req.body.name),
         name: req.body.name,
+        site: req.body.site,
         mobile: req.body.mobile,
         land: req.body.land,
         email: req.body.email,
@@ -66,32 +67,40 @@ router.post('/', async (req, res) => {
 // ############   UPDATE
 router.put('/:id', async (req, res) => {
     try {
-        const org = await Org.findById(req.params.id);    
+        const org = await Org.findById(req.params.id);
+        // console.log('org: ', org);
+        // console.log('req.body: ', req.body);
+        console.log(req.body.address.state);
         org.set({
             code: utilsService.encode(req.body.address.city) + '|' + utilsService.encode(req.body.name),
             name: req.body.name,
+            site: req.body.site,
             mobile: req.body.mobile,
             land: req.body.land,
             email: req.body.email,
             notes: req.body.notes,
-            status: req.body.status,
-            address: {
-                state: req.body.address.state,
-                city: req.body.address.city,
-                neighborhood: req.body.address.neighborhood,
-                street: req.body.address.street,
-                number: req.body.address.number,
-                complement: req.body.address.complement,
-                zipCode: req.body.address.zipCode
-            },
-            contacts: [{
-                name: req.body.contacts[0].name,
-                email: req.body.contacts[0].email,
-                mobile: req.body.contacts[0].mobile,
-                role: req.body.contacts[0].role,
-                notes: req.body.contacts[0].notes,
-            }]
+            status: req.body.status
         });
+
+        org.address.set({
+            state: req.body.address.state,
+            city: req.body.address.city,
+            neighborhood: req.body.address.neighborhood,
+            street: req.body.address.street,
+            number: req.body.address.number,
+            complement: req.body.address.complement,
+            zipCode: req.body.address.zipCode
+        });
+
+        org.contacts[0].set({
+            name: req.body.contacts[0].name,
+            email: req.body.contacts[0].email,
+            mobile: req.body.contacts[0].mobile,
+            role: req.body.contacts[0].role,
+            notes: req.body.contacts[0].notes,
+        });
+
+        // console.log('org after save: ', org);
         org.save();
         return res.send(org);
     } catch (error) {
