@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const AddressSchema = new mongoose.Schema({
-    state: { type: String, required: true, maxlength: 2 },
-    city: { type: String, required: true, maxlength: 120 },
+    state: { type: String, required: true, minlength: 2, maxlength: 2 },
+    city: { type: String, required: true, minlength: 3, maxlength: 120 },
     neighborhood: { type: String, required: false, maxlength: 120 },
     street: { type: String, required: false, maxlength: 120 },
     number: { type: String, required: false, maxlength: 120 },
@@ -21,6 +21,7 @@ const ContactSchema = new mongoose.Schema({
 const Org = mongoose.model('Org', new mongoose.Schema({
     code: { type: String, required: true, maxlength: 120 },
     name: { type: String, required: true, maxlength: 120 },
+    site: String,
     address: AddressSchema,
     contacts: [ContactSchema],
     mobile: { type: String, required: false, maxlength: 120 },

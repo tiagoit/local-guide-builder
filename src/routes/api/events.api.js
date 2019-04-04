@@ -40,7 +40,9 @@ router.post('/', async (req, res) => {
         cityCode: utilsService.encode(req.body.city),
         description: req.body.description,
         title: req.body.title,
+        site: req.body.site,
         images: req.body.images,
+        tags: req.body.tags,
         featured: req.body.featured
     });
 
@@ -67,7 +69,9 @@ router.put('/:id', async (req, res) => {
             cityCode: utilsService.encode(req.body.city),
             description: req.body.description,
             title: req.body.title,
+            site: req.body.site,
             images: req.body.images,
+            tags: req.body.tags,
             featured: req.body.featured
         });
         event.save();

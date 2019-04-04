@@ -6,10 +6,12 @@ const eventsService = require('../../services/events.service');
 const orgsService = require('../../services/orgs.service');
 const {City} = require('../../models/city.model');
 
+
+// EVENT PAGE
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res) {
   console.log('event page');
   try {
-    const cities = await City.find();
+    const cities = await City.find({status: true});
     const event = await eventsService.getEvent(req.params['eventCode']);
     const org = await orgsService.getOrg(req.params['cityCode']+'|'+req.params['orgCode']);
 
@@ -20,9 +22,10 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res) {
   }
 });
 
+// EVENT LISTING
 router.get('/:cityCode?/:orgCode?', async function(req, res) {
   try {
-    const cities = await City.find();
+    const cities = await City.find({status: true});
     let { events, featured } = await eventsService.getEvents(req.params['cityCode'], req.params['orgCode']);
 
     let activeCity = undefined;

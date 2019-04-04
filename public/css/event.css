@@ -46,7 +46,7 @@
 
 .slider-container img {
   height: 250px;
-  padding: 0 120px;
+  padding: 0 140px;
   outline: none;
 }
 
@@ -56,11 +56,15 @@
   border: 2px solid #e8eaed; 
 }
 
-.section-row .date-place .date, .section-row .date-place .place {
+.section-row .date-place .date, 
+.section-row .date-place .place, 
+.section-row .date-place .site {
   line-height: 36px;
 }
 
-.section-row .date-place .date:before, .section-row .date-place .place:before {
+.section-row .date-place .date:before, 
+.section-row .date-place .place:before,
+.section-row .date-place .site:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f073";
@@ -80,6 +84,10 @@
 
 .section-row .date-place .place:before {
   content: "\f124";
+}
+
+.section-row .date-place .site:before {
+  content: "\f0ac";
 }
 
 

@@ -76,4 +76,13 @@ chmod +x /home/tiferreira12/mongodb-backup-restore/*
 touch /home/tiferreira12/crontab.log
 
 # Manually restore a backup
-mongorestore --drop --archive=backup-2019-04-02T12:03:37Z.gz --gzip
+mongorestore --drop --gzip --archive=backup-2019-04-02T12:03:37Z.gz 
+
+
+
+
+db.createUser({
+	user: "torowdogapi",
+	pwd: "lffE41Cj8LuLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
+	roles:[{role: "readWrite" , db:"torowdogdb"}]
+})

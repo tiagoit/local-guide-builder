@@ -27,6 +27,7 @@ mongodbConnect();
 
 // API Routes
 app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/evento/i]}));
+app.use('/api/app', require('./routes/api/app.api'));
 app.use('/api/auth', require('./routes/api/auth.api'));
 app.use('/api/events', require('./routes/api/events.api'));
 app.use('/api/upload', require('./routes/api/upload.ap'));

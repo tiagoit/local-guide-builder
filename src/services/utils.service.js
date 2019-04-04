@@ -5,6 +5,7 @@ function removeAcentos(str) {
     str = str.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
     str = str.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
     str = str.replace(new RegExp('[Ç]','gi'), 'c');
+    str = str.replace('\'', '');
     return str;                 
 }
 

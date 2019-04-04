@@ -38,6 +38,9 @@
                             <%= org.address.street ? (org.address.street + ', ') : "" %>
                             <%= org.address.number ? (org.address.number + ', ') : "" %>
                             <%= org.address.city %></div>
+                        <% if(event.site) { %>
+                        <div class="site"><%= event.site %></div>
+                        <% } %>
                     </div>
 
                     <!-- <blockquote class="blockquote">
