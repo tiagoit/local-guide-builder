@@ -33,6 +33,7 @@ app.use('/api/events', require('./routes/api/events.api'));
 app.use('/api/upload', require('./routes/api/upload.api'));
 app.use('/api/cities', require('./routes/api/cities.api'));
 app.use('/api/orgs', require('./routes/api/orgs.api'));
+app.use('/api/tags', require('./routes/api/tags.api'));
 
 // Public website routes
 app.use('/', require('./routes/public/index.pub'));
