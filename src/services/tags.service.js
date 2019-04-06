@@ -1,12 +1,12 @@
 const { Tag } = require('../models/tag.model');
 
-async function getTag(tagCode) {
-  return await Event.findOne({code: tagCode});
+function get() {
+  return Tag.find().sort('title');
 }
 
-async function getTags() {
-  return await Tag.find().sort('title');
+function getByCode(tagCode) {
+  return Event.findOne({code: tagCode});
 }
 
-module.exports.getTag = getTag;
-module.exports.getTags = getTags;
+module.exports.get = get;
+module.exports.getByCode = getByCode;

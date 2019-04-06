@@ -5,7 +5,7 @@ const tagSevice = require('../../services/tags.service');
 // ############   GET ALL TAGS
 router.get('/tags', async (req, res) => {
     try {
-        const tags = await tagSevice.getTags();
+        const tags = await tagSevice.get();
         res.send(tags);
     } catch (ex) {
         console.log('EXCEPTION: ', ex);

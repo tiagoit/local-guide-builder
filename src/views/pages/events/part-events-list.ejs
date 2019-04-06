@@ -3,7 +3,7 @@
     <% if (events[monthDate] && events[monthDate].length > 0) { %>
         <div class="row mt-2 event-row">
             <div class="col-md-12">
-                <div class="event-row-title">
+                <div class="event-row-title noselect">
                     <h2>
                         <% if (monthDate === moment().format("MMDD")) { %>
                             HOJE | 
@@ -18,20 +18,21 @@
         </div>
 
         <div class="slider-container">
-            <% events[monthDate].forEach(function(ev, index) { %>
+            <% events[monthDate].forEach(function(event, index) { %>
                 <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-3">
                     <div class="event ml-2 mr-2">
-                        <a class="anchor-wrapper" href="/eventos/<%=utilsService.encode(ev.city)%>/<%=utilsService.encode(ev.org)%>/<%=ev.code%>">
-                            <a class="event-img" href="#" onclick="return false;"><img src="<%= ev.images[0] %>" alt=""></a>
+                        <a class="anchor-wrapper" href="/eventos/<%=utilsService.encode(event.city)%>/<%=utilsService.encode(event.org)%>/<%=event.code%>">
+                            <a class="event-img" href="#" onclick="return false;"><img src="<%= event.images[0] %>" alt=""></a>
                             <div class="event-body">
-                                <div class="event-org">
-                                    <a href="#" onclick="return false;"><%= ev.org %></a>
+                                <div class="event-org-city">
+                                    <%= event.org %>
+                                    <span class="city"><%= event.city %></span>
                                 </div>
-                                <h3 class="event-title"><a href="#" onclick="return false;"><%= ev.title %></a></h3>
-                                <ul class="event-meta">
-                                    <li><a href="#" onclick="return false;"><%= ev.city %></a></li>
-                                    <li><%= moment(ev.start).format("DD/MM") %></li>
-                                    <li><%= moment(ev.start).format("dddd").replace('-feira', '') %></li>
+                                <h3 class="event-title"><%= event.title %></h3>
+                                <ul class="event-tags">
+                                    <% event.tags.forEach((tag) => { %>
+                                        <li><%= tags.find(tag_ => tag_.code === tag).title %></li>
+                                    <% }) %>
                                 </ul>
                             </div>
                         </a>
