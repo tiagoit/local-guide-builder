@@ -11,10 +11,10 @@ const moment = require('moment-timezone');
 moment.locale('pt-BR');
 moment.tz.setDefault('America/Sao_Paulo');
 
-const app = express();
 const DEBUG = process.env.NODE_ENV !== 'production';
 const PORT = DEBUG ? '8080' : process.env.PORT;
 
+const app = express();
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -37,6 +37,16 @@ app.use('/api/orgs', require('./routes/api/orgs.api'));
 // Public website routes
 app.use('/', require('./routes/public/index.pub'));
 app.use('/eventos', require('./routes/public/events.pub'));
+
+// Catch errors
+// TODO: Show pretty server error page when not in local ENV.
+app.use(function(error, req, res, next) {
+    let error_ = { name: error.name, message: error.message, code: error.code };
+    console.log('################################# EXCEPTION #################################');
+    console.log(error_);
+    console.log('#############################################################################');
+    res.json(error_);
+});
 
 const server = app.listen(PORT, function () {
     console.log('Express listening on port %s', PORT);
