@@ -30,7 +30,7 @@ app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/
 app.use('/api/app', require('./routes/api/app.api'));
 app.use('/api/auth', require('./routes/api/auth.api'));
 app.use('/api/events', require('./routes/api/events.api'));
-app.use('/api/upload', require('./routes/api/upload.ap'));
+app.use('/api/upload', require('./routes/api/upload.api'));
 app.use('/api/cities', require('./routes/api/cities.api'));
 app.use('/api/orgs', require('./routes/api/orgs.api'));
 

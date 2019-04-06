@@ -1,15 +1,5 @@
 const moment = require('moment');
-const {Event} = require('../models/event.model');
-
-function get() {
-  return Event.find();
-}
-
-
-function getByCode(eventCode) {
-  return Event.findOne({code: eventCode});
-}
-
+const { Event } = require('../models');
 
 async function getFromOrg(cityCode, orgCode){
   // TODO: se madruga então mostar eventos rolando
@@ -22,15 +12,12 @@ async function getFromOrg(cityCode, orgCode){
   if(orgCode) query.orgCode = orgCode; 
   const events = await Event.find(query).sort('start');
 
-  // let featured = [];
   let eventsByDate = {};
 
   events.forEach((ev) => {
     let dayMonth = moment(ev.start).format('MMDD');
     if(eventsByDate[dayMonth] === undefined) eventsByDate[dayMonth] = [];
     eventsByDate[dayMonth].push(ev);
-
-    // if(featured.length < 9 && ev.featured) featured.push(ev);
   });
 
   return { events: eventsByDate };
@@ -79,7 +66,5 @@ async function getWithFilters(citiesFilter, tagsFilter) {
   return { events: eventsByDate  };
 }
 
-module.exports.get = get;
-module.exports.getByCode = getByCode;
 module.exports.getFromOrg = getFromOrg;
 module.exports.getWithFilters = getWithFilters;
