@@ -5,8 +5,10 @@ const utilsService = require('../../services/utils.service');
 const eventsService = require('../../services/events.service');
 const {City} = require('../../models/city.model');
 
-router.get('/', async (req, res) => {
-    res.redirect('/eventos');
+router.get('/', async (req, res, next) => {
+    try {
+        res.redirect('/eventos');
+    } catch(ex) { next(ex) }
 });
 
 module.exports = router;

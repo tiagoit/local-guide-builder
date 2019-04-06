@@ -1,34 +1,35 @@
 const mongoose = require('mongoose');
 
 const AddressSchema = new mongoose.Schema({
-    state: { type: String, required: true, minlength: 2, maxlength: 2 },
-    city: { type: String, required: true, minlength: 3, maxlength: 120 },
-    neighborhood: { type: String, required: false, maxlength: 120 },
-    street: { type: String, required: false, maxlength: 120 },
-    number: { type: String, required: false, maxlength: 120 },
-    complement: { type: String, required: false, maxlength: 120 },
-    zipCode: { type: String, required: false, maxlength: 120 }
+    state:          { type: String, required: true, length: 2 },
+    city:           { type: String, required: true, minlength: 3, maxlength: 120 },
+    neighborhood:   String,
+    street:         String,
+    number:         String,
+    complement:     String,
+    zipCode:        String
 });
 
 const ContactSchema = new mongoose.Schema({
-    name: { type: String, required: false, maxlength: 120 },
-    email: { type: String, required: false, maxlength: 120 },
-    mobile: { type: String, required: false, maxlength: 120 },
-    role: { type: String, required: false, maxlength: 120 },
-    notes: { type: String, required: false, maxlength: 255 }
+    name:   { type: String },
+    email:  { type: String },
+    mobile: { type: String },
+    role:   { type: String },
+    notes:  { type: String }
 });
 
 const Org = mongoose.model('Org', new mongoose.Schema({
-    code: { type: String, required: true, maxlength: 120 },
-    name: { type: String, required: true, maxlength: 120 },
-    site: String,
-    address: AddressSchema,
-    contacts: [ContactSchema],
-    mobile: { type: String, required: false, maxlength: 120 },
-    land: { type: String, required: false, maxlength: 2 },
-    email: { type: String, required: false, maxlength: 120 },
-    notes: { type: String, required: false, maxlength: 255 },
-    status: { type: Boolean, required: true }
+    code:       { type: String, required: true},
+    cityCode:   { type: String, required: true},
+    name:       { type: String, required: true},
+    site:       String,
+    address:    AddressSchema,
+    contacts:   [ContactSchema],
+    mobile:     { type: String},
+    land:       { type: String, maxlength: 2 },
+    email:      { type: String},
+    notes:      { type: String},
+    status:     { type: Boolean, default: true }
 }));
 
 exports.Org = Org;

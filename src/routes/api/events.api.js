@@ -4,32 +4,26 @@ const router = express.Router();
 const { Event } = require('../../models/event.model');
 const storageService = require('../../services/storage.service');
 const utilsService = require('../../services/utils.service');
+const eventservice = require('../../services/events.service');
 
 // ############   LIST
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
-        const events = await Event.find();
-        res.send(events);
-    } catch (ex) {
-        console.log('EXCEPTION: ', ex);
-        return res.status(400).send(ex);
-    }
+        res.send(await eventservice.get());
+    } catch(ex) { next(ex) }
 });
 
 // ############   GET
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
     try {
         const event = await Event.findById(req.params.id)
         if(!event) return res.status(400).send("Event with this ID not found");
         res.send(event);
-    } catch (ex) {
-        console.log('EXCEPTION: ', ex);
-        return res.status(400).send(ex);
-    }
+    } catch(ex) { next(ex) }
 });
 
 // ############   STORE
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
     const event = new Event({
         code: utilsService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
         start: req.body.start,
@@ -49,14 +43,11 @@ router.post('/', async (req, res) => {
     try {
         const result = await event.save();
         return res.send(event);
-    } catch (ex) {
-        console.log('EXCEPTION: ', ex);
-        return res.status(400).send(ex);
-    }
+    } catch(ex) { next(ex) }
 });
 
 // ############   UPDATE
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res, next) => {
     try {
         const event = await Event.findById(req.params.id);    
         event.set({
@@ -76,14 +67,11 @@ router.put('/:id', async (req, res) => {
         });
         event.save();
         return res.send(event);
-    } catch (ex) {
-        console.log('EXCEPTION: ', ex);
-        return res.status(400).send(ex);
-    }
+    } catch(ex) { next(ex) }
 });
 
 // ############   DELETE
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         let event = await Event.findById(req.params.id);
         if(!event) return res.status(404).send('The event with the given ID was not found.');
@@ -95,10 +83,7 @@ router.delete('/:id', async (req, res) => {
         event.delete();
         // event = await Event.findOneAndDelete({ _id: req.params.id });
         return res.send(event);
-    } catch (ex) {
-        console.log('EXCEPTION: ', ex);
-        return res.status(400).send(ex);
-    }
+    } catch(ex) { next(ex) }
 });
 
 module.exports = router;

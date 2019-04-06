@@ -1,16 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const tagSevice = require('../../services/tags.service');
 
 // ############   GET ALL TAGS
-router.get('/tags', async (req, res) => {
+router.get('/tags', async (req, res, next) => {
     try {
-        const tags = await tagSevice.get();
-        res.send(tags);
-    } catch (ex) {
-        console.log('EXCEPTION: ', ex);
-        return res.status(400).send(ex);
-    }
+        res.send(await Tag.find().sort('title'));
+    } catch(ex) { next(ex) }
 });
 
 module.exports = router;

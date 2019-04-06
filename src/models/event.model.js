@@ -1,44 +1,16 @@
 const mongoose = require('mongoose');
 
 const Event = mongoose.model('Event', new mongoose.Schema({
-    code: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 120
-    },
-    title: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 35
-    },
-    site: String,
-    description: { type: String, maxlength: 255 },
-    start: Date,
-    end: Date,
-    org: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 120
-    },
-    orgCode: String,
-    city: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 120
-    },
-    cityCode: String,
-    images: {
-        type: [],
-        required: true
-    },
-    tags: {
-        type: [],
-        required: false
-    },
+    code:       String,
+    orgCode:    String,
+    cityCode:   String,
+    start:      Date,
+    end:        Date,
+    title:      { type: String, required: true, minlength: 3, maxlength: 35 },
+    site:       String,
+    description: String,
+    images:     { type: [], required: true },
+    tags:       { type: [], default: [] },
     featured: Boolean
 }));
 

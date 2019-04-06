@@ -4,7 +4,6 @@ const moment = require('moment-timezone');
 const utilsService = require('../../services/utils.service');
 const eventsService = require('../../services/events.service');
 const orgsService = require('../../services/orgs.service');
-const tagsService = require('../../services/tags.service');
 const citiesService = require('../../services/cities.service');
 
 // PAGE: EVENT
@@ -12,7 +11,7 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
   console.log('PAGE: EVENT');
   try {
     const cities = await citiesService.get(true);
-    const tags = await tagsService.get();
+    const tags = await Tag.find().sort('title');
     const event = await eventsService.getByCode(req.params['eventCode']);
     const org = await orgsService.getByCode(req.params['cityCode']+'|'+req.params['orgCode']);
 
@@ -21,10 +20,7 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
     } else {
       next();
     }
-  } catch (ex) {
-    console.log('EXCEPTION: ', ex);
-    return res.status(404).send(ex);
-  }
+  } catch(ex) { next(ex) }
 });
 
 
@@ -46,20 +42,17 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
 //       console.log('next called on 44');
 //       next();
 //     }   
-//   } catch (ex) {
-//     console.log('EXCEPTION: ', ex);
-//     return res.status(404).send(ex);
-//   }
+//   } catch(ex) { next(ex) }
 // });
 
 
 // PAGE: LIST EVENTS WITH FILTERS /*
-router.get('/*', async function(req, res) {
+router.get('/*', async function(req, res, next) {
   console.log('PAGE: LIST EVENTS WITH FILTERS /*');
   
   try {
     const cities = await citiesService.get(true);
-    const tags = await tagsService.get();
+    const tags = await Tag.find().sort('title');
 
     let citiesFilter = [];
     let tagsFilter = [];
@@ -77,13 +70,8 @@ router.get('/*', async function(req, res) {
       if(city.code === req.params['cityCode']) activeCity = city.name;
     });
 
-    console.log('tags: ',tags);
-
     res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, utilsService });
-  } catch (ex) {
-    console.log('EXCEPTION: ', ex);
-    return res.status(404).send(ex);
-  }
+  } catch(ex) { next(ex) }
 });
 
 module.exports = router;
