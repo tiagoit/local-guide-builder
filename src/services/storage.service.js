@@ -13,7 +13,7 @@ const storage = new Storage({
 // Creates the new bucket
 function createBucket(newBucketName) {
     storage.createBucket(newBucketName).then(() => {
-        console.log(`Bucket ${newBucketName} created.`);
+        // console.log(`Bucket ${newBucketName} created.`);
     }).catch(err => {
         console.error('ERROR:', err);
     });
@@ -23,10 +23,10 @@ function listBuckets() {
     storage.getBuckets().then((results) => {
         const buckets = results[0];
   
-        console.log('Buckets:');
-        buckets.forEach((bucket) => {
-            console.log(bucket.name);
-        });
+        // console.log('Buckets:');
+        // buckets.forEach((bucket) => {
+        //     console.log(bucket.name);
+        // });
     }).catch((err) => {
         console.error('ERROR:', err);
     }); 
@@ -48,7 +48,7 @@ async function uploadFile(srcFilename, destFilename) {
     };
 
     let result = await storage.bucket(bucketName).upload(srcFilename, options);
-    console.log(`${srcFilename} uploaded to ${bucketName}.`);
+    // console.log(`${srcFilename} uploaded to ${bucketName}.`);
     return result;
 }
 
@@ -60,7 +60,7 @@ async function deleteFile(fileUrl) {
       .file(filename)
       .delete();
 
-    console.log(`gs://${bucketName}/${filename} deleted.`);
+    // console.log(`gs://${bucketName}/${filename} deleted.`);
 }
 
 // Makes the file public
@@ -70,8 +70,8 @@ async function makePublic(filename) {
         .file(filename)
         .makePublic();
 
-    console.log(`gs://${bucketName}/${filename} is now public.`);
-    console.log('Make public result: ', result);
+    // console.log(`gs://${bucketName}/${filename} is now public.`);
+    // console.log('Make public result: ', result);
 }
 
 // module.exports.createBucket = createBucket;

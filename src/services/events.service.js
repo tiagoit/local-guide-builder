@@ -52,8 +52,6 @@ async function getWithFilters(citiesFilter, tagsFilter) {
   //   ]
   // };
 
-
-  console.log('query: ', query);
   const events = await Event.find(query).sort('start');
 
   let eventsByDate = {};

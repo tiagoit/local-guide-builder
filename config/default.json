@@ -8,6 +8,8 @@
         "host": "mongodb://127.0.0.1:27017/sulbaguia",
         "options": {
             "useNewUrlParser": true,
+            "useCreateIndex": true,
+            "useFindAndModify": false,
             "auth": { "authdb": "sulbaguia" },
             "user": "sbglocal",
             "pass": "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY"

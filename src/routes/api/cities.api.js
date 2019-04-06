@@ -3,54 +3,26 @@ const router = express.Router();
 const appService = require('../../services/app.service');
 const { City } = require('../../models');
 
-// ############   LIST
-router.get('/', async (req, res, next) => {
-    try {
-        res.send(await City.find());
-    } catch(ex) { next(ex) }
+router.get('/', async (req, res) => {
+    res.send(await City.find());
 });
 
-// ############   GET
-router.get('/:id', async (req, res, next) => {
-    try {
-        const city = await City.findById(req.params.id)
-        if(!city) throw new Error(`City with this ID (${req.params.id}) not found`);
-        res.send(city);
-    } catch(ex) { next(ex) }
+router.get('/:id', async (req, res) => {
+    res.send(await City.findById(req.params.id));
 });
 
-// ############   STORE
-router.post('/', async (req, res, next) => {
-    try {
-        const city = new City({
-            code: appService.encode(req.body.name),
-            name: req.body.name,
-            status: req.body.status
-        });
-        res.send(await city.save());
-    } catch(ex) { next(ex) }
+router.post('/', async (req, res) => {
+    req.body.code = appService.encode(req.body.name);
+    res.send(await City(req.body).save());
 });
 
-// ############   UPDATE
-router.put('/:id', async (req, res, next) => {
-    try {
-        const city = await City.findById(req.params.id);
-        city.set({
-            code: appService.encode(req.body.name),
-            name: req.body.name,
-            status: req.body.status
-        });
-        res.send(await city.save());
-    } catch(ex) { next(ex) }
+router.put('/:id', async (req, res) => {
+    req.body.code = appService.encode(req.body.name);
+    res.send(await City.findOneAndUpdate({_id: req.body._id}, req.body));
 });
 
-// ############   DELETE
-router.delete('/:id', async (req, res, next) => {
-    try {
-        const city = await City.findOneAndDelete({ _id: req.params.id });
-        if(!city) throw new Error(`City with this ID (${req.params.id}) not found`);
-        res.send(city);
-    } catch(ex) { next(ex) }
+router.delete('/:id', async (req, res) => {
+    res.send(await City.findOneAndDelete({ _id: req.params.id }));
 });
 
 module.exports = router;

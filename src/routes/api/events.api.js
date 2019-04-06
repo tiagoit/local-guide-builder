@@ -1,81 +1,44 @@
 const express = require('express');
 const moment = require('moment-timezone');
 const router = express.Router();
-const { Event } = require('../../models');
-const storageService = require('../../services/storage.service');
 const appService = require('../../services/app.service');
+const storageService = require('../../services/storage.service');
+const { Event } = require('../../models');
 
-// ############   LIST
-router.get('/', async (req, res, next) => {
-    try {
-        res.send(await Event.find());
-    } catch(ex) { next(ex) }
+router.get('/', async (req, res) => {
+    res.send(await Event.find());
 });
 
-// ############   GET
-router.get('/:id', async (req, res, next) => {
-    try {
-        res.send(await Event.findById(req.params.id));
-    } catch(ex) { next(ex) }
+router.get('/:id', async (req, res) => {
+    res.send(await Event.findById(req.params.id));
 });
 
-// ############   STORE
-router.post('/', async (req, res, next) => {
-    try {
-        const event = new Event({
-            code: appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
-            start: req.body.start,
-            end: req.body.end,
-            org: req.body.org,
-            orgCode: appService.encode(req.body.city) + '|' + appService.encode(req.body.org),
-            city: req.body.city,
-            cityCode: appService.encode(req.body.city),
-            description: req.body.description,
-            title: req.body.title,
-            site: req.body.site,
-            images: req.body.images,
-            tags: req.body.tags,
-            featured: req.body.featured
-        });
-        res.send(await event.save());
-    } catch(ex) { next(ex) }
+router.post('/', async (req, res) => {
+    req.body.code = appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY');
+    req.body.orgCode = appService.encode(req.body.org)
+    req.body.cityCode = appService.encode(req.body.city);
+
+    res.send(await Event(req.body).save());
 });
 
-// ############   UPDATE
-router.put('/:id', async (req, res, next) => {
-    try {
-        const event = await Event.findById(req.params.id);    
-        event.set({
-            code: appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
-            start: req.body.start,
-            end: req.body.end,
-            org: req.body.org,
-            orgCode: appService.encode(req.body.city) + '|' + appService.encode(req.body.org),
-            city: req.body.city,
-            cityCode: appService.encode(req.body.city),
-            description: req.body.description,
-            title: req.body.title,
-            site: req.body.site,
-            images: req.body.images,
-            tags: req.body.tags,
-            featured: req.body.featured
-        });
-        res.send(await event.save());
-    } catch(ex) { next(ex) }
+router.put('/:id', async (req, res) => {
+    req.body.code = appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY');
+    req.body.orgCode = appService.encode(req.body.org)
+    req.body.cityCode = appService.encode(req.body.city);
+
+    res.send(await Event.findOneAndUpdate({_id: req.body._id}, req.body));
 });
 
 // ############   DELETE
-router.delete('/:id', async (req, res, next) => {
-    try {
-        let event = await Event.findById(req.params.id);
-        if(!event) throw new Error(`Event with this ID (${req.params.id}) not found`);
+router.delete('/:id', async (req, res) => {
+    let event = await Event.findById(req.params.id);
+    if(!event) throw new Error(`Event with this ID (${req.params.id}) not found`);
 
-        event.images.forEach(fileUrl => {
-            if(fileUrl) storageService.deleteFile(fileUrl);
-        });
+    event.images.forEach(fileUrl => {
+        if(fileUrl) storageService.deleteFile(fileUrl);
+    });
 
-        res.send(await event.delete());
-    } catch(ex) { next(ex) }
+    res.send(await event.delete());
 });
 
 module.exports = router;
