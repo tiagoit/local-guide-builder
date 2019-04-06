@@ -3,6 +3,7 @@ const router = express.Router();
 const moment = require('moment-timezone');
 const appService = require('../../services/app.service');
 const eventsService = require('../../services/events.service');
+const { City, Tag, Event, Org } = require('../../models');
 
 // PAGE: EVENT
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
@@ -42,6 +43,8 @@ router.get('/*', async function(req, res) {
     if(city.code === req.params['cityCode']) activeCity = city.name;
   });
 
+  activeCity = "Página em contrução. Volte em breve!"
+  events = []
   res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService });
 });
 
