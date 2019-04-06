@@ -7,46 +7,42 @@ const eventsService = require('../../services/events.service');
 // PAGE: EVENT
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
   console.log('PAGE: EVENT');
-  try {
-    const cities = await City.find({status: true});
-    const tags = await Tag.find().sort('title');
-    const event = await Event.findOne({code: req.params['eventCode']});
-    const org = await Org.findOne({code: req.params['cityCode']+'|'+req.params['orgCode']});
+  const cities = await City.find({status: true});
+  const tags = await Tag.find().sort('title');
+  const event = await Event.findOne({code: req.params['eventCode']});
+  const org = await Org.findOne({code: req.params['cityCode']+'|'+req.params['orgCode']});
 
-    if(event && org) {
-      res.render('./pages/events/event-details', { event, org, cities, tags, moment });
-    } else {
-      next();
-    }
-  } catch(ex) { next(ex) }
+  if(event && org) {
+    res.render('./pages/events/event-details', { event, org, cities, tags, moment });
+  } else {
+    next(); // route => '/*'
+  }
 });
 
 // PAGE: LIST EVENTS WITH FILTERS /*
-router.get('/*', async function(req, res, next) {
+router.get('/*', async function(req, res) {
   console.log('PAGE: LIST EVENTS WITH FILTERS /*');
   
-  try {
-    const cities = await City.find({status: true});
-    const tags = await Tag.find().sort('title');
+  const cities = await City.find({status: true});
+  const tags = await Tag.find().sort('title');
 
-    let citiesFilter = [];
-    let tagsFilter = [];
+  let citiesFilter = [];
+  let tagsFilter = [];
 
-    req.params[0].split('/').forEach((filter, idx) => {
-      if(cities.some(el => el.code == filter)) citiesFilter.push(filter);
-      else if(tags.some(el => el.code == filter)) tagsFilter.push(filter);
-      else {} // TODO: discard wrong param from URL
-    });
+  req.params[0].split('/').forEach((filter, idx) => {
+    if(cities.some(el => el.code == filter)) citiesFilter.push(filter);
+    else if(tags.some(el => el.code == filter)) tagsFilter.push(filter);
+    else {} // TODO: discard wrong param from URL
+  });
 
-    let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
+  let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
 
-    let activeCity = undefined;
-    req.params['cityCode'] && cities.forEach((city) => {
-      if(city.code === req.params['cityCode']) activeCity = city.name;
-    });
+  let activeCity = undefined;
+  req.params['cityCode'] && cities.forEach((city) => {
+    if(city.code === req.params['cityCode']) activeCity = city.name;
+  });
 
-    res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService });
-  } catch(ex) { next(ex) }
+  res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService });
 });
 
 module.exports = router;

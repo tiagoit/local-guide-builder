@@ -3,10 +3,10 @@ const appService = require('./services/app.service');
 
 // ########################################## CITY ##########################################
 const City = mongoose.model('City', new mongoose.Schema({
-    code:   { type: String, default: appService.encode(this.name) },
+    code:   { type: String, required: true, index: true },
+    order:  { type: Number, required: true, default: 0 },
     name:   { type: String, required: true, minlength: 3, maxlength: 120 },
-    status: { type: Boolean, default: true },
-    order:  { type: Number, default: 0 }
+    status: { type: Boolean, default: true }
 }));
 
 
@@ -30,23 +30,23 @@ const ContactSchema = new mongoose.Schema({
 });
 
 const Org = mongoose.model('Org', new mongoose.Schema({
-    code:       { type: String, required: true},
-    cityCode:   { type: String, required: true},
-    name:       { type: String, required: true},
+    code:       { type: String, required: true, index: true },
+    cityCode:   { type: String, required: true },
+    name:       { type: String, required: true },
     site:       String,
     address:    AddressSchema,
     contacts:   [ContactSchema],
-    mobile:     { type: String},
-    land:       { type: String, maxlength: 2 },
-    email:      { type: String},
-    notes:      { type: String},
+    mobile:     { type: String },
+    land:       { type: String },
+    email:      { type: String },
+    notes:      { type: String },
     status:     { type: Boolean, default: true }
 }));
 
 
 // ########################################## EVENT ##########################################
 const Event = mongoose.model('Event', new mongoose.Schema({
-    code:       String,
+    code:       { type: String, index: true },
     orgCode:    String,
     cityCode:   String,
     start:      Date,
@@ -62,7 +62,7 @@ const Event = mongoose.model('Event', new mongoose.Schema({
 
 // ########################################## TAG ##########################################
 const Tag = mongoose.model('Tag', new mongoose.Schema({
-    code:   { type: String, default: appService.encode(this.title) },
+    code:   { type: String, required: true, index: true },
     title:  { type: String, required: true },
     status: { type: Boolean, default: true }
 }));

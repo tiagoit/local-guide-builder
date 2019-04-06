@@ -38,20 +38,11 @@ app.use('/api/orgs', require('./routes/api/orgs.api'));
 app.use('/', require('./routes/public/index.pub'));
 app.use('/eventos', require('./routes/public/events.pub'));
 
-// Catch errors
-// TODO: Show pretty server error page when not in local ENV.
-app.use(function(error, req, res, next) {
-    let error_ = { name: error.name, message: error.message, code: error.code };
-    console.log('################################# EXCEPTION #################################');
-    console.log(error_);
-    console.log('#############################################################################');
-    res.json(error_);
-});
-
 const server = app.listen(PORT, function () {
     console.log('Express listening on port %s', PORT);
 });
 
+// TODO: Improve following Medium post
 function mongodbConnect() {
     mongoose.connect(config.get('mongodb.host'), config.get('mongodb.options'))
         .then(() => console.log('Connected to MongoDB...'))
