@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { Org } = require('../../models/org.model');
-const utilsService = require('../../services/utils.service');
+const { Org } = require('../../models');
+const appService = require('../../services/app.service');
 
 // ############   LIST
 router.get('/', async (req, res, next) => {
     try {
-        const orgs = await Org.find();
-        res.send(orgs);
+        res.send(await Org.find());
     } catch(ex) { next(ex) }
 });
 
@@ -15,7 +14,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try {
         const org = await Org.findById(req.params.id)
-        if(!org) return res.status(400).send("Org with this ID not found");
+        if(!org) throw new Error(`Org with this ID (${req.params.id}) not found`);
         res.send(org);
     } catch(ex) { next(ex) }
 });
@@ -24,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         const org = new Org({
-            code: utilsService.encode(req.body.address.city) + '|' + utilsService.encode(req.body.name),
+            code: appService.encode(req.body.address.city) + '|' + appService.encode(req.body.name),
             name: req.body.name,
             site: req.body.site,
             mobile: req.body.mobile,
@@ -50,8 +49,7 @@ router.post('/', async (req, res, next) => {
             }]
         });
 
-        const result = await org.save();
-        return res.send(org);
+        res.send(await org.save());
     } catch(ex) { next(ex) }
 });
 
@@ -63,7 +61,7 @@ router.put('/:id', async (req, res, next) => {
         // console.log('req.body: ', req.body);
         console.log(req.body.address.state);
         org.set({
-            code: utilsService.encode(req.body.address.city) + '|' + utilsService.encode(req.body.name),
+            code: appService.encode(req.body.address.city) + '|' + appService.encode(req.body.name),
             name: req.body.name,
             site: req.body.site,
             mobile: req.body.mobile,
@@ -91,9 +89,7 @@ router.put('/:id', async (req, res, next) => {
             notes: req.body.contacts[0].notes,
         });
 
-        // console.log('org after save: ', org);
-        org.save();
-        return res.send(org);
+        res.send(await org.save());
     } catch(ex) { next(ex) }
 });
 
@@ -101,8 +97,8 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         const org = await Org.findOneAndDelete({ _id: req.params.id });
-        if(!org) return res.status(404).send('The org with the given ID was not found.');
-        return res.send(org);
+        if(!org) throw new Error(`Org with this ID (${req.params.id}) not found`);
+        res.send(org);
     } catch(ex) { next(ex) }
 });
 

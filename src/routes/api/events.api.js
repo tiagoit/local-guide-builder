@@ -1,48 +1,43 @@
 const express = require('express');
 const moment = require('moment-timezone');
 const router = express.Router();
-const { Event } = require('../../models/event.model');
+const { Event } = require('../../models');
 const storageService = require('../../services/storage.service');
-const utilsService = require('../../services/utils.service');
-const eventservice = require('../../services/events.service');
+const appService = require('../../services/app.service');
 
 // ############   LIST
 router.get('/', async (req, res, next) => {
     try {
-        res.send(await eventservice.get());
+        res.send(await Event.find());
     } catch(ex) { next(ex) }
 });
 
 // ############   GET
 router.get('/:id', async (req, res, next) => {
     try {
-        const event = await Event.findById(req.params.id)
-        if(!event) return res.status(400).send("Event with this ID not found");
-        res.send(event);
+        res.send(await Event.findById(req.params.id));
     } catch(ex) { next(ex) }
 });
 
 // ############   STORE
 router.post('/', async (req, res, next) => {
-    const event = new Event({
-        code: utilsService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
-        start: req.body.start,
-        end: req.body.end,
-        org: req.body.org,
-        orgCode: utilsService.encode(req.body.city) + '|' + utilsService.encode(req.body.org),
-        city: req.body.city,
-        cityCode: utilsService.encode(req.body.city),
-        description: req.body.description,
-        title: req.body.title,
-        site: req.body.site,
-        images: req.body.images,
-        tags: req.body.tags,
-        featured: req.body.featured
-    });
-
     try {
-        const result = await event.save();
-        return res.send(event);
+        const event = new Event({
+            code: appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
+            start: req.body.start,
+            end: req.body.end,
+            org: req.body.org,
+            orgCode: appService.encode(req.body.city) + '|' + appService.encode(req.body.org),
+            city: req.body.city,
+            cityCode: appService.encode(req.body.city),
+            description: req.body.description,
+            title: req.body.title,
+            site: req.body.site,
+            images: req.body.images,
+            tags: req.body.tags,
+            featured: req.body.featured
+        });
+        res.send(await event.save());
     } catch(ex) { next(ex) }
 });
 
@@ -51,13 +46,13 @@ router.put('/:id', async (req, res, next) => {
     try {
         const event = await Event.findById(req.params.id);    
         event.set({
-            code: utilsService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
+            code: appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY'),
             start: req.body.start,
             end: req.body.end,
             org: req.body.org,
-            orgCode: utilsService.encode(req.body.city) + '|' + utilsService.encode(req.body.org),
+            orgCode: appService.encode(req.body.city) + '|' + appService.encode(req.body.org),
             city: req.body.city,
-            cityCode: utilsService.encode(req.body.city),
+            cityCode: appService.encode(req.body.city),
             description: req.body.description,
             title: req.body.title,
             site: req.body.site,
@@ -65,8 +60,7 @@ router.put('/:id', async (req, res, next) => {
             tags: req.body.tags,
             featured: req.body.featured
         });
-        event.save();
-        return res.send(event);
+        res.send(await event.save());
     } catch(ex) { next(ex) }
 });
 
@@ -74,15 +68,13 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         let event = await Event.findById(req.params.id);
-        if(!event) return res.status(404).send('The event with the given ID was not found.');
+        if(!event) throw new Error(`Event with this ID (${req.params.id}) not found`);
 
         event.images.forEach(fileUrl => {
             if(fileUrl) storageService.deleteFile(fileUrl);
         });
 
-        event.delete();
-        // event = await Event.findOneAndDelete({ _id: req.params.id });
-        return res.send(event);
+        res.send(await event.delete());
     } catch(ex) { next(ex) }
 });
 

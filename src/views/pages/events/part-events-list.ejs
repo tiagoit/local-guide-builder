@@ -21,7 +21,7 @@
             <% events[monthDate].forEach(function(event, index) { %>
                 <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-3">
                     <div class="event ml-2 mr-2">
-                        <a class="anchor-wrapper" href="/eventos/<%=utilsService.encode(event.city)%>/<%=utilsService.encode(event.org)%>/<%=event.code%>">
+                        <a class="anchor-wrapper" href="/eventos/<%=appService.encode(event.city)%>/<%=appService.encode(event.org)%>/<%=event.code%>">
                             <a class="event-img" href="#" onclick="return false;"><img src="<%= event.images[0] %>" alt=""></a>
                             <div class="event-body">
                                 <div class="event-org-city">

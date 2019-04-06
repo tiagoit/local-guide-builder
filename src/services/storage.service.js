@@ -47,9 +47,9 @@ async function uploadFile(srcFilename, destFilename) {
         }
     };
 
-    let res = await storage.bucket(bucketName).upload(srcFilename, options);
+    let result = await storage.bucket(bucketName).upload(srcFilename, options);
     console.log(`${srcFilename} uploaded to ${bucketName}.`);
-    return res;
+    return result;
 }
 
 async function deleteFile(fileUrl) {
