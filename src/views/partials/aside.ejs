@@ -1,19 +1,27 @@
 <!-- cities widget -->
 <div class="aside-widget">
-    <div class="title">
-        <h2>Cidades</h2>
-    </div>
-    <div class="cities-widget">
-        <ul>
-            <% cities.forEach(function(city) { %>
-                <li class="<%= (locals.activeCity && activeCity == city.name) ? 'active' : '' %>">
-                    <a href="/eventos/<%= city.code %>"><%= city.name %></a>
+    <div class="row filters-widget">
+        <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4">
+            <div class="title"><h2 class="noselect">Cidades</h2></div>
+            <ul><% cities.forEach((city, index) => { %>
+                <li>
+                    <input type="checkbox" class="filter-checkbox form-check-input" value="<%= city.code %>">
+                    <label class="form-check-label noselect"><%= city.name %></label>
                 </li>
-            <% }); %>
-        </ul>
-    </div>
+            <% }); %></ul>
+        </div>
 
-    <!-- <button class="primary-button d-block mx-auto mt-3">Filtrar</button> -->
+        <div class="col-12 col-sm-6 col-md-12 col-lg-12">
+            <div class="title"><h2 class="noselect">Tags</h2></div>
+            <ul><% tags.forEach((tag, index) => { %>
+                <li>
+                    <input type="checkbox" class="filter-checkbox form-check-input" value="<%= tag.code %>">
+                    <label class="form-check-label noselect"><%= tag.title %></label>
+                </li>
+            <% }); %></ul>
+        </div>
+    </div>
+    <button type="button" class="btn btn-info btn-sm update-filters text-uppercase">Filtrar</button>
 </div>
 <!-- /cities widget -->
     

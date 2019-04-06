@@ -101,19 +101,9 @@
   cursor: pointer;
   border-radius: 4px;
 }
-
 .event:hover {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #f3f3f3;
-}
-
-.event:hover .event-img {
-  height: 207px;
-}
-
-.event:hover .event-body {
-  height: 71px;
-  padding: 4px 11px;
 }
 
 .event a.anchor-wrapper {
@@ -122,14 +112,18 @@
   width: 240px;
 }
 
-.event .event-img {
+
+.event-img {
   display: block;
   height: 208px;
   overflow: hidden;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
-.event .event-img > img {
+.event:hover .event-img {
+  height: 207px;
+}
+.event-img > img {
   width: 100%;
   -webkit-transition: 1.6s -webkit-transform;
   transition: 1.6s -webkit-transform;
@@ -138,74 +132,62 @@
 }
 
 
-.event .event-body {
+
+.event-body {
   position: relative;
-  padding: 4px 12px;
+  padding: 8px;
   background: inherit;
   z-index: 10;
   height: 72px;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }
-
-
-.event .event-body .event-org a {
+.event:hover .event-body {
+  height: 71px;
+  padding: 8px 7px;
+}
+.event-body > div.event-org-city {
+  line-height: 16px;
   color: #6c9d61;
   font-weight: 900;
   font-size: 10px;
   text-transform: uppercase;
 }
-.event .event-body .event-org a:after {
-  content: ',';
-  display: inline-block;
-}
-.event .event-body .event-org a:last-child:after {
-  display: none;
+.event-body > div.event-org-city > .city {
+  color: rgba(0,0,0,0.7);
+  float: right;
 }
 
-
-
-
-
-
-.event .event-body .event-title {
+.event-body > h3.event-title {
+  margin-top: 4px;
+  margin-bottom: 8px;
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 0;
   font-weight: 600;
-}
-.event .event-body .event-title a {
   color: rgba(0,0,0,0.7) !important;
 }
 
-
-.event .event-body .event-meta {
+.event-body .event-tags {
   margin-bottom: 0;
+  margin-top: 4px;
+  line-height: 16px;
 }
-.event .event-body .event-meta li {
+.event-body .event-tags li {
   display: inline-block;
-  color: #97989b;
+  color: black;
   font-size: 10px;
   text-transform: uppercase;
-}
-.event .event-body .event-meta li a {
-  color: #97989b;
   font-weight: 400;
 }
-.event .event-body .event-meta li a:hover,
-.event .event-body .event-meta li a:focus {
-  color: #6c9d61;
-}
-.event .event-body .event-meta li:after {
+.event-body .event-tags li:after {
   content: '|';
   display: inline-block;
   padding-left: 4px;
 }
-.event .event-body .event-meta li:last-child:after {
+.event-tags li:last-child:after {
   display: none;
 }
-
 
 
 

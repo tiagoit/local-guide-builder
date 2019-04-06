@@ -1,9 +1,12 @@
-const moment = require('moment');
 const {Org} = require('../models/org.model');
 
-
-async function getOrg(orgCode) {
-  return await Org.findOne({code: orgCode});
+function get() {
+  return Org.find();
 }
 
-module.exports.getOrg = getOrg;
+function getByCode(orgCode) {
+  return Org.findOne({code: orgCode});
+}
+
+module.exports.get = get;
+module.exports.getByCode = getByCode;
