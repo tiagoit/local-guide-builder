@@ -33,7 +33,6 @@ const Org = mongoose.model('Org', new mongoose.Schema({
     code:       { type: String, required: true, index: true },
     name:       { type: String, required: true },
     cityCode:   { type: String, required: true },
-    cityName:   { type: String, required: true },
     site:       String,
     address:    AddressSchema,
     contacts:   [ContactSchema],
