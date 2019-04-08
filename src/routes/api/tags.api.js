@@ -25,4 +25,8 @@ router.delete('/:id', async (req, res) => {
     res.send(await Tag.findOneAndDelete({ _id: req.params.id }));
 });
 
+router.get('/check-code/:code', async (req, res) => {
+    res.send(await Tag.findOne({code: req.params.code}));
+});
+
 module.exports = router;

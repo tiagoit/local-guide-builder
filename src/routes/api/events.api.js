@@ -14,31 +14,31 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    req.body.code = appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY');
-    req.body.orgCode = appService.encode(req.body.org)
-    req.body.cityCode = appService.encode(req.body.city);
-
+    req.body.code = appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY');  
     res.send(await Event(req.body).save());
 });
 
 router.put('/:id', async (req, res) => {
     req.body.code = appService.encode(req.body.title) + '-' + moment(req.body.start).format('DD-MM-YYYY');
-    req.body.orgCode = appService.encode(req.body.org)
-    req.body.cityCode = appService.encode(req.body.city);
 
     res.send(await Event.findOneAndUpdate({_id: req.body._id}, req.body));
 });
 
-// ############   DELETE
 router.delete('/:id', async (req, res) => {
     let event = await Event.findById(req.params.id);
-    if(!event) throw new Error(`Event with this ID (${req.params.id}) not found`);
 
+    if(!event) res.status(500).send(`Event with this ID (${req.params.id}) not found.`);
     event.images.forEach(fileUrl => {
         if(fileUrl) storageService.deleteFile(fileUrl);
     });
 
     res.send(await event.delete());
+});
+
+router.get('/check-code/:code/:orgCode/:cityCode', async (req, res) => {
+    let query = {code: req.params.code, orgCode: req.params.orgCode, orgCode: req.params.orgCode, cityCode: req.params.cityCode};
+    console.log(query);
+    res.send(await Event.findOne(query));
 });
 
 module.exports = router;
