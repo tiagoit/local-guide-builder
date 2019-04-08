@@ -13,6 +13,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     req.body.code = appService.encode(req.body.name);
+    req.body.cityName = req.body.address.city;
     req.body.cityCode = appService.encode(req.body.address.city);
     res.send(await Org(req.body).save());
 });
@@ -25,6 +26,10 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     res.send(await Org.findOneAndDelete({ _id: req.params.id }));
+});
+
+router.get('/check-code/:code/:cityCode', async (req, res) => {
+    res.send(await Org.findOne({code: req.params.code, cityCode: req.params.cityCode}));
 });
 
 module.exports = router;

@@ -25,4 +25,9 @@ router.delete('/:id', async (req, res) => {
     res.send(await City.findOneAndDelete({ _id: req.params.id }));
 });
 
+router.get('/check-code/:code', async (req, res) => {
+    res.send(await City.findOne({code: req.params.code}));
+});
+
+
 module.exports = router;
