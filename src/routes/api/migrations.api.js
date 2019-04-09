@@ -7,7 +7,7 @@ const { City, Org, Event } = require('../../models');
     - Collection.orgs
         - add site (empty string)
         - code -> remove city (arraial-d'ajuda|morocha-club) => (morocha-club)
-        - add cityCode (enconde(cityName))
+        - add cityCode (encode(cityName))
 */
 router.get('/mig-001', async (req, res) => {
     let orgs = await Org.find();

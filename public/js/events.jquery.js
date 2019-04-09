@@ -2,7 +2,7 @@
 	"use strict"
 
 	$('.slider-container').slick({
-		infinite: true,
+		infinite: false,
 		centerMode: false,
 		mobileFirst: true,
 		dots: true,

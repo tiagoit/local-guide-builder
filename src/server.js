@@ -41,7 +41,7 @@ app.use('/', require('./routes/public/index.pub'));
 app.use('/eventos', require('./routes/public/events.pub'));
 
 const server = app.listen(PORT, function () {
-    console.log('Express listening on port %s', PORT);
+    console.log('Express listening on port %s', PORT, ' ENV: ', config.get('env'));
 });
 
 // TODO: Improve following Medium post

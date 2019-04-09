@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   color: #505050;
   font-weight: 400;
   overflow-x: hidden;
@@ -291,12 +291,11 @@ nav {
 
 .nav-logo .logo {
   display: inline-block;
-  /* line-height: 70px; */
-  height: 56px;
+  height: 48px;
 }
 
 .nav-logo .logo>img {
-  height: 56px;
+  height: 48px;
   /* margin-top: -4px; */
   /* margin-left: 12px; */
 }
