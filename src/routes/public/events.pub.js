@@ -11,7 +11,7 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
   const cities = await City.find({status: true});
   const tags = await Tag.find().sort('title');
   const event = await Event.findOne({code: req.params['eventCode']});
-  const org = await Org.findOne({code: req.params['cityCode']+'|'+req.params['orgCode']});
+  const org = await Org.findOne({code: req.params['orgCode']});
 
   if(event && org) {
     res.render('./pages/events/event-details', { event, org, cities, tags, moment });
@@ -43,8 +43,6 @@ router.get('/*', async function(req, res) {
     if(city.code === req.params['cityCode']) activeCity = city.name;
   });
 
-  activeCity = "Página em contrução. Volte em breve!"
-  events = []
   res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService });
 });
 

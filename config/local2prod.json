@@ -1,0 +1,19 @@
+{ 
+    "name": "Sul BA Guia - Local2prod",
+    "bucketName": "sbg-localhost",
+    "projectID": "sulbaguia",
+    "env": "local2prod",
+    "jwtSecretToken": "908&6$%:12@738s$7fd79f7ds97f9ds7fsd89sdf98s",
+    "mongodb": { 
+      "host": "mongodb://35.196.178.139:27017/sbgdb",
+      "options": {
+          "useNewUrlParser": true,
+          "useCreateIndex": true,
+          "useFindAndModify": false,
+          "auth": { "authdb": "sbgdb" },
+          "user": "sbggae",
+          "pass": "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY"
+      }
+  }
+}
+
