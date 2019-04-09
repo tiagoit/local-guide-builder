@@ -37,13 +37,15 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.filters-widget ul li label {
-  font-size: 12px;
-  cursor: pointer;
-}
 .filters-widget ul li input {
   margin-top: 4px;
   cursor: pointer;
+  margin-left: -12px;
+}
+.filters-widget ul li label {
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 8px
 }
 
 .footer-widget .filters-widget ul li {
@@ -58,7 +60,7 @@ button.update-filters {
   margin: 12px 8px 0;
   width: calc(100% - 16px);
   margin: 8px 16px 32px 28px;
-  height: 24px;
+  height: 28px;
   padding-top: 2px;
 }
 

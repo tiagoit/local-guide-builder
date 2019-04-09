@@ -2,6 +2,7 @@
 	"use strict"
 
 	$('.btn-filter').click(() => {
+		console.log('ok')
 		$('.btn-filter').toggleClass('active');
 		$('.btn-menu').removeClass('active');
 
@@ -23,53 +24,28 @@
 		$('.btn-filter').removeClass('active');
 
 		if($('.btn-menu').hasClass('active')) {
-			$('.bottom-menu-container').html('abc');
+			$('.bottom-menu-container').html($('.menu-items').html());
 			$('.bottom-menu-container').addClass('show-with-transition');
 		} else {
 			$('.bottom-menu-container').removeClass('show-with-transition');
 		}
 	});
 
+	// Click outside of bottom menu
+	$(window).click(function () {
+		$('.bottom-menu-container').removeClass('show-with-transition');
+		$('.btn-filter').removeClass('active');
+		$('.btn-menu').removeClass('active');
+	});
+	
+	$('#nav-bottom').click(function (event) {
+			event.stopPropagation();
+	});
+
 	
 	if($(document).width() > 580) {
 		$('#nav-bottom').addClass('d-none');
 	}
-
-	// NAVBAR STUFF (// TODO: COLLECT?)
-	// Mobile dropdown
-	// $('.has-dropdown>a').on('click', function() {
-	// 	$(this).parent().toggleClass('active');
-	// });
-
-	// Aside Nav
-	// $(document).click(function(event) {
-	// 	if (!$(event.target).closest($('#nav-aside')).length) {
-	// 		if ( $('#nav-aside').hasClass('active') ) {
-	// 			$('#nav-aside').removeClass('active');
-	// 			$('#nav').removeClass('shadow-active');
-	// 		} else {
-	// 			if ($(event.target).closest('.aside-btn').length) {
-	// 				$('#nav-aside').addClass('active');
-	// 				$('#nav').addClass('shadow-active');
-	// 			}
-	// 		}
-	// 	}
-	// });
-
-	// $('.nav-aside-close').on('click', function () {
-	// 	$('#nav-aside').removeClass('active');
-	// 	$('#nav').removeClass('shadow-active');
-	// });
-
-
-	// $('.search-btn').on('click', function() {
-	// 	$('#nav-search').toggleClass('active');
-	// });
-
-	// $('.search-close').on('click', function () {
-	// 	$('#nav-search').removeClass('active');
-	// });
-
 })(jQuery);
 
 // Shrink #nav-top
@@ -83,7 +59,6 @@ $(window).scroll(function() {
 
 // Hide #nav-bottom when scroll to footer
 $(window).scroll(function() {
-	console.log($(document).width());
 	if($(document).width() < 580) {
 		if ($(document).scrollTop() >= $(document).height() - $(window).height() - 375) {
 			$('#nav-bottom').addClass('d-none');
@@ -91,5 +66,4 @@ $(window).scroll(function() {
 			$('#nav-bottom').removeClass('d-none');
 		}
 	}
-
 });
