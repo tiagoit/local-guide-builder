@@ -18,7 +18,7 @@
 }
 .aside-widget .title h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: rgba(0,0,0,0.7);
   font-weight: 600;
   margin-bottom: 0;
@@ -26,23 +26,23 @@
 
 
 /*----------------------------*\
-	cities widget
+	filters widget
 \*----------------------------*/
 .filters-widget ul {
   margin-left: 16px;
 }
 .filters-widget ul li {
-  padding: 8px 0px 8px 16px;
+  padding: 4px 0px 4px 16px;
   border-bottom: 1px solid #e8eaed;
   border-radius: 4px;
   cursor: pointer;
 }
 .filters-widget ul li label {
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
 }
 .filters-widget ul li input {
-  margin-top: 6px;
+  margin-top: 4px;
   cursor: pointer;
 }
 
@@ -57,6 +57,9 @@ img.t-300-250 {
 button.update-filters {
   margin: 12px 8px 0;
   width: calc(100% - 16px);
+  margin: 8px 16px 32px 28px;
+  height: 24px;
+  padding-top: 2px;
 }
 
 

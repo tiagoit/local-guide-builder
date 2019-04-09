@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const moment = require('moment-timezone');
+const config = require('config');
 const appService = require('../../services/app.service');
 const eventsService = require('../../services/events.service');
 const { City, Tag, Event, Org } = require('../../models');
@@ -8,13 +9,16 @@ const { City, Tag, Event, Org } = require('../../models');
 // PAGE: EVENT
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
   console.log('PAGE: EVENT');
+
+  env = config.get('env');
+  
   const cities = await City.find({status: true});
   const tags = await Tag.find().sort('title');
   const event = await Event.findOne({code: req.params['eventCode']});
   const org = await Org.findOne({code: req.params['orgCode']});
 
   if(event && org) {
-    res.render('./pages/events/event-details', { event, org, cities, tags, moment });
+    res.render('./pages/events/event-details', { event, org, cities, tags, moment, env });
   } else {
     next(); // route => '/*'
   }
@@ -23,6 +27,8 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
 // PAGE: LIST EVENTS WITH FILTERS /*
 router.get('/*', async function(req, res) {
   console.log('PAGE: LIST EVENTS WITH FILTERS /*');
+
+  env = config.get('env');
   
   const cities = await City.find({status: true});
   const tags = await Tag.find().sort('title');
@@ -43,7 +49,7 @@ router.get('/*', async function(req, res) {
     if(city.code === req.params['cityCode']) activeCity = city.name;
   });
 
-  res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService });
+  res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService, env });
 });
 
 module.exports = router;
