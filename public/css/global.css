@@ -236,6 +236,10 @@ nav {
   visibility: visible;
 }
 
+#nav-top.shrink {
+  height: 42px;
+}
+
 #nav-top.shrink .navbar{
   height: 44px;
 }
@@ -560,14 +564,15 @@ nav {
   z-index: 999;
   background-color: #FFF;
   bottom: 0;
-  height: 48px;
+  height: 46px;
   width: 100vw;
 }
 
 .navbar.fixed-bottom {
   box-shadow: 0px -2px 2px 0px lightgrey;
   background-color: #FFF;
-  padding: 0;
+  padding: 4px;
+  height: 52px;
 }
 
 
@@ -577,7 +582,7 @@ nav {
 }
 
 .nav-bottom-menu i {
-  font-size: 24px;
+  font-size: 16px;
   color: rgba(0,0,0,0.3);
 }
 /* 
@@ -587,7 +592,7 @@ nav {
 
 .divider {
   width: 1px;
-  height: 48px;
+  height: 36px;
   background-color: rgba(0,0,0,0.3);
 }
 
@@ -601,8 +606,8 @@ nav {
   position: fixed;
   max-height: 0;
   width: 100vw;
-  padding: 16px 12px;
-  bottom: 56px;
+  padding: 0;
+  bottom:52px;
   background-color: #FFF;
   box-shadow: 0px -2px 2px 0px lightgrey;
 
@@ -623,6 +628,7 @@ nav {
 }
 
 .bottom-menu-container .filters-widget {
+  padding: 16px 12px;
   max-height: 100%;
   overflow: scroll;
 }
@@ -658,6 +664,25 @@ nav {
 
 .bottom-menu-container .filters-widget button {
   margin-bottom: 8px;
+}
+
+
+/* ################ MENU ############# */
+
+.bottom-menu-logo-container {
+  height: 44px;
+  padding: 4px 8px;
+}
+
+.bottom-menu-logo {
+  height: 100%;
+  background-image: url(/img/sulbaguia-logo-h-t.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+.bottom-menu-container .list-group-item {
+  padding: 8px 20px;
 }
 
 
@@ -822,3 +847,5 @@ nav {
 .contact-social li a:hover {
   opacity: 0.9;
 }
+
+

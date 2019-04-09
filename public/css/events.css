@@ -306,6 +306,9 @@ ul.event-tags li:last-child:after {
   
 }
 
+
+/* Mobile only */
+
 @media only screen and (max-width: 575px) {
   .page-header {
     height: 160px;
@@ -323,14 +326,36 @@ ul.event-tags li:last-child:after {
     font-size: 24px;
     margin-top: 100px;
   }
-}
 
+  .main-container {
+    margin: 0 !important;
+  }
 
+  .event-row {
+    margin-top: 24px !important;
+  }
 
+  .event-row-title {
+    position: inherit;
+    margin-bottom: 12px;
+    margin-left: 16px;
+    margin-right: 0;
+    width: auto;
+    text-transform: uppercase;
+  }
 
+  .event {
+    width: 100vw;
+    height: auto;
+    margin: 0 !important;
+  }
 
+  .event .event-img {
+    height: 75vw;
+  }
 
+  .slick-dots {
+    bottom: -12px !important;
+  }
 
-@media only screen and (max-width: 719px) {
-  
 }
