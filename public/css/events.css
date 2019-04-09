@@ -46,7 +46,9 @@
   z-index: 9;
 }
 
-
+#title-city-name {
+  letter-spacing: 1.5px;
+}
 
 
 .event-row > div.col-md-12 {
@@ -158,6 +160,7 @@
 .event-body > div.event-org-city > .city {
   color: rgba(0,0,0,0.7);
   float: right;
+  font-weight: normal;
 }
 
 .event-body > h3.event-title {
@@ -170,24 +173,33 @@
   color: rgba(0,0,0,0.7) !important;
 }
 
-.event-body .event-tags {
-  margin-bottom: 0;
-  margin-top: 4px;
+.event-body ul.event-tags {
+  margin: 4px -4px 0 0;
   line-height: 16px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  letter-spacing: 0.01px;
+  font-size: 5px;
 }
-.event-body .event-tags li {
+.event-body ul.event-tags li {
   display: inline-block;
   color: black;
-  font-size: 10px;
+  font-size: 9px;
+  letter-spacing: 0.01px;
   text-transform: uppercase;
   font-weight: 400;
 }
-.event-body .event-tags li:after {
+.event-body ul.event-tags li:after {
   content: '|';
   display: inline-block;
-  padding-left: 4px;
+  padding-left: 2px;
+  font-weight: bold;
+  font-size: 10px;
 }
-.event-tags li:last-child:after {
+ul.event-tags li:last-child:after {
   display: none;
 }
 
@@ -300,7 +312,7 @@
   }
   
   .page-header #page-header-bg {
-    background-position: 0 0 !important;
+    background-position: 0 20px !important;
   }
   
   .page-header #page-header-bg:after {
