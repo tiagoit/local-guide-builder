@@ -48,5 +48,5 @@ const server = app.listen(PORT, function () {
 function mongodbConnect() {
     mongoose.connect(config.get('mongodb.host'), config.get('mongodb.options'))
         .then(() => console.log('Connected to MongoDB...'))
-        .catch((err) => console.log('Cannot connect to MongoDB: ', err, 'Options: ', options));
+        .catch((err) => console.log('Cannot connect to MongoDB: ', err, 'Options: ', config.get('mongodb.options')));
 }

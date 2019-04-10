@@ -86,3 +86,8 @@ db.createUser({
 	pwd: "lffE41Cj8LuLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
 	roles:[{role: "readWrite" , db:"torowdogdb"}]
 })
+
+
+
+// STG 
+db.createUser({ user: "sulbaguia-stg-user-gae", pwd: "VNUIF3lffE41CjBuwxLg8CwuWATx6fEFVekVoKVRKAN30V3kXDysDFdfdDFeGJkie9hE69Fe2HmMLmYSd3", roles:[{role: "readWrite" , db:"sulbaguia-stg-db"}]})

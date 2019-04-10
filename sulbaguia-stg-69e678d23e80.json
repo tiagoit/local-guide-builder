@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sulbaguia-stg",
+  "private_key_id": "69e678d23e80f8ba29400d1afe94781177e5704a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDVO9Z56tKf6Fl8\ngJ/LJlXHWIJose51EaEAClPWUWPUqn1GMBROk2eh7Gl7c7UfUC8DNCYlWUsWmLX9\nuKpgNzL/O58dC1kp1m8jh7cFNx7dABzfdTTf6cpc0OouJ8PlOUJoDfv2bmf+Sk7C\n7SONL3+vtHgcPnZIWM6w3EvPBAJZij3Puf9yYc94aVyA5MHVUd5ccvtEMbhfnFUv\nW+UvDbhrwrmltVszZUNLQoq5FBEJIO0RJsw9iAOu1Dbfj8HEqTMtHvrmQoLrt8ZT\n/PkSHhGRd7UxOOqegqYa6CjummDNqTytRbq8ImTn8FfV8iWXbIlgTtTtfezwn4g8\n8EmZ9j3JAgMBAAECggEAMI3WkZ5Z5ZWXwtTbDfwlriXGVCaoALpJ6eNwIa4YyFUl\n/3R1O0svXtyhTD4VsRKmEdmvEfQaOAP/9M025n/LOfkOiyOJYxBz8Cg4EZTyjyo2\naN+ccZwfuzDLEkV1wt1d9KmyhPOw9GNhOdubq8t0DMNQUkYa0vB96CHRlUr5af+5\nD2LqEEwNMSDDvfHAJHSU1UT1NSORhBgcHiVpBIHR79HdIRnqWq15kZfrmpiQES16\nVPk4RmQQCiMvj9OH/Zq5HyqwO/DqJXobfbz/YOv3Q9Z5lhocA5tmYQHyNTvmn3Kb\nJAWL6BSYPNeqqyqVu7skjXuxrSyE0DAWATyS3kgqXQKBgQDwVkxbAiL301dBmKKP\n2sGdKmxz3npDY3DmNHr2IBRtDQ+EDJoOBjvtCUCjuXl4wMuv8nBZ5Xo+T1fS4CSX\nSSLmV8h0eDNdxAmXBwdwHYsyS4RMywCAxB/6H8NDUx6vK+uAKY9f1rSF3sfalNjl\nb2vE9/HtjDtF7qINdheXG49u9wKBgQDjIVs6Q6QmWP2BJ4iuuXLqRmRJ2DGn8Lvf\naF5Dcarw77Zd4MLcbOTrbyZ5C4Gj+CjZyU6WcbYjIyYbhM/rNquiLhUoolyC7uTX\nHF5ZLksgvTKiAxsGg9DJyfkdRXeun6288yM8wwIZiwVmKrl6PJuinoiGizNILnT5\n40MOBEbJPwKBgQCa1w6kh7Ddt+R8l4kMY2TgDAgJcqmUpwmC1wbtcWeXhpWbfr72\nECAlrBNgKEvRd20Dc4/c6xKh+F5dtxj7+xuoCaBVIWf+niGLkvTAz9fxVGPtUdCG\nJVVwwWv9AR1AwGweiygbF+oAYbKi6cj/sJRfN1s/r1w0xvTS9WVnblMvqwKBgQC3\nwBip/mcijwQoJO+zS1zoo6InC7zAfUXA7BK2xZLh8Uy8jkWXRpG81uNtMh3jpbSG\n3RGzLLOJoboGsV/0jvoz7sw3X4Mwekywqsa5p3YoOmhoIdMPZjzXw4rCX5z/rTdF\nkf6D/dAJEiuACDid58KRwWf6UUtfrhX8xBtPj64kyQKBgQDfGTDE6QSpQ7vzMzYI\njcgWFQYeU5AH1MZmdz/ukF9WUDQi1QdJH6VVH0P6WIKKut1/LZsSkInDUiljwG7d\nNpF6HdSVt+w+c/ltSXouNIhgVINKJ4Bt7fJXBPUzTrqx+4xwekm+q96rg5YeoRlc\nSBZhlirlzcIjYqDA/mLeMi/Daw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sulbaguia-stg@appspot.gserviceaccount.com",
+  "client_id": "116479082303044192683",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sulbaguia-stg%40appspot.gserviceaccount.com"
+}
