@@ -32,14 +32,14 @@ const ContactSchema = new mongoose.Schema({
 const Org = mongoose.model('Org', new mongoose.Schema({
     code:       { type: String, required: true, index: true },
     name:       { type: String, required: true },
-    cityCode:   { type: String, required: true },
+    cityCode:   { type: String, required: true, index: true },
     site:       String,
     address:    AddressSchema,
     contacts:   [ContactSchema],
     mobile:     { type: String },
     land:       { type: String },
     email:      { type: String },
-    notes:      { type: String },
+    description:{ type: String },
     status:     { type: Boolean, default: true }
 }));
 
@@ -50,7 +50,7 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     title:      { type: String, required: true, minlength: 3, maxlength: 35 },
     orgCode:    String,
     orgName:    String,
-    cityCode:   String,
+    cityCode:   { type: String, required: true, index: true },
     cityName:   String,
     start:      Date,
     end:        Date,
@@ -67,7 +67,7 @@ const Tag = mongoose.model('Tag', new mongoose.Schema({
     code:   { type: String, required: true, index: true },
     order:  { type: Number, required: true, default: 0 },
     title:  { type: String, required: true },
-    status: { type: Boolean, default: true }
+    status: { type: Boolean, default: true, index: true }
 }));
 
 

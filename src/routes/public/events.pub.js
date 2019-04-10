@@ -12,8 +12,8 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
 
   env = config.get('env');
   
-  const cities = await City.find({status: true});
-  const tags = await Tag.find().sort('title');
+  const cities = await City.find({status: true}).sort('order');
+  const tags = await Tag.find().sort('title').sort('order');
   const event = await Event.findOne({code: req.params['eventCode']});
   const org = await Org.findOne({code: req.params['orgCode']});
 
@@ -30,8 +30,8 @@ router.get('/*', async function(req, res) {
 
   env = config.get('env');
   
-  const cities = await City.find({status: true});
-  const tags = await Tag.find().sort('title');
+  const cities = await City.find({status: true}).sort('order');
+  const tags = await Tag.find().sort('title').sort('order');
 
   let citiesFilter = [];
   let tagsFilter = [];

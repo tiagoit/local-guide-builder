@@ -849,3 +849,17 @@ nav {
 }
 
 
+
+/* Mobile only */
+@media only screen and (max-width: 575px) {
+  footer#footer {
+    padding-bottom: 20px;
+    padding-top: 48px;
+    text-align: center;
+  }
+
+  footer#footer div.footer-bottom {
+    margin-top: 0;
+    padding-top: 16px;
+  }
+}
