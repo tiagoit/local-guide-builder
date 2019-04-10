@@ -7,8 +7,9 @@ const bucketName = config.get('bucketName');
 // Creates a client
 const storage = new Storage({
   projectID: projectID,
-  keyFilename: 'gce-default-service-account-sulbaguia-4910dbe0819c.json'
+  keyFilename: config.get('serviceAccountFileName')
 });
+
 
 // Creates the new bucket
 function createBucket(newBucketName) {
