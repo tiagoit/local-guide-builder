@@ -37,7 +37,6 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/check-code/:code/:orgCode/:cityCode', async (req, res) => {
     let query = {code: req.params.code, orgCode: req.params.orgCode, orgCode: req.params.orgCode, cityCode: req.params.cityCode};
-    console.log(query);
     res.send(await Event.findOne(query));
 });
 

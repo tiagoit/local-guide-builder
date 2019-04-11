@@ -2,7 +2,6 @@
 	"use strict"
 
 	$('.btn-filter').click(() => {
-		console.log('ok')
 		$('.btn-filter').toggleClass('active');
 		$('.btn-menu').removeClass('active');
 

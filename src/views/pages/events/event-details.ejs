@@ -43,6 +43,11 @@
                         <% } %>
                     </div>
 
+
+                    <% if(org.address.location.lat) { %>
+                        <div id="map" data-location-lat="<%= org.address.location.lat %>" data-location-lng="<%= org.address.location.lng %>" class="mb-3"></div>
+                    <% } %>
+
                     <!-- <blockquote class="blockquote">
                         <p>Ei prima graecis consulatu vix, per cu corpora qualisque voluptaria. Bonorum moderatius in per, ius cu albucius voluptatum. Ne ius torquatos dissentiunt. Brute illum utroque eu quo. Cu tota mediocritatem vis, aliquip cotidieque eu ius, cu lorem suscipit eleifend sit.</p>
                         <footer class="blockquote-footer">John Doe</footer>
@@ -58,10 +63,24 @@
         
     <footer id="footer"><% include ../../partials/footer %></footer>
 
-    <!-- Slich image slider and carousel - JS-->
-    <script type="text/javascript" src="/slick/slick.min.js"></script>
-
+    
     <!-- Page specific scripts -->
+    <script type="text/javascript" src="/slick/slick.min.js"></script><!-- Slich image slider and carousel - JS-->
     <script type="text/javascript" src="/js/event.jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1iWpvlS1wbZG3WuxVE3fuAeLy3Y7wo68&callback=initMap" async defer></script>
+    <script>
+        var map, marker;
+        function initMap() {
+            let mapElement = document.getElementById('map');
+            if(mapElement) {
+                let location = {
+                    lat: parseFloat(mapElement.getAttribute('data-location-lat')),
+                    lng: parseFloat(mapElement.getAttribute('data-location-lng'))
+                };
+                var map = new google.maps.Map(mapElement, {zoom: 14, center: location});
+                var marker = new google.maps.Marker({position: location, map: map});
+            }
+        }
+    </script>
 </body>
 </html>

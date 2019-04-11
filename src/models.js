@@ -18,7 +18,8 @@ const AddressSchema = new mongoose.Schema({
     street:         String,
     number:         String,
     complement:     String,
-    zipCode:        String
+    zipCode:        String,
+    location:       Object
 });
 
 const ContactSchema = new mongoose.Schema({
