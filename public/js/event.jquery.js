@@ -13,4 +13,5 @@
 		autoplaySpeed: 5000,
 	});
 
+
 })(jQuery);

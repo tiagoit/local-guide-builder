@@ -40,6 +40,22 @@ app.use('/api/migrations', require('./routes/api/migrations.api'));
 app.use('/', require('./routes/public/index.pub'));
 app.use('/eventos', require('./routes/public/events.pub'));
 
+// app.get('*', (req, res) => {
+//     res.redirect('/');
+// });
+
+// app.use(function(err, req, res, next) {
+//     if(err.name === 'UnauthorizedError') {
+//       // res.status(err.status).render('./pages/eita', {env: config.get('env'), moment: moment});
+//     //   res.render('./pages/events/events-list', { events, cities, tags, appliedFilters, moment, appService, env });
+//     //   send({message:err.message});
+//       console.log(err);
+//       // return;
+//     }
+//  next();
+// });
+
+
 const server = app.listen(PORT, function () {
     console.log('Express listening on port %s', PORT, ' ENV: ', config.get('env'));
 });
