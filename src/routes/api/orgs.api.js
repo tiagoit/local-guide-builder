@@ -4,7 +4,7 @@ const appService = require('../../services/app.service');
 const { Org, Event } = require('../../models');
 
 router.get('/', async (req, res) => {
-    res.send(await Org.find());
+    res.send(await Org.find().sort({'cityCode': 1, 'name': 1}));
 });
 
 router.get('/:id', async (req, res) => {
