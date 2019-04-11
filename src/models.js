@@ -54,6 +54,7 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     cityName:   String,
     start:      Date,
     end:        Date,
+    size:       { type: Number, required: true },
     site:       String,
     description: String,
     images:     { type: [], required: true },
