@@ -5,6 +5,7 @@
     "env": "production",
     "jwtSecretToken": "908&6$%:12@79d8$7fd79f7ds97f9ds7fsddsf98s",
     "serviceAccountFileName": "gce-default-service-account-sulbaguia-4910dbe0819c.json",
+    "googleMapsServerKey": "AIzaSyB78unVKj8PaL5LYJl3sPnqlCvH8eyXhWk",
     "mongodb": { 
         "host": "mongodb://35.196.178.139:27017/sbgdb",
         "options": {

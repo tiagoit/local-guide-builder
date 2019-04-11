@@ -863,3 +863,35 @@ nav {
     padding-top: 16px;
   }
 }
+
+
+
+
+
+
+
+/*=========================================================
+NOT FOUND PAGE
+===========================================================*/
+
+div.notfound-page {
+  margin-top: 80px;
+}
+
+div.notfound-page .notfound-image img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+div.notfound-page .notfound-text {
+  display: inline-block;
+  color: rgba(0,0,0,0.7);
+}
+
+div.notfound-page .notfound-text h2, div.notfound-page .notfound-text p {
+  color: rgba(0,0,0,0.7);
+}
+
+div.notfound-page .notfound-text p {
+  font-size: 14px;
+}

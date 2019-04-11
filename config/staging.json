@@ -5,6 +5,7 @@
     "env": "staging ",
     "jwtSecretToken": "ldlffE41CjB8LuwxW0d9f8swZuPATx6vfEFUVedsf83n93iXDyzWe9hE69Fe2HmMLm98ds",
     "serviceAccountFileName": "sulbaguia-stg-69e678d23e80.json",
+    "googleMapsServerKey": "AIzaSyAdiDdNrH3jU7uZ1TfSUSybPjW0eSUsqso",
     "mongodb": { 
         "host": "mongodb://35.202.247.227:27017/sulbaguia-stg-db",
         "options": {

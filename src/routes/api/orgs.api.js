@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const config = require('config');
 const appService = require('../../services/app.service');
 const { Org, Event } = require('../../models');
+
 let googleMapsClient = undefined;
 
 router.get('/', async (req, res) => {
@@ -21,7 +23,7 @@ router.post('/', async (req, res) => {
     addressToGeocode.push(req.body.address.state);
     addressToGeocode.push('Brasil');
 
-    if(!googleMapsClient) googleMapsClient = require('@google/maps').createClient({key: 'AIzaSyAdiDdNrH3jU7uZ1TfSUSybPjW0eSUsqso'});
+    if(!googleMapsClient) googleMapsClient = require('@google/maps').createClient({key: config.get('googleMapsServerKey')});
 
     googleMapsClient.geocode({address: addressToGeocode.join(', ')}, async (err, response) => {
         if(!err) req.body.address.location = response.json.results[0].geometry.location;
@@ -40,7 +42,7 @@ router.put('/:id', async (req, res) => {
     addressToGeocode.push(req.body.address.state);
     addressToGeocode.push('Brasil');
 
-    if(!googleMapsClient) googleMapsClient = require('@google/maps').createClient({key: 'AIzaSyAdiDdNrH3jU7uZ1TfSUSybPjW0eSUsqso'});
+    if(!googleMapsClient) googleMapsClient = require('@google/maps').createClient({key: config.get('googleMapsServerKey')});
 
     googleMapsClient.geocode({address: addressToGeocode.join(', ')}, async (err, response) => {
         if(!err) req.body.address.location = response.json.results[0].geometry.location;

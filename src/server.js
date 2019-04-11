@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, './views'));
 mongodbConnect();
 
 // API Routes
-app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/evento/i]}));
+app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/eventos/, '/eita']}));
 app.use('/api/app', require('./routes/api/app.api'));
 app.use('/api/auth', require('./routes/api/auth.api'));
 app.use('/api/events', require('./routes/api/events.api'));
@@ -40,9 +40,19 @@ app.use('/api/migrations', require('./routes/api/migrations.api'));
 app.use('/', require('./routes/public/index.pub'));
 app.use('/eventos', require('./routes/public/events.pub'));
 
-// app.get('*', (req, res) => {
-//     res.redirect('/');
-// });
+app.get('/eita', (req, res) => {
+    res.render('./pages/eita', {env: config.get('env'), moment: moment});
+});
+
+app.get('*', (req, res) => {
+    res.redirect('/eita');
+});
+
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+      res.status(401).redirect('/eita');
+    }
+});
 
 // app.use(function(err, req, res, next) {
 //     if(err.name === 'UnauthorizedError') {
