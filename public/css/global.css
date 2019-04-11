@@ -1,6 +1,6 @@
 html {
   width: 100vw !important;
-  background-color: #f7f7f7;
+  background-color: #fafafa;
 }
 
 @media only screen and (max-width: 719px) {
@@ -16,7 +16,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   max-width: 100%;
-  background-color: #f7f7f7;
+  background-color: #fafafa;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -199,7 +199,7 @@ textarea.input {
 ===========================================================*/
 #nav-top {
   height: 64px;
-  background-color: #F7F7F7;
+  background-color: #Fafafa;
   position: fixed;
   top: 0;
   z-index: 999;
@@ -211,7 +211,7 @@ nav {
 
 .navbar.fixed-top {
   box-shadow: 0 1px 1px 1px lightgrey;
-  background-color: #F7F7F7 !important;
+  background-color: #Fafafa !important;
   background-image: url('/img/bg-brilliant.png');  
   padding: 4px 16px;
 }

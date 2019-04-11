@@ -1,7 +1,27 @@
+<% if(appliedFilters.cities.length) { %>
+    <div class="filters-row card mt-3 p-1 mx-3 d-block d-sm-none">
+        <div class="card-content d-flex justify-content-around">
+            <% appliedFilters.cities.forEach(function(city) { %>
+                <button type="button" class="btn btn-outline-success" disabled><%= city %></button>
+            <% }) %>
+        </div>
+    </div>
+<% } %>
+
+<% if(appliedFilters.tags.length) { %>
+    <div class="filters-row card mt-2 p-1 mx-3 d-block d-sm-none">
+        <div class="card-content d-flex justify-content-around">
+            <% appliedFilters.tags.forEach(function(city) { %>
+                <button type="button" class="btn btn-outline-success"><%= city %></button>
+            <% }) %>
+        </div>
+    </div>
+<% } %>
+
 <!-- views/partials/index-partial-events.ejs -->
 <% Object.keys(events).forEach(function(monthDate) { %>
     <% if (events[monthDate] && events[monthDate].length > 0) { %>
-        <div class="row mt-2 event-row">
+        <div class="row mt-1 event-row">
             <div class="col-md-12">
                 <div class="event-row-title noselect">
                     <h2>

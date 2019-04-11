@@ -50,6 +50,19 @@
   letter-spacing: 1.5px;
 }
 
+.card.filters-row button {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 12px;
+  opacity: 1;
+}
+
+.filters-row .filter-name {
+  /* font-size: 14px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.7); */
+}
+
 
 .event-row > div.col-md-12 {
   padding: 0;
@@ -64,7 +77,7 @@
 }
 
 .event-row-title h2 {
-  background-color: #f7f7f7;
+  background-color: #fafafa;
   padding: 0 12px;
   position: relative;
   display: inline-block;
@@ -345,13 +358,13 @@ ul.event-tags li:last-child:after {
   }
 
   .event {
-    width: 100vw;
+    /* width: 100vw;
     height: auto;
-    margin: 0 !important;
+    margin: 0 !important; */
   }
 
   .event .event-img {
-    height: 75vw;
+    /* height: 75vw; */
   }
 
   .slick-dots {
