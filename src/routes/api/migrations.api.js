@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const config = require('config');
 const appService = require('../../services/app.service');
-const { City, Org, Event } = require('../../models');
+const { Org, Event } = require('../../models');
 
 const MIG_COUNT = 4;
 
@@ -66,7 +67,7 @@ router.get('/mig-3', async (req, res) => {
 /*  - Collection.orgs
 - add description, use notes if its defined */
 router.get('/mig-4', async (req, res) => {
-    let googleMapsClient = require('@google/maps').createClient({key: 'AIzaSyAdiDdNrH3jU7uZ1TfSUSybPjW0eSUsqso'});
+    let googleMapsClient = require('@google/maps').createClient({key: config.get('googleMapsServerKey')});
 
     let orgs = await Org.find();
     orgs.forEach(el => {

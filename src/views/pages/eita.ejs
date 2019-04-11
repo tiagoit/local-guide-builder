@@ -7,10 +7,18 @@
     <body>
         <header id="header"><% include ../partials/header %></header>
 
-        <div class="main-container text-center">
-          <br>
-          <h2 class="my-5 mx-2" style="color: rgba(0,0,0,0.7)">Eita, não encontramos essa página.</h2>
-          <button type="button" class="btn btn-outline-success my-5">Voltar para página inicial</button>
+        <div class="main-container text-center notfound-page row">
+
+            <div class="notfound-image col-6 col-xs-12">
+                <img src="/img/not-found.webp" alt="Página não encontrada">
+            </div>
+
+            <div class="notfound-text col-6 col-xs-12 text-left">
+              <h2 class="mt-2">Eita...</h2>
+              <p>Não encontramos essa página.</p>
+              <button type="button" class="btn btn-success btn-sm my-2">Página inicial</button>
+            </div>
+          
         </div>
 
         <footer id="footer"><% include ../partials/footer %></footer>

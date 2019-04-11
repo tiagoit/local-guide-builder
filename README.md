@@ -17,3 +17,9 @@
 
 ## Deploy to production
 - `$ npm run deploy-production`
+
+
+## GCP Resources
+- Google Maps Javascript API
+- Google Maps Geocoding API
+- 

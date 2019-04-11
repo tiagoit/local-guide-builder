@@ -44,7 +44,7 @@
                     </div>
 
 
-                    <% if(org.address.location.lat) { %>
+                    <% if(org.address.location && org.address.location.lat) { %>
                         <div id="map" data-location-lat="<%= org.address.location.lat %>" data-location-lng="<%= org.address.location.lng %>" class="mb-3"></div>
                     <% } %>
 
