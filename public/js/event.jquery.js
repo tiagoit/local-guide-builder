@@ -1,6 +1,5 @@
 (function($) {
 	"use strict"
-
 	$('.slider-container').slick({
 		centerMode: true,
 		mobileFirst: true,

@@ -16,10 +16,9 @@
 
   // Update query with active filters
   $('.update-filters').click(() => {
-    console.log('ok');
     let filters = [];
     $.each($('.filter-checkbox'), (key, value) => {
-      if(value.checked) filters.push(value.value);
+      if(value.checked && !filters.includes(value.value)) filters.push(value.value);
     }).add(() => {
       window.location.href = '/eventos/' + filters.join('/');
     });

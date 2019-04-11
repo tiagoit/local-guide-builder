@@ -35,21 +35,26 @@ router.get('/*', async function(req, res) {
 
   let citiesFilter = [];
   let tagsFilter = [];
+  let appliedFilters = {cities: [], tags: []};
 
   req.params[0].split('/').forEach((filter, idx) => {
-    if(cities.some(el => el.code == filter)) citiesFilter.push(filter);
-    else if(tags.some(el => el.code == filter)) tagsFilter.push(filter);
-    else {} // TODO: discard wrong param from URL
+    cities.some(el => {
+      if(el.code == filter) {
+        citiesFilter.push(filter);
+        appliedFilters.cities.push(el.name);
+      }
+    });
+    tags.some(el => {
+      if(el.code == filter) {
+        tagsFilter.push(filter)
+        appliedFilters.tags.push(el.title);
+      }
+    });
   });
 
   let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
 
-  let activeCity = undefined;
-  req.params['cityCode'] && cities.forEach((city) => {
-    if(city.code === req.params['cityCode']) activeCity = city.name;
-  });
-
-  res.render('./pages/events/events-list', { events, cities, tags, activeCity, moment, appService, env });
+  res.render('./pages/events/events-list', { events, cities, tags, appliedFilters, moment, appService, env });
 });
 
 module.exports = router;
