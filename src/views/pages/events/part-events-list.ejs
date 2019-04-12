@@ -19,47 +19,57 @@
 <% } %>
 
 <!-- views/partials/index-partial-events.ejs -->
-<% Object.keys(events).forEach(function(monthDate) { %>
-    <% if (events[monthDate] && events[monthDate].length > 0) { %>
-        <div class="row mt-1 event-row">
-            <div class="col-md-12">
-                <div class="event-row-title noselect">
-                    <h2>
-                        <% if (monthDate === moment().format("MMDD")) { %>
-                            HOJE | 
-                        <% } else if (monthDate === moment().add(1, 'd').format("MMDD")) { %>
-                            AMANHÃ | 
-                        <% } %>
-                        <%= moment(events[monthDate][0]['start']).format("DD/MM").replace('/', '.') %>
-                        | <%= moment(events[monthDate][0]['start']).format("dddd").replace('-feira', '') %>
-                    </h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="slider-container">
-            <% events[monthDate].forEach(function(event, index) { %>
-                <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-3">
-                    <div class="event ml-2 mr-2">
-                        <a class="anchor-wrapper" href="/eventos/<%=event.cityCode%>/<%=event.orgCode%>/<%=event.code%>">
-                            <a class="event-img" href="#" onclick="return false;"><img src="<%= event.images[0] %>" alt=""></a>
-                            <div class="event-body">
-                                <div class="event-org-city">
-                                    <%= event.orgName %>
-                                    <span class="city"><%= event.cityName %></span>
-                                </div>
-                                <h3 class="event-title"><%= event.title %></h3>
-                                <ul class="event-tags">
-                                    <% event.tags.slice(0,5).forEach((tag) => { %>
-                                        <li><%= tags.find(tag_ => tag_.code === tag).title %></li>
-                                    <% }) %>
-                                </ul>
-                            </div>
-                        </a>
+<% let dateBlockNum = 0;
+    Object.keys(events).forEach(function(monthDate, dateIndex) { %>
+    <% if (events[monthDate] && events[monthDate].length > 0) { 
+        if(dateIndex % 7 === 0) {
+            dateBlockNum++;
+        }
+    %>
+        <div class="date-block date-block-<%=dateBlockNum%>">
+            <div class="row mt-1 event-row">
+                <div class="col-md-12">
+                    <div class="event-row-title noselect">
+                        <h2>
+                            <% if (monthDate === moment().format("MMDD")) { %>
+                                HOJE | 
+                            <% } else if (monthDate === moment().add(1, 'd').format("MMDD")) { %>
+                                AMANHÃ | 
+                            <% } %>
+                            <%= moment(events[monthDate][0]['start']).format("DD/MM").replace('/', '.') %>
+                            | <%= moment(events[monthDate][0]['start']).format("dddd").replace('-feira', '') %>
+                        </h2>
                     </div>
                 </div>
-            <% }) %>
-        </div>
+            </div>
 
+            <div class="slider-container">
+                <% events[monthDate].forEach(function(event, index) { %>
+                    <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-3">
+                        <div class="event ml-2 mr-2">
+                            <a class="anchor-wrapper" href="/eventos/<%=event.cityCode%>/<%=event.orgCode%>/<%=event.code%>">
+                                <a class="event-img" href="#" onclick="return false;"><img src="<%= event.images[0] %>" alt=""></a>
+                                <div class="event-body">
+                                    <div class="event-org-city">
+                                        <%= event.orgName %>
+                                        <span class="city"><%= event.cityName %></span>
+                                    </div>
+                                    <h3 class="event-title"><%= event.title %></h3>
+                                    <ul class="event-tags">
+                                        <% event.tags.slice(0,5).forEach((tag) => { %>
+                                            <li><%= tags.find(tag_ => tag_.code === tag).title %></li>
+                                        <% }) %>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
     <% } %>
 <% }) %>
+
+<div class="see-more-events text-center mb-3">
+    <button class="btn btn-sucess see-more-events">Ver mais eventos</button>
+</div>
