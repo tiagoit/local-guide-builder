@@ -1,6 +1,6 @@
 <% if(appliedFilters.cities.length) { %>
-    <div class="filters-row card mt-3 p-1 mx-3 d-block d-sm-none">
-        <div class="card-content d-flex justify-content-around">
+    <div class="filters-row mt-2 p-1 mx-1 d-block d-sm-none">
+        <div class="d-flex justify-content-around">
             <% appliedFilters.cities.forEach(function(city) { %>
                 <button type="button" class="btn btn-outline-success" disabled><%= city %></button>
             <% }) %>
@@ -9,10 +9,10 @@
 <% } %>
 
 <% if(appliedFilters.tags.length) { %>
-    <div class="filters-row card mt-2 p-1 mx-3 d-block d-sm-none">
-        <div class="card-content d-flex justify-content-around">
+    <div class="filters-row p-1 mx-1 d-block d-sm-none">
+        <div class="d-flex justify-content-around">
             <% appliedFilters.tags.forEach(function(city) { %>
-                <button type="button" class="btn btn-outline-success"><%= city %></button>
+                <button type="button" class="btn btn-outline-success" disabled><%= city %></button>
             <% }) %>
         </div>
     </div>

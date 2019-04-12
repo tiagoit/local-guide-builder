@@ -43,11 +43,22 @@
   z-index: 20;
 }
 
+.slider-container {
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
 
 .slider-container img {
   height: 250px;
   padding: 0 140px;
   outline: none;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: darkgreen;
+  opacity: 0.3;
 }
 
 .section-row .date-place {
