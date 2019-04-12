@@ -17,7 +17,7 @@
     <div class="main-container">
         <div class="row event-info-row">
             <!-- EVENT INFO -->
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="slider-container">
                     <% for(let img of event.images) { %>
                         <% if(img) { %><img src="<%= img %>" alt=""><% } %>
@@ -54,10 +54,6 @@
                     </blockquote> -->
                 </div>
             </div><!-- /EVENT INFO -->
-
-
-            <!-- ASIDE -->
-            <div class="col-md-4 aside-col"><% include ../../partials/aside.ejs %></div>
         </div>
     </div>
         

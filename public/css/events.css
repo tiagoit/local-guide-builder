@@ -50,11 +50,11 @@
   letter-spacing: 1.5px;
 }
 
-.card.filters-row button {
+.filters-row button {
   height: 24px;
   padding: 0 8px;
   font-size: 12px;
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .filters-row .filter-name {
