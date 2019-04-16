@@ -833,8 +833,23 @@ ul.nav-social li a:hover {
 
 .footer-bottom {
   margin-top: 30px;
-  padding-top: 20px;
+  padding-top: 12px;
   border-top: 1px solid #323335;
+}
+
+.footer-bottom .footer-support {
+  display: flex;
+}
+
+.footer-bottom .footer-support span.support-title {
+  position: absolute;
+  margin-top: -48px;
+  margin-left: -4px;
+  font-size: 20px;
+}
+
+.footer-bottom .footer-support img {
+  height: 36px;
 }
 
 .footer-nav {
@@ -887,6 +902,19 @@ ul.nav-social li a:hover {
   cursor: pointer;
 }
 
+div.footer-widget p.mail-text {
+  font-size: 16px;
+  text-align: center;
+}
+
+div.footer-widget p.mail-text a {
+  color: #FFaF !important;
+}
+
+ul.contact-social {
+  text-align: center;
+}
+
 .contact-social li {
   display: inline-block;
   margin-right: 3px;
@@ -922,7 +950,7 @@ ul.nav-social li a:hover {
 }
 
 .contact-sucess-message {
-  color: greenyellow;
+  color: #FFaF;
   border: 1px solid;
   text-align: center;
 }
@@ -933,12 +961,15 @@ ul.nav-social li a:hover {
   footer#footer {
     padding-bottom: 20px;
     padding-top: 24px;
-    text-align: center;
   }
 
   footer#footer div.footer-bottom {
-    margin-top: 0;
+    margin-top: 36px;
     padding-top: 16px;
+  }
+
+  .footer-logo {
+    text-align: center;
   }
   .footer-logo .logo img {
     width: 240px;
@@ -951,7 +982,6 @@ ul.nav-social li a:hover {
   .footer-widget {
     margin-bottom: 8px;
   }
-
 
   .contact-social {
     border-bottom: 1px solid #323335;

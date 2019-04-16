@@ -36,14 +36,15 @@
 
 
 .page-header #page-header-bg h1 {
-  width: 100%;
-  position: absolute;
-  margin-top: 135px;
-  text-align: center;
-  font-size: 40px;
-  color: #FFF;
-  text-transform: uppercase;
+  background-color: rgba(0,0,0,0.3);
   z-index: 9;
+  text-align: center;
+  width: 100%;
+  color: rgb(205, 222, 202);
+  padding: 8px 20px;
+  position: absolute;
+  font-size: 36px;
+  margin-top: 120px;
 }
 
 #title-city-name {
@@ -107,7 +108,7 @@
 
 .event {
   width: 240px;
-  height: 280px; /* 320 */
+  height: 280px;
   background-color: #fff;
   box-shadow: 0 1px 1px 1px lightgrey;
   cursor: pointer;
@@ -167,17 +168,27 @@
   font-size: 10px;
   text-transform: uppercase;
 }
+
 .event-body > div.event-org-city > .city {
-  color: rgba(0,0,0,0.7);
-  float: right;
+  position: absolute;
+  right: 4px;
+  padding-left: 4px;
   font-weight: normal;
+  color: black;
+  background-color: #FFF;
+}
+
+.event:hover .event-body > div.event-org-city > .city {
+  background-color: #F3F3F3;
+  right: 3px;
 }
 
 div.ev-body-second-row > h3.event-title {
   display: inline-block;
+  max-width: 100%;
   margin-top: 4px;
   margin-bottom: 4px;
-  font-size: 13px;
+  font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
   font-weight: 600;
@@ -232,7 +243,6 @@ ul.event-tags li:last-child:after {
   Large ≥992px  lg
   Extra large ≥1200px  xl
 */
-
 @media only screen and (max-width: 1199px) {
   .page-header {
     height: 240px;
@@ -246,8 +256,8 @@ ul.event-tags li:last-child:after {
     height: 240px;
   }
   .page-header #page-header-bg h1 {
-    font-size: 36px;
-    margin-top: 135px;
+    font-size: 32px;
+    margin-top: 125px;
   }
 
   .see-more-events {
@@ -268,8 +278,8 @@ ul.event-tags li:last-child:after {
     height: 200px;
   }
   .page-header #page-header-bg h1 {
-    font-size: 32px;
-    margin-top: 115px;
+    font-size: 28px;
+    margin-top: 96px;
   }
 
   .see-more-events {
@@ -317,8 +327,8 @@ ul.event-tags li:last-child:after {
     height: 180px;
   }
   .page-header #page-header-bg h1 {
-    font-size: 28px;
-    margin-top: 110px;
+    font-size: 22px;
+    margin-top: 90px;
   }
 
 
@@ -330,8 +340,9 @@ ul.event-tags li:last-child:after {
 }
 
 
-/* Mobile only */
-
+/* 
+  Mobile only 
+*/
 @media only screen and (max-width: 575px) {
   .page-header {
     height: 160px;
@@ -346,8 +357,9 @@ ul.event-tags li:last-child:after {
   }
   
   .page-header #page-header-bg h1 {
-    font-size: 24px;
-    margin-top: 100px;
+    font-size: 20px;
+    margin-top: 80px;
+    padding: 4px 28px;
   }
 
   .main-container {
@@ -365,16 +377,6 @@ ul.event-tags li:last-child:after {
     margin-right: 0;
     width: auto;
     text-transform: uppercase;
-  }
-
-  .event {
-    /* width: 100vw;
-    height: auto;
-    margin: 0 !important; */
-  }
-
-  .event .event-img {
-    /* height: 75vw; */
   }
 
   .slick-dots {
