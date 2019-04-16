@@ -56,7 +56,17 @@
                         </div>
                     </div>
                     <textarea id="contact-message" rows="2" class="input mb-1" name="message" placeholder="Mensagem"></textarea>
-                    <button id="btn-contact-send" class="btn primary-button">Enviar</button>
+                    <div>
+                        <button id="btn-contact-send" class="btn primary-button">
+                            Enviar
+                        </button>
+                        <div class="spinner-container d-none">
+                            <div class="spinner-grow text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="contact-sucess-message mt-2 d-none">Mensagem enviada com sucesso.</div>
                 </div>
             </div>
@@ -148,7 +158,11 @@
 
 <!-- SCRIPTS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+
+<!-- BOOTSTRAP 4 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="/js/main.jquery.js"></script>
 <script type="text/javascript" src="/js/aside.jquery.js"></script>

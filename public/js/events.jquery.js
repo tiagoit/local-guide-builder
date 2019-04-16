@@ -13,8 +13,9 @@ let dateBlocksVisible = 1;
 		dateBlocksVisible++;
 		refreshVisibleDateBlocks();
 	});
-
+	
 })(jQuery);
+
 
 function refreshVisibleDateBlocks() {
 	let dateBlockNum;
@@ -31,16 +32,21 @@ function refreshVisibleDateBlocks() {
 function initSlickSlider() {
 	let centerMode = $(document).width() < 580;
 	$('.slider-container').slick({
-		infinite: false,
+		infinite: true,
 		centerMode: centerMode,
 		mobileFirst: true,
 		dots: true,
-		speed: 500,
+		speed: 300,
 		adaptiveHeight: false,
 		variableWidth: true,
 		slidesToShow: 1,
 		arrows: false,
-		autoplay: false
+		autoplay: true,
+		autoplaySpeed: 3000,
+		draggable: true,
+		swipe: true,
+		swipeToSlide: true,
+		waitForAnimate: false
 	});
 }
 
