@@ -5,6 +5,7 @@ let dateBlocksVisible = 1;
 
 	initSlickSlider();
 	refreshVisibleDateBlocks();
+	hideDotsFromSlickIfOnlyOne();
 
 	$('.see-more-events').click((ev) => {
 		ev.stopPropagation();
@@ -41,5 +42,12 @@ function initSlickSlider() {
 		arrows: false,
 		autoplay: false
 	});
+}
 
+function hideDotsFromSlickIfOnlyOne() {
+	$('ul.slick-dots').each((i, el) => {
+    if($(el).children('li').length === 1) {
+        $(el).addClass('d-none')
+    }
+	})
 }

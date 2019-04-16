@@ -32,7 +32,7 @@
                     <p><%= event.description %></p>
 
                     <div class="date-place">
-                        <div class="date"><%= moment(event.start).format("Do [de] MMMM [de] YYYY, H[h]") %></div>
+                        <div class="date"><%= moment(event.start).format("DD [de] MMMM [de] YYYY, H[h]") %></div>
                         <div class="place">
                             <%= org.name %> | 
                             <%= org.address.street ? (org.address.street + ', ') : "" %>
