@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, './views'));
 mongodbConnect();
 
 // API Routes
-app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/eventos/, '/eita']}));
+app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/eventos/, '/eita', '/api/app/contact']}));
 app.use('/api/app', require('./routes/api/app.api'));
 app.use('/api/auth', require('./routes/api/auth.api'));
 app.use('/api/events', require('./routes/api/events.api'));

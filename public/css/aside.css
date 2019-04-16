@@ -34,7 +34,6 @@
 .filters-widget ul li {
   padding: 4px 0px 4px 16px;
   border-bottom: 1px solid #e8eaed;
-  border-radius: 4px;
   cursor: pointer;
 }
 .filters-widget ul li input {
@@ -176,7 +175,6 @@ button.update-filters {
   font-weight: 700;
   color: #97989b;
   background-color: #323335;
-  border-radius: 2px;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }

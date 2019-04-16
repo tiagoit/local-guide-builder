@@ -23,6 +23,7 @@
   "dependencies": {
     "@google-cloud/storage": "2.4.x",
     "@google/maps": "^0.5.5",
+    "@sendgrid/mail": "^6.3.1",
     "@types/jquery": "^3.3.29",
     "body-parser": "1.18.x",
     "config": "3.0.x",

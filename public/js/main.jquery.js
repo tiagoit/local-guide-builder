@@ -45,6 +45,23 @@
 	if($(document).width() > 580) {
 		$('#nav-bottom').addClass('d-none');
 	}
+
+	$('#btn-contact-send').click(ev => {
+		ev.stopPropagation();
+		$(ev.target).attr('disabled', true);
+
+		let data = {
+			name: $('#contact-name').val(),
+			email: $('#contact-email').val(),
+			phone: $('#contact-phone').val(),
+			message: $('#contact-message').val()
+		}
+
+		$.post('api/app/contact', data, result => {
+			$('.contact-sucess-message').removeClass('d-none');
+		});
+	});
+
 })(jQuery);
 
 // Shrink #nav-top

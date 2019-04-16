@@ -10,7 +10,7 @@ const MIG_COUNT = 4;
 router.get('/mig-count', async (req, res) => res.send({migCount: MIG_COUNT}));
 
 /*
-    - Collection.orgs
+    - MIGRATION 1: Collection.orgs
         - add site (empty string)
         - code -> remove city (arraial-d'ajuda|morocha-club) => (morocha-club)
         - add cityCode (encode(cityName))
@@ -29,7 +29,7 @@ router.get('/mig-1', async (req, res) => {
 });
 
 
-/*  - Collection.events
+/*  - MIGRATION 2: Collection.events
         - add tags (Empty array)
         - add site (Empty string)
         - orgCode -> remove city (arraial-d'ajuda|morocha-club) => (morocha-club)
@@ -51,7 +51,7 @@ router.get('/mig-2', async (req, res) => {
     res.send({});
 });
 
-/*  - Collection.orgs
+/*  - MIGRATION 3: Collection.orgs
         - add description, use notes if its defined */
 router.get('/mig-3', async (req, res) => {
     let orgs = await Org.find();
@@ -64,7 +64,7 @@ router.get('/mig-3', async (req, res) => {
 });
 
 
-/*  - Collection.orgs
+/*  - MIGRATION 4: Collection.orgs
 - add description, use notes if its defined */
 router.get('/mig-4', async (req, res) => {
     let googleMapsClient = require('@google/maps').createClient({key: config.get('googleMapsServerKey')});
