@@ -1,6 +1,8 @@
 (function($) {
 	"use strict"
 
+	$('[data-toggle="tooltip"]').tooltip();
+
 	$('.btn-filter').click(() => {
 		$('.btn-filter').toggleClass('active');
 		$('.btn-menu').removeClass('active');
