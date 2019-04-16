@@ -12,7 +12,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-12 col-lg-12">
             <div class="title"><h2 class="noselect mb-2 mt-md-3">Tags</h2></div>
-            <ul><% tags.filter(tag_ => tag_.status).forEach((tag, index) => { %>
+            <ul><% tags.filter(tag_ => tag_.status && tag_.featured).forEach((tag, index) => { %>
                 <li>
                     <input type="checkbox" class="filter-checkbox form-check-input" value="<%= tag.code %>">
                     <label class="form-check-label noselect"><%= tag.title %></label>

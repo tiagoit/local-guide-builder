@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const config = require('config');
 const appService = require('../../services/app.service');
-const { Org, Event } = require('../../models');
+const { Org, Event, Tag } = require('../../models');
 
-const MIG_COUNT = 4;
+const MIG_COUNT = 5;
 
 // Get migrations count
 router.get('/mig-count', async (req, res) => res.send({migCount: MIG_COUNT}));
@@ -87,6 +87,17 @@ router.get('/mig-4', async (req, res) => {
 
     res.send({});
 });
-        
+
+/*  - MIGRATION 5: Collection.tags
+- add featured, default false */
+router.get('/mig-5', async (req, res) => {
+    let tags = await Tag.find();
+    tags.forEach(el => {
+        el.featured = false;
+        el.save();
+    });
+
+    res.send({});
+});
 
 module.exports = router;

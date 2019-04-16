@@ -49,6 +49,7 @@
 	$('#btn-contact-send').click(ev => {
 		ev.stopPropagation();
 		$(ev.target).attr('disabled', true);
+		$('.contact-widget .spinner-container').removeClass('d-none');
 
 		let data = {
 			name: $('#contact-name').val(),
@@ -59,22 +60,28 @@
 
 		$.post('api/app/contact', data, result => {
 			$('.contact-sucess-message').removeClass('d-none');
+			$('.contact-widget .spinner-container').addClass('d-none');
 		});
 	});
 
 })(jQuery);
 
+$(window).scroll(() => {
+	hideBottomNav();
+	shrinkNavTop();
+});
+
 // Shrink #nav-top
-$(window).scroll(function() {
+function shrinkNavTop() {
 	if ($(document).scrollTop() > 120) {
 		$('#nav-top').addClass('shrink');
 	} else {
 		$('#nav-top').removeClass('shrink');
 	}
-});
+}
 
 // Hide #nav-bottom when scroll to footer
-$(window).scroll(function() {
+function hideBottomNav() {
 	if($(document).width() < 580) {
 		if ($(document).scrollTop() >= $(document).height() - $(window).height() - 375) {
 			$('#nav-bottom').addClass('d-none');
@@ -82,4 +89,4 @@ $(window).scroll(function() {
 			$('#nav-bottom').removeClass('d-none');
 		}
 	}
-});
+}

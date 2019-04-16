@@ -915,6 +915,12 @@ ul.nav-social li a:hover {
   opacity: 0.9;
 }
 
+.contact-widget .spinner-container {
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+}
+
 .contact-sucess-message {
   color: greenyellow;
   border: 1px solid;
