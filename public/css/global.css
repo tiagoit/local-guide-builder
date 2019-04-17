@@ -213,7 +213,7 @@ nav {
   box-shadow: 0 1px 1px 1px lightgrey;
   background-color: #Fafafa !important;
   background-image: url('/img/bg-brilliant.png');  
-  padding: 4px 16px;
+  padding: 4px 8px 4px 16px;
 }
 
 #nav:after {
@@ -292,8 +292,8 @@ div.nav-container {
 ul.nav-social {
   position: absolute;
   float: right;
-  right: 24px;
-  top: 8px;
+  right: 80px;
+  top: 6px;
   font-size: 24px;
 }
 
@@ -315,12 +315,45 @@ ul.nav-social li a:hover {
 
 
 #nav-top.shrink ul.nav-social {
-  right: 16px;
+  right: 72px;
   top: 2px;
   font-size: 18px;
 }
 
 
+
+/*----------------------------*\
+	language selector
+\*----------------------------*/
+div.language-selector {
+  display: block;
+  float: right;
+  margin-top: 8px;
+}
+div.language-selector .dropdown-menu.show {
+  margin-left: -110px;
+  top: calc(100% + 16px);
+  padding: .5rem 1px;
+}
+
+
+
+div.language-selector > .btn-group > button:nth-child(1) {
+  padding-right: 0;
+}
+
+div.language-selector .btn {
+  box-shadow: none !important;
+  font-weight: bolder;
+  color: rgba(0,0,0,0.5);
+}
+div.language-selector .btn:hover {
+  color: rgba(0,0,0,0.7);
+}
+
+#nav-top.shrink div.language-selector {
+  margin-top: 2px;
+}
 
 /*----------------------------*\
 	menu
@@ -756,19 +789,28 @@ ul.nav-social li a:hover {
     text-align: left;
   }  
 
-  .nav-social {
-    display: none;
+  .nav-social, .language-selector {
+    display: none !important;
   }
   #nav-top.shrink .nav-social {
-    display: inline-block;
+    display: inline-block !important;
     top: 8px !important;
-    right: 16px !important;
+    right: 64px !important;
     font-size: 14px !important;
   }
-
   #nav-top.shrink .nav-social li {
     padding: 4px 4px;
   }
+
+  #nav-top.shrink .language-selector {
+    display: inline-block !important;
+    margin-top: -2px !important;
+  }
+
+  #nav-top.shrink .language-selector img {
+    width: 18px;
+  }
+
 }
 
 

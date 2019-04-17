@@ -13,6 +13,52 @@
                 <li><a href="https://instagram.com/sulbaguia" target="_blank"><i class="fab fa-instagram s-instagram"></i></a></li>
                 <li><a href="mailto:contato@sulbaguia.com.br" target="_blank"><i class="far fa-envelope s-email"></i></a></li>
             </ul>
+
+            <div class="language-selector">
+                <div class="btn-group dropdown">
+                    <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                        <% if(lang === 'pt') { %><img src="/img/lang-icons/brazil-flag.png" alt="brazil flag"><% } %>
+                        <% if(lang === 'en') { %><img src="/img/lang-icons/usa-flag.png" alt="usa flag"><% } %>
+                        <% if(lang === 'es') { %><img src="/img/lang-icons/spain-flag.png" alt="spain flag"><% } %>
+                    </button>
+                    <!-- <button type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button> -->
+
+                    <div class="dropdown-menu">
+                        <% if(lang !== 'pt') { %>
+                            <a class="dropdown-item" href="?clang=pt">
+                                <img src="/img/lang-icons/brazil-flag.png" alt="brazil flag">
+                                <span>Português</span>
+                            </a>
+                        <% } %>
+
+                        <% if(lang !== 'en') { %>
+                            <a class="dropdown-item" href="?clang=en">
+                                <img src="/img/lang-icons/usa-flag.png" alt="usa flag">
+                                <span>English</span>
+                            </a>
+                        <% } %>
+
+                        <% if(lang !== 'es') { %>
+                            <a class="dropdown-item" href="?clang=es">
+                                <img src="/img/lang-icons/spain-flag.png" alt="spain flag">
+                                <span>Español</span>
+                            </a>
+                        <% } %>
+                    </div>
+                </div>
+
+                <!-- <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        PT
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">EN</a>
+                        <a class="dropdown-item" href="#">US</a>
+                    </div>
+                </div> -->
+            </div>
         </div>
     </nav>
     <!-- /Top Nav -->

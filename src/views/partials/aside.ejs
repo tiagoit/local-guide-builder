@@ -2,7 +2,7 @@
 <div class="aside-widget">
     <div class="row filters-widget d-none d-sm-flex">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-2">
-            <div class="title"><h2 class="noselect mb-2">Cidades</h2></div>
+            <div class="title"><h2 class="noselect mb-2"><%= translation.cities %></h2></div>
             <ul><% cities.forEach((city, index) => { %>
                 <li>
                     <input type="checkbox" class="filter-checkbox form-check-input" value="<%= city.code %>">
@@ -11,7 +11,7 @@
             <% }); %></ul>
         </div>
         <div class="col-12 col-sm-6 col-md-12 col-lg-12">
-            <div class="title"><h2 class="noselect mb-2 mt-md-3">Tags</h2></div>
+            <div class="title"><h2 class="noselect mb-2 mt-md-3"><%= translation.tags %></h2></div>
             <ul><% tags.filter(tag_ => tag_.status && tag_.featured).forEach((tag, index) => { %>
                 <li>
                     <input type="checkbox" class="filter-checkbox form-check-input" value="<%= tag.code %>">
@@ -19,7 +19,7 @@
                 </li>
             <% }); %></ul>
         </div>
-        <button type="button" class="btn btn-info btn-sm update-filters text-uppercase">Filtrar</button>
+        <button type="button" class="btn btn-info btn-sm update-filters text-uppercase"><%= translation.filter %></button>
     </div>
 </div>
 <!-- /cities widget -->

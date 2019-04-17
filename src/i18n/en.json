@@ -1,0 +1,19 @@
+{
+  "slogan": "Your guide to the South of Bahia",
+  "cities": "Cities",
+  "tags": "Tags",
+  "filter": "Filter",
+
+  "footer": {
+    "mission": "Our mission is to impartially deliver the most updated and complete content about events, programs and services in the southern and extreme south of Bahia.",
+    "contactFormText": "Questions, suggestions or partnership?",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "sendSuccessMessage": "Mensaje recibido, nos pondremos en contacto con usted pronto. ¡Gracias!",
+    "partners": "Partners"
+  }
+
+}
