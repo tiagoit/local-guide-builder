@@ -1,0 +1,19 @@
+{
+  "slogan": "Su guía del Sur de Bahia | BR",
+  "cities": "Ciudades",
+  "tags": "Etiquetas",
+  "filter": "Filtrar",
+
+  "footer": {
+    "mission": "Nuestra misión es entregar de manera imparcial el contenido más actualizado y completo sobre eventos, programas y servicios en el sur y extremo sur de Bahía.",
+    "contactFormText": "Preguntas, sugerencias o asociación?",
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "sendSuccessMessage": "Message received, we will get back to you soon. Thank you!",
+    "partners": "Asociados"
+  }
+
+}

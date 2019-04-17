@@ -1,0 +1,19 @@
+{
+  "slogan": "Seu guia de bolso do Sul da Bahia | BR",
+  "cities": "Cidades",
+  "tags": "Tags",
+  "filter": "Filtrar",
+
+  "footer": {
+    "mission": "Temos como missão entregar de forma imparcial o conteúdo mais atualizado e completo sobre eventos, programas e serviços do sul e extremo sul da Bahia.",
+    "contactFormText": "Dúvidas, sugestões ou parceira?",
+    "name": "Nome",
+    "email": "Email",
+    "phone": "Telefone",
+    "message": "Mensagem",
+    "send": "Enviar",
+    "sendSuccessMessage": "Mensagem recebida, vamos retornar em breve. Obrigado!",
+    "partners": "Parceiros"
+  }
+
+}

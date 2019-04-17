@@ -1,5 +1,4 @@
 <!-- views/partials/footer.ejs -->
-<!-- <p class="text-center text-muted">© Copyright 2014 The Awesome Peop -->
 
 <!-- container -->
 <div class="container">
@@ -25,13 +24,11 @@
                 <div class="footer-logo">
                     <a href="/" class="logo"><img src="/img/sulbaguia-logo-h-t.png" alt=""></a>
                 </div>
-                <p class="text-justify">Temos como missão entregar de forma imparcial o conteúdo mais atualizado e completo sobre eventos, programas e serviços do sul e extremo sul da Bahia.</p>
+                <p class="text-justify"><%= translation.footer.mission %></p>
                 <p class="mt-3 mb-3 mail-text">
                     <a href="mailto:contato@sulbaguia.com.br" target="_blank">contato@sulbaguia.com.br</a>
                 </p>
                 <ul class="contact-social">
-                    <!-- <li><a href="#" class="social-facebook"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#" class="social-instagram"><i class="fab fa-instagram"></i></a></li> -->
                     <li><a href="https://fb.me/sulbaguia" target="_blank"><i class="fab fa-facebook-f s-facebook"></i></a></li>
                     <li><a href="https://instagram.com/sulbaguia" target="_blank"><i class="fab fa-instagram s-instagram"></i></a></li>
                     <li><a href="mailto:contato@sulbaguia.com.br" target="_blank"><i class="far fa-envelope s-email"></i></a></li>
@@ -43,114 +40,41 @@
             <div class="footer-widget">
                 <!-- <h3 class="footer-title">Fale conosco</h3> -->
                 <div class="contact-widget mb-2">
-                    <p>Dúvida, sugestão ou parceira? </p>
+                    <p><%= translation.footer.contactFormText %></p>
                     <div class="row mb-2">
                         <div class="col-md-12">
-                            <input id="contact-name" class="input" name="name" placeholder="Nome">
+                            <input id="contact-name" class="input" name="name" placeholder="<%= translation.footer.name %>">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 pr-md-1 mb-2">
-                            <input id="contact-email" class="input" name="email" placeholder="Email">
+                            <input id="contact-email" class="input" name="email" placeholder="<%= translation.footer.email %>">
                         </div>
                         <div class="col-md-6 pl-md-1 mb-2">
-                            <input id="contact-phone" class="input" name="phone" placeholder="Telefone">
+                            <input id="contact-phone" class="input" name="phone" placeholder="<%= translation.footer.phone %>">
                         </div>
                     </div>
-                    <textarea id="contact-message" rows="2" class="input mb-1" name="message" placeholder="Mensagem"></textarea>
+                    <textarea id="contact-message" rows="2" class="input mb-1" name="message" placeholder="<%= translation.footer.message %>"></textarea>
                     <div>
-                        <button id="btn-contact-send" class="btn primary-button">
-                            Enviar
-                        </button>
+                        <button id="btn-contact-send" class="btn primary-button"><%= translation.footer.send %></button>
                         <div class="spinner-container d-none">
                             <div class="spinner-grow text-success" role="status">
                                 <span class="sr-only">Loading...</span>
                             </div>
-
                         </div>
                     </div>
-                    <div class="contact-sucess-message mt-2 d-none">Mensagem enviada com sucesso.</div>
+                    <div class="contact-sucess-message mt-2 d-none"><%= translation.footer.sendSuccessMessage %></div>
                 </div>
             </div>
         </div>
-        
-        <div class="col-md-5">
-            <!-- <div class="footer-widget">
-                <h3 class="footer-title">Lista de emails</h3>
-                <div class="newsletter-widget">
-                    <form>
-                        <p>Receba em primeira mão dicas, ofertas e anúncios.</p>
-                        <div class="row">
-                            <div class="col-md-8 pr-0">
-                                <input class="input" name="newsletter" placeholder="Digite seu email">
-                            </div>
-                            <div class="col-md-4">
-                                <button class="primary-button">Inscrever</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="mt-4"></div>
-
-                <h3 class="footer-title">Fale conosco</h3>
-                <div class="newsletter-widget">
-                    <form>
-                        <p>Dúvida, sugestão ou parceira? </p>
-                        <div class="row">
-                            <div class="col-md-6 pr-0">
-                                <input class="input" name="email" placeholder="Email">
-                            </div>
-                            <div class="col-md-6">
-                                <input class="input" name="phone" placeholder="Telefone">
-                            </div>
-                        </div>
-                        <input class="input" name="message" placeholder="Mensagem">
-                        <button class="primary-button d-block mx-auto">Enviar</button>
-                    </form>
-                </div>
-            </div> -->
-        </div>
-
-        <!-- <div class="col-md-4">
-            <div class="footer-widget">
-                <h3 class="footer-title">Tags</h3>
-                <div class="tags-widget">
-                    <ul>
-                        <li><a href="#">Axé</a></li>
-                        <li><a href="#">Sertanejo</a></li>
-                        <li><a href="#">Forró</a></li>
-                        <li><a href="#">Música ao Vivo</a></li>
-                        <li><a href="#">Samba</a></li>
-                        <li><a href="#">Pagode</a></li>
-                        <li><a href="#">Funk</a></li>
-                        <li><a href="#">MPB</a></li>
-                        <li><a href="#">Música Eletrônica</a></li>
-                        <li><a href="#">Jazz</a></li>
-                        <li><a href="#">Blues</a></li>
-                        <li><a href="#">Pop Rock Nacional</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-
     </div>
     <!-- /row -->
 
     <!-- row -->
     <div class="footer-bottom row">
-        <!-- <div class="col-md-6 col-md-push-6"> -->
-            <!-- <ul class="footer-nav"> -->
-                <!-- <li><a href="/">Início</a></li> -->
-                <!-- <li><a href="#" onclick="return false;">Serviços</a></li>
-                <li><a href="#" onclick="return false;">Promoções</a></li>
-                <li><a href="#" onclick="return false;">Blog</a></li> -->
-            <!-- </ul> -->
-        <!-- </div> -->
-        <!-- col-md-pull-8 -->
         <div class="col-md-12">
             <div class="footer-support d-flex">
-                <span class="support-title">Parceiros</span>
+                <span class="support-title"><%= translation.footer.partners %></span>
                 <span class="company" data-toggle="tooltip" data-placement="right" title="Agência Coletiva Digital">
                     <a href="https://www.instagram.com/agenciacoletivadigital" target="_blank">
                         <img src="/img/partners/agencia-coletiva-digital.jpg" alt="" srcset="">
@@ -169,7 +93,6 @@
 
 <!-- SCRIPTS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 
 <!-- BOOTSTRAP 4 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
