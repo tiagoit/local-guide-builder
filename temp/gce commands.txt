@@ -1,32 +1,35 @@
-$ mongo
-> use sbgdb
-> db.createUser({
+# PRD
+db.createUser({
 	user: "instanceadmin",
 	pwd: "K3iu5wnW0R4zxStMt5puTJmxhDOACisPqNjAMZFMPPy28gKzFJvnklIMomewhpH3vtjle9w1mgFDOKjV",
 	roles:[{role: "dbOwner" , db:"admin"}]
 })
-
-
-> db.createUser({
+db.createUser({
+	user: "useradmin",
+	pwd: "sofi0d879f9ds7f98dsf97ds9f87sdf",
+	roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+})
+db.createUser({
 	user: "sbggae",
 	pwd: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
 	roles:[{role: "readWrite" , db:"sbgdb"}]
 })
 
 
-
-
-
-gcloud compute ssh --project [PROJECT_ID] --zone [ZONE] [INSTANCE_NAME]
-gcloud compute ssh --project sulbaguia --zone us-east1-b instance-1
-
-
-db.createUser({
-	user: "sbglocal",
-	pwd: "lffE41CjB8LuwxLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
-	roles:[{role: "readWrite" , db:"sulbaguia"}]
+# STG 
+db.createUser({ 
+	user: "sulbaguia-stg-user-gae", 
+	pwd: "VNUIF3lffE41CjBuwxLg8CwuWATx6fEFVekVoKVRKAN30V3kXDysDFdfdDFeGJkie9hE69Fe2HmMLmYSd3", 
+	roles:[{role: "readWrite" , db:"sulbaguia-stg-db"}]
 })
 
+
+# TOROWDOG
+db.createUser({
+	user: "torowdogapi",
+	pwd: "lffE41Cj8LuLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
+	roles:[{role: "readWrite" , db:"torowdogdb"}]
+})
 
 
 # Restore a mongodb backup
@@ -81,13 +84,3 @@ mongorestore --drop --gzip --archive=backup-2019-04-02T12:03:37Z.gz
 
 
 
-db.createUser({
-	user: "torowdogapi",
-	pwd: "lffE41Cj8LuLWfg8CwZuWPATx6vfEFUVekVo1TvKVRK9N3AN30twV3kgiXDyzWe9hE69Fe2HmMLmY",
-	roles:[{role: "readWrite" , db:"torowdogdb"}]
-})
-
-
-
-// STG 
-db.createUser({ user: "sulbaguia-stg-user-gae", pwd: "VNUIF3lffE41CjBuwxLg8CwuWATx6fEFVekVoKVRKAN30V3kXDysDFdfdDFeGJkie9hE69Fe2HmMLmYSd3", roles:[{role: "readWrite" , db:"sulbaguia-stg-db"}]})
