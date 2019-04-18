@@ -4,7 +4,7 @@ const config = require('config');
 const appService = require('../../services/app.service');
 const { Org, Event, Tag } = require('../../models');
 
-const MIG_COUNT = 5;
+const MIG_COUNT = 6;
 
 // Get migrations count
 router.get('/mig-count', async (req, res) => res.send({migCount: MIG_COUNT}));
@@ -99,5 +99,18 @@ router.get('/mig-5', async (req, res) => {
 
     res.send({});
 });
+
+/*  - MIGRATION 6: Collection.orgs
+- add org.images array */
+router.get('/mig-6', async (req, res) => {
+    let orgs = await Org.find();
+    orgs.forEach(el => {
+        el.images = []
+        el.save();
+    });
+
+    res.send({});
+});
+
 
 module.exports = router;
