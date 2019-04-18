@@ -40,6 +40,7 @@ const Org = mongoose.model('Org', new mongoose.Schema({
     land:       { type: String },
     email:      { type: String },
     description:{ type: String },
+    images:     { type: [], required: true },
     status:     { type: Boolean, default: true }
 }));
 

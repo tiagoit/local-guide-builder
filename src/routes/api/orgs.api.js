@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const config = require('config');
 const appService = require('../../services/app.service');
+const storageService = require('../../services/storage.service');
 const { Org, Event } = require('../../models');
 
 let googleMapsClient = undefined;
@@ -75,6 +76,9 @@ router.delete('/:id', async (req, res) => {
     let event = await Event.findOne({orgCode: org.code});
     
     if(!event) {
+        org.images.forEach(fileUrl => {
+            if(fileUrl) storageService.deleteFile(fileUrl);
+        });
         res.send(await Org.findOneAndDelete({ _id: req.params.id }));
     } else {
         res.status(400).send({message: 'Remoção de organização não é permitida quando existem eventos cadastrados para ela.'});
