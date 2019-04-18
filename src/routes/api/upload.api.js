@@ -8,7 +8,7 @@ const bucketName = config.get('bucketName');
 
 const DEFAULT_HEIGHT = 320;
 
-router.post('/', (req, res) => {
+router.post('/:folder', (req, res) => {
   var form = new IncomingForm();
   let srcFilePath;
 
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 
   form.on('end', async () => {
     const resizedFilePath = srcFilePath + 'res';
-    const destFilePath = `images/events/${resizedFilePath.replace("/tmp/upload_", "")}.jpeg`;
+    const destFilePath = `images/${req.params.folder}/${resizedFilePath.replace("/tmp/upload_", "")}.jpeg`;
 
     sharp(srcFilePath).jpeg({
       quality: 75,
