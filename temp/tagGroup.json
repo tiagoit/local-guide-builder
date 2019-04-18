@@ -159,11 +159,3 @@ Fado
 
 
 
-
-db.createUser(
-  {
-    user: "useradmin",
-    pwd: "sofi0d879f9ds7f98dsf97ds9f87sdf",
-    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
-  }
-)

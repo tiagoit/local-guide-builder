@@ -3,25 +3,35 @@ const router = express.Router();
 const IncomingForm = require('formidable').IncomingForm;
 const storageService = require('../../services/storage.service');
 const config = require('config');
-
+const sharp = require('sharp');
 const bucketName = config.get('bucketName');
 
-router.post('/', async (req, res) => {
+const DEFAULT_HEIGHT = 320;
+
+router.post('/', (req, res) => {
   var form = new IncomingForm();
-  let srcFilename;
-  let fileType;
+  let srcFilePath;
 
   form.on('file', (field, file) => {
     file = file;
-    srcFilename = file.path;
-    fileType = file.type.replace('image/', '');
+    srcFilePath = file.path;
   });
 
-  form.on('end', () => {
-    let destFilename = `images/events/${srcFilename.replace("/tmp/upload_", "")}.${fileType}`;
-    storageService.uploadFile(srcFilename, destFilename);
+  form.on('end', async () => {
+    const resizedFilePath = srcFilePath + 'res';
+    const destFilePath = `images/events/${resizedFilePath.replace("/tmp/upload_", "")}.jpeg`;
 
-    res.json({'gcsPublicUrl': `https://storage.googleapis.com/${bucketName}/${destFilename}`});
+    sharp(srcFilePath).jpeg({
+      quality: 75,
+      chromaSubsampling: '4:2:0'
+    }).resize({
+      width: null,
+      height: DEFAULT_HEIGHT,
+      withoutEnlargement: true
+    }).toFile(resizedFilePath).then(info => {
+      storageService.uploadFile(resizedFilePath, destFilePath);
+      res.json({'gcsPublicUrl': `https://storage.googleapis.com/${bucketName}/${destFilePath}`});
+    });
   });
 
   form.parse(req);

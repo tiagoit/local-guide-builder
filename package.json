@@ -38,6 +38,7 @@
     "moment": "2.22.x",
     "moment-timezone": "0.5.x",
     "mongoose": "5.3.x",
-    "morgan": "1.9.x"
+    "morgan": "1.9.x",
+    "sharp": "^0.22.0"
   }
 }

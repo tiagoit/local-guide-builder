@@ -34,7 +34,7 @@ function listBuckets() {
 }
 
 async function uploadFile(srcFilename, destFilename) {
-    // Uploads a local file to the bucket
+    // Uploads a local file to the bucket   
     const options = {
         // Support for HTTP requests made with `Accept-Encoding: gzip`
         gzip: true,
