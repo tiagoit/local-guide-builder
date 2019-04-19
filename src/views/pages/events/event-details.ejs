@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="slider-container">
                     <% for(let img of event.images) { %>
-                        <% if(img) { %><img src="<%= img %>" alt=""><% } %>
+                        <% if(img) { %><img  data-toggle="modal" data-target="#modalCenter" src="<%= img %>" alt="<%= event.title %>"><% } %>
                     <% } %>
                 </div>
 
@@ -56,7 +56,20 @@
             </div><!-- /EVENT INFO -->
         </div>
     </div>
-        
+
+    <!-- Enlarge image Modal -->
+    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div id="modal-body" class="modal-body">
+            <!-- CONTENT WILL BE REPLACED HERE THROUGHT JQUERY -->
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
     <footer id="footer"><% include ../../partials/footer %></footer>
 
     
