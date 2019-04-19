@@ -14,6 +14,11 @@ let dateBlocksVisible = 1;
 		refreshVisibleDateBlocks();
 	});
 	
+
+	// clean the page url
+	console.log()
+	window.history.pushState("", "", '/eventos' + $('#cleanPageUrl').data('applied-filters'));
+
 })(jQuery);
 
 

@@ -1,3 +1,5 @@
+<span id="cleanPageUrl" class="d-none" data-applied-filters="<%= cleanPageUrl %>"></span>
+
 <% if(appliedFilters.cities.length) { %>
     <div class="filters-row mt-2 p-1 mx-1 d-block d-sm-none">
         <div class="d-flex justify-content-around">
@@ -49,6 +51,9 @@
                         <div class="event ml-2 mr-2">
                             <a class="anchor-wrapper" href="/eventos/<%=event.cityCode%>/<%=event.orgCode%>/<%=event.code%>">
                                 <a class="event-img" href="#" onclick="return false;"><img src="<%= event.images[0] %>" alt=""></a>
+                                <% if (event.featured) { %>
+                                    <i class="fas fa-star featured-event-star"></i>
+                                <% } %>
                                 <div class="event-body">
                                     <div class="event-org-city">
                                         <%= event.orgName %>

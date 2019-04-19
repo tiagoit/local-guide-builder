@@ -36,25 +36,28 @@ router.get('/*', async function(req, res) {
   let citiesFilter = [];
   let tagsFilter = [];
   let appliedFilters = {cities: [], tags: []};
+  let cleanPageUrl = '/';
 
   req.params[0].split('/').forEach((filter, idx) => {
     cities.some(el => {
       if(el.code == filter) {
         citiesFilter.push(filter);
         appliedFilters.cities.push(el.name);
+        cleanPageUrl += el.code + '/';
       }
     });
     tags.some(el => {
       if(el.code == filter) {
         tagsFilter.push(filter)
         appliedFilters.tags.push(el.title);
+        cleanPageUrl += el.code + '/';
       }
     });
   });
 
   let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
 
-  res.render('./pages/events/events-list', { events, cities, tags, appliedFilters, moment, appService, env });
+  res.render('./pages/events/events-list', { events, cities, tags, appliedFilters, moment, appService, env, cleanPageUrl });
 });
 
 module.exports = router;
