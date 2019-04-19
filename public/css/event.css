@@ -142,7 +142,9 @@
 
 
 .modal .modal-content {
-  width: auto;
+  text-align: center;
+  background: none;
+  border: none;
 }
 
 .modal .modal-body {
