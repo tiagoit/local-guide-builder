@@ -28,18 +28,27 @@
                     <div class="section-title">
                         <h2 class="title"><%= event.title %></h2>
                     </div>
-
                     <p><%- event.description %></p>
+
+                    <% if(org.description && org.description.length) { %>
+                        <div class="section-title">
+                            <h2 class="title"><%= org.name %></h2>
+                        </div>
+                        <p><%- org.description %></p>
+                    <% } %>
 
                     <div class="date-place">
                         <div class="date"><%= moment(event.start).format("DD [de] MMMM [de] YYYY, H[h]") %></div>
+                        <div class="org-name"><%= org.name %></div>
+                        <% if(org.address.street && org.address.street.length) { %>
                         <div class="place">
-                            <%= org.name %> | 
-                            <%= org.address.street ? (org.address.street + ', ') : "" %>
-                            <%= org.address.number ? (org.address.number + ', ') : "" %>
-                            <%= org.address.city %></div>
-                        <% if(event.site) { %>
-                        <div class="site"><%= event.site %></div>
+                            <%= org.address.street ? (org.address.street) : "" %>
+                            <%= org.address.number ? (', ' + org.address.number) : "" %>
+                        </div>
+                        <% } %>
+                        <div class="org-city"><%= org.address.city %></div>
+                        <% if(event.site && event.site.length) { %>
+                            <div class="site"><%= event.site %></div>
                         <% } %>
                     </div>
 

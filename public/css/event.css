@@ -17,7 +17,8 @@
 
 .section-title {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  margin-top: 24px;
 }
 .section-title:after {
   content: "";
@@ -51,7 +52,7 @@
 
 .slider-container img {
   height: 250px;
-  padding: 0 160px;
+  padding: 0 220px;
   outline: none;
 }
 
@@ -62,20 +63,24 @@
 }
 
 .section-row .date-place {
-  padding: 8px 16px 0;
-  margin: 0px 0px 12px;
+  padding: 4px 8px 0;
+  margin: 0px 0px 24px;
   border: 2px solid #e8eaed; 
 }
 
 .section-row .date-place .date, 
 .section-row .date-place .place, 
-.section-row .date-place .site {
+.section-row .date-place .site,
+.section-row .date-place .org-name,
+.section-row .date-place .org-city {
   line-height: 36px;
 }
 
 .section-row .date-place .date:before, 
 .section-row .date-place .place:before,
-.section-row .date-place .site:before {
+.section-row .date-place .site:before,
+.section-row .date-place .org-name:before,
+.section-row .date-place .org-city:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f073";
@@ -85,7 +90,7 @@
   text-align: center;
   border-radius: 50%;
   color: #ee4266;
-  font-size: 14px;
+  font-size: 11px;
   background: #fff;
   border: 2px solid #e8eaed;
   float: left;
@@ -99,6 +104,14 @@
 
 .section-row .date-place .site:before {
   content: "\f0ac";
+}
+
+.section-row .date-place .org-name:before {
+  content: "\f557";
+}
+
+.section-row .date-place .org-city:before {
+  content: "\f64f";
 }
 
 /*

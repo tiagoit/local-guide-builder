@@ -36,11 +36,11 @@
 
 
 .page-header #page-header-bg h1 {
-  background-color: rgba(0,0,0,0.3);
+  /* background-color: rgba(0,0,0,0.3); */
   z-index: 9;
   text-align: center;
   width: 100%;
-  color: rgb(228, 237, 226);
+  color: #fff;
   padding: 8px 20px;
   position: absolute;
   font-size: 30px;
@@ -144,6 +144,15 @@
   transition: 1.6s -webkit-transform;
   transition: 1.6s transform;
   transition: 1.6s transform, 1.6s -webkit-transform;
+}
+
+
+.featured-event-star {
+  position: absolute;
+  top: 4px;
+  padding-left: 8px;
+  font-size: 24px;
+  color: goldenrod;
 }
 
 
@@ -279,7 +288,7 @@ ul.event-tags li:last-child:after {
   }
   .page-header #page-header-bg h1 {
     font-size: 24px;
-    margin-top: 96px;
+    margin-top: 112px;
   }
 
   .see-more-events {
@@ -328,7 +337,7 @@ ul.event-tags li:last-child:after {
   }
   .page-header #page-header-bg h1 {
     font-size: 20px;
-    margin-top: 90px;
+    margin-top: 100px;
   }
 
 
@@ -358,7 +367,7 @@ ul.event-tags li:last-child:after {
   
   .page-header #page-header-bg h1 {
     font-size: 18px;
-    margin-top: 80px;
+    margin-top: 96px;
     padding: 4px 28px;
   }
 
