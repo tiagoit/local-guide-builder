@@ -48,7 +48,14 @@ router.get('/*', async function(req, res) {
     });
     tags.some(el => {
       if(el.code == filter) {
-        tagsFilter.push(filter)
+        if(el.childrenTags && el.childrenTags.length > 0) {
+          el.childrenTags.forEach(el => {
+            console.log(el);
+            tagsFilter.push(el);
+          })
+        } else {
+          tagsFilter.push(filter)
+        }
         appliedFilters.tags.push(el.title);
         cleanPageUrl += el.code + '/';
       }

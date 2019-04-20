@@ -6,6 +6,30 @@
   ]
 }
 
+[{
+  "title": "Pop, Rock, Blues",
+  "code": "pop-rock-blues",
+  "status": true,
+  "order": 0,
+  "featured": true,
+  "children": []
+}, {
+  "title": ,
+  "code": ,
+  "status": ,
+  "order": ,
+  "featured": ,
+  "children": []
+}, {
+  "title": ,
+  "code": ,
+  "status": ,
+  "order": ,
+  "featured": ,
+  "children": []
+}]
+
+
 title: "Pop, Rock, Blues"
 code: "pop-rock---rock---blues---jazz---samba-rock"
 status: true,
@@ -50,8 +74,8 @@ eletronica
 
 reggae
 
-
-
+- on tag creation / edit it can have childrens
+- show childrens on list table
 
 
 
