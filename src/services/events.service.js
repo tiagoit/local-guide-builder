@@ -25,6 +25,7 @@ async function getFromOrg(cityCode, orgCode){
 
 
 async function getWithFilters(citiesFilter, tagsFilter) {
+  console.log(tagsFilter)
   let query = {};
   let queryCities = {};
   let queryTags = {};

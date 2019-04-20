@@ -66,11 +66,12 @@ const Event = mongoose.model('Event', new mongoose.Schema({
 
 // ########################################## TAG ##########################################
 const Tag = mongoose.model('Tag', new mongoose.Schema({
-    code:       { type: String, required: true, index: true },
-    order:      { type: Number, required: true, default: 0 },
-    title:      { type: String, required: true },
-    status:     { type: Boolean, default: true, index: true },
-    featured:   { type: Boolean, default: false, index: true }
+    code:         { type: String, required: true, index: true },
+    order:        { type: Number, required: true, default: 0 },
+    title:        { type: String, required: true },
+    status:       { type: Boolean, default: true, index: true },
+    featured:     { type: Boolean, default: false, index: true },
+    childrenTags: { type: [], default: []}
 }));
 
 

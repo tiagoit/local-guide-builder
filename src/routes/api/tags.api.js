@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const appService = require('../../services/app.service');
-const { Tag } = require('../../models');
+const { Tag, Event } = require('../../models');
 
 router.get('/', async (req, res) => {
     res.send(await Tag.find());
@@ -22,7 +22,16 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-    res.send(await Tag.findOneAndDelete({ _id: req.params.id }));
+    let tag = await Tag.findById(req.params.id);
+
+    // if there are events with this tag, remove the tag from them
+    let events = await Event.find({tags: tag.code});
+    events.forEach(event => {
+        event.tags = event.tags.filter(value => value !== tag.code);
+        event.save();
+    });
+
+    res.send(await tag.delete());
 });
 
 router.get('/check-code/:code', async (req, res) => {
