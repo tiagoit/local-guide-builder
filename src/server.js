@@ -27,7 +27,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     cookie: { secure: true }
-  }))
+}));
 
 app.use(i18n({
     translationsPath: path.join(__dirname, 'i18n'),
@@ -53,7 +53,9 @@ app.use('/api/app', require('./routes/api/app.api'));
 app.use('/api/auth', require('./routes/api/auth.api'));
 app.use('/api/events', require('./routes/api/events.api'));
 app.use('/api/upload', require('./routes/api/upload.api'));
+app.use('/api/regions', require('./routes/api/regions.api'));
 app.use('/api/cities', require('./routes/api/cities.api'));
+app.use('/api/partners', require('./routes/api/partners.api'));
 app.use('/api/orgs', require('./routes/api/orgs.api'));
 app.use('/api/tags', require('./routes/api/tags.api'));
 app.use('/api/migrations', require('./routes/api/migrations.api'));
@@ -77,7 +79,6 @@ app.use(function (err, req, res, next) {
     }
 });
 
-
 // // TODO: Error logging on StackDriver / create alerts for production errors on GCP
 // app.use(function(err, req, res, next) {
 //     console.log('############################### ERROR: ', err);
@@ -90,7 +91,6 @@ app.use(function (err, req, res, next) {
 //     }
 //  next();
 // });
-
 
 const server = app.listen(PORT, function () {
     console.log('Express listening on port %s', PORT, ' ENV: ', config.get('env'));

@@ -2,17 +2,33 @@
 <div class="aside-widget">
     <div class="row filters-widget d-none d-sm-flex">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-2">
-            <div class="title"><h2 class="noselect mb-2"><%= translation.cities %></h2></div>
-            <ul><% cities.forEach((city, index) => { %>
+            <div class="title"><h2 class="noselect mb-2"><%= translation.regions %></h2></div>
+            <ul>
+            <% regions.forEach((region, index) => { %>
                 <li>
-                    <input type="checkbox" class="filter-checkbox form-check-input" value="<%= city.code %>">
-                    <label class="form-check-label noselect"><%= city.name %></label>
+                    <!-- <input type="checkbox" class="filter-checkbox form-check-input" value="<%= region.code %>"> -->
+                    <span class="region-item">
+                        <label class="form-check-label noselect"><%= region.name %></label>
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-up" style="display: none" aria-hidden="true"></i>
+                    </span>
+                    <ul class="cities-filter" style="display: none">
+                    <% cities.forEach((city, index) => { %>
+                        <% if(city.regionID == region._id) { %>
+                        <li>
+                            <input type="checkbox" class="filter-checkbox form-check-input" value="<%= city.code %>">
+                            <label class="form-check-label noselect"><%= city.name %></label>
+                        </li>
+                        <% } %>
+                    <% }); %>
+                    </ul>
                 </li>
-            <% }); %></ul>
+            <% }); %>
+            </ul>
         </div>
         <div class="col-12 col-sm-6 col-md-12 col-lg-12">
             <div class="title"><h2 class="noselect mb-2 mt-md-3"><%= translation.tags %></h2></div>
-            <ul><% tags.filter(tag_ => tag_.status && tag_.featured).forEach((tag, index) => { %>
+            <ul class="tags-filter"><% tags.filter(tag_ => tag_.status && tag_.featured).forEach((tag, index) => { %>
                 <li>
                     <input type="checkbox" class="filter-checkbox form-check-input" value="<%= tag.code %>">
                     <label class="form-check-label noselect"><%= tag.title %></label>

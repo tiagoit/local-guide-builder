@@ -5,7 +5,13 @@
     <nav class="navbar top-nav fixed-top">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="/" class="logo"><img src="/img/sulbaguia-logo-h-t.png" alt=""></a>
+                <a href="/" class="logo">
+                    <% if(host.includes('sulbaguia')) { %>
+                        <img src="/img/sulbaguia-logo-h-t.png" alt="">
+                    <% } else { %>
+                        <span>Nome do site</span>
+                    <% } %>
+                </a>
             </div>
 
             <ul class="nav-social">

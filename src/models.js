@@ -1,18 +1,31 @@
 const mongoose = require('mongoose');
 
-// ########################################## CITY ##########################################
-const City = mongoose.model('City', new mongoose.Schema({
-    code:   { type: String, required: true, index: true },
-    order:  { type: Number, required: true, default: 0 },
-    name:   { type: String, required: true, minlength: 3, maxlength: 120 },
-    status: { type: Boolean, default: true }
+const Region = mongoose.model('Region', new mongoose.Schema({
+    code:     { type: String, required: true, index: true },
+    name:     { type: String, required: true},
+    status:   { type: Boolean, default: true }
 }));
 
+const City = mongoose.model('City', new mongoose.Schema({
+    code:      { type: String, required: true, index: true },
+    order:     { type: Number, required: true, default: 0 },
+    name:      { type: String, required: true},
+    regionID:  { type: String, required: true },
+    status:    { type: Boolean, default: true }
+}));
 
-// ########################################## ORG ##########################################
+const Partner = mongoose.model('Partner', new mongoose.Schema({
+    name:      { type: String, required: true },
+    email:     { type: String, required: true },
+    pass:      { type: String, required: true },
+    regionID:  { type: String },
+    role:      { type: String, required: true },
+    status:    { type: Boolean, default: true }
+}));
+
 const AddressSchema = new mongoose.Schema({
     state:          { type: String, required: true, length: 2 },
-    city:           { type: String, required: true, minlength: 3, maxlength: 120 },
+    city:           { type: String, required: true},
     neighborhood:   String,
     street:         String,
     number:         String,
@@ -44,8 +57,6 @@ const Org = mongoose.model('Org', new mongoose.Schema({
     status:     { type: Boolean, default: true }
 }));
 
-
-// ########################################## EVENT ##########################################
 const Event = mongoose.model('Event', new mongoose.Schema({
     code:       { type: String, index: true },
     title:      { type: String, required: true, minlength: 3, maxlength: 35 },
@@ -63,8 +74,6 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     featured: Boolean
 }));
 
-
-// ########################################## TAG ##########################################
 const Tag = mongoose.model('Tag', new mongoose.Schema({
     code:         { type: String, required: true, index: true },
     order:        { type: Number, required: true, default: 0 },
@@ -75,7 +84,9 @@ const Tag = mongoose.model('Tag', new mongoose.Schema({
 }));
 
 
+exports.Region = Region;
 exports.City = City;
+exports.Partner = Partner;
 exports.Org = Org;
 exports.Event = Event;
 exports.Tag = Tag;

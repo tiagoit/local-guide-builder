@@ -2,19 +2,16 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const { Partner } = require('../../models');
 
-var USERS = [
-    { id: 1, name: 'tiago', pass: 'a4b3c2d1' }
-];
-
-router.post('/', function(req, res) {
-    const userFromDB = USERS.find(user => user.name == req.body.username);
-    if(!userFromDB || req.body.password != userFromDB.pass) {
+router.post('/', async function(req, res) {
+    const partner = await Partner.findOne({email: req.body.username});
+    if(!partner || req.body.password != partner.pass) {
         return res.sendStatus(401);
     }
 
-    var token = jwt.sign({userID: userFromDB.id}, config.get('jwtSecretToken'), {expiresIn: '12h'});
-    res.send({token});
+    var token = jwt.sign({partnerID: partner._id}, config.get('jwtSecretToken'), {expiresIn: '12h'});
+    res.send({token, partner});
 });
 
 module.exports = router;

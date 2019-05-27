@@ -67,6 +67,33 @@ BOTO_CONFIG_PATH=/home/ferreirati/.boto \
 crontab -e
 
 
+https://script.google.com/macros/https://script.google.com/accounts?continueUrl=/start?mid%253DACjPJvE9O2A9RIr5yEn54IySA4ThZDqWKXuf__ijU8_uOUfqEbi_5VvOqC3maVypAjfLUlF7OPqkHtLIZ8gqjsVhm6reE_6BhwY6zIMqgk9k6gpHu1ROjJDSFI5BFt8dUWXW5N4YtYYS3g%2526uiv%253D2
+
+
+https://script.google.com/accounts?continueUrl=https://script.google.com/macros/start?mid%3DACjPJvE9O2A9RIr5yEn54IySA4ThZDqWKXuf__ijU8_uOUfqEbi_5VvOqC3maVypAjfLUlF7OPqkHtLIZ8gqjsVhm6reE_6BhwY6zIMqgk9k6gpHu1ROjJDSFI5BFt8dUWXW5N4YtYYS3g%26uiv%3D2
+
+
+
+
+mongodump --db="torowdog" --oplog --gzip --archive=./backup.gz
+gs://sulbaguia/backup-torowdog.gz
+
+# Manual backup db from torowdog
+mongodump --db="torowdog" --gzip --archive=./backup.gz
+
+# Manual restore db from TOROWDOG
+mkdir /home/tiferreira12/mongodb-backup-restore-torowdog
+gsutil cp gs://sulbaguia/backup-torowdogdb.gz /home/tiferreira12/mongodb-backup-restore-torowdog/
+mongorestore --username admintbcf1212 --password jnsnkjhc67732nnfkud73nns6shn3lis93jns567shb3nlfk8dy73nmkehf87 --drop --gzip --archive=backup-torowdogdb.gz
+db.createUser(
+  {
+    user: "admintbcf1212",
+    pwd: "jnsnkjhc67732nnfkud73nns6shn3lis93jns567shb3nlfk8dy73nmkehf87",
+    roles: [ { role: "root", db: "admin" } ]
+  }
+);
+
+mongorestore --username="instanceadmin" --password="K3iu5wnW0R4zxStMt5puTJmxhDOACisPqNjAMZFMPPy28gKzFJvnklIMomewhpH3vtjle9w1mgFDOKjV" --drop --gzip --archive=backup-torowdog.gz
 
 
 # Copy backup scripts from GCS
@@ -84,3 +111,12 @@ mongorestore --drop --gzip --archive=backup-2019-04-02T12:03:37Z.gz
 
 
 
+# mongo connect with password
+mongo --port 27017 -u "useradmin" --authenticationDatabase "admin" -p
+
+
+db.createUser({
+  user: 'restoreuser',
+  pwd: 'restorepwd',
+  roles: ['restore']
+});

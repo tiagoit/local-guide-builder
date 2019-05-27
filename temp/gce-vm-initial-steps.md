@@ -4,25 +4,21 @@
 - Name: ingress-mongodb
 - Target: Specified target tags
 - Target tags: ingress-mongodb
-- Protocols and ports: tcp:27017
-
-
-## External IP address: VPC Network -> External IP address
-- Name: mongodb-stg-ip
-- Network service tier: premium
-- IP version: IPV6
-- Type: Global
-- 2600:1901:0:c744::
+- Source IP ranges: 0.0.0.0/0
+- Protocols and ports: tcp:27212
 
 
 ## Virtual Machine: Compute Engine -> VM Instances
-- Name: instance-mongodb-stg
+- Name: instance-mongodb
 - Machine type: f1-micro (1 vCPU, 0.6 GB memory)
 - Service account: No service account.
 - Security: SSH Keys: Block project-wide SSH keys.
 - Networking: Network tags: ingress-mongodb
-- Networking: Hostname: instance-mongodb-stg.sulbaguia-stg.internal
-- Networking: Interfaces: External IP: Primary Internal IP: Reserve Static Name: mongodb-stg-ip
+
+
+## External IP address: VPC Network -> External IP address
+- Name: instance-mongodb-external-ip
+- Attached to: instance-mongodb
 
 
 ## SSH Into the machine
@@ -39,13 +35,21 @@
 ## Allow connections from any IP address
 - Edit the mongodb config file `$ sudo vi /etc/mongod.conf`
 - net: change **bindIp: 127.0.0.1** to **bindIpAll: true**
+- net: port: 27212
 - Restart mongod service `$ sudo systemctl restart mongod && sudo systemctl status mongod`
 
 
 ## Create mongobd user and database
-- `$ mongod`
-- `> use sulbaguia-stg-db`
-- `> db.createUser({ user: "sulbaguia-stg-user-gae", pwd: "VNUIF3lffE41CjBuwxLg8CwuWATx6fEFVekVoKVRKAN30V3kXDysDFdfdDFeGJkie9hE69Fe2HmMLmYSd3", roles:[{role: "readWrite" , db:"sulbaguia-stg-db"}]})`
+- `$ mongo --port 27212`
+- `> use spotexdb`
+- `> db.createUser({
+	    user: "superadmin",
+	    pwd: "sofi0d879f9ds7f98s8a7d9s#$@#*dsf*(%4)97dd9s87dlkjadssdyu",
+	    roles: [ { role: "root", db: "admin" } ]
+    })` 
+- `> db.createUser({ user: "gae_api", pwd: "VNUIF3lffE41Cadsdasajdhas7987oKVRKAN30V3k;l;lmc0ysDFdfdDFeGJkie9hE69Fe2HmMLmYSd3", roles:[{role: "readWrite" , db:"spotexdb"}]})`
+
+db.createUser({ user: "api_user", pwd: "9f8lNUIF3lffE41Cadsdasajdhas7987oKVRKAsa80V3k;l;lmc0ysDFdfdDFeGJkie9hE69Fe2HmMLmYSd3", roles:[{role: "readWrite" , db:"melhorescolha"}]})
 
 ## GCLOUD Console
 - Create the bucket **sulbaguia-stg**

@@ -4,7 +4,7 @@ const moment = require('moment-timezone');
 const config = require('config');
 const appService = require('../../services/app.service');
 const eventsService = require('../../services/events.service');
-const { City, Tag, Event, Org } = require('../../models');
+const { City, Tag, Event, Org, Region } = require('../../models');
 
 // PAGE: EVENT
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
@@ -12,13 +12,14 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
 
   env = config.get('env');
   
+  const regions = await Region.find();
   const cities = await City.find({status: true}).sort('order');
   const tags = await Tag.find().sort('title').sort('order');
   const event = await Event.findOne({code: req.params['eventCode']});
   const org = await Org.findOne({code: req.params['orgCode']});
-
+  
   if(event && org) {
-    res.render('./pages/events/event-details', { event, org, cities, tags, moment, env });
+    res.render('./pages/events/event-details', { event, org, regions, cities, tags, moment, env });
   } else {
     next(); // route => '/*'
   }
@@ -27,9 +28,10 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
 // PAGE: LIST EVENTS WITH FILTERS /*
 router.get('/*', async function(req, res) {
   console.log('PAGE: LIST EVENTS WITH FILTERS /*');
-
+  console.log('req.originalUrl:', req.get('host').includes('nomedosite')  );
   env = config.get('env');
-  
+
+  const regions = await Region.find().sort('name');
   const cities = await City.find({status: true}).sort('order');
   const tags = await Tag.find().sort('title').sort('order');
 
@@ -63,8 +65,9 @@ router.get('/*', async function(req, res) {
   });
 
   let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
+  let host = req.get('host');
 
-  res.render('./pages/events/events-list', { events, cities, tags, appliedFilters, moment, appService, env, cleanPageUrl });
+  res.render('./pages/events/events-list', { events, regions, cities, tags, appliedFilters, moment, appService, env, cleanPageUrl, host });
 });
 
 module.exports = router;
