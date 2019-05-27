@@ -253,7 +253,10 @@ nav {
 
 #nav-top.shrink .nav-logo img {
   height: 28px;
-  /* margin-top: 4px; */
+}
+
+#nav-top.shrink .nav-logo span {
+  font-size: 28px;
 }
 
 #nav-bottom {
@@ -276,8 +279,11 @@ nav {
 
 .nav-logo .logo>img {
   height: 48px;
-  /* margin-top: -4px; */
-  /* margin-left: 12px; */
+}
+
+.nav-logo .logo > span {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 
@@ -871,6 +877,11 @@ div.language-selector .btn:hover {
 
 .footer-logo .logo img {
   max-width: 300px;
+}
+
+.footer-logo span {
+  font-weight: bold;
+  font-size: 32px;
 }
 
 .footer-bottom {
