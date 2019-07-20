@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "langCode": "en",
+    "flagImageName": "spain-flag.png"
+  },
+
   "slogan": "Su guía del Sur de Bahia | BR",
   "cities": "Ciudades",
   "regions": "Regiones",
@@ -15,6 +20,15 @@
     "send": "Enviar",
     "sendSuccessMessage": "Message received, we will get back to you soon. Thank you!",
     "partners": "Asociados"
-  }
+  },
 
+  "weekdays": {
+    "0": "Domingo",
+    "1": "Lunes",
+    "2": "Martes",
+    "3": "Miércoles",
+    "4": "Jueves",
+    "5": "Viernes",
+    "6": "Sábado"
+  }
 }

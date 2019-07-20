@@ -22,36 +22,22 @@
         <div class="col-md-6">
             <div class="footer-widget">
                 <div class="footer-logo">
-                    <% if(host.includes('sulbaguia')) { %>
-                        <a href="/" class="logo"><img src="/img/sulbaguia-logo-h-t.png" alt=""></a>
-                    <% } else { %>
-                        <span>Nome do site</span>
-                    <% } %>
+                    <a href="/" class="logo"><img src="/img/sulbaguia-logo-h-t.png" alt=""></a>
                 </div>
                 <p class="text-justify"><%= translation.footer.mission %></p>
                 <p class="mt-3 mb-3 mail-text">
-                        <% if(host.includes('sulbaguia')) { %>
-                            <a href="mailto:contato@sulbaguia.com.br" target="_blank">contato@sulbaguia.com.br</a>
-                        <% } else { %>
-                            <a href="mailto:contato@nomedosite.com.br" target="_blank">contato@nomedosite.com.br</a>
-                        <% } %>
+                    <a href="mailto:contato@sulbaguia.com.br" target="_blank">contato@sulbaguia.com.br</a>
                 </p>
                 <ul class="contact-social">
-                    <% if(host.includes('sulbaguia')) { %>
-                        <li><a href="https://fb.me/sulbaguia" target="_blank"><i class="fab fa-facebook-f s-facebook"></i></a></li>
-                        <li><a href="https://instagram.com/sulbaguia" target="_blank"><i class="fab fa-instagram s-instagram"></i></a></li>
-                        <li><a href="mailto:contato@sulbaguia.com.br" target="_blank"><i class="far fa-envelope s-email"></i></a></li>
-                    <% } else { %>
-                        <li><a href="https://fb.me/nomedosite" target="_blank"><i class="fab fa-facebook-f s-facebook"></i></a></li>
-                        <li><a href="https://instagram.com/nomedosite" target="_blank"><i class="fab fa-instagram s-instagram"></i></a></li>
-                        <li><a href="mailto:contato@nomedosite.com.br" target="_blank"><i class="far fa-envelope s-email"></i></a></li>
-                    <% } %>
+                    <li><a href="https://fb.me/sulbaguia" target="_blank"><i class="fab fa-facebook-f s-facebook"></i></a></li>
+                    <li><a href="https://instagram.com/sulbaguia" target="_blank"><i class="fab fa-instagram s-instagram"></i></a></li>
+                    <li><a href="mailto:contato@sulbaguia.com.br" target="_blank"><i class="far fa-envelope s-email"></i></a></li>
                 </ul>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div class="footer-widget">
+            <div class="footer-widget" id="fale-conosco">
                 <!-- <h3 class="footer-title">Fale conosco</h3> -->
                 <div class="contact-widget mb-2">
                     <p><%= translation.footer.contactFormText %></p>
@@ -77,7 +63,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contact-sucess-message mt-2 d-none"><%= translation.footer.sendSuccessMessage %></div>
+                    <div class="text-center">
+                        <div class="contact-sucess-message mt-2 d-none"><%= translation.footer.sendSuccessMessage %></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,10 +73,17 @@
     <!-- /row -->
 
     <!-- row -->
-    <div class="footer-bottom row">
+    <!-- <div class="footer-bottom row">
         <div class="col-md-12">
             <div class="footer-support d-flex">
                 <span class="support-title"><%= translation.footer.partners %></span>
+
+                <span class="company" data-toggle="tooltip" data-placement="right" title="Viggicon Consultoria ?Empresarial">
+                    <a href="http://viggicon.com.br" target="_blank">
+                        <img src="/img/partners/viggicon.png" alt="" srcset="">
+                    </a>
+                </span>
+
                 <span class="company" data-toggle="tooltip" data-placement="right" title="Agência Coletiva Digital">
                     <a href="https://www.instagram.com/agenciacoletivadigital" target="_blank">
                         <img src="/img/partners/agencia-coletiva-digital.jpg" alt="" srcset="">
@@ -96,11 +91,11 @@
                 </span>
             </div>
 
-            <!-- <div class="footer-copyright">
+            <div class="footer-copyright">
                 Copyright &copy; <%= moment().format('YYYY') %> Todos os direitos reservados
-            </div> -->
+            </div>
         </div>
-    </div>
+    </div> -->
     <!-- /row -->
 </div>
 <!-- /container -->

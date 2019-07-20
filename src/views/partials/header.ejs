@@ -6,26 +6,20 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="/" class="logo">
-                    <% if(host.includes('sulbaguia')) { %>
-                        <img src="/img/sulbaguia-logo-h-t.png" alt="">
-                    <% } else { %>
-                        <span>Nome do site</span>
-                    <% } %>
+                    <img src="/img/sulbaguia-logo-h-t.png" alt="">
                 </a>
             </div>
 
             <ul class="nav-social">
                 <li><a href="https://fb.me/sulbaguia" target="_blank"><i class="fab fa-facebook-f s-facebook"></i></a></li>
                 <li><a href="https://instagram.com/sulbaguia" target="_blank"><i class="fab fa-instagram s-instagram"></i></a></li>
-                <li><a href="mailto:contato@sulbaguia.com.br" target="_blank"><i class="far fa-envelope s-email"></i></a></li>
+                <li><a href="#fale-conosco"><i class="far fa-envelope s-email"></i></a></li>
             </ul>
 
             <div class="language-selector">
                 <div class="btn-group dropdown">
                     <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                        <% if(lang === 'pt') { %><img src="/img/lang-icons/brazil-flag.png" alt="brazil flag"><% } %>
-                        <% if(lang === 'en') { %><img src="/img/lang-icons/usa-flag.png" alt="usa flag"><% } %>
-                        <% if(lang === 'es') { %><img src="/img/lang-icons/spain-flag.png" alt="spain flag"><% } %>
+                        <img src="/img/lang-icons/<%=translation.meta.flagImageName%>" alt="lang flag">
                     </button>
                     <!-- <button type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Toggle Dropdown</span>
@@ -80,11 +74,11 @@
                 <i class="fa fa-filter" aria-hidden="true"></i>
                 <span class="icon-label d-flex">Filtrar</span>
             </div>
-            <div class="divider"></div>
+            <!-- <div class="divider"></div>
             <div class="btn-menu text-center px-4">
                 <i class="fa fa-bars" aria-hidden="true"></i>
                 <span class="icon-label d-flex">Menu</span>
-            </div>
+            </div> -->
         </div>
     </nav>
 

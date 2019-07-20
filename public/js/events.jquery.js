@@ -3,9 +3,9 @@ let dateBlocksVisible = 1;
 (function($) {
 	"use strict"
 
-	initSlickSlider();
+	// initSlickSlider();
 	refreshVisibleDateBlocks();
-	hideDotsFromSlickIfOnlyOne();
+	// hideDotsFromSlickIfOnlyOne();
 
 	$('.see-more-events').click((ev) => {
 		ev.stopPropagation();
@@ -14,9 +14,25 @@ let dateBlocksVisible = 1;
 		refreshVisibleDateBlocks();
 	});
 	
+	// hideBigAdDescription();
+
+	$('.ad-see-more').click(ev => {
+		$(ev.target).parent('.card-text').addClass('d-none');
+		$(ev.target).parent().siblings('.full-description').removeClass('d-none');
+		// TODO: post here adding a see-more action
+		// console.log($(ev.target).data('ad-id'));
+	});
+
+	// TODO: adding an ad CTA click action
+	$('.ad-card > .card-actions > a').click(ev => {
+		console.log($(ev.target).data('ad'));
+		let ad = $(ev.target).data('ad');
+		$.post('/api/app/track-ad-click', ad, result => {
+			console.log('result', result);
+		});
+	});
 
 	// clean the page url
-	console.log()
 	window.history.pushState("", "", '/eventos' + $('#cleanPageUrl').data('applied-filters'));
 
 })(jQuery);
@@ -62,3 +78,14 @@ function hideDotsFromSlickIfOnlyOne() {
     }
 	})
 }
+
+function trackAdClick(ad) {
+	console.log('ad', ad);
+}
+
+// function hideBigAdDescription() {
+// 	$('.card.ad-card .card-body .card-text').each((idx, el) => {
+// 		let adDescriptionElement = $(el);
+// 		console.log(adDescriptionElement);
+// 	});
+// }

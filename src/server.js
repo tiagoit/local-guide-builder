@@ -47,18 +47,21 @@ app.set('views', path.join(__dirname, './views'));
 
 mongodbConnect();
 
+app.use(expressJwt({secret: config.get('jwtSecretToken')})
+    .unless({path: ['', '/', '/api/auth', /\/eventos/, '/eita', '/api/app/contact']}));
+
 // API Routes
-app.use(expressJwt({secret: config.get('jwtSecretToken')}).unless({path: ['', '/', '/api/auth', /\/eventos/, '/eita', '/api/app/contact']}));
-app.use('/api/app', require('./routes/api/app.api'));
-app.use('/api/auth', require('./routes/api/auth.api'));
-app.use('/api/events', require('./routes/api/events.api'));
-app.use('/api/upload', require('./routes/api/upload.api'));
-app.use('/api/regions', require('./routes/api/regions.api'));
-app.use('/api/cities', require('./routes/api/cities.api'));
-app.use('/api/partners', require('./routes/api/partners.api'));
-app.use('/api/orgs', require('./routes/api/orgs.api'));
-app.use('/api/tags', require('./routes/api/tags.api'));
-app.use('/api/migrations', require('./routes/api/migrations.api'));
+app.use('/api/app',         require('./routes/api/app.api'));
+app.use('/api/auth',        require('./routes/api/auth.api'));
+app.use('/api/events',      require('./routes/api/events.api'));
+app.use('/api/upload',      require('./routes/api/upload.api'));
+app.use('/api/regions',     require('./routes/api/regions.api'));
+app.use('/api/cities',      require('./routes/api/cities.api'));
+app.use('/api/ads',         require('./routes/api/ads.api'));
+app.use('/api/partners',    require('./routes/api/partners.api'));
+app.use('/api/orgs',        require('./routes/api/orgs.api'));
+app.use('/api/tags',        require('./routes/api/tags.api'));
+app.use('/api/migrations',  require('./routes/api/migrations.api'));
 
 // Public website routes
 app.use('/', require('./routes/public/index.pub'));

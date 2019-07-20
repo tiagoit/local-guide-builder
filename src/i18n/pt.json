@@ -1,5 +1,10 @@
 {
-  "slogan": "Seu guia de bolso do Sul da Bahia",
+  "meta": {
+    "langCode": "pt",
+    "flagImageName": "brazil-flag.png"
+  },
+
+  "slogan": "Seu guia do Sul da Bahia",
   "cities": "Cidades",
   "regions": "Regiões",
   "tags": "Tags",
@@ -15,6 +20,15 @@
     "send": "Enviar",
     "sendSuccessMessage": "Mensagem recebida, vamos retornar em breve. Obrigado!",
     "partners": "Parceiros"
-  }
+  },
 
+  "weekdays": {
+    "0": "Domingo",
+    "1": "Segunda",
+    "2": "Terça",
+    "3": "Quarta",
+    "4": "Quinta",
+    "5": "Sexta",
+    "6": "Sábado"
+  }
 }
