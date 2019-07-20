@@ -1,6 +1,7 @@
 html {
   width: 100vw !important;
   background-color: #fafafa;
+  scroll-behavior: smooth;
 }
 
 @media only screen and (max-width: 719px) {
@@ -899,6 +900,10 @@ div.language-selector .btn:hover {
   margin-top: -48px;
   margin-left: -4px;
   font-size: 20px;
+}
+
+.footer-bottom .footer-support span.company {
+  margin-right: 20px;
 }
 
 .footer-bottom .footer-support img {

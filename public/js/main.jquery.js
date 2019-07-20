@@ -60,7 +60,7 @@
 			message: $('#contact-message').val()
 		}
 
-		$.post('api/app/contact', data, result => {
+		$.post('/api/app/contact', data, result => {
 			$('.contact-sucess-message').removeClass('d-none');
 			$('.contact-widget .spinner-container').addClass('d-none');
 		});

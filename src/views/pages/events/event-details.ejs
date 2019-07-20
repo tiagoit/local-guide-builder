@@ -28,17 +28,17 @@
                     <div class="section-title">
                         <h2 class="title"><%= event.title %></h2>
                     </div>
-                    <p><%- event.description %></p>
+                    <p class="text-justify px-2"><%- event.description %></p>
 
                     <% if(org.description && org.description.length) { %>
                         <div class="section-title">
                             <h2 class="title"><%= org.name %></h2>
                         </div>
-                        <p><%- org.description %></p>
+                        <p class="text-justify px-2"><%- org.description %></p>
                     <% } %>
 
                     <div class="date-place">
-                        <div class="date"><%= moment(event.start).format("DD [de] MMMM [de] YYYY, H[h]") %></div>
+                        <div class="date"><%= moment(event.start).format("DD/MM/YYYY, H[h]") %></div>
                         <div class="org-name"><%= org.name %></div>
                         <% if(org.address.street && org.address.street.length) { %>
                         <div class="place">
@@ -48,7 +48,7 @@
                         <% } %>
                         <div class="org-city"><%= org.address.city %></div>
                         <% if(event.site && event.site.length) { %>
-                            <div class="site"><%= event.site %></div>
+                            <div class="site"><a target="_blank" href="<%= event.site %>"><%= event.site %></a></div>
                         <% } %>
                     </div>
 
@@ -85,7 +85,8 @@
     <!-- Page specific scripts -->
     <script type="text/javascript" src="/slick/slick.min.js"></script><!-- Slich image slider and carousel - JS-->
     <script type="text/javascript" src="/js/event.jquery.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1iWpvlS1wbZG3WuxVE3fuAeLy3Y7wo68&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1b8tU6_JwzOWv7f67S_W694-wM0kASAA&callback=initMap" async defer></script>
+    
     <script>
         var map, marker;
         function initMap() {
@@ -100,5 +101,19 @@
             }
         }
     </script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5d22338222d70e36c2a49237/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>

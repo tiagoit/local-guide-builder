@@ -45,7 +45,7 @@ async function getWithFilters(citiesFilter, tagsFilter) {
   if(citiesFilter.length) query['$and'].push(queryCities);
   if(tagsFilter.length) query['$and'].push(queryTags);
   query['$and'].push({start: {'$gte': moment()}});
-  
+
   // query = { '$or': [ { cityCode: 'porto-seguro' }, { tags: 'samba' } ] };  // OLD WITH LOGIC ERROR
   // query = { // ACTUAL
   //   '$and': [

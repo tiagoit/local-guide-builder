@@ -4,7 +4,7 @@ const moment = require('moment-timezone');
 const config = require('config');
 const appService = require('../../services/app.service');
 const eventsService = require('../../services/events.service');
-const { City, Tag, Event, Org, Region } = require('../../models');
+const { City, Tag, Event, Org, Region, Ad } = require('../../models');
 
 // PAGE: EVENT
 router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
@@ -17,23 +17,42 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
   const tags = await Tag.find().sort('title').sort('order');
   const event = await Event.findOne({code: req.params['eventCode']});
   const org = await Org.findOne({code: req.params['orgCode']});
-  
+
   if(event && org) {
+    // res.render('./pages/events.mf/event-details', { event, org, regions, cities, tags, moment, env });
     res.render('./pages/events/event-details', { event, org, regions, cities, tags, moment, env });
   } else {
     next(); // route => '/*'
   }
 });
 
-// PAGE: LIST EVENTS WITH FILTERS /*
+// PAGE: LIST EVENTS /*
 router.get('/*', async function(req, res) {
-  console.log('PAGE: LIST EVENTS WITH FILTERS /*');
+  console.log('PAGE: LIST EVENTS /*');
   console.log('req.originalUrl:', req.get('host').includes('nomedosite')  );
   env = config.get('env');
 
   const regions = await Region.find().sort('name');
   const cities = await City.find({status: true}).sort('order');
   const tags = await Tag.find().sort('title').sort('order');
+
+  let adsQuery = {};
+  adsQuery['$and'] = [];
+  // adsQuery['$and'].push({start: {'$lte': moment()}});
+  // adsQuery['$and'].push({end: {'$gte': moment()}});
+  adsQuery['$and'].push({status: {'$eq': true}});
+  const ads = await Ad.find(adsQuery);
+  console.log('ads', ads);
+
+  // Randomize Ads response
+  let randomizedAds = [];
+  let arrayMax = ads.length >= 30 ? 30 : ads.length;
+  for(let i=0; i<arrayMax; i++) {
+    let randInt = Math.floor(Math.random() * ads.length);
+    randomizedAds.push(ads[randInt]);
+    ads.splice(randInt, 1);
+  }
+  console.log('randomizedAds', randomizedAds);
 
   let citiesFilter = [];
   let tagsFilter = [];
@@ -67,7 +86,8 @@ router.get('/*', async function(req, res) {
   let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
   let host = req.get('host');
 
-  res.render('./pages/events/events-list', { events, regions, cities, tags, appliedFilters, moment, appService, env, cleanPageUrl, host });
-});
+  // res.render('./pages/events.mf/events-list', { events, regions, cities, tags, appliedFilters, moment, appService, env, cleanPageUrl, host });
+
+  res.render('./pages/events/events-list', { events, regions, cities, tags, ads: randomizedAds, appliedFilters, moment, appService, env, cleanPageUrl, host });});
 
 module.exports = router;

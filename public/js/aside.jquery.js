@@ -8,9 +8,6 @@
   });
 
   $('span.region-item').click((ev) => {
-    console.log('click');
-    console.log($(ev.target).closest('li').children('ul.cities-filter').toggle());
-    console.log($(ev.target).closest('span.region-item').children('i.fa-chevron-down').toggle());
     $(ev.target).closest('span.region-item').children('i.fa-chevron-up').toggle()
   });
 
@@ -24,8 +21,15 @@
   // Update query with active filters
   $('.update-filters').click(() => {
     let filters = [];
+    let alreadyChecked = [];
+
     $.each($('.filter-checkbox'), (key, value) => {
-      if(value.checked && !filters.includes(value.value)) filters.push(value.value);
+     if(!alreadyChecked.includes(value.value)) {
+      alreadyChecked.push(value.value);
+      if(value.checked && !filters.includes(value.value)) {
+        filters.push(value.value);
+      }
+     }
     }).add(() => {
       window.location.href = '/eventos/' + filters.join('/');
     });

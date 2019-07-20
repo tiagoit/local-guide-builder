@@ -62,6 +62,7 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     title:      { type: String, required: true, minlength: 3, maxlength: 35 },
     orgCode:    String,
     orgName:    String,
+    orgImage:   String,
     cityCode:   { type: String, required: true, index: true },
     cityName:   String,
     start:      Date,
@@ -83,6 +84,23 @@ const Tag = mongoose.model('Tag', new mongoose.Schema({
     childrenTags: { type: [], default: []}
 }));
 
+const Ad = mongoose.model('Ad', new mongoose.Schema({
+    title:       { type: String, required: true },
+    description: { type: String, required: false },
+    type:        { type: String, required: true },
+    empresa:     { type: String, required: false },
+    ctaLink:     { type: String, required: true },
+    ctaLabel:    { type: String, required: true },
+    phone:       { type: String, required: false },
+    whatsapp:    { type: String, required: false },
+    instagram:   { type: String, required: false },
+    facebook:    { type: String, required: false },
+    image:       { type: String, required: true },
+    status:      { type: Boolean, default: true },
+    start:       { type: Date, required: true },
+    end:         { type: Date, required: true }
+}));
+
 
 exports.Region = Region;
 exports.City = City;
@@ -90,3 +108,4 @@ exports.Partner = Partner;
 exports.Org = Org;
 exports.Event = Event;
 exports.Tag = Tag;
+exports.Ad = Ad;

@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "langCode": "en",
+    "flagImageName": "usa-flag.png"
+  },
+
   "slogan": "Your guide to the South of Bahia",
   "cities": "Cities",
   "regions": "Regions",
@@ -15,6 +20,16 @@
     "send": "Send",
     "sendSuccessMessage": "Mensaje recibido, nos pondremos en contacto con usted pronto. ¡Gracias!",
     "partners": "Partners"
+  },
+
+  "weekdays": {
+    "0": "Sunday",
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday"
   }
 
 }
