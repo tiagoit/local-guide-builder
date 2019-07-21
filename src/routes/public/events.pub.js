@@ -19,7 +19,6 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
   const org = await Org.findOne({code: req.params['orgCode']});
 
   if(event && org) {
-    // res.render('./pages/events.mf/event-details', { event, org, regions, cities, tags, moment, env });
     res.render('./pages/events/event-details', { event, org, regions, cities, tags, moment, env });
   } else {
     next(); // route => '/*'
@@ -29,7 +28,6 @@ router.get('/:cityCode/:orgCode/:eventCode', async function(req, res, next) {
 // PAGE: LIST EVENTS /*
 router.get('/*', async function(req, res) {
   console.log('PAGE: LIST EVENTS /*');
-  console.log('req.originalUrl:', req.get('host').includes('nomedosite')  );
   env = config.get('env');
 
   const regions = await Region.find().sort('name');
@@ -38,11 +36,10 @@ router.get('/*', async function(req, res) {
 
   let adsQuery = {};
   adsQuery['$and'] = [];
-  // adsQuery['$and'].push({start: {'$lte': moment()}});
-  // adsQuery['$and'].push({end: {'$gte': moment()}});
+  adsQuery['$and'].push({start: {'$lte': moment()}});
+  adsQuery['$and'].push({end: {'$gte': moment()}});
   adsQuery['$and'].push({status: {'$eq': true}});
   const ads = await Ad.find(adsQuery);
-  console.log('ads', ads);
 
   // Randomize Ads response
   let randomizedAds = [];
@@ -52,7 +49,6 @@ router.get('/*', async function(req, res) {
     randomizedAds.push(ads[randInt]);
     ads.splice(randInt, 1);
   }
-  console.log('randomizedAds', randomizedAds);
 
   let citiesFilter = [];
   let tagsFilter = [];
@@ -85,8 +81,6 @@ router.get('/*', async function(req, res) {
 
   let { events } = await eventsService.getWithFilters(citiesFilter, tagsFilter);
   let host = req.get('host');
-
-  // res.render('./pages/events.mf/events-list', { events, regions, cities, tags, appliedFilters, moment, appService, env, cleanPageUrl, host });
 
   res.render('./pages/events/events-list', { events, regions, cities, tags, ads: randomizedAds, appliedFilters, moment, appService, env, cleanPageUrl, host });});
 

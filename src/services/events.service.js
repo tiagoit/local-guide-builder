@@ -1,7 +1,7 @@
 const moment = require('moment');
 const { Event } = require('../models');
 
-async function getFromOrg(cityCode, orgCode){
+async function getFromOrg(cityCode, orgCode) {
   // TODO: se madruga então mostar eventos rolando
   let query = { $or: [
                 { start: { $gte: moment().subtract(2, 'd'), $lt: moment().add(60, 'd') } }, 
@@ -44,7 +44,7 @@ async function getWithFilters(citiesFilter, tagsFilter) {
 
   if(citiesFilter.length) query['$and'].push(queryCities);
   if(tagsFilter.length) query['$and'].push(queryTags);
-  query['$and'].push({start: {'$gte': moment()}});
+  query['$and'].push({start: {'$gte': moment().add(-1, 'd')}});
 
   // query = { '$or': [ { cityCode: 'porto-seguro' }, { tags: 'samba' } ] };  // OLD WITH LOGIC ERROR
   // query = { // ACTUAL
