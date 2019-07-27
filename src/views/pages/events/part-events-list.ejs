@@ -49,27 +49,31 @@
             <div>
                 <% events[monthDate].forEach(function(event, index) { %>
                     <div class=".col-12 .col-sm-6 .col-md-4 .col-lg-3 .col-xl-3 mb-4">
-                        <div class="event ml-2 mr-2">
-                            <a class="event-img" href="/eventos/<%=event.cityCode%>/<%=event.orgCode%>/<%=event.code%>"><img src="<%= event.images[0] %>" alt=""></a>
-                            <% if (event.featured) { %>
-                                <i class="fas fa-star featured-event-star"></i>
-                            <% } %>
-                            <div class="event-body">
-                                <div class="event-org-city">
-                                    <%= event.orgName %>
-                                    <span class="city"><%= event.cityName %></span>
+                        <a href="/eventos/<%=event.cityCode%>/<%=event.orgCode%>/<%=event.code%>">
+                            <div class="event ml-2 mr-2">
+                                <div class="event-img">
+                                    <img src="<%= event.images[0] %>" alt="">
                                 </div>
-                                <div class="ev-body-second-row">
-                                    <h3 class="event-title"><%= event.title %></h3>
-                                    <span class="time"><%= moment(event.start).format('H[h]') %></span>
+                                <% if (event.featured) { %>
+                                    <i class="fas fa-star featured-event-star"></i>
+                                <% } %>
+                                <div class="event-body">
+                                    <div class="event-org-city">
+                                        <%= event.orgName %>
+                                        <span class="city"><%= event.cityName %></span>
+                                    </div>
+                                    <div class="ev-body-second-row">
+                                        <h3 class="event-title"><%= event.title %></h3>
+                                        <span class="time"><%= moment(event.start).format('H[h]') %></span>
+                                    </div>
+                                    <ul class="event-tags">
+                                        <% event.tags.slice(0,5).forEach((tag) => { %>
+                                            <li><%= tags.find(tag_ => tag_.code === tag).title %></li>
+                                        <% }) %>
+                                    </ul>
                                 </div>
-                                <ul class="event-tags">
-                                    <% event.tags.slice(0,5).forEach((tag) => { %>
-                                        <li><%= tags.find(tag_ => tag_.code === tag).title %></li>
-                                    <% }) %>
-                                </ul>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 <% }) %>
             </div>
@@ -104,17 +108,17 @@
                     <img class="card-img-top" src="<%= ads[dateIndex].image %>" alt="Card image cap">
                     <div class="card-body text-info">
                         <h5 class="card-title"><%= ads[dateIndex].title %></h5>
-                        <p class="card-text d-none full-description"><%= ads[dateIndex].description %></p>
-                        <p class="card-text partial-description">
-                            <%= ads[dateIndex].description.substring(0, 250) %>
-                            <% if(ads[dateIndex].description.length > 250) { %>
-                                <span class="ad-see-more" data-ad-id="<%= ads[dateIndex].id %>">...mais</span>
+                        <div class="card-text d-none full-description"><%- ads[dateIndex].description %></div>
+                        <div class="card-text partial-description">
+                            <span class="partial-description-span"><%= ads[dateIndex].description %></span>
+                            <% if(ads[dateIndex].description.length > 200) { %>
+                                <div class="ad-see-more text-right" data-ad-id="<%= ads[dateIndex].id %>">...mais</div>
                             <% } %>
-                        </p>
+                        </div>
                     </div>
                     <div class="card-actions text-center mb-3">
                         <!-- <a class="btn btn-outline-success" role="button" href="<%= ads[dateIndex].ctaLabel %>"><%= ads[dateIndex].ctaLink %></a> -->
-                        <a class="btn btn-outline-success btn-sm" target="_blank" href="<%= ads[dateIndex].ctaLink %>" role="button" data-ad="<%= ads[dateIndex] %>"><%= ads[dateIndex].ctaLabel %></a>
+                        <a class="btn btn-outline-success btn-sm" target="_blank" href="<%= ads[dateIndex].ctaLink %>" role="button" data-ad-id="<%= ads[dateIndex]._id %>"><%= ads[dateIndex].ctaLabel %></a>
                     </div>
                 </div>
                 <div>

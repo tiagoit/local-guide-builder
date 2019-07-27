@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Tag } = require('../../models');
+const { Tag, Ad, CtaHit } = require('../../models');
 
 // #####################################   GET ALL TAGS
 router.get('/tags', async (req, res) => {
@@ -24,7 +24,7 @@ router.post('/contact', async (req, res) => {
   const msg = {
     to: 'contato@sulbaguia.com.br',
     from: req.body.email || 'no-mail@sulbaguia.com.br',
-    subject: `[SulBAGuia] Contato pelo formulário do site.`,
+    subject: `[Sul BA Guia] Contato pelo formulário do site.`,
     html: `
       <b>Nome:</b> ${req.body.name}<br><br>
       <b>Telefone:</b> ${req.body.phone}<br><br>
@@ -55,39 +55,21 @@ router.post('/contact', async (req, res) => {
 
 
 // #####################################   TRACK AD CLICK
-router.post('/track-', async (req, res) => {
-  const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey("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");
+router.post('/track-ad-click', async (req, res) => {
+  console.log('track-ad-click', req.body.adId);
+  console.log('isMobile', req.body.isMobile);
 
-  const msg = {
-    to: 'contato@sulbaguia.com.br',
-    from: req.body.email || 'no-mail@sulbaguia.com.br',
-    subject: `[SulBAGuia] Contato pelo formulário do site.`,
-    html: `
-      <b>Nome:</b> ${req.body.name}<br><br>
-      <b>Telefone:</b> ${req.body.phone}<br><br>
-      <b>Email:</b> ${req.body.email}<br><br>
-      <b>Mensagem:</b> ${req.body.message}
-  `
-  };
+  let ad = await Ad.findById(req.body.adId);
 
-  sgMail.send(msg).then(() => {
-      //Celebrate
-      console.log('celebrate');
-    })
-    .catch(error => {
-  
-      //Log friendly error
-      console.error(error.toString());
-  
-      //Extract error msg
-      const {message, code, response} = error;
-  
-      //Extract response msg
-      const {headers, body} = response;
-    });
+  console.log(ad);
 
-  res.status(200).send({});
+
+  if(!ad.ctaHits) ad.ctaHits = [];
+  ad.ctaHits.push({date: new Date(), isMobile: req.body.isMobile});
+  
+  ad.save();
+
+  res.status(200).send({'status': 'ok'});
 });
 
 module.exports = router;
