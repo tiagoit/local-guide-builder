@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Region = mongoose.model('Region', new mongoose.Schema({
     code:     { type: String, required: true, index: true },
     name:     { type: String, required: true},
-    status:   { type: Boolean, default: true }
+    status:   { type: Boolean, default: true },
+    created:  { type: Date, default: new Date() }
 }));
 
 const City = mongoose.model('City', new mongoose.Schema({
@@ -11,7 +12,8 @@ const City = mongoose.model('City', new mongoose.Schema({
     order:     { type: Number, required: true, default: 0 },
     name:      { type: String, required: true},
     regionID:  { type: String, required: true },
-    status:    { type: Boolean, default: true }
+    status:    { type: Boolean, default: true },
+    created:  { type: Date, default: new Date() }
 }));
 
 const Partner = mongoose.model('Partner', new mongoose.Schema({
@@ -20,7 +22,8 @@ const Partner = mongoose.model('Partner', new mongoose.Schema({
     pass:      { type: String, required: true },
     regionID:  { type: String },
     role:      { type: String, required: true },
-    status:    { type: Boolean, default: true }
+    status:    { type: Boolean, default: true },
+    created:  { type: Date, default: new Date() }
 }));
 
 const AddressSchema = new mongoose.Schema({
@@ -54,7 +57,8 @@ const Org = mongoose.model('Org', new mongoose.Schema({
     email:      { type: String },
     description:{ type: String },
     images:     { type: [], required: true },
-    status:     { type: Boolean, default: true }
+    status:     { type: Boolean, default: true },
+    created:  { type: Date, default: new Date() }
 }));
 
 const Event = mongoose.model('Event', new mongoose.Schema({
@@ -72,7 +76,8 @@ const Event = mongoose.model('Event', new mongoose.Schema({
     description: String,
     images:     { type: [], required: true },
     tags:       { type: [], default: [] },
-    featured: Boolean
+    featured: Boolean,
+    created:  { type: Date, default: new Date() }
 }));
 
 const Tag = mongoose.model('Tag', new mongoose.Schema({
@@ -81,8 +86,17 @@ const Tag = mongoose.model('Tag', new mongoose.Schema({
     title:        { type: String, required: true },
     status:       { type: Boolean, default: true, index: true },
     featured:     { type: Boolean, default: false, index: true },
-    childrenTags: { type: [], default: []}
+    childrenTags: { type: [], default: []},
+    created:  { type: Date, default: new Date() }
 }));
+
+const CtaHit = new mongoose.Schema({
+    date:           { type: Date },
+    isMobile:       { type: String },
+    contactName:    { type: String },
+    contactPhone:   { type: String },
+    created:  { type: Date, default: new Date() }
+});
 
 const Ad = mongoose.model('Ad', new mongoose.Schema({
     title:       { type: String, required: true },
@@ -98,7 +112,9 @@ const Ad = mongoose.model('Ad', new mongoose.Schema({
     image:       { type: String, required: true },
     status:      { type: Boolean, default: true },
     start:       { type: Date, required: true },
-    end:         { type: Date, required: true }
+    end:         { type: Date, required: true },
+    ctaHits:     [ CtaHit ],
+    created:  { type: Date, default: new Date() }
 }));
 
 

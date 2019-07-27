@@ -266,8 +266,10 @@ ul.event-tags li:last-child:after {
 
 .card.ad-card > .card-body > .card-text {
   text-align: justify;
-  color: rgba(0,0,0,0.84);
+  color: rgba(0,0,0,0.84) !important;
 }
+
+body > div.main-container > div > div.col-md-8.events-main-col > div:nth-child(4) > div.ad-card.card.border-success.mb-3.mx-4 > div.card-body.text-info > div:nth-child(4)
 
 .card.ad-card > .card-body > .card-text > span {
   font-weight: bold;
