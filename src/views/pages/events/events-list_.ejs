@@ -15,10 +15,23 @@
     <body>
         <header id="header"><% include ../../partials/header %></header>
 
+        <div class="page-header">
+            <div id="page-header-bg" data-stellar-background-ratio="0.5">
+                <h1 id="title-city-name" class="text-uppercase"><%=translation.slogan%></h1>
+            </div>
+        </div>
+
         <div class="main-container">
-            <br><br><br><br><br>
-            <h1>Este projeto está pausado.</h1>
-            <br><br><br><br><br><br><br><br><br>
+            <div class="row">
+                <!-- EVENTS -->
+                <div class="col-md-8 events-main-col">
+                    <% include ./part-events-list.ejs %>
+                </div>
+
+                <!-- ASIDE -->
+                <div class="col-md-4 aside-col"><% include ../../partials/aside.ejs %></div>
+            </div>
+
         </div>
 
         <footer id="footer"><% include ../../partials/footer %></footer>
