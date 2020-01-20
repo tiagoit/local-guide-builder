@@ -37,7 +37,7 @@
     "jsonwebtoken": "8.4.x",
     "moment": "2.22.x",
     "moment-timezone": "0.5.x",
-    "mongoose": "5.3.x",
+    "mongoose": "5.7.x",
     "morgan": "1.9.x",
     "sharp": "^0.22.0"
   }
