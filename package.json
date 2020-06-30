@@ -30,7 +30,7 @@
     "cors": "2.8.x",
     "ejs": "2.6.x",
     "express": "4.16.x",
-    "express-jwt": "5.3.x",
+    "express-jwt": "6.0.x",
     "express-session": "^1.16.1",
     "formidable": "1.2.x",
     "i18n-express": "^1.1.3",
